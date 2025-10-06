@@ -6,7 +6,7 @@ Power system stability is defined as that property of a power system that enable
 remain in a state of operating equilibrium under normal conditions and to regain an acceptable 
 state of equilibrium after being subjected to a disturbance \cite{StabilityAndControlKundur}. Other definitions
 state not only the state of equilibrium must be acceptable but also most system variables must be 
-bounded so that practically the entire system remains intact\cite{kundurDef}.
+bounded so that practically the entire system remains intact\cite{KundurDef}.
 
 
 Although the primary concern is the behavior of the interconnected system as a whole, the stability of individual
@@ -17,7 +17,7 @@ and the specific nature of the disturbance. Stability is understood around an eq
 under small or large disturbances.
 
 Power system stability is commonly classified depending on the pysical nature of the instability, the size of the disturbance 
-considered and the devices, processes and time span that must be considered to assess stability \cite{kundurDef}.
+considered and the devices, processes and time span that must be considered to assess stability \cite{KundurDef}.
 The combination of these factors influence the methodologies, tools and considerations used in the analysis. The main categories of power system stability are 
 described in the following enumeration.
 
@@ -378,13 +378,19 @@ Where:
 \end{itemize}
 
 The graphical representation of the eigenvalues in the complex plane, provides a visual tool for assessing system stability. Then, it is possible to identify
-the stability of the system and the oscillation of the modes at a glance. An example of an eigenvalue plot is shown in Figure \ref{fig:eigenvalue_plot}.
+the stability of the system and the oscillation of the modes at a glance. An example of an eigenvalue plot is shown in Figure \ref{fig:eigenvalues_plot_example}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width= 250 px]{Images/case9_topo.png}
-  \caption{Schematic of the 9-bus grid.}
+  \includegraphics[width=0.8\linewidth]{figures/eigenvalues_plot_example.pdf}
+  \caption{Eigenvalue plot example.}
   \label{fig:eigenvalues_plot_example}
 \end{figure}
+
+The imaginary axis divide the stable part (negative real part) from the unstable part (positive real part). Therefore, all the eigenvalues
+represented in the Figure are stable except for one which is in the origin, therefore the system is marginally stable. Moreover, modes outside
+the real axis represent oscillatory modes. In this case, one can see that there are
+two complex conjugate eigenvalues are represented, which means that the system has an oscillatory mode. the mode in the real axis is a non-oscillatory mode.
+Since it is the one with the highest real part, it is the dominant mode of the system.
 
 

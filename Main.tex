@@ -85,30 +85,38 @@
 \input{Chapters/Introduction.tex}
 \newpage
 
-\section{Small-signal stability analysis}\label{Chap2}
-\input{Chapters/Chap2.tex}
+\section{Small-signal stability analysis}\label{SmallSignal}
+\subsection{Theoretical background}
+\input{Chapters/1_1TheorySmall.tex}
+\subsection{Implementation}
+\input{Chapters/1_2ImplementationSmall.tex}
+\subsection{Benchmark and validation}
+\input{Chapters/1_3BenchmarkSmall.tex}
 \newpage
 
-\section{Grid Model}\label{Chap3}
-\input{Chapters/Chap3.tex}
+\section{EMT Dynamic framework}\label{Chap2}
+\input{Chapters/2_1TheoryEMT.tex}
 \newpage
 
-\section{Optimization Problem}\label{Chap4}
-\input{Chapters/Chap4.tex}
+\section{Environmental, Social, and Gender Impact}
+\input{Chapters/Environment}
 \newpage
 
-\section{AC-OPF}\label{Chap5}
-\input{Chapters/Chap5.tex}
+\section{}
+\input{Chapters/Environment}
 \newpage
 
-\section{Results}\label{Chap6}
-\input{Chapters/Chap6.tex}
-\newpage
+\cleardoublepage
+\section{Budget}
+\input{Chapters/Budget}
+
+\cleardoublepage
+\section{Time Planning}
+\input{Chapters/Gantt}
 
 \section{Conclusion}\label{Conclusion}
 \input{Chapters/Conclusion.tex}
 \newpage
-
 
 \section*{Acknowledgments}\label{acknow} 
 \addcontentsline{toc}{section}{Acknowledgments}
@@ -116,19 +124,11 @@
 
 \appendix
 \cleardoublepage
-\section{Environmental, Social, and Gender Impact}
-\input{Chapters/Environment}
-\cleardoublepage
-\section{Time Planning}
-\input{Chapters/Gantt}
-\cleardoublepage
-\section{Budget}
-\input{Chapters/Budget}
+
 %bibliography
 \cleardoublepage
 %\renewcommand\refname{Bibliography}
 %pdf\addcontentsline{toc}{section}{Bibliography}
 \printbibliography
-
 \end{document}
 
