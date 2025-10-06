@@ -1,0 +1,402 @@
+%OPTIMIZATION PROBLEM
+
+This section describes the optimization model used to solve the AC Optimal Power Flow problem. The mathematical formulation
+of this problem is presented using abstract notation of the Karush-Kuhn-Tucker (KKT) conditions for optimization problems, which later on
+will regain a more practical form. The implementation of the solver is also described, as well as the pseudo-code used to
+solve the problem. The general theory of optimization can be found in the book of Boyd and Vandenberghe \cite{boyd2004convex}, with a more detailed explanation of the IPM in Chapter 19 of
+Nocedal and Wright's book \cite{NocedalWright}, and the adaptation of this theory to a more compact formulation can be reviewed in the Matpower Interior
+Point Solver documentation \cite{zimmerman2016mips} \cite{wang2007computational}.
+
+
+\subsection{Optimization problem}
+
+The general optimization problem involving equality and inequality constraints can be formulated as follows:
+
+\begin{equation}
+    \begin{split}
+        \text{min} \quad & f(\bm{x}) \\
+        \text{s.t.} \quad & \bm{G}(\bm{x}) = \bm{0} \\
+         & \bm{H}(\bm{x}) \leq \bm{0}
+    \end{split}
+    \label{eq:opt_prob}
+\end{equation}
+
+where $\bm{x} \in \mathbb{R}^n$, being $n$ the number of decision variables, $f(x)$ is the function to be minimized which typically 
+accounts for the generation cost, $\bm{G}(\bm{x})$ is the set of $n_e$ equality constraints of the problem, and $\bm{H}(\bm{x})$ is the set of $n_i$ inequalities. 
+
+The problem will be solved using the barrier parameter method, which consists of solving the optimization problems sequencially with
+different values of the barrier parameter $\gamma$. The barrier parameter is an IPM methodology used to penalize the violation of the inequality 
+constraints in the problem, which are turned into equalities of the form $\bm{H(x)} + \bm{Z} = \bm{0}$ by the addition of the positive slack variables $\bm{Z}$.
+
+The Lagrangian of the problem is defined by:
+
+\begin{equation}
+    \mathcal{L}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) = f(\bm{x}) + \bm{\lambda}^\top \bm{G}(\bm{x}) + \bm{\mu}^\top (\bm{H}(\bm{x})+\bm{Z}) - \gamma \sum_{i=1}^{n_i} \log(z_i) 
+    \label{eq:lag}
+\end{equation}
+    
+where $\bm{\lambda}$ and $\bm{\mu}$ are the Lagrange multipliers associated with the equality and inequality constraints respectively, the superindex $\top$ is used to indicate the transposition
+of a vector and the elements of the sum $z_i$ correspond to each value of the vector $\bm{Z}$.
+
+The KKT conditions are a set of equations that must be satisfied by the solution of the optimization problem. These conditions are a result of 
+imposing that the partial derivatives of the Lagrangian in the $(x, Z, \lambda, \mu)$ variable space equals 0, as shown in Equation~\eqref{eq:block1}.
+
+\begin{equation}
+    \begin{split}
+    \nabla_{x, Z, \lambda, \mu} \mathcal{L}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) &= \bm{0} \\
+    \end{split}
+    \end{equation}
+
+\begin{equation}
+    \begin{split}
+    \bm{\mathcal{L}_x}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) &=  f_x + \bm{\lambda}^\top G_x + \bm{\mu}^\top H_x = \bm{0} \\
+    \bm{\mathcal{L}_Z}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) &=  \bm{\mu}^\top - \gamma \bm{1}_{n_i}^\top[\bm{Z}]^{-1} = \bm{0} \\
+    \bm{\mathcal{L}_{\lambda}}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) &=  \bm{G}^\top(\bm{x}) = \bm{0} \\
+    \bm{\mathcal{L}_{\mu}}(\bm{x}, \bm{Z}, \bm{\lambda}, \bm{\mu}) &=  \bm{H}^\top(\bm{x}) + \bm{Z}^\top = \bm{0} \\
+    \end{split}
+    \label{eq:block1}
+\end{equation}
+
+where $\bm{1}_{n_i}$ is a vector of ones of length $n_i$, and $\gamma$ is the barrier parameter that will be updated in each iteration of the solver until
+reaching a value close to zero. The notation $f_{\bm{X}}$ indicates the gradient of the given function $f$ with respect to the vector $\bm{X}$.
+
+The first gradient corresponds to the stationary condition of the problem, the second gradient corresponds to the complementary slackness,
+and the other two gradients correspond to the primal feasibility conditions of the problem. These conditions, alongside the dual feasibility 
+condition $Z_i, \mu_i \geq 0 \quad \forall i$, are necessary and sufficient for the solution of the optimization problem.
+The resulting set of equations will be solved computationally due to the non-convex nature of the problem. For this type of general problem,
+the approach chosen is the use of an Interior Point Method (IPM) solver.
+
+% \begin{align}
+%     %\label{eq:block1}
+% \nabla f(\bm{x}) + \bm{A_e}^\top(\bm{x}) \bm{\lambda} + \bm{A_i}^\top(\bm{x}) \bm{\mu} &= \bm{0} \\
+% [\bm{s}] \bm{z} - \mu \bm{1}_{n_i} &= \bm{0} \\
+% \bm{G}(\bm{x}) &= \bm{0} \\
+% \bm{H}(\bm{x}) + \bm{Z} &= \bm{0} \\
+% \bm{s_i}, \bm{z_i} &\geq \bm{0} \quad \forall i
+% \label{eq:block2}
+% \end{align}
+
+% where $\nabla f(\bm{x})$ is the gradient of the objective function and takes the form 
+% $[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, ..., \frac{\partial f}{\partial x_n}]^\top$, $\bm{A_e} (\bm{x})$ is a matrix 
+% concatenating the gradients of the equality constraints as $[\nabla g_1^\top, \nabla g_2^\top, ..., \nabla g_{n_e}^\top]$ with $n_e$ the number of equality constraints,
+% $\bm{A_i} (\bm{x})$ is a matrix concatenating the gradients of the inequality constraints as $[\nabla h_1^\top, \nabla h_2^\top, ..., \nabla h_{n_i}^\top]$ with $n_i$ 
+% the number of inequality constraints, $\bm{y}$ and $\bm{z}$ are column vectors of Lagrange multipliers of lengths $n_e$ and $n_i$ respectively, 
+% $\bm{s}$ is a column vector of length $n_i$, and $\mu$ is the barrier parameter which will take different values for each iteration of the solving process.
+
+
+
+\subsection{Interior Point Method solver}
+
+The choice of this type of solver is regarded as the best option to deal with non-linear optimization, as shown in the dedicated chapter 19 in 
+Nocedal and Wright's book. %%% ADD REFERENCE
+The IPM solver is a type of optimization algorithm that solves the KKT conditions of the problem iteratively. There are multiple algorithms that can be used,
+although the one presented in this project is the Newton-Raphson. Since this algorithm will be used by the Spanish TSO for country-sized grids, the scalability of the solver 
+is a key factor to consider.  In reference \cite{abaali2018comparison}, this algorithm is compared with the Gauss-Seidel algorithm, yielding better scalability 
+for the Newton-Raphson method. 
+
+Some optimization solver packages such as IPOPT were considered, but creating a tailored solver and integrating it in GridCal was considered the best option, as it 
+avoids depending on third-party software, while also allowing the customization of its behavior.
+
+There can be improvements to this method as presented in the literature, %%ADD REFERENCES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+but for the purpose of this project, the IPM has been implemented directly using the Newton-Raphson method with a step-control mechanism. 
+
+The Newton-Raphson iterative process that will find the roots of the KKT conditions can be described as in Algorithm 1.
+
+\begin{algorithm}
+\caption{Newton-Raphson Iterative Process}
+\begin{algorithmic}[1]
+\STATE Initialize $\bm{x}_0$, tolerance $\epsilon$, and set $k = 0$
+\WHILE{$||\bm{f}(\bm{x}_k)|| > \epsilon$}
+    \STATE Compute the Jacobian matrix $J(\bm{x}_k)$
+    \STATE Solve $J(\bm{x}_k) \Delta \bm{x}_k = -\bm{f}(\bm{x}_k)$ for $\Delta \bm{x}_k$
+    \STATE Apply step control to $\Delta \bm{x}_k$
+    \STATE Update $\bm{x}_{k+1} = \bm{x}_k + \Delta \bm{x}_k$
+    \STATE $k = k + 1$
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+The algorithm will perform several Newton-Raphson steps until the convergence criteria is met, meaning that equations~\eqref{eq:block1} are solved. 
+The expanded formulation of the system solved at each step is:
+
+\begin{equation}
+    - \begin{pmatrix}
+        \bm{\mathcal{L}_{xx}} & \bm{0} & \bm{G_x}^\top(\bm{x}) & \bm{H_x}^\top(\bm{x}) \\ 
+        \bm{0} & [\bm{\mu}] & \bm{0} & [\bm{Z}] \\
+        \bm{G_x}(\bm{x}) & \bm{0} & \bm{0} & \bm{0} \\
+        \bm{H_x}(\bm{x}) & \bm{I} & \bm{0} & \bm{0}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \bm{\Delta x} \\
+        \bm{\Delta Z} \\
+        \bm{\Delta \lambda} \\
+        \bm{\Delta \mu}
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \mathcal{L}_x^\top \\
+[\bm{\mu}] \bm{Z} - \gamma \bm{1}_{n_i} \\
+\bm{G}(\bm{x}) \\
+\bm{H}(\bm{x}) + \bm{Z}
+    \end{pmatrix}
+    \label{eq:Jacob_full}
+\end{equation}
+
+where $\bm{\Delta x}$ represents the variation of $\bm{x}$ (and similarly to $\bm{s}$, $\bm{y}$, $\bm{z}$), $\bm{I}$ is the identity matrix, and the term  
+$\bm{\mathcal{L}_{xx}}$ is the derivative of the first KKT condition, which was already the gradient of the Lagrangian of the problem. This Hessian matrix
+is the element that has the most computational cost to be calculated. Its calculation will have to be the most optimized possible to ensure the solver's scalability.
+
+Note that dual feasibility condition $Z_i, \mu_i \geq 0 \quad \forall i$ is not included in the system of equations. This condition will be enforced by the algorithm when choosing
+the step length of the iteration when updating the variables.
+
+This system of equations can be further reduced using methods that can be found in \cite{NocedalWright}, derived with detail in \cite{zimmerman2016mips}. 
+The relevant equations obtained during the reduction process are shown in Equations~\eqref{eq:red1} and~\eqref{eq:red2}.
+
+\newcommand{\ones}{\mathbf{1}}
+
+\begin{equation}
+    \begin{cases}
+        [\bm{\mu}] \Delta \bm{Z} + [\bm{Z}] \Delta \bm{\mu} &= -[\bm{\mu}] \bm{Z} + \gamma \ones_{n_i}  \\
+        [\bm{Z}] \Delta \bm{\mu} &= -[\bm{Z}] \bm{\mu} + \gamma \ones_{n_i}  - [\bm{\mu}] \Delta \bm{Z} \\
+        \Delta \bm{\mu} &= -\bm{\mu} + [\bm{Z}]^{-1} (\gamma \ones_{n_i}  - [\bm{\mu}] \Delta \bm{Z}).
+    \end{cases}
+    \label{eq:red1}
+\end{equation}  
+
+\begin{equation}
+    \begin{cases}
+        \bm{H}_x \Delta \bm{X} + \Delta \bm{Z} &= -\bm{H}(\bm{X}) - \bm{Z} \\
+        \Delta \bm{Z} &= -\bm{H}(\bm{X}) - \bm{Z} - \bm{H}_x \Delta \bm{X}.
+    \end{cases}
+    \label{eq:red2}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+    \bm{M} &\equiv \bm{\mathcal{L}_{xx}} + \bm{H_x}^\top [\bm{Z}]^{-1} [\bm{\mu}] \bm{H}_{\bm{x}} \\
+    &= \bm{f_{xx}} + \bm{G_{xx}}(\bm{\lambda}) + \bm{H_{xx}}(\bm{\mu}) + \bm{H_{x}}^\top [\bm{Z}]^{-1} [\bm{\mu}] \bm{H_x}.
+    \end{cases}
+    \label{eq:red3}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+    \bm{N} &\equiv \bm{\mathcal{L}_x}^\top + \bm{H_x}^\top [\bm{Z}]^{-1} (\gamma \bm{1_{n_i}} + [\bm{\mu}] \bm{H}(\bm{x})) \\
+    &= \bm{f_x}^\top + \bm{G_x}^\top \bm{\lambda} + \bm{H_x}^\top \bm{\mu} + \bm{H_x}^\top [\bm{Z}]^{-1} (\gamma \bm{1_{n_i}} + [\bm{\mu}] \bm{H}(\bm{x})).
+    \end{cases}
+    \label{eq:red4}
+\end{equation}
+
+This transformation will make possible to reduce the size of Equation~\eqref{eq:Jacob_full} to a system of equations over $(\bm{x}, \bm{\lambda})$ instead, and then calculating the 
+terms corresponding to the inequalities using the expressions shown in Equation~\eqref{eq:red1}. This smaller size reduces the computational time of computing such a large system. 
+The resulting reduced system is the following:
+
+\begin{equation}
+    \begin{bmatrix}
+    \bm{M} & \bm{G}_{\bm{x}}^\top \\
+    \bm{G}_{\bm{x}} & \bm{0}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \Delta \bm{x} \\
+    \Delta \bm{\lambda}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    -\bm{N} \\
+    -\bm{G}(\bm{x})
+    \end{bmatrix}
+    \label{eq:red5}
+\end{equation}
+
+The solver will firstly solve this smaller matricial problem to obtain the variation of the decision variables and the Lagrange multipliers associated with the equality constraints, and then
+it will compute the inequality terms using Equations~\eqref{eq:red1} and~\eqref{eq:red2}.
+
+Before proceeding to update the values of the variables, there will be two additional steps to be taken. The first one is to ensure that 
+the dual feasibility condition $$\bm{Z_i}, \bm{\mu_i} \geq 0 \quad \forall i$$ is met. This will be done by using the maximum step length such that 
+the values of the multipliers remain positive. The calculation of this step length is shown at Equation~\eqref{eq:step_length}.
+
+\begin{equation}
+    \begin{split}
+    \alpha_p &= \min \left( \tau \cdot \min \left(- \frac{\bm{Z}}{\Delta\bm{Z}}\right), 1 \right) \\
+    \alpha_d &= \min \left( \tau \cdot \min \left(- \frac{\bm{\mu}}{\Delta\bm{\mu}}\right), 1 \right)
+    \end{split}
+    \label{eq:step_length}
+\end{equation}
+
+where $\tau$ is a parameter that will be set to a value really close to 1, without exceeding it (i.e. 0.9995). 
+
+This step length will be tested to ensure that it is not too large as it could lead to divergence of the algorithm. This will be done by using a
+step control mechanism that will reduce the step length if the conditions are not met. The step control mechanism will update just the decision variables $x$,
+using the Lagrangian of the system as a reference. The step control mechanism is described in Algorithm 2.
+
+\begin{algorithm}
+    \caption{Step Control}
+    \begin{algorithmic}[2]
+    \STATE Initialize  $\mathcal{L}_0 = f(\bm{x}) + \bm{\lambda}^\top \bm{G(x)} + \bm{\mu}^\top \bm{H(x)} - \gamma \sum_{i=1}^{n_i} \log(Z_i)$, $\alpha = 1$, use
+    its gradient $\bm{\mathcal{L}_x}$ and hessian $\bm{\mathcal{L}_{xx}}$ previously used for the Jacobian, and set $\alpha = trust$
+    \WHILE{$i < step\_control\_iterations$}
+        \STATE $\Delta \bm{x}_1 = \alpha \Delta \bm{x}$
+        \STATE $\bm{x}_1 = \bm{x} + \Delta \bm{x}_1$
+        \STATE Compute $\mathcal{L}_1$ and $\mathcal{L}_{x_1}$
+        \STATE $\rho = \frac{\mathcal{L}_1 - \mathcal{L}}{\bm{\mathcal{L}_x} \Delta \bm{x_1} + 0.5 \Delta \bm{x_1}^\top \bm{\mathcal{L}_{xx}}\Delta \bm{x_1}}$ 
+        \IF{$\rho \leq \rho_{lower}$ \textbf{or} $\rho \geq \rho_{upper}$}
+            \STATE $i = i+1$
+            \STATE $\alpha = \alpha / 2$
+        \ENDIF 
+    \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+
+This will reduce all the step sizes if the new Lagrangian does not accomplish the condition. If this condition is not activated, then $\alpha = 1$.
+Now, the values of all the variables and multipliers can be updated with the final values of the step length: 
+
+\begin{equation}
+    \begin{split}
+    \bm{x} &\leftarrow \bm{x} + \alpha\alpha_p \Delta \bm{x} \\
+    \bm{Z} &\leftarrow \bm{Z} + \alpha\alpha_p \Delta \bm{Z} \\
+    \bm{\lambda} &\leftarrow \bm{\lambda} + \alpha\alpha_d \Delta \bm{\lambda} \\
+    \bm{\mu} &\leftarrow \bm{\mu} + \alpha\alpha_d \Delta \bm{\mu}
+    \end{split}
+    \label{eq:update}
+\end{equation}
+
+The barrier parameter is updated after this new point is calculated using:
+
+\begin{equation}
+    \gamma \leftarrow \sigma\frac{\bm{Z}^\top \bm{\mu}}{n_i}
+    \label{gamma_update}
+\end{equation}
+
+where $\sigma$ is a parameter that will be between 0 and 1. The value of $\sigma$ will be set to 0.1, as in \cite{zimmerman2016mips}, although Nocedal and Wright  %%% Add references
+propose some different approaches with different values of this parameter when the solver approaches the solution. 
+
+Finally, the last step of the solver will be to calculate the convergence criteria to determine if the algorithm can be stopped.
+There are three criteria that will be used to determine if the algorithm: the feasibility condition, the gradient condition and the gamma value. All of them have 
+to be below a tolerance $\epsilon$ to consider the problem solved. The later condition can be checked performing direct comparison, while the former two can be calculated as \cite{wang2007computational}:
+
+\begin{equation}
+    \begin{split}
+    feascond &= \frac{\max \left( \left[ \lVert \mathbf{G} \rVert_{\infty}, \max(\bm{H}) \right] \right)}{1 + \max \left( \left[ \lVert \mathbf{x} \rVert_{\infty},\lVert \mathbf{Z} \rVert_{\infty} \right] \right)} \\
+    gradcond &= \frac{\lVert \mathbf{\mathcal{L}}_{\mathbf{x}} \rVert_{\infty}}{1 + \max \left( \left[ \lVert \mathbf{\lambda} \rVert_{\infty}, \lVert \mathbf{\mu} \rVert_{\infty} \right] \right)}
+    \end{split}
+    \label{eq:conv_cond}
+\end{equation}
+
+which monitor the compliance of the equality and inequality constraints for the $feascond$ and the gradient of the Lagrangian for the $gradcond$. The algorithm will continue to iterate until the convergence criteria is met, 
+although there is a maximum number of iterations parameter to avoid infinite loops.  
+
+
+\subsection{Python implementation}
+
+The resulting algorithm is implemented in Python as a stand-alone optimization solver. The solver is capable of solving any kind of optimization problem as long as 
+the objective function, equality constraints, and inequality constraints are provided alongside their gradients and Hessians. The user will have to provide
+a function that returns an object containing these equations, as well as the desired initialization and tolerance values. The objective of this project is to solve electrical systems, but
+any other type of system correctly modelled can also be solved using this solver.
+
+The algorithm is described by the block diagram shown in Figure~\ref{fig:block}, representing the complete algorithm including all the steps. This solver will be called
+by a parent function that is responsible to model the whole problem and contains the initialization of the variables and the constraints and the functions 
+that compute the value of the objective function, equalities, inequalities, and their Jacobians and Hessians.
+
+
+\begin{figure}[H]\centering
+
+    \begin{tikzpicture}[node distance=1.25cm]
+    
+        % \node (start) [startstop] {Start};
+        % \node (in1) [io, below of=start] {Input};
+        % \node (pro1) [processs, below of=in1] {Process 1};
+        % \node (dec1) [decisionn, below of=pro1, yshift=-0.5cm] {Decision 1};
+        
+        % \node (pro2a) [processs, below of=dec1, yshift=-0.5cm] {Process 2a
+        % text text text text
+        % text text text 
+        % text text text};
+        
+        % \node (pro2b) [processs, right of=dec1, xshift=2cm] {Process 2b};
+        % \node (out1) [io, below of=pro2a] {Output};
+        % \node (stop) [startstop, below of=out1] {Stop};
+        
+        % \draw [arrow] (start) -- (in1);
+        % \draw [arrow] (in1) -- (pro1);
+        % \draw [arrow] (pro1) -- (dec1);
+        % \draw [arrow] (dec1) -- node[anchor=east] {yes} (pro2a);
+        % \draw [arrow] (dec1) -- node[anchor=south] {no} (pro2b);
+        % \draw [arrow] (pro2b) |- (pro1);
+        % \draw [arrow] (pro2a) -- (out1);
+        % \draw [arrow] (out1) -- (stop);
+        \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=0.5cm,text centered, draw=black, fill=red!30]
+        \tikzstyle{action} = [rectangle, minimum width=3cm, minimum height=0.5cm,text centered, draw=black, fill=blue!30]
+        \tikzstyle{arrow} = [thick,->,>=stealth]
+        %\tikzstyle{decision} = [diamond, minimum width=6cm, minimum height=0.5cm, text centered, draw=black, fill=orange!30]
+        \tikzstyle{decision} = [ellipse, minimum width=3cm, minimum height=0.5cm, text centered, draw=black, fill=green!30]
+        
+        \node (start) [startstop] {Start the solver};
+        \node (init) [action, below of=start, yshift=-0cm] {Initialize $x, \lambda, \mu, Z, \gamma$. Set convergence boolean as False.};
+        \node (firstcheck) [action, below of=init, yshift=-0cm] {Compute $feascond$ and $gradcond$ of initial conditions.};
+        \node (jacandhess) [action, below of=firstcheck, yshift=-0cm] {Compute $f, f_x, f_{xx}, \bm{G}, \bm{G_x}, \bm{G_{xx}}, \bm{H}, \bm{H_x}, \bm{H_{xx}}$};
+        \node (alphas) [action, below of=jacandhess, yshift=-0cm] {Compute $\alpha_p, \alpha_d$. Set $\alpha=1$};
+        \node (sc1) [decision, below of=alphas, yshift=-0cm] {Step control enabled?};
+
+        \node (sc2) [action, below of=sc1, yshift=-0cm] {Compute $\Delta x_1, x_1, \mathcal{L}_1, \mathcal{L}_{x_1}$};
+        \node (sc3) [action, below of=sc2, yshift=-0cm] {Compute $\rho$};
+        \node (sc4) [decision, below of=sc3, yshift=-0cm] {$\rho \leq \rho_{lower}$ or $\rho \geq \rho_{upper}$?}; 
+
+        \node (sc5) [action, below of=sc4, yshift=-0cm] {$\alpha = \frac{\alpha}{2}$};
+        %\node (sc6) [action, right of=sc5, xshift=3cm] {Update $\Delta x, \Delta Z, \Delta \lambda, \Delta \mu$};
+        \node (sc7) [action, below of=sc5, yshift=-0cm] {Scale $\Delta x, \Delta Z, \Delta \lambda, \Delta \mu$ by $\alpha$};
+        \node (update) [action, below of=sc7, yshift=-0cm] {Update $x, Z, \lambda, \mu$};
+        \node (updategam) [action, below of=update, yshift=-0cm] {Update $\gamma$};
+        \node (feasconds) [action, below of=updategam, yshift=-0cm] {Compute $feascond, gradcond$};
+        \node (niter) [action, below of=feasconds, yshift=-0cm] {$n_{iter}+=1$};
+        \node (converg) [decision, below of=niter, yshift=-0cm] {$feascond, gradcond, \gamma < \epsilon$?};
+
+        \node (checkmaxiter) [decision, right of=converg, xshift=6cm] {$n_{iter} < max_{iter}$?};
+
+        \node (maxiter) [action, below of=checkmaxiter, yshift=-0cm] {"Max iterations reached"};
+        \node (convergreach) [action, below of=converg, yshift=-0cm] {"Convergence reached"};
+        \node (end) [startstop, below of=convergreach, yshift=-0cm] {End of the solving process};        
+
+        \draw [arrow] (start) -- (init);
+        \draw [arrow] (init) -- (firstcheck);
+        \draw [arrow] (firstcheck) -- (jacandhess);
+        \draw [arrow] (jacandhess) -- (alphas);
+        \draw [arrow] (alphas) -- (sc1);
+        \draw [arrow] (sc1) -- node[anchor=east] {yes} (sc2);
+        \draw [arrow] (sc1) --  node[below, near start] {no} ++(5.5,0) |- ([yshift=-0.2cm]sc7);
+
+        \draw [arrow] (sc2) -- (sc3);
+        \draw [arrow] (sc3) -- (sc4);
+        \draw [arrow] (sc4) -- node[anchor=east] {yes} (sc5);
+        \draw [arrow] (sc4) --  node[below, near start] {no} ++(4.5,0) |- ([yshift=0.2cm]sc7);
+
+        %\draw [arrow] (sc5) -- (sc7);
+        \draw [arrow] (sc5) -- ++(-3.5,0) |- (sc2);
+        
+        \draw [arrow] (sc7) -- (update);
+        \draw [arrow] (update) -- (updategam);
+        \draw [arrow] (updategam) -- (feasconds);
+        \draw [arrow] (feasconds) -- (niter);
+        \draw [arrow] (niter) -- (converg);
+        \draw [arrow] (converg) -- node[anchor=east] {yes} (convergreach);
+        \draw [arrow] (converg) -- node[above, near start] {no} (checkmaxiter);
+        \draw [arrow] (checkmaxiter) |- node[anchor=east, near start] {yes} (jacandhess);
+        \draw [arrow] (checkmaxiter) -- node[anchor=east] {no} (maxiter);
+        \draw [arrow] (maxiter) |- (end);
+        \draw [arrow] (convergreach) -- (end);
+
+
+    \end{tikzpicture}
+    \caption{Block diagram of the solver.}
+    \label{fig:block}
+    \end{figure}
+
+\subsubsection{Dealing with sparsity}
+
+A small comment to be made is that the solver will work with sparse matrices. The usage of this type of matrices
+available in the SciPy package \cite{2020SciPy-NMeth} will allow the solver to be more efficient when dealing with the large systems that result when 
+modelling power grids that are composed of thousands of buses and lines. 
+
+This type of matrix is used to store only the non-zero elements of the matrix, not wasting memory in storing the zeros. For instance, the Jacobian
+obtained in the IEEE14 test case has a size of 129 x 129, although only 794 of the elements are non-zero, representing 4.8\% of the total elements.
+
+The larger the system, the lower this fraction of non-zero values is. A case of 300 buses used as a benchmark contains 0.3\% of non-zero values in the Jacobian.
+For this reason, the usage of sparse matrices is extremely important to solve country-sized power grids.

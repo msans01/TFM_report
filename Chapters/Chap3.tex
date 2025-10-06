@@ -1,0 +1,210 @@
+%%%POWER FLOW EQUATIONS
+
+Once all the elements of the grid have been defined, the model of the power flow can be properly explained.
+The approach chosen is aligned with the models proposed by GridCal, which make use of the Universal Branch Model to describe 
+the admittance matrices of the branches. The power flow model used during this project has been the Bus Injection Model (BIM),
+which will be calculated at each bus of the grid, and has to be equal to zero for the system to be in equilibrium. This model
+relates voltages, power transfer, tap variables, generation and demand, which are the variables of the optimization problem.
+
+The notation used throughout this work is as follows: vectors are denoted in bold (can be both upper or lowercase), matrices are denoted in uppercase, and scalars are denoted in lowercase.
+Vectors that are transformed in diagonal matrices appear within square brackets. Vectors that slice other vectors using their values as indexes appear after the slice vector within curly brackets.
+
+\subsection{Power Flow Equations}
+
+The full construction of the power flow equations is shown, since some intermediate steps can be useful for later purposes. 
+The first important equation is the power transfer that occurs between two nodes connected with branch, modelled using the Flexible Universal Branch Model for the $k$ branch as in Equations~\eqref{eq:Y_prim1} and~\eqref{eq:Y_prim2}.
+They contain the information of a single line. In the grid model used, $y_{ff}$, $y_{ft}$, $y_{tf}$ and $y_{tt}$ are vectors of length $l$ that store 
+these primitives of the admittance matrix for all the branches in the model.
+
+Consider the connectivity matrices $C_f$ and $C_t$, with size $k$ x $l$ that relate the index of the 'from' and 'to' buses to the index of their branch as follows:
+
+\begin{equation}
+    C_{f_{ki}} =    
+    \begin{cases}
+    1, & \text{for } k == (i, j) \quad \forall j \in \bm {N}\\
+    0, & \text{otherwise}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    C_{t_{kj}} =    
+    \begin{cases}
+    1, & \text{for } k == (i, j) \quad \forall i \in \bm {N}\\
+    0, & \text{otherwise}
+    \end{cases}
+\end{equation}
+
+Using these connectivity matrices and the primitives, $from$ and $to$ admittance matrices can be constructed. The $to$ admittance matrix contains the elements of the 
+admittance matrix that are connected to the 'to' bus of the branch, while the $from$ admittance matrix contains the elements connected to the 'from' bus of the branch. 
+The bus admittance matrix $Y_{bus}$, which contains all the information needed to calculate the power flow, can then be constructed.
+
+\begin{equation}
+    \begin{split}
+    Y_f &= [\bm{Y_{ff}}]\, C_f + [\bm{Y_{ft}}]\, C_t \\
+    Y_t &= [\bm{Y_{tf}}]\, C_f + [\bm{Y_{tt}}]\, C_t \\
+    Y_{bus} &= C_f^\top {Y_f} + C_t^\top \bm{Y_t} + [\bm{Y_{sh}}]
+    \end{split}
+\end{equation}
+
+where the brackets indicate that the vector is transformed into a diagonal matrix and the $[\bm{Y_{sh}}]$ matrix contains the shunt admittance of each bus,
+which is calculated for each bus by GridCal modeller. The resulting matrices have size \textit{m} x \textit{n}.
+
+The model used to calculate the power balance of the system is the bus injection model, which is based on the equality between the power injected in a bus and
+power flowing out of it. The injection can come from generators connected at the bus or lines from buses while 
+the outflow goes to demand connected to the bus or lines that transport energy to other buses.
+
+The vector of complex power injections from lines $\bm{S_{bus}}$ is given by the following equations:
+
+\begin{equation}
+    \bm{S_{bus}} = [\bm{V}] (Y_{bus} \bm{V})^*
+    \label{Eq:Sbus}
+\end{equation}
+
+where $\bm{V}$ is the vector of the complex voltages of the buses calculated as:
+
+\begin{equation}
+    \bm{\mathcal{V}} e^{j\bm{\theta}} 
+\end{equation}
+
+using element to element multiplication, and being $\mathcal{V}$ the vector of voltage modules and $\theta$ the vector of voltage angles. The complete balance can be now calculated as:
+
+\begin{equation}
+    \bm{G^{S}_{bus}} = \bm{S_{bus}} - \bm{S_{bus}^{g}} + \bm{S_{bus}^{d}}  = \bm{0} \quad \text{(equilibrium)}
+    \label{eq:GSbus} 
+\end{equation}
+
+where $\bm{S_{bus}^{g}}$ is the power generated at the buses, and  $\bm{S_{bus}^{d}}$ the power consumed at the buses. The notation $\bm{G^{S}}$ will be useful later to refer to this balance as an equality constraint of the optimization problem.
+
+One particularity to be considered is that there could be multiple generators or loads connected to the same bus. For the present work, there is no segregation of loads and the bus demand is obtained directly from GridCal, but it could be consider
+to model load flexibility and shedding. For generations, the separation has to be done as there could be differences in price or operational limits. To do so, $\bm{S^{g}}$ is obtained through the use of the \textit{n} x \textit{ng} connectivity matrix $C_{G}$:
+
+\begin{equation}
+    \bm{S_{bus}^{g}} = C_{G} \bm{S^{g}}
+    \label{Eq:Gen}
+\end{equation}
+
+For buses that are part of a DC link, the power balance has to account for the power transferred through the link.
+
+\newcommand{\pluseq}{\mathrel{{+}{=}}}
+\newcommand{\minuseq}{\mathrel{{-}{=}}}
+
+\begin{equation}
+    \begin{split}
+        \bm{G_{bus}^{S}} \{\bm{fdc}\} \pluseq  \bm{P_{dc}}\{\bm{dc}\} \\
+        \bm{G_{bus}^{S}} \{\bm{tdc}\} \minuseq \bm{P_{dc}}\{\bm{dc}\}
+    \end{split}
+\end{equation}
+
+
+In addition to the bus power balance, the line power balance has to be considered to ensure that operational limits of the lines are not exceeded. The power
+flowing through a line can be calculated using the $from$ and $to$ admittance matrices and the voltages of the buses connected to the line. Both sides of the
+lines have to be considered, since the powers at the ends are not equal and the direction of the flow can change depending on grid conditions.
+
+\begin{equation}
+    \begin{split}
+    \bm{V_f} &= C_f \bm{V} \\
+    \bm{V_t} &= C_t \bm{V} \\
+    \bm{S_f} &= [\bm{V_f}] (Y_f \bm{V})^*\\
+    \bm{S_t} &= [\bm{V_t}] (Y_t \bm{V})^*
+    \end{split}
+\end{equation}
+
+Here it is important to note that the vector $\bm{V_f}$ will contain the voltage value of the $from$ bus of each line, which means there can be some buses appearing more than one time.
+
+\subsection{Operational limits}
+
+Each element of the grid has its owns operational limits that have to be respected. The limits are stored in lists of length equal to the respective element count.
+These limits correspond to inequalities of the optimization problem. The notation $\bm{H^{I}}$ is used to identify to each different limit.
+
+\subsubsection{Nodal voltage limits}
+
+The voltage module limits of the buses are stored in the $\bm{V_{max}}$ and $\bm{V_{min}}$ arrays, with its value in per unit. The limits are checked using the following equations:
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{v_{u}}} &= \bm{\mathcal{V}} - \bm{V_{max}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{v_{l}}} &= \bm{V_{min}} - \bm{\mathcal{V}} \leq \bm{0} \quad \text{(lower limit)}
+    \end{split}
+\end{equation}
+
+\subsubsection{Generation limits}
+
+The generation limits apply to both the active and reactive power of the generators. They are stored in the $P_{max}$, $P_{min}$, $Q_{max}$ and $Q_{min}$ lists,
+with its value in per unit. The limits are checked using the following equations:
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{P_{u}}} &= \bm{P_g} - \bm{P_{max}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{P_{l}}} &= \bm{P_{min}} - \bm{P_g} \leq \bm{0} \quad \text{(lower limit)}\\
+    \bm{H^{Q_{u}}} &= \bm{Q_g} - \bm{Q_{max}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{Q_{l}}} &= \bm{Q_{min}} - \bm{Q_g} \leq \bm{0} \quad \text{(lower limit)}
+    \end{split}
+\end{equation}
+
+An additional constraint over the generation is the reactive power limitations due to the generator capability curves. These curves can be modelled by piecewise defined function, 
+but in the formulation of the problem they have been considered much simpler, and by default they are not applied. The following constraint models the reactive power limits of the generators:
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{ctQ}} &= \bm{Q_g}^2 - \bm{tanmax}^2 \bm{P_{g}}^2 \leq \bm{0}\\
+    \end{split}
+\end{equation}
+
+where $\bm{tanmax}$ is the maximum value of the tangent of the angle between the active and reactive power of the generator.
+
+\subsubsection{Transformer limits}
+
+The controllable transformers will have their limits for the controllable variables limited. The limits are similar to the previous:
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{m_{p_{u}}}} &= \bm{m_{p}} - \bm{m_{p_{max}}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{m_{p_{l}}}} &= \bm{m_{p_{min}}} - \bm{m_{p}} \leq \bm{0} \quad \text{(lower limit)}\\
+    \bm{H^{\tau_{u}}} &= \bm{\tau} - \bm{\tau_{max}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{\tau_{l}}} &= \bm{\tau_{min}} - \bm{\tau} \leq \bm{0} \quad \text{(lower limit)}
+    \end{split}
+\end{equation}
+
+\subsubsection{Line limits}
+
+The line limits will be checked only for the monitored branches, which is a subset of size $m$ from the total number of branches $l$, considering the rating of each line in per unit. Since the direction of the flow is not known, and to
+avoid using absolute values, this constraint is considered quadratically.
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{S_f}} &= \bm{S_f} \bm{S_f}^* - \bm{S_{max}}^2 \leq \bm{0} \\
+    \bm{H^{S_t}} &= \bm{S_t} \bm{S_t}^* - \bm{S_{max}}^2 \leq \bm{0} 
+    \end{split}
+\end{equation}
+
+\subsubsection{Bound slack variables}
+
+So far, all the constraints described has physical meaning and are related to the grid model. The last set of constraints are related to the optimization problem
+and are used to improve, or even make possible, the convergence of the solver. The bound slacks are used to allow the solution to surpass some operational 
+limits in order to find a feasible solution. Of course, it should come at a cost and the objective function will be used to penalize this behavior. 
+
+These bound slacks are applied to the voltage limits and to the line limits, allowing slight over or undervoltages and some overloads.
+The constraint equations are modified, and the slack variables are imposed to be positive. The equations are as follows:
+
+\begin{equation}
+    \begin{split}
+    \bm{H^{v_{u}}} &= \bm{\mathcal{V}} - \bm{V_{max}} - \bm{sl_{v_{max}}} \leq \bm{0} \quad \text{(upper limit)}\\
+    \bm{H^{v_{l}}} &= \bm{V_{min}} - \bm{\mathcal{V}} - \bm{sl_{v_{min}}} \leq \bm{0} \quad \text{(lower limit)}\\
+    \bm{H^{S_f}} &= \bm{S_f} \bm{S_f}^* - \bm{S_{max}}^2 - \bm{sl_{sf}} \leq \bm{0} \quad \text{(from limit)}\\
+    \bm{H^{S_t}} &= \bm{S_t} \bm{S_t}^* - \bm{S_{max}}^2 - \bm{sl_{st}} \leq \bm{0} \quad \text{(to limit)} \\
+    - \bm{H^{sl_{v_{max}}}} &\leq \bm{0} \\
+    - \bm{H^{sl_{v_{min}}}} &\leq \bm{0}\\
+    - \bm{H^{sl_{sf}}} &\leq \bm{0}\\
+    - \bm{H^{sl_{st}}} &\leq \bm{0}
+\end{split}
+\end{equation}
+
+The use of this bound slacks is optional and can be removed from the optimization problem if the user prefers to have a solution in compliance with the 
+established limits.
+
+
+
+
+
+
+

@@ -1,0 +1,385 @@
+% AC-OPF IPM Model
+
+In this section, the development of the AC-OPF model for the IPM solver is presented. As explained earlier, the aim of the project is to solve the power flow without simplification of any equation that can give unfeasible results,
+while giving the grid operator all the information that can be important to decide the operation of the grid, as for instance how the generation should be distributed among the dispatchable generators
+in order to have an optimal solution while accomplishing limits, or the setpoints that can be given to the transformers that have controllability. 
+
+The development of the model is crucial in order to have a solid model that encapsulates all the constraints of the grid, allowing the easy addition of new constraints that can be considered such as the power curves of the generators, that limit the reactive power
+generation depending on the active power generation.
+
+The model is developed starting from Matpower's derivation for the traditional power flow variables in \cite{zimmermanTN2}, and then the additional features developed in this project are introduced using a similar framework.
+
+\subsection{Decision variables}
+
+The power flow is modelled using polar form, since it is more compact to use compared to the rectangular form. The first group of variables correspond to the traditional power flow variables. Then, 
+the bound slack variables are introduced for the line flow limits and the voltage limits. The transformer variables are added next, and finally the
+DC links $from$ powers. The resulting variable vector is:
+
+\begin{equation}
+    \bm{x} = [\bm{\theta}^T, \bm{\mathcal{V}}^T, \bm{P_g}^T, \bm{Q_g}^T, \bm{sl_{sf}}^T, \bm{sl_{st}}^T, \bm{sl_{vmax}}^T, \bm{sl_{vmin}}^T, \bm{m_p}^T, \bm{\tau}^T, \bm{P_{DC}}^T]^T
+\end{equation}
+
+where $\bm{\theta}$ is the vector of size $n$ of voltage angles, $\bm{\mathcal{V}}$ is the vector of size $n$ of voltage magnitudes, $\bm{P_g}$ and $\bm{Q_g}$ are the vectors 
+of size $n_g$ of active and reactive power generation, $\bm{sl_{sf}}$ and $\bm{sl_{st}}$ are the vectors of size $m$ of slack variables for the line flow limits, 
+$\bm{sl_{vmax}}$ and $\bm{sl_{vmin}}$ are the vectors of size $n_{pq}$ of slack variables for the voltage limits, $\bm{m_p}$ and $\bm{\tau}$ are the vectors of transformer 
+tap positions, sized $n_{m_p}$ and $n_{\tau}$ respectively, and $\bm{P_{DC}}$ is the vector of DC link powers, sized $n_{DC}$.
+
+In total, the number of decision variables can be calculated as:
+\begin{equation}
+    NV = 2n + 2n_g + 2m + 2n_{pq} + n_{m_p} + n_{\tau} + n_{DC} 
+\end{equation}
+
+\subsection{Objective function}
+
+Firstly, the objective function is described as the minimization of cost of operation of the grid. This cost is modelled as a quadratic cost
+with respect to the active power generation, and linear with respect to the limit violation slacks. This means that the generation has to be 
+as cheap as the limitations allow.
+
+These limitations can be set to be not-strict using slack variables, meaning they can be surpassed at a greater cost in order to be able to solve complex grid states, which can be the case of more realistic scenarios. 
+For instance, a grid with a high demand state can have some lines slightly overloaded for short periods of time, and exchanging this overload for a penalty
+can be preferred to not being able to solve the grid state. Of course, the cost has to be such that the overloads are not extreme or common.
+
+The resulting cost function is:
+
+\begin{equation}
+    \begin{split}
+        f(\bm{x}) = & \sum_{i \in \text{ig}} c_{i_0} + c_{i_1}P_{g_i} + c_{i_2}P_{g_i}^{2}  \\
+        &+ \sum_{k \in \text{M}} c_{s_k} (sl_{sf_k} + sl_{st_k}) + \sum_{i \in \text{pq}} c_{{sl_v}_i} (sl_{vmax_i} + sl_{vmin_i})
+    \end{split}
+\end{equation}
+
+where $c_{i_0}$, $c_{i_1}$ and $c_{i_2}$ are the base, linear and quadratic coefficients of the cost function for the active power generation, 
+$c_{s_k}$ is the cost of the slack variables for the line flow limits, $c_{sl_{v_i}}$ is the cost of the slack variables for the voltage limits and $ig$, $M$ and $pq$ are the sets of dispatchable generators,
+monitored lines and PQ buses respectively. 
+
+\subsubsection{Objective function gradient}
+
+The gradient of the objective function results in the following vector:
+
+\begin{equation}
+    \begin{split}
+        \nabla f(\bm{x}) = \begin{bmatrix}
+            \bm{0_n}\\
+            \bm{0_n}\\
+            \bm{c_{1}} + 2\bm{c_{2}}\bm{P_g}\\
+            \bm{0_{n_g}}\\
+            \bm{c_{s}}\\
+            \bm{c_{s}}\\
+            \bm{c_{sl_v}}\\
+            \bm{c_{sl_v}}\\
+            \bm{0_{n_{m_p}}}\\
+            \bm{0_{n_{\tau}}}\\
+            \bm{0_{n_{DC}}}
+        \end{bmatrix}
+    \end{split}
+\end{equation}
+
+where the subindex $\bm{0_{n}}$ indicates a vector of zeros of size $n$. 
+
+\subsubsection{Objective function hessian}
+
+The hessian of the objective function is a diagonal matrix, with the following structure:
+
+\begin{equation}
+    \begin{split}
+        \nabla^{2} f(\bm{x}) = \begin{bmatrix}
+            0 & \cdots & 0 & \cdots & 0\\
+        \vdots & \ddots & \vdots & \ddots & \vdots\\
+        0 & \cdots & 2[\bm{c_{2}}] & \cdots & 0\\
+        \vdots & \ddots & \vdots & \ddots & \vdots\\
+        0 & \cdots & 0 & \cdots & 0
+        \end{bmatrix}
+    \end{split}
+\end{equation}
+
+with only the diagonal elements corresponding to the active power generation variables are non-zero.            
+
+
+\subsection{Equality constraints}
+
+The vector of equality constraints $G$ for the AC-OPF problem has the following structure:
+
+\begin{equation}
+    \begin{split}
+        \bm{G}(\bm{x}) = \begin{bmatrix}
+            \bm{G^{S}_{P}}\\
+            \bm{G^{S}_{Q}}\\
+            \bm{G^{Th}_{slack}}\\
+            \bm{G^{V}_{pv}}
+            \end{bmatrix}
+    \end{split}
+\end{equation}
+
+where $\bm{G^{S}_{P}}$ and $\bm{G^{S}_{Q}}$ are the active and reactive nodal power balances, $\bm{G^{Th}_{slack}}$ is the slack phase reference, and
+$\bm{G^{V}_{pv}}$ are the voltage equalities for $pv$ buses.
+
+The power balance is calculated in complex form as in Equation~\eqref{eq:GSbus} since the calculations are much more compact, and then it is split into active and reactive power balances, 
+since the values have to be real numbers for the solver. 
+
+To obtain the Jacobian and Hessian matrices, the $G$ vector needs to be derived twice, including the associated multiplier in the second derivative term.
+The derivatives are obtained following the Matpower documentation \cite{zimmermanTN2}, directly using the derivatives with respect to the voltage
+and power variables, and developing with a similar philosophy the derivatives with respect to the additional variables that are introduced in the model.
+
+\subsubsection{First derivatives of G}
+
+The vector of partial derivatives of the equality constraints $G^S_X$ is:
+\begin{equation}
+\begin{split}
+    G^S_X &= \frac{\partial G^s}{\partial X} = \left[ G^S_{\theta} \quad G^S_V \quad G^S_P \quad G^S_Q \quad 0_{n \text{ } x \text{ } sl} \quad G^S_{m_p} \quad G^S_{\tau} \quad G^S_{P_{DC}}\right] \\
+\end{split}
+\end{equation}
+
+The first derivatives of the power balance equations are obtained form Matpower \cite{zimmermanTN2} as follows:
+
+\begin{equation}
+    \begin{split}
+        G^S_\theta &= \frac{\partial \bm{S_{bus}}}{\partial \bm{\theta}} = [\bm{I_{bus}^*}] \frac{\partial \bm{V}}{\partial \bm{\theta}} + [\bm{V}] \frac{\partial \bm{I_{bus}}^*}{\partial \bm{\theta}} \\
+        &= \left[ \bm{I_{bus}^*} \right] j [\bm{V}] + \left[ (j \bm{V}) \bm{I_{bus}^*} \right] \\
+        &= j [\bm{V}] \left( [\bm{I_{bus}^*}] - Y_{bus}^* [\bm{V^*}] \right) \\
+        G^S_{\mathcal{V}} &= \frac{\partial \bm{S_{bus}}}{\partial \bm{\mathcal{V}}} = \left[ \bm{I_{bus}^*} \frac{\partial \bm{V}}{\partial \bm{\mathcal{V}}} + [\bm{V}] \frac{\partial \bm{I_{bus}^*}}{\partial \bm{\mathcal{V}}} \right] \\
+        &= \left[ \bm{I_{bus}^*} \right] [\bm{E}] + [\bm{V}] Y_{bus}^* [\bm{E^*}] \\
+        &= [\bm{V}] ([\bm{I_{bus}^*}] + Y_{bus}^* [\bm{V^*}]) [\bm{\mathcal{V}}]^{-1}  \\
+        G^S_{P_g} &= - C_g \\
+        G^S_{Q_g} &= - jC_g
+    \end{split}
+\end{equation}
+
+Where $ [\bm{E}] = [\bm{V}]\bm{\mathcal{V}}^{-1}$. The derivatives with respect to the tap variables have been derived with the following expressions, starting from the admittance primitives which are the quantities that
+depend on the tap variables as seen in Equations~\eqref{eq:Y_prim1} and~\eqref{eq:Y_prim2}. These primitives are used to calculate the $from$ and $to$ power flowing through a line and its primitives with the following expression:
+
+\begin{equation}
+\begin{split}
+    \bm{S_f} &= \bm{V_f I_f^*}\\
+    \bm{S_t} &= \bm{V_t I_t^*}\\
+    \bm{I_f} &= y_{ff} \bm{V_f} + y_{ft} \bm{V_t}\\
+    \bm{I_t} &= y_{tf} \bm{V_f} + y_{tt} \bm{V_t}\\
+\end{split}
+\end{equation}
+
+To obtain the power injection per bus, we compose the $S$ vector using the connectivity matrices as follows:
+
+
+\begin{equation}
+\begin{split}
+    \bm{S_{bus}} &= C_f^T \bm{S_f} + C_t^T \bm{S_t}\\
+\end{split}
+\end{equation}
+
+The equality constraints for the power flow that have to be derived are the ones described by Equation~\eqref{eq:GSbus}. Deriving the expressions written above for the admittance primitives, we obtain the following expressions:
+
+
+\begin{equation}
+\begin{split}
+    \frac{\partial \bm{G^S}}{\partial \bm{m_p}} &= \frac{\partial \bm{S_{bus}}}{\partial \bm{m_p}} = Cf^T \frac{\partial \bm{S_f}}{\partial \bm{m_p}} + Ct^T \frac{\partial \bm{S_t}}{\partial \bm{m_p}}\\
+    \frac{\partial \bm{G^S}}{\partial \bm{\tau}} &= \frac{\partial \bm{S_{bus}}}{\partial \bm{\tau}} = Cf^T \frac{\partial \bm{S_f}}{\partial \bm{\tau}} + Ct^T \frac{\partial \bm{S_t}}{\partial \bm{\tau}}\\
+    \frac{\partial S_{f_k}}{\partial m_{p_i}} &= V_{f_k} (\frac{-2(y_{s_k}V_{f_k})^*}{m_{p_i}^3} + \frac{(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau}})  \\
+    \frac{\partial S_{t_k}}{\partial m_{p_i}} &= V_{t_k} \frac{(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}} \\
+    \frac{\partial S_{f_k}}{\partial \tau_i} &= V_{f_k} \frac{j(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+    \frac{\partial S_{t_k}}{\partial \tau_i} &= V_{t_k} \frac{-j(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+\end{split}
+\label{eq:Gmptau}
+\end{equation}
+
+Each of the individual $S_{f_k}$ and $S_{t_k}$ derivative with respect to each $i$ transformer variable will be stored in the position of their corresponding matrix as $\frac{dS_f}{dm_p}_{ki}$ and $\frac{dS_f}{dm_p}_{ki}$, 
+with size $m$ x $n_{m_p}$ and  $m$ x $n_{\tau}$ respectively, with $m$ being the total number of branches of the grid. These matrices will have very few values different from zero, since the transformer control is only present in a few transformers of the grid.
+%This matrix is ready to be concatenated with the preexisting $L$ x $2N + 2N_g$ matrix corresponding to $G^S_X = [G^S_\theta, G^S_{v}, G^S_{P_g}, G^S_{Q_g}]$.
+
+The derivative of $G^S_{P_{DC}}$ can be obtained using the indexing of the buses participant of a DC link, which are listed in the lists $fdc$ and $tdc$. Each link DC is also indexed in the list $DC$, of length $n_{DC}$. The derivative is obtained as follows:
+
+\begin{equation}
+\begin{cases}
+    G^S_{P_{DC}} \{fdc, link\} = 1 \quad \forall link = (fdc, tdc) \in DC\\ 
+    G^S_{P_{DC}} \{tdc, link\} = -1 \quad \forall link = (fdc, tdc) \in DC\\ 
+    0 \quad \text{otherwise}
+\end{cases}
+\end{equation} 
+
+The complete matrix $G_X$ can be obtained concatenating the following submatrices:
+
+\begin{equation}
+\begin{split}
+    G_X = \begin{bmatrix}
+        \bm{\mathcal{R}(G^{S^\top}_X)} \\
+        \bm{\mathcal{I}{(G^{S^\top}_X)}} \\ 
+        \bm{G^{Th^\top}_X} \\
+        \bm{G^{\mathcal{V}^\top}_X} \\
+    \end{bmatrix}
+\end{split}
+\end{equation}
+
+where $\bm{G^S_X}0$ is separated into its real ($\mathcal{R}$) and imaginary ($\mathcal{I}$) part since the solver needs real valued matrices, $G^{Th}$ and $G^{\mathcal{V}}$ are the slack phase and voltage magnitude equalities, 
+and their derivatives have 1 in the fixed buses positions and 0 otherwise.
+
+\subsubsection{Second derivatives of G}
+
+The Hessian matrix associated to the equality constraints has the following structure:
+
+\begin{equation}
+    \begin{split}
+        G^S_{XX} =
+    \begin{bmatrix}
+        G_{\theta\theta} & G_{\theta\mathcal{V}} & G_{\theta P_g} & G_{\theta Q_g} & G_{\theta sl} & G_{\theta m_p} & G_{\theta \tau} & G_{\theta P_{DC}} \\
+        G_{\mathcal{V}\theta} & G_{\mathcal{V}\mathcal{V}} & G_{\mathcal{V}P_g} & G_{\mathcal{V}Q_g} & G_{\mathcal{V}sl} & G_{\mathcal{V}m_p} & G_{\mathcal{V}\tau} & G_{\mathcal{V}P_{DC}} \\
+        G_{P_g\theta} & G_{P_g\mathcal{V}} & G_{P_gP_g} & G_{P_gQ_g} & G_{P_gsl} & G_{P_gm_p} & G_{P_g\tau} & G_{P_gP_{DC}} \\
+        G_{Q_g\theta} & G_{Q_g\mathcal{V}} & G_{Q_gP_g} & G_{Q_gQ_g} & G_{Q_gsl} & G_{Q_gm_p} & G_{Q_g\tau} & G_{Q_gP_{DC}} \\
+        G_{sl\theta} & G_{sl\mathcal{V}} & G_{slP_g} & G_{slQ_g} & G_{slsl} & G_{slm_p} & G_{sl\tau} & G_{slP_{DC}} \\
+        G_{m_p\theta} & G_{m_p\mathcal{V}} & G_{m_pP_g} & G_{m_pQ_g} & G_{m_psl} & G_{m_pm_p} & G_{m_p\tau} & G_{m_pP_{DC}} \\
+        G_{\tau\theta} & G_{\tau \mathcal{V}} & G_{\tau P_g} & G_{\tau Q_g} & G_{\tau sl} & G_{\tau m_p} & G_{\tau\tau} & G_{\tau P_{DC}} \\
+        G_{P_{DC}\theta} & G_{P_{DC}\mathcal{V}} & G_{P_{DC}P_g} & G_{P_{DC}Q_g} & G_{P_{DC}sl} & G_{P_{DC}m_p} & G_{P_{DC}\tau} & G_{P_{DC}P_{DC}} \\
+    \end{bmatrix}
+    \end{split}
+    \end{equation}
+
+
+The first set of second derivatives corresponding to the 4 x 4 submatrix block of the Hessian (those that involve only derivation with respect to Power Flow variables ($(\theta, \mathcal{V}, P_g, Q_g)$), noted $\bm{X_{PF}}$) 
+is obtained from \cite{zimmermanTN2}. 
+
+\begin{equation}
+\begin{aligned}
+    G^S_{XX_{PF}}(\bm{\lambda}) &= \frac{\partial}{\partial \bm{X_{PF}}} (\bm{{G^S}^\top_{X_{PF}}} \bm{\lambda}) \\
+    &= \begin{bmatrix}
+    G^S_{\bm{\theta}\bm{\theta}}(\bm{\lambda}) & G^S_{\bm{\theta} V}(\bm{\lambda}) & 0 & 0 \\
+    G^S_{V\bm{\theta}}(\bm{\lambda}) & G^S_{VV}(\bm{\lambda}) & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0
+    \end{bmatrix} \\
+    G^S_{\bm{\theta}\bm{\theta}}(\bm{\lambda}) &= \frac{\partial}{\partial \bm{\theta}} ({G^S}^\top_{\bm{\theta}} \bm{\lambda}) \\
+    &= \left[ \bm{V^*} \right] (Y_{bus}^{*\top} \left[ \bm{V} \right] [\bm{\lambda}] -  [Y_{bus}^{*\top} [\bm{V}] \bm{\lambda}])  \\
+    & \quad + [\bm{\lambda}] \left[ \bm{V} \right] \left( Y_{bus}^* \left[ \bm{V^*} \right] - \left[ \bm{I_{bus}^*} \right] \right) \\
+    G^S_{\bm{\mathcal{V}}\bm{\theta}}(\bm{\lambda}) &= \frac{\partial}{\partial \bm{\theta}} ({G^S}^\top_{\bm{\mathcal{V}}} \bm{\lambda}) \\
+    &= j [\bm{\mathcal{V}}]^{-1} ([\bm{V^*}] (Y_{bus}^* [\bm{V}][\bm{\lambda}] - [Y_{bus}^{*\top} [\bm{V}] \bm{\lambda}]) \\
+    & - [\bm{\lambda}] [\bm{V}] (Y_{bus}^* [\bm{V^*}] - [\bm{I_{bus}^*}]) ) \\
+    G^S_{\bm{\mathcal{V}}\bm{\mathcal{V}}}(\bm{\lambda}) &= \frac{\partial}{\partial \bm{\mathcal{V}}} ({G^S}^\top_{\bm{\mathcal{V}}} \bm{\lambda}) \\
+    &= [\bm{\mathcal{V}}]^{-1} \left( [\bm{\lambda}] [\bm{V}] Y_{bus}^* [\bm{V^*}] + [\bm{V^*}] {Y}_{bus}^* [\bm{V}] [\bm{\lambda}] \right) [\bm{\mathcal{V}}]^{-1}
+\end{aligned}
+\end{equation}
+
+The rest of the second derivatives have been obtained following a similar strategy to add the multipliers. The derivation starts again with the $from$ and $to$ expressions, with the expressions for a given branch $k$ and its connected buses $(f_k, t_k)$ as follows:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial^2 S_{f_k}}{\partial m_{p_i} \partial m_{p_i} } &= V_{f_k}(\frac{6(y_{s_k}V_{f_k})^*}{m_{p_i}^4} - \frac{2(y_{s_k}V_{t_k})^*}{m_{p_i}^3 e^{j\tau_i}})  \\
+        \frac{\partial^2 S_{t_k}}{\partial m_{p_i} \partial m_{p_i} } &= V_{t_k} \frac{-2(y_{s_k}V_{f_k})^*}{m_{p_i}^3 e^{-j\tau_i}} \\
+        \frac{\partial^2 S_{f_k}}{\partial \tau_i \partial \tau_i} &= V_{f_k} \frac{(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+        \frac{\partial^2 S_{t_k}}{\partial \tau_i \partial \tau_i} &= V_{t_k} \frac{(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+        \frac{\partial^2 S_{f_k}}{\partial m_{p_i} \partial \tau_i} &= V_{f_k} \frac{-j(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau_i}}\\
+        \frac{\partial^2 S_{t_k}}{\partial m_{p_i} \partial \tau_i} &= V_{t_k} \frac{j(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}}\\
+        \frac{\partial S_{f_k}}{\partial m_{p_i} \partial v_{f_k}} &= \frac{V_{f_k}}{v_{f_k}} (\frac{-4(y_{s_k}V_{f_k})^*}{m_{p_i}^3} + \frac{(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau_i}})  \\
+        \frac{\partial S_{t_k}}{\partial m_{p_i} \partial v_{f_k}} &= \frac{V_{t_k}}{v_{f_k}}\frac{(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}} \\
+        \frac{\partial S_{f_k}}{\partial m_{p_i} \partial v_{t_k}} &= \frac{V_{f_k}}{v_{f_t}} (\frac{-2(y_{s_k}V_{f_k})^*}{m_{p_i}^3} + \frac{(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau_i}})  \\
+        \frac{\partial S_{t_k}}{\partial m_{p_i} \partial v_{t_k}} &= \frac{V_{t_k}}{v_{f_t}}\frac{(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}} \\
+        \frac{\partial S_{f_k}}{\partial \tau_i \partial v_{f_k}} &= \frac{V_{f_k}}{v_{f_k}} \frac{j(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+        \frac{\partial S_{t_k}}{\partial \tau_i \partial v_{f_k}} &= \frac{V_{t_k}}{v_{f_k}} \frac{-j(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+        \frac{\partial S_{f_k}}{\partial \tau_i \partial v_{f_k}} &= \frac{V_{f_k}}{v_{f_t}} \frac{j(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+        \frac{\partial S_{t_k}}{\partial \tau_i \partial v_{f_k}} &= \frac{V_{t_k}}{v_{f_t}} \frac{-j(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+        \frac{\partial S_{f_k}}{\partial m_{p_i} \partial \theta_{f_k}} &= V_{f_k} \frac{j(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau_i}}  \\
+        \frac{\partial S_{t_k}}{\partial m_{p_i} \partial \theta_{f_k}} &= V_{t_k} \frac{-j(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}} \\
+        \frac{\partial S_{f_k}}{\partial m_{p_i} \partial \theta_{t_k}} &= V_{f_k} \frac{-j(y_{s_k}V_{t_k})^*}{m_{p_i}^2 e^{j\tau_i}}  \\
+        \frac{\partial S_{t_k}}{\partial m_{p_i} \partial \theta_{t_k}} &= V_{t_k} \frac{j(y_{s_k}V_{f_k})^*}{m_{p_i}^2 e^{-j\tau_i}} \\
+        \frac{\partial S_{f_k}}{\partial \tau_i \partial \theta_{f_k}} &= V_{f_k} \frac{-(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+        \frac{\partial S_{t_k}}{\partial \tau_i \partial \theta_{f_k}} &= V_{t_k} \frac{-(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+        \frac{\partial S_{f_k}}{\partial \tau_i \partial \theta_{f_k}} &= V_{f_k} \frac{(y_{s_k}V_{t_k})^*}{m_{p_i} e^{j\tau_i}}\\
+        \frac{\partial S_{t_k}}{\partial \tau_i \partial \theta_{f_k}} &= V_{t_k} \frac{(y_{s_k}V_{f_k})^*}{m_{p_i} e^{-j\tau_i}}\\
+    \end{split}
+    \end{equation}
+    
+    Crossed partial derivative $\frac{\partial^2}{\partial m_{p_i} \partial \tau_i}$ are considered for those lines with transformers that controls both variables.
+    To compose the submatrix, the following expression is used for all of these transformers:
+    
+    
+    \begin{equation}
+    \begin{split}
+        \frac{dS_{bus}}{dm_pdm_p}_{ii} &= \Re(\frac{\partial^2 S_{f_k}}{\partial m_{p_i} \partial m_{p_i}} \lambda_f + \frac{\partial^2 S_{t_k}}{\partial m_{p_i} \partial m_{p_i}} \lambda_t)\\
+        & +  \Im(\frac{\partial^2 S_{f_k}}{\partial m_{p_i} \partial m_{p_i}} \lambda_{f+N} + \frac{\partial^2 S_{t_k}}{\partial m_{p_i} \partial m_{p_i}} \lambda_{t+N}) \\
+    \end{split}
+    \end{equation}
+    
+Since we have to take into account the active and reactive power constraints, we have to divide the expression into real and imaginary and then use the corresponding multiplier. We compose the resulting hessian by concatenating the complete matrix as in the previous case.
+    
+
+
+\subsection{Inequality constraints}
+
+We proceed similarly to the equality constraints. The vector of inequality constraints $H$ for the AC-OPF problem has the following structure:
+
+\begin{equation}
+    \begin{split}
+        \bm{H}(\bm{x}) = \begin{bmatrix}
+            \bm{H^{S_f}}\\
+            \bm{H^{S_t}}\\
+            \bm{H^{V_u}}\\
+            \bm{H^{P_u}}\\
+            \bm{H^{Q_u}}\\
+            \bm{H^{V_l}}\\
+            \bm{H^{P_l}}\\
+            \bm{H^{Q_l}}\\
+            \bm{H^{sl}}\\
+            \bm{H^{m_{p_u}}}\\
+            \bm{H^{m_{p_l}}}\\
+            \bm{H^{\tau_u}}\\
+            \bm{H^{\tau_l}}\\
+            \bm{H^{Q_{max}}}\\
+            \bm{H^{P_{DC_u}}}\\
+            \bm{H^{P_{DC_l}}}
+            \end{bmatrix}
+    \end{split}
+\end{equation}
+
+The first derivatives of the power flows are the most complex ones to get, since they will be derived from the $from$ and $to$ powers, and the constraints have their value squared. 
+
+\begin{equation}
+    \begin{split}
+        \bm{H^S_f} &= [\bm{S_f^*}] \bm{S_f} - \bm{S_{max}}^2 \leq 0\\
+    \end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+    H^f_X &= 2 (\Re([\bm{S_f}]) \Re(S^f_X) + \Im([\bm{S_f}]) \Im(S^f_X))\\
+    H^f_{XX}(\bm{\mu}) &= 2 \Re(S^f_{XX}([\bm{S_f^*}]\bm{\mu}) + {S^f_X}^T [\bm{\mu}] S^f_X)
+\end{split}
+\end{equation}
+
+And similarly for the $H^t$ $to$ constraints. The derivatives with respect of the PF variables are obtained from \cite{zimmermanTN2} again:
+
+
+\begin{equation}
+    \begin{split}
+    S_{\bm{\theta}}^f &= \left[ \bm{I_f^*} \right] \frac{\partial \bm{V_f}}{\partial \bm{\theta}} + \left[ \bm{V_f} \right] \frac{\partial \bm{I_f^*}}{\partial \bm{\theta}} \\
+    &= \left[ \bm{I_f^*} \right] jC_f [\bm{V}] + [C_f\bm{V}] (\bar{jY_f [\bm{V}]})^* \\
+    &= j\left( [\bm{I_f^*}] C_f [\bm{V}] - [C_f \bm{V}]Y_f^* [\bm{V^*}] \right) \\
+    S_{\bm{\mathcal{V}}}^f &= \left[ \bm{I_f^*} \right] \frac{\partial \bm{V_f}}{\partial \bm{\mathcal{V}}} + \left[ \bm{V_f} \right] \frac{\partial \bm{I_f^*}}{\partial \bm{\mathcal{V}}} \\
+    &= \left[ \bm{I_f^*} \right] C_f [\bm{E}] + [C_f \bm{V}] Y_f^* [\bm{E^*}] \\
+    S_{\bm{P_g}}^f &= 0 \\
+    S_{\bm{Q_g}}^f &= 0
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+    S_{\bm{\theta \theta}}^f(\bm{\mu}) &= \frac{\partial}{\partial \bm{\theta}} \left( S_{\bm{\theta}}^f \right)^T \bm{\mu}\\
+    &= [\bm{V^*}] Y_f^{*\top} [\bm{\mu}] C_f [\bm{V}] + [\bm{V}] C_f^\top [\bm{\mu}] Y_f^* [\bm{V^*}] \\
+    &- [Y_f^{*\top} [\bm{\mu}] C_f \bm{V}] [\bm{V^*}] - [C_f^T [\bm{\mu}] Y_f^* \bm{V^*}] [\bm{V}]\\
+    S_{\bm{\mathcal{V} \theta}}^f(\bm{\mu}) &= \frac{\partial}{\partial \bm{\theta}} \left( S_{\bm{\mathcal{V}}}^f \right)^\top \bm{\mu}\\
+    &= j [\bm{\mathcal{V}}]^{-1} ( [\bm{\mathbf{V}^*}] Y_f^{*\top} [\bm{\mu}] C_f [\bm{\mathbf{V}}]  - [\bm{\mathbf{V}}] C_f^\top [\bm{\mu}] Y_f^* [\bm{\mathbf{V}^*}] \\
+    &-[ Y_f^{*\top} [\bm{\mu}] C_f \bm{\mathbf{V}}] [\bm{\mathbf{V}^*}] + [C_f^\top [\bm{\mu}] Y_f^* \bm{\mathbf{V}^*}] [\bm{\mathbf{V}}]) \\
+    S_{\bm{\mathcal{V} \mathcal{V}}}^f(\bm{\mu}) &= \frac{\partial}{\partial \bm{\mathcal{V}}} \left( S_{\bm{\mathcal{V}}}^f \right)^\top \bm{\mu}\\
+    &= [\bm{\mathcal{V}}]^{-1} \left( [\bm{\mathbf{V}^*}] Y_f^{*\top} [\bm{\mu}] C_f [\bm{\mathbf{V}}] + [\bm{\mathbf{V}}] C_f^\top [\bm{\mu}] Y_f^* [\bm{\mathbf{V}^*}] \right) [\bm{\mathcal{V}}]^{-1}
+    \end{split}
+\end{equation}
+
+   
+The derivatives with respect to the tap variables have been derived using $\bm{H}$, the expressions for $\bm{S_f}$, $\bm{S_t}$ and its derivatives obtained in the power balance derivatives in Equations~\eqref{eq:Gmptau}.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+

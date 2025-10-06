@@ -1,0 +1,289 @@
+
+%% Language and font encodings
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{fontspec}
+\usepackage{parskip}
+\setlength{\parskip}{4mm}
+\setlength{\footskip}{60pt}
+\setlength{\headheight}{15pt}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm, bottom=3.2cm, inner=3cm, outer=2cm, footnotesep=1cm, heightrounded]{geometry}
+
+\renewcommand{\baselinestretch}{1.25}
+
+
+%% Useful packages
+\newcommand{\un}[1]{\underline{#1}} % per tenir underline
+
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[firstpage]{draftwatermark}
+\usepackage{transparent}
+\usepackage{textcomp} %Podem escriure ``º'' amb la comanda \textdegree també € amb \texteuro
+\usepackage{varwidth}
+\usepackage[gen]{eurosym} %Símbol official en lloc de ``gen''
+\usepackage[section]{placeins} %Evita que les figures saltin de secció
+\usepackage{fancyref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{scrextend}%Indentar un bloc sencer
+\usepackage{tgpagella}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{circuitikz}
+\usepackage{frame}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{pgfgantt}
+\usepackage{csquotes}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes,arrows,positioning}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+
+% \tikzset{
+% block/.style = {
+%   draw, 
+%   fill=blue!20, 
+%   node distance = 0.5cm,
+%   rectangle, 
+%   minimum height=2em, 
+%   minimum width=2em
+%   },
+% block2/.style = 
+% {
+%     draw, 
+%     fill=blue!20, 
+%     rectangle 
+%   },
+% port/.style     = {inner sep=0pt, font=\tiny},
+% cross/.style =
+%   {%
+%     path picture=%
+%       {
+%         \draw
+%           (path picture bounding box.north west) --
+%             (path picture bounding box.south east)
+%           (path picture bounding box.south west) --
+%             (path picture bounding box.north east)
+%           ;
+%       }
+%   },
+% cross_clarke/.style =
+%   {%
+%     path picture=%
+%       {
+%         \draw
+%           (path picture bounding box.south west) --
+%             (path picture bounding box.north east)
+%           ;
+%       }
+%   },
+% sum/.style n args = {4}%
+%     {%
+%       draw, circle, node distance = 0.5cm, minimum size=6mm, fill=blue!20, alias=sum,%https://tex.stackexchange.com/a/234545/2288
+%       append after command=%
+%         {%
+%           node at (sum.north) [port, below=1pt] {$#1$}
+%           node at (sum.west) [port, right=1pt] {$#2$}
+%           node at (sum.south) [port, above=1pt] {$#3$}
+%           node at (sum.east) [port, left=1pt] {$#4$}
+%         },
+%     },
+% input/.style={coordinate},
+% output/.style={coordinate},
+% wp/.style={coordinate},
+% pinstyle/.style={
+%   pin edge={to-,thin,black}
+%   },
+% integrator/.style={
+%     draw,
+%     fill=blue!20,
+%     rectangle,
+%     minimum height = 2em,
+%     minimum width = 2em,
+%     },
+% clarke/.style = 
+%     {
+%         block2,
+%         minimum width= 0.8cm,
+%         minimum height= 0.8cm,
+%         cross_clarke,
+%         alias=clarke,
+%         append after command=
+%         {
+%         node at (clarke.north west) [port, below right = 1mm and 1mm] {abc}
+%         node at (clarke.south east) [port, above left = 1mm and 1mm] {$\alpha \beta$}
+%         }
+%       },
+% inv_clarke/.style = 
+%   {
+%     block2,
+%     minimum width= 0.8cm,
+%     minimum height= 0.8cm,
+%     cross_clarke,
+%     alias=clarke,
+%     append after command=
+%     {
+%     node at (clarke.north west) [port, below right = 1mm and 1mm] {$\alpha \beta$}
+%     node at (clarke.south east) [port, above left = 1mm and 1mm] {abc}
+%     }
+%   },
+%   multiplier/.style = 
+%   {
+%     shape= isosceles triangle,
+%     draw,
+%     fill=blue!20,
+%     inner sep=0mm,
+%     minimum width = 1cm,
+%     minimum height = 1cm,
+%     isosceles triangle stretches,
+%   },
+%   saturation/.style = 
+%   {
+%     block2,
+%     alias=sat,
+%     minimum width= 0.8cm,
+%     minimum height= 0.8cm,
+%     path picture=%
+%     {
+%       % Get the width and height of the path picture node
+%       \pgfpointdiff{\pgfpointanchor{path picture bounding box}{north east}}%
+%         {\pgfpointanchor{path picture bounding box}{south west}}
+%       \pgfgetlastxy\x\y
+%       % Scale the x and y vectors so that the range
+%       % -1 to 1 is slightly shorter than the size of the node
+%       \tikzset{x=\x*.4, y=\y*.4}
+%       %
+%       % Draw annotation
+%       \draw (-1,0) -- (1,0) (0,-1) -- (0,1); 
+%       \draw (-1,-.7) -- (-.7,-.7) -- (.7,.7) -- (1,.7);
+%     }
+%   },
+%   terminator/.style = 
+%   {
+%     draw,
+%     rectangle, 
+%     text centered, 
+%     rounded corners, 
+%     minimum height=2em
+%   },
+%   process/.style = 
+%   {
+%     rectangle, 
+%     draw, 
+%     text centered, 
+%     minimum height=2em
+%   },
+%   decision/.style = 
+%   {
+%     diamond, 
+%     draw, 
+%     text centered, 
+%     minimum height=2em,
+%     aspect=2
+%   },
+% }  
+
+% %% my packages
+% \usepackage{arydshln}
+% \input{styles/packages} % gantt diagram
+% \usepackage{bm}
+% \usepackage{colortbl}
+% \usepackage{tabularx}
+% \usepackage{diagbox}
+\usepackage[style=ieee, backend=biber,citestyle=numeric-comp]{biblatex}
+%\usepackage{biblatex}
+\addbibresource{bib.bib}
+% \usepackage{microtype}
+% \usepackage{import}
+% \usepackage{xifthen}
+% \usepackage{pdfpages}
+% \usepackage{transparent}
+% \usepackage{svg}
+% \usepackage[RPvoltages]{circuitikz}
+% \usetikzlibrary{arrows, shapes, decorations.markings, arrows.meta}
+% \usepackage{listings}
+% \usepackage{xcolor}
+% \usepackage{textcomp}
+% \usepackage{tikz}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.16}
+% \pgfplotsset{samples=2000}
+% \usepackage{steinmetz}
+% \usepackage{textcomp}
+% \urlstyle{same}
+% \usetikzlibrary{shapes.geometric}
+% \usetikzlibrary{patterns}
+% \newcommand{\incfig}[1]{%
+%     \def\svgwidth{\columnwidth}
+%     \import{./Data/}{#1.pdf_tex}
+% }
+% \usepackage{algpseudocode}
+% \usepackage{algorithm2e}
+% \usepackage{csquotes}
+% \usepackage[font=small,labelfont=bf]{caption}
+% % \usepackage{algorithm}
+% % \usepackage{algorithmic}
+% % \renewcommand{\algorithmiccomment}[1]{//#1}
+
+
+% %%Comença pàgina per cada Secció si hi ha alguna cosa escrita a la anterior
+% \newcommand{\sectionbreak}{\cleardoublepage}  % start at odd page always?
+% % \newcommand{\sectionbreak}{\clearpage}  % my change, start at new page independently if odd or even
+
+
+%%Caps de pagina i peus (E/O (even/odd), L/C/R (left/center/right) y H/F (header/footer))
+\fancyhf{}
+\fancyhead[ER]{Small-Signal analysis and EMT dynamic simulation of power systems}
+\fancyhead[OL]{Small-Signal analysis and EMT dynamic simulation of power systems}
+\fancyhf[ELH, ORH]{\thepage}
+%Peu de pàgina 
+%\fancyfoot[C]{}  %-------> \fancyhf{} ja fa aquesta feina
+\fancyfoot[EL, OR]{
+\includegraphics[scale=0.2]{./Icones-ETSEIB-UPC/ETSEIB.png}}
+\fancyfoot[ER, OL]{\textcolor{gray}{Maria Sans Esqué}}
+
+%Estil de pàgina
+\pagestyle{fancy}
+\raggedbottom
+
+%Marca d'aigua
+\SetWatermarkText{\hspace{9mm}\transparent{0.10}\includegraphics[scale=2.5]{./Icones-ETSEIB-UPC/ETSEIB.png}}
+\SetWatermarkAngle{0}
+\SetWatermarkLightness{1}
+
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+\counterwithin{table}{section}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \makeatletter
+% \let\ps@plain\ps@fancy
+% \makeatother
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,20 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block diagram of the solver.}}{36}{figure.caption.1}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Schematic of the 9-bus grid.}}{49}{figure.caption.2}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Error evolution for the Case 9 system for different initialization options.}}{50}{figure.caption.3}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Plot of the solution of Case 9.}}{50}{figure.caption.4}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Error evolution for the Pegase89 system for different initialization options.}}{51}{figure.caption.5}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Error evolution for the 300-bus system for different initialization options.}}{52}{figure.caption.6}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Error evolution for the Great Britain grid for different initialization options.}}{53}{figure.caption.7}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Error evolution for the Case IEEE14 for different initialization options.}}{54}{figure.caption.8}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Error evolution for the Case IEEE14 with tap variables for different initialization options.}}{54}{figure.caption.9}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Voltage comparison for the Case IEEE14 considering tap variables.}}{55}{figure.caption.10}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Generation comparison for Case IEEE14.}}{55}{figure.caption.11}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Voltage comparison for the Case IEEE14 with and without reactive control.}}{57}{figure.caption.14}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Generation comparison for the Case IEEE14 with and without reactive control.}}{57}{figure.caption.15}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Generation comparison for the island case with and without DC link.}}{58}{figure.caption.17}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Dual price comparison for the case with and without DC link.}}{59}{figure.caption.18}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Runtime comparison for different cases.}}{61}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Runtime comparison for the GB case.}}{61}{figure.caption.21}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Gantt Chart of the project.}}{67}{figure.caption.22}%

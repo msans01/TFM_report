@@ -1,0 +1,51 @@
+Figure \ref{fig:gantt} shows the temporal evolution of the various tasks that have constituted the project.
+\begin{figure}[H]
+  \centering
+  \resizebox{\textwidth}{!}{
+  
+  \begin{ganttchart}[y unit title=0.6cm,
+  y unit chart=0.7cm,
+  vgrid,hgrid, 
+  title label anchor/.style={below=-1.6ex},
+  title left shift=.05,
+  title right shift=-.05,
+  title height=1,
+  progress label text={},
+  bar height=0.5,
+  group right shift=0,
+  group top shift=.6,
+  group height=.3]{1}{32}
+  %labels
+  \gantttitle{2023}{16} 
+  \gantttitle{2024}{16}\\
+  \gantttitle{September}{4} 
+  \gantttitle{October}{4} 
+  \gantttitle{November}{4} 
+  \gantttitle{December}{4} 
+  \gantttitle{January}{4} 
+  \gantttitle{February}{4} 
+  \gantttitle{March}{4}
+  \gantttitle{April}{4} \\
+  %tasks
+  \ganttbar{Literature review}{3}{6} \\
+  \ganttbar{Model development}{7}{10} \\
+  \ganttbar{Basic solver development}{11}{16} \\
+  \ganttbar{GridCal integration}{15}{16} \\
+  \ganttbar{Addition of new fatures}{17}{22} \\
+  \ganttbar{Benchmarking}{23}{26} \\
+  \ganttbar{Documentation}{25}{32} \\
+  
+  %relations 
+  \ganttlink{elem0}{elem1} 
+  \ganttlink{elem0}{elem4} 
+  \ganttlink{elem1}{elem4} 
+  \ganttlink{elem2}{elem4}
+  \ganttlink{elem2}{elem3} 
+  \ganttlink{elem3}{elem4} 
+  \ganttlink{elem4}{elem5} 
+  \ganttlink{elem5}{elem6} 
+  \end{ganttchart}
+  }
+  \caption{Gantt Chart of the project.}
+  \label{fig:gantt}
+\end{figure}
