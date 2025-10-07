@@ -39,8 +39,8 @@
       \strng{authornamehash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhashraw}{01468113d9b6fb6865fdf685b31832b4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Combines AC/DC power flow, optimisation, and time-series simulation in an open and extensible architecture.}
@@ -83,8 +83,8 @@
       \strng{authornamehash}{78f96d6a82f5d716ff83cf2098c674d0}
       \strng{authorfullhash}{78f96d6a82f5d716ff83cf2098c674d0}
       \strng{authorfullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -164,8 +164,8 @@
       \strng{authornamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authorfullhash}{6d434dcd73a1feb7d2ee305450efd4b4}
       \strng{authorfullhashraw}{6d434dcd73a1feb7d2ee305450efd4b4}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -271,8 +271,8 @@
       \strng{authornamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorfullhash}{961dcb8291b4785282b397f062db21eb}
       \strng{authorfullhashraw}{961dcb8291b4785282b397f062db21eb}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -334,8 +334,8 @@
       \strng{authornamehash}{46430f97e5f7d31fd3f91a015a2cdc9b}
       \strng{authorfullhash}{5b66321052a942b2a48cd28fc272301c}
       \strng{authorfullhashraw}{5b66321052a942b2a48cd28fc272301c}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-8396}
@@ -370,8 +370,8 @@
       \strng{authornamehash}{a8ad2b3480a049974e3311f960b01acf}
       \strng{authorfullhash}{a8ad2b3480a049974e3311f960b01acf}
       \strng{authorfullhashraw}{a8ad2b3480a049974e3311f960b01acf}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Poznan University of Technology Academic Journals. Electrical Engineering}

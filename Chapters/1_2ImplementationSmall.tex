@@ -43,14 +43,14 @@ Therefore, each simulation has three main classes explained below:
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.35\linewidth]{inkscape_svg/block_diagram_full_code_smallsignal.pdf}
-  \caption{Small-signal stability analysis full simulation block diagram. \textit{Source: Own elaboration.}}
+  \caption{Small-signal stability analysis full simulation block diagram.}
   \label{fig:block_diagram_full_smallsignal}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{inkscape_svg/block_diagram_run_smallsignal.pdf}
-  \caption{Small-signal stability analysis computation block diagram. \textit{Source: Own elaboration.}}
+  \caption{Small-signal stability analysis computation block diagram.}
   \label{fig:block_diagram_run_smallsignal}
 \end{figure}
 
@@ -70,7 +70,7 @@ represented in the time domain, which are the ones that will be analysed in the 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.25\linewidth]{inkscape_svg/small_signal_icon.pdf}
-  \caption{Icon for the small-signal stability analysis. \textit{Source: VeraGrid \cite{veragrid}.}}
+  \caption{Icon for the small-signal stability analysis.}
   \label{fig:small_signal_icon}
 \end{figure}
 
@@ -89,30 +89,24 @@ It is noted how the small-signal settings are added into the dynamic simulation 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/settings_GUI.png}
-  \caption{Small-signal stability analysis settings page. \textit{Source: VeraGrid \cite{veragrid}.}}
+  \caption{Small-signal stability analysis settings page.}
   \label{fig:smallsignal_settings_GUI}
 \end{figure}
 
-Figure \ref{fig:model_powerflow_GUI} shows the model page with the power flow already computed. The small-signal stability analysis can 
-only be performed if the power flow has been computed, as it is needed to obtain the operating point of the system.
+The small-signal stability analysis can only be performed if the power flow has been computed,
+ as it is needed to obtain the operating point of the system.
+
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/model_powerflow_GUI.png}
-  \caption{Model page with power flow already computed. \textit{Source: VeraGrid \cite{veragrid}.}}
-  \label{fig:model_powerflow_GUI}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.35\textwidth}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/results_desplegable_GUI.png}
-    \caption{Results drowdown. \textit{Source: VeraGrid \cite{veragrid}.}}
+    \includegraphics[width=0.6\linewidth]{figures/results_desplegable_GUI.png}
+    \caption{Results drowdown.}
     \label{fig:results_dropdown_GUI}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.5\textwidth}
+  \begin{minipage}{0.6\textwidth}
     The results page shows the results of all the simulations performed in VeraGrid. The user can choose the results to show
     using the dropdown menu shown in Figure \ref{fig:results_dropdown_GUI}. In this case, the power flow and small-signal stability
      analysis results are shown. As one can see, the small-signal results are divided into 4 options: the modes table, the participation
@@ -124,14 +118,14 @@ only be performed if the power flow has been computed, as it is needed to obtain
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/result_modes_ss_GUI.png}
-  \caption{Table result with the modes, damping ratio and oscillation frequencies. \textit{Source: VeraGrid \cite{veragrid}.}}
+  \caption{Table result with the modes, damping ratio and oscillation frequencies.}
   \label{fig:table_modes_GUI}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\linewidth]{figures/result_pfactors_GUI.png}
-  \caption{Table result with the participation factors. \textit{Source: VeraGrid \cite{veragrid}.}}
+  \caption{Table result with the participation factors.}
   \label{fig:table_PF_GUI}
 \end{figure}
 
@@ -140,21 +134,23 @@ only be performed if the power flow has been computed, as it is needed to obtain
   \begin{minipage}{0.49\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/smallsignal_plot_GUI.pdf}
-    \caption{Complex domain plot.  \textit{Source: VeraGrid \cite{veragrid}.}}
+    \caption{Complex domain plot.}
     \label{fig:plot_ss_GUI}
   \end{minipage}
   \hfill
   \begin{minipage}{0.49\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/smallsignal_plot_Hz_GUI.pdf}
-    \caption{Complex domain plot in Hz. \textit{Source: VeraGrid \cite{veragrid}.}}
+    \caption{Complex domain plot in Hz.}
     \label{fig:plot_ss_Hz_GUI}
   \end{minipage}
 \end{figure}
 
-Figure \ref{fig:plot_ss_GUI} shows how the user can take a look at the eigenvalues exact values
+In the eigenvale plots, the user can take a look at the eigenvalues exact values
 by hovering the mouse over the points. Moreover, the 5\% damping ratio line is shown to help the user identify
-the unstable modes. 
+the unstable modes. It should also be noted that the colour of the modes is determined by their real part.
+ Therefore, the mode with the largest real part (the dominant mode) will be the darkest, 
+ and the mode with the smallest real part will be the lightest.
 
 
 
