@@ -19,6 +19,40 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{veragrid}{software}{}{}
+      \name{author}{1}{}{%
+        {{hash=01468113d9b6fb6865fdf685b31832b4}{%
+           family={{eRoots Analytics S.L.}},
+           familyi={e\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Barcelona, Spain}%
+      }
+      \list{publisher}{1}{%
+        {eRoots Analytics}%
+      }
+      \strng{namehash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{fullhash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{fullhashraw}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{bibnamehash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{authorbibnamehash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{authornamehash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{authorfullhash}{01468113d9b6fb6865fdf685b31832b4}
+      \strng{authorfullhashraw}{01468113d9b6fb6865fdf685b31832b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Combines AC/DC power flow, optimisation, and time-series simulation in an open and extensible architecture.}
+      \field{title}{VeraGrid: Open-source code to power model handling, powerful simulations, and seamless visualization.}
+      \field{version}{v1.0}
+      \verb{urlraw}
+      \verb https://www.eroots.io/veragrid
+      \endverb
+      \verb{url}
+      \verb https://www.eroots.io/veragrid
+      \endverb
+    \endentry
     \entry{StabilityAndControlKundur}{book}{}{}
       \name{author}{2}{}{%
         {{hash=bc3671b26e65327b8ad25c81cf1c11e4}{%
@@ -130,8 +164,8 @@
       \strng{authornamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authorfullhash}{6d434dcd73a1feb7d2ee305450efd4b4}
       \strng{authorfullhashraw}{6d434dcd73a1feb7d2ee305450efd4b4}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -237,8 +271,8 @@
       \strng{authornamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorfullhash}{961dcb8291b4785282b397f062db21eb}
       \strng{authorfullhashraw}{961dcb8291b4785282b397f062db21eb}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -300,8 +334,8 @@
       \strng{authornamehash}{46430f97e5f7d31fd3f91a015a2cdc9b}
       \strng{authorfullhash}{5b66321052a942b2a48cd28fc272301c}
       \strng{authorfullhashraw}{5b66321052a942b2a48cd28fc272301c}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-8396}
@@ -314,6 +348,68 @@
       \verb 10.1002/wene.453
       \endverb
       \keyw{distributed generation,advanced review,stability,modeling,power electronics,power systems,small signal}
+    \endentry
+    \entry{KonovaPF}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=100e3bb215362df945af8e4dd68f2760}{%
+           family={Konoval},
+           familyi={K\bibinitperiod},
+           given={Volodymyr},
+           giveni={V\bibinitperiod}}}%
+        {{hash=357db4bbb6ec2fdd7088417be354cb54}{%
+           family={Prytula},
+           familyi={P\bibinitperiod},
+           given={Roman},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{fullhash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{fullhashraw}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{bibnamehash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{authorbibnamehash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{authornamehash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{authorfullhash}{a8ad2b3480a049974e3311f960b01acf}
+      \strng{authorfullhashraw}{a8ad2b3480a049974e3311f960b01acf}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Poznan University of Technology Academic Journals. Electrical Engineering}
+      \field{title}{Participation Factor in Modal Analysis of Power Systems Stability}
+      \field{year}{2016}
+    \endentry
+    \entry{qt_designer}{software}{}{}
+      \name{author}{1}{}{%
+        {{hash=f1c8ea9c914fd64f65b44686f35d325b}{%
+           family={{Qt Group}},
+           familyi={Q\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Espoo, Finland}%
+      }
+      \list{publisher}{1}{%
+        {Qt Group}%
+      }
+      \strng{namehash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{fullhash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{fullhashraw}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{bibnamehash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{authorbibnamehash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{authornamehash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{authorfullhash}{f1c8ea9c914fd64f65b44686f35d325b}
+      \strng{authorfullhashraw}{f1c8ea9c914fd64f65b44686f35d325b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Part of the Qt framework for developing graphical user interfaces and cross-platform applications.}
+      \field{title}{Qt Designer: Cross-platform GUI Design Tool}
+      \verb{urlraw}
+      \verb https://www.qt.io/product/development-tools
+      \endverb
+      \verb{url}
+      \verb https://www.qt.io/product/development-tools
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

@@ -1,17 +1,3 @@
-The work developed in this thesis has been focused on the implementation of an AC-OPF solver in GridCal. The results shown in Chapter \ref{Chap6} demonstrate the solver's capabilities
-and the impact of the features implemented in addition to the preexisting works in the topic. 
-
-The standard AC-OPF problem as implemented in Matpower has been successfully replicated, incorporating the option to start from a solution of the power flow with the effect of reducing the necessary iterations to reach convergence in some cases. 
-
-The addition of transformer setpoints optimization has also been tested, showing that adding these tap variables in the optimization problem yields a working point that lowers the costs of that found without considering them.
-
-DC links have been added in a simplistic form in the model as a tool to perform quick analysis between islands connected through a DC line.
-
-Reactive power limitations have also been added to the model as a simple relation to also have the possibility to consider such constraints in the optimization problem.
-
-Overall, the implementation of this solver in the GridCal environment can be considered a success. As a tool tailored for Redeia's needs, the whole GridCal package is expected to be used for the future planning of the Spanish 
-electrical grid, which involves the usage of the solver developed in this project, and due to the open-source nature of the package, other TSOs or DSOs could also benefit from it. 
-
 
 \subsection{Further Work}
 
@@ -22,19 +8,5 @@ future works that are being discussed are the following:
     \item Related to raw performance, some intermediate calculations for the gradients and Hessians could be optimized to reduce the time needed to solve the problem. This involves using the sparse structures 
     used in the process of creating the Jacobian and Hessian matrices, although it is not a trivial task and requires a deep understanding of the data structure involved.
 
-    \item The constraints related to reactive power limitations and DC links have been added in a primitive way, since they were considered as secondary implementations which were nice to have, but 
-    still lack some information needed to correctly model them. 
 
-    \item For the reactive power constraints, the grid model will have to include the parametrized equation for their generation curves to be able
-    to obtain the analytic derivatives necessary to include in the gradients and Hessians of the optimization problem. 
-
-    \item For the DC links, the model will need a better implementation of the converters that connect the ends of the line, 
-    which will require adequate modelling of the control that they follow, the losses of the link and the power flow equations that are used to calculate the power transfer. It is possible that a full AC/DC 
-    solver would be needed to correctly model the power flow of the link.
-
-    \item The addition of relaxations to the problem is also a possibility if there is a need to solve a great amount of cases for planning purposes, as this approach would increase the speed of the solver. It would come at the cost of precision,
-    but for some cases it could be a good trade-off.
-
-    \item Time-series studies could be considered by introducing new constraints and elements that have to be modelled considering a time variable, such as batteries and its state of charge, flexibility of 
-    loads, generation forecasting for renewable energies...
 \end{itemize}

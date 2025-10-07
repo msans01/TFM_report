@@ -1,4 +1,18 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Eigenvalue plot example.}}{23}{figure.caption.1}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Gantt Chart of the project.}}{27}{figure.caption.3}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces VeraGrid banner. \textit {Source: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}}{14}{figure.caption.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces VeraGrid main page. \textit {Source: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}}{15}{figure.caption.2}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Eigenvalue plot example. \textit {Source: Own elaboration.}}}{25}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces General simulation structure. \textit {Source: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}}}}{26}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Small-signal stability analysis full simulation block diagram. \textit {Source: Own elaboration.}}}{27}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Small-signal stability analysis computation block diagram. \textit {Source: Own elaboration.}}}{28}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Icon for the small-signal stability analysis. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{29}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Small-signal stability analysis settings page. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{30}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Model page with power flow already computed. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{30}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Results drowdown. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{31}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Table result with the modes, damping ratio and oscillation frequencies. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{31}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Table result with the participation factors. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{31}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Complex domain plot. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{32}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Complex domain plot in Hz. \textit {Source: VeraGrid \blx@tocontentsinit {0}\cite {veragrid}.}}}{32}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Kundur two area system without shunt.}}{33}{figure.caption.14}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Gantt Chart of the project.}}{39}{figure.caption.16}%

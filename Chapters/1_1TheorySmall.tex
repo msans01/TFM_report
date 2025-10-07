@@ -1,6 +1,6 @@
 %RMS SMALL SIGNAL STABILITY
 
-\subsection{Power system stability}
+\subsubsection{Power system stability}
 
 Power system stability is defined as that property of a power system that enables it to 
 remain in a state of operating equilibrium under normal conditions and to regain an acceptable 
@@ -71,7 +71,7 @@ In the context of this thesis, the focus is on rotor angle stability, particular
 modal properties, and analysis methods. The following sections describe the theoretical background and methodologies used for small-signal stability 
 analysis in power systems. 
 
-\subsection{Stability of a dynamic system}
+\subsubsection{Stability of a dynamic system}
 
 A dynamic system is considered stable if, when subjected to a disturbance, it returns to its original state or to a new equilibrium state without
 exhibiting unbounded behavior. The equilibrium points are those states where all the derivatives $\dot{x}$ are zero, meaning the system is at rest
@@ -90,7 +90,7 @@ stability is classified into the following categories:
 
 Therefore, linearizing a non-linear system around an equilibrium point allows to study its local stability as if it was a linear system. 
 
-\subsection{Small-Signal stability}
+\subsubsection{Small-Signal stability}
 
 Small-signal stability refers to the ability of a power system to maintain synchronism when subjected to 
 small disturbances \cite{StabilityAndControlKundur}, such as minor load changes or small faults. These small disturbances
@@ -123,7 +123,7 @@ it is a reliable approach for early detection of potential instabilities and for
 
 
 
-\subsection{State-space representation}
+\subsubsection{State-space representation}
 
 Small-signal stability assessment methods are generally categorized into two main groups: state-space techniques
 and frequency-domain techniques. State-space techniques allow one to represent the system using a set of first order
@@ -173,7 +173,8 @@ Where:
   \item $D$ : direct transmission matrix
 \end{itemize}
 
-\subsubsection{Linearization of state-space models}
+\paragraph{Linearization of state-space models}
+
 
 In order to linearize a non-linear state-space model, a small perturbation is applied around the operationg point (equilibrium point).
 
@@ -312,11 +313,11 @@ Rearranging the equation gives the linearized state-space representation and the
 The A matrix encapsulates the dynamic interactions between the system's state variables, accounting for both the intrinsic dynamics of the components and the constraints imposed by the network. 
 From the state matrix the stability assessment can be performed as explained in the next section.
 
-\subsection{Stability assessment: Liapunov's first method}
+\subsubsection{Stability assessment: Liapunov's first method}
 
 The stability of a system can be studied in large-signal and small-signal therms. Stability \textit{in the large} needs to study the whole non-linear system. This method is complex and requires a high
 computational effort. On the other hand, stability \textit{in the small} studies the system behaviour around an equilibrium point. This method is simpler and less computationally intensive, but it only 
-provides information about the local stability of the system. Computing the eigenvalues of the state matrix $A$ allows to determine the small-signal stability of the system.
+provides information about the local stability of the system \cite{StabilityAndControlKundur}. Computing the eigenvalues of the state matrix $A$ allows to determine the small-signal stability of the system.
 
 Eigenvalue analysis and participation factors (PF) are key tools for identifying dominant modes and evaluating system stability. These methods are well established in conventional 
 power systems and are increasingly being applied to power-electronics-based systems, where dynamic behavior is often more complex and sensitive to operating conditions.
@@ -360,7 +361,7 @@ Where $Re(\lambda)$ is the real part of the eigenvalue and $Im(\lambda)$ is the 
 
 Finally, participation factors quantify the relative influence of each state variable on the different dynamic modes of the system. In essence,
 they indicate how much a given state contributes to a specific mode and, conversely, how strongly that mode affects the state.
-This dual interpretation makes participation factors a valuable tool for understanding the internal structure of system dynamics.
+This dual interpretation makes participation factors a valuable tool for understanding the internal structure of system dynamics \cite{KonovaPF}.
 
 In the context of power systems, participation factors play a key role in identifying the physical origin of oscillations and instabilities.
 By analysing these factors, it is possible to determine which components—such as generators, controllers, or converter units—are most involved in poorly damped or unstable modes.
@@ -383,7 +384,7 @@ the stability of the system and the oscillation of the modes at a glance. An exa
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/eigenvalues_plot_example.pdf}
-  \caption{Eigenvalue plot example.}
+  \caption{Eigenvalue plot example. \textit{Source: Own elaboration.}}
   \label{fig:eigenvalues_plot_example}
 \end{figure}
 
