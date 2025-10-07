@@ -102,8 +102,9 @@ to model, plan, and optimise electrical networks with transparency and scientifi
 
 \subsection{Previous requirements}
 
-Before starting this thesis, it was necessary to have a solid understanding of power system dynamics, numerical methods for differential equations,
- and programming in Python.
+Before starting this thesis, it is necessary to have a solid understanding of power system dynamics, numerical methods for differential equations,
+and programming in Python. Moreover, this section outlines specific theoretical background on the dynamic simulation of power systems, symbolic formulation and
+differential-algebraic equations (DAEs). 
 
 \subsubsection{Dynamic framework in Veragrid}
 
@@ -113,8 +114,62 @@ dfdg
 
 ewstrw
 
-\subsubsection{DAE}
+\subsubsection{Differential-Algebraic Equations (DAEs)}
 
-dsffg
+CHECK!!
+
+In many dynamic systems, including power systems, one encounters not only purely differential equations but also algebraic constraints linking the state
+variables. Such systems are naturally represented by differential-algebraic equations (DAEs). Formally, a DAE is an equation of the form: 
+
+\begin{equation}
+  F\bigl(\dot{x}(t),\, x(t),\, y(t),\, t\bigr) = 0
+\end{equation}
+
+
+where $x(t)\in \mathbb{R}^n$ are the differential (dynamic) variables, $y(t)\in \mathbb{R}^m$ are algebraic variables, and the function
+ $F$ encodes both the differential and algebraic relations. 
+In contrast to an ordinary differential equation (ODE), not all derivatives \(\dot x\) can be explicitly solved from the system because some variables appear only 
+algebraically(without derivative) \cite{PolitoDAE}.  
+
+One common formulation is the so-called semi-explicit DAE of index 1:  
+\begin{equation}
+\begin{cases}
+\dot x = f\bigl(x,\,y,\,t\bigr) \\
+0 = g\bigl(x,\,y,\,t\bigr)
+\end{cases}
+\end{equation} 
+
+where $f\colon \mathbb{R}^{n+m+1} \to \mathbb{R}^n$ and $g\colon \mathbb{R}^{n+m+1} \to \mathbb{R}^m$. In this form, one treats some variables $x$ as dynamic and others $y$
+as constrained by algebraic equations. The condition for index 1 is that the partial Jacobian $\partial g / \partial y$ is nonsingular so that $y$ can be locally solved as
+a function of $x$ and $t$ \cite{PolitoDAE}.  
+
+An alternative is the fully implicit form:  
+
+\begin{equation}
+f\bigl(\dot x,\, x,\, y,\, t \bigr) = 0
+\end{equation}
+
+with no explicit separation of differential and algebraic parts. In that representation, one works directly with the combined vector $(\dot x, x, y)$ and the solver must treat 
+the singularity in $\partial f / \partial \dot x$. Implicit DAEs are more general and often arise in multiphysics problems and constrained mechanical systems \cite{PolitoDAE}.  
+
+\paragraph{Modeling power systems via DAEs}  
+In power system dynamics, the network and algebraic constraints ( Kirchhoff’s current law, network admittance equations, etc.) naturally provide algebraic equations, 
+while generator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is  
+
+\begin{equation}
+\begin{cases}
+\dot x = f(x,\, y) \\
+0 = g(x,\, y)
+\end{cases}
+\end{equation}
+
+where $x$ includes rotor angles, speed deviations, internal voltages, control states, and $y$ includes bus voltages, phase angles, algebraic currents, and so on \cite{SauerPaiBook}. 
+The coupling is strong: every time step, the algebraic network equations must be solved together with the differential updates, typically via Newton-Raphson or other Newton-based 
+solvers applied to the full system Jacobian. In small-signal stability analysis, linearisation around an operating point yields the standard eigenvalue problem on the augmented 
+state matrix, which preserves the structure of differential and algebraic coupling.  
+
+This DAE-based representation ensures that the physical constraints of the network are never violated, and that stability and modal analysis reflect the full coupled system behavior,
+rather than an oversimplified reduced ODE form.  
+
 
 \newpage

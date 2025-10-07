@@ -1,4 +1,32 @@
+%BENCHMARK SMALL-SIGNAL STABILITY ANALYSIS
+
 \subsubsection{ANDES}
+
+Thanks to its combination of symbolic precision and robust numerical performance, the \textit{Advanced Network Dynamics and Equilibrium Simulator} (ANDES) 
+provides an excellent reference platform for the validation of dynamic and stability analysis tools in modern power system research. 
+Developed as an open-source framework for modelling differential-algebraic systems, ANDES enables a fully symbolic formulation of network equations and 
+control models, which ensures reproducibility and analytical transparency across a wide range of test systems. 
+For these reasons, ANDES is widely recognised as a reliable benchmark for many types of simulations such as small-signal stability studies and has been 
+used here as the reference software against which the performance of VeraGrid has been assessed.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/ANDES_banner.png}
+    \caption{ANDES logo. \textit{Source: ANDES documentation \cite{andes}.}}
+\end{figure}
+
+VeraGrid imports ANDES models directly from standardised \texttt{.json} files, allowing the seamless translation of system data, dynamic models, 
+and numerical parameters. Once imported, VeraGrid performs the ANDES small-signal stability computations internally, based on ANDES numerical engine. 
+The results obtained from VeraGrid have been compared with those from ANDES. VeraGrid successfully reproduces the full set of eigenvalues,
+damping ratios, and oscillation frequencies computed by ANDES, confirming the equivalence of its linearisation procedures and numerical solvers. 
+
+Beyond direct eigenvalue matching, the validation process also includes the comparison of mode shapes, damping factors, and participation factors
+matrices to ensure consistency in both the algebraic formulation and numerical sensitivity of the two tools. These extended checks are essential to 
+confirm that the dynamic responses, not only the eigenvalue, coincide under identical modelling assumptions. In practice, this guarantees that VeraGrid 
+preserves the physical interpretation of oscillatory modes and stability margins originally provided by ANDES, while operating within its own software framework.
+
+In the following subsection the Kundur two-area system is used as a benchmark test case to illustrate the accuracy of VeraGrid in reproducing ANDES results.
+
 
 \subsubsection{Test case: Kundur two-area system}
 
@@ -30,25 +58,24 @@ Table \ref{tab:properties_kundur} summarizes the parameters of the system.
 \label{tab:properties_kundur}
 \renewcommand{\arraystretch}{1.2}
 \small
-\begin{tabular}{llcl}
+\begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{Element} & \textbf{Parameter} & \textbf{Symbol / Value} & \textbf{Units / Notes} \\ 
 \hline
 
-\multicolumn{4}{l}{\textbf{Buses}} \\ 
+\multicolumn{4}{|l|}{\textbf{Buses}} \\ 
 \hline
 Bus1 to 4 & Nominal voltage & $20$ & kV \\ 
 Bus5 to 11 & Nominal voltage & $230$ & kV \\ 
 \hline
 
-\multicolumn{4}{l}{\textbf{Generators}} \\ 
+\multicolumn{4}{|l|}{\textbf{Generators}} \\ 
 \hline
 G1, G2 & Nominal Power & $900$ & MVA \\ 
        & Nominal voltage & $20$ & kV \\ 
        & Inertia constant & $M = 13$ & s \\ 
        & Damping coefficient & $D = 10$ & -- \\ 
        & Impedances & $r_a = 0,0$, $x_d = 0,3$ & p.u. \\ 
-\hline
 G3, G4 & Nominal Power & $900$ & MVA \\ 
        & Nominal voltage & $20$ & kV \\ 
        & Inertia constant & $M = 12,35$ & s \\ 
@@ -56,25 +83,22 @@ G3, G4 & Nominal Power & $900$ & MVA \\
        & Impedances & $r_a = 0,0$, $x_d = 0,3$ & p.u. \\ 
 \hline
 
-\multicolumn{4}{l}{\textbf{Transformers}} \\ 
+\multicolumn{4}{|l|}{\textbf{Transformers}} \\ 
 \hline
 Tr 1, 2, 3, 4 & Impedance & $R = 0,0$, $X = 0,15$, $B = 0,0$ & p.u. \\ 
                & Rate & $900$ & MVA \\ 
 \hline
 
-\multicolumn{4}{l}{\textbf{Transmission lines}} \\ 
+\multicolumn{4}{|l|}{\textbf{Transmission lines}} \\ 
 \hline
 Line 0, 1, 12, 13 & Impedance & $R = 0,005$, $X = 0,05$, $B = 0,02187$ & p.u. \\ 
                    & Rate & $750$ & MVA \\ 
-\hline
 Line 2, 3, 4, 9, 10, 11 & Impedance & $R = 0,003$, $X = 0,03$, $B = 0,00583$ & p.u. \\ 
                          & Rate & $700$ & MVA \\ 
-\hline
 Line 5, 6, 7, 8 (tie-line) & Impedance & $R = 0,011$, $X = 0,11$, $B = 0,19250$ & p.u. \\ 
                             & Rate & $400$ & MVA \\ 
 \hline
-
-\multicolumn{4}{l}{\textbf{Loads}} \\ 
+\multicolumn{4}{|l|}{\textbf{Loads}} \\ 
 \hline
 Load A & Power & $P_L = 967$, $Q_L = 100$ & MW, Mvar \\ 
 Load B & Power & $P_L = 1767$, $Q_L = 100$ & MW, Mvar \\ 
@@ -85,7 +109,7 @@ Load B & Power & $P_L = 1767$, $Q_L = 100$ & MW, Mvar \\
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{inkscape_svg/andes_vs_veragrid_kundur.pdf}
+  \includegraphics[width=0.7\linewidth]{inkscape_svg/andes_vs_veragrid_kundur.pdf}
   \caption{Andes vs VeraGrid complex domain plot comparison.}
   \label{fig:AndesvsVeraGrid}
 \end{figure}
@@ -93,12 +117,9 @@ Load B & Power & $P_L = 1767$, $Q_L = 100$ & MW, Mvar \\
 
 Figure \ref{fig:AndesvsVeraGrid} shows the comparison in the complex plane of the eigenvalues obtained
 with VeraGrid and Andes for the Kundur two-area system without shunts, while Tables \ref{tab:eigenvalues_kundur} and
-\ref{tab:pfacotrs_kundur} show the modes, damping ratios, oscillation frequencies and participation factors of the system.
+\ref{tab:pfactors_kundur} show the modes, damping ratios, oscillation frequencies and participation factors of the system.
 The results between Andes and VeraGrid are practically identical, 
 with less than 0,0001\% absolute error, this one due to numerical computation differences.
-
-
-
 
 
 \begin{table}[H]
@@ -107,7 +128,7 @@ with less than 0,0001\% absolute error, this one due to numerical computation di
 \label{tab:eigenvalues_kundur}
 \renewcommand{\arraystretch}{1.2}
 \small
-\begin{tabular}{lcccc}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Mode} & \textbf{Real part} & \textbf{Imaginary part} & \textbf{Damping ratio} & \textbf{Oscillation Frequency [Hz]} \\ 
 \hline
@@ -126,11 +147,11 @@ Mode 7 & -0,7926 & 0,0000  & -- & -- \\
 
 \begin{table}[H]
 \centering
-\caption{Participation factors of the Kundur Two-Area System.}
+\caption{Participation factors of the Kundur two-area system.}
 \label{tab:pfactors_kundur}
 \renewcommand{\arraystretch}{1.2}
 \small
-\begin{tabular}{lcccccccc}
+\begin{tabular}{|c|cccccccc|}
 \hline
 \textbf{State/Mode} & \textbf{Mode 0} & \textbf{Mode 1} & \textbf{Mode 2} & \textbf{Mode 3} & \textbf{Mode 4} & \textbf{Mode 5} & \textbf{Mode 6} & \textbf{Mode 7} \\ 
 \hline
@@ -147,18 +168,18 @@ $\omega_4$ & 0,123 & 0,123 & 0,119 & 0,119 & 0,107 & 0,107 & 0,000 & 0,293 \\
 \end{table}
 
 
-The eigenvalue analysis of the Kundur two-area system reveals the dynamic characteristics of the interconnected generators and 
-provides insight into the nature and stability of the oscillatory modes. Each pair of complex conjugate eigenvalues corresponds to an 
-electromechanical mode characterised by its frequency and damping ratio, which together define the system's response to
- small disturbances. Modes with negative real parts represent decaying oscillations, whereas a mode located at the origin 
- corresponds to the uniform rotation of all machines, a neutral condition that does not compromise stability. 
- The participation factors, which quantify the contribution of each state variable to every mode, enable the identification of the 
- physical components responsible for each dynamic behaviour.
 
-The local modes are associated with oscillations of generators within the same area against one another. 
+The small-signal stability analysis of the Kundur two-area system shows that the system is asymptotically stable, 
+despite the presence of one zero eigenvalue associated with the rigid-body motion. Three oscillatory
+mode pairs are identified: two local modes around 1,14~Hz with damping ratios of about 5,5\%, 
+and one inter-area mode at 0,44~Hz with a damping ratio of 13,98\%. In addition, two real modes appear,
+the dominant pole -0,7962 corresponding to a fast mechanical decay and another representing the neutral 
+reference frame.
+
+The local modes are associated with oscillations of the generators within the same area against one another. 
 In this case, two pairs of complex conjugate eigenvalues located at $-0,3938 \pm j7,2377$ and $-0,3958 \pm j7,1061$ correspond to frequencies
- of $1,1519$ and $1,1310$~Hz with damping ratios near $5,5\%$. These modes involve mainly the rotor angles and 
- speeds of generators within each area, indicating local electromechanical interactions between closely coupled machines. 
+ of $1,1519$ and $1,1310$~Hz respectively with damping ratios near $5,5\%$. These modes involve mainly the rotor angles and 
+ speeds of generators within each area, indicating local electromechanical interactions between closely coupled machines. The higher frequencies reflect the local nature of these oscillations, which are typically faster than inter-area modes due to the stronger electrical coupling and lower inertia involved. 
  The relatively low damping (just above the threshold 5\%) means that oscillations at these frequencies would decay slowly after a 
  disturbance, and therefore these modes are usually targeted for improvement through power system stabilisers designed to increase 
  the effective damping while maintaining the natural frequency range around one hertz.
@@ -167,11 +188,11 @@ The inter-area mode, represented by the eigenvalue pair $-0,3931 \pm j2,7838$, e
 ratio of $13,98\%$. The participation factors show that the mode involves the collective motion of generators in one area oscillating 
 against those in the other, with all machines in each group moving coherently. This behaviour reflects the exchange of power 
 through the tie-line connecting the two subsystems, which gives rise to slow, large-scale oscillations of the inter-area type. 
-The relatively higher damping compared with the local modes suggests that the tie-line and the automatic voltage regulators 
+The relatively higher damping compared with the local modes suggests that the tie-line 
 contribute sufficient stabilising torque under the present operating point. Nevertheless, variations in power transfer or network 
 strength could reduce this damping and make the inter-area oscillation more critical, as observed in many large interconnected grids.
 
-Among the real modes, one negative value mode at approximately $-0,7926$ represents a non-oscillatory but fast-decaying mode, 
+Among the real modes, one negative mode at approximately $-0,7926$ represents a non-oscillatory but fast-decaying mode, 
 mainly related to the mechanical dynamics of the generating units. Its time constant ($\tau = 1/Re(\lambda)$), around $1,26$~s, indicates a rapid stabilising
 effect that brings the system back to equilibrium after active-power mismatches or primary control actions. This mode is considered 
 dominant in the sense that it governs the short-term return to balance but does not limit the overall stability margins of the system.
@@ -180,14 +201,11 @@ Finally, the eigenvalue located at the origin, $\lambda = 0$, corresponds to the
 Mathematically, it indicates marginal stability, as perturbations projected onto this mode neither grow nor decay.
 Physically, however, it simply reflects the absence of an absolute angular reference: if all generator rotor angles are shifted by the same constant, 
 the electrical state of the system remains unchanged. Only differences in rotor angles carry physical meaning, so this mode has no effect on the stability 
-of the relative motion among machines. In practical studies, this degree of freedom is removed by selecting a reference machine or imposing a condition on 
-the sum of the rotor angles, which eliminates the zero eigenvalue from the dynamic model. Consequently, although the rigid-body mode is formally marginally 
-stable, it is not regarded as a sign of instability in the power system.
-
-Overall, the eigenvalue spectrum indicates that the Kundur two-area system is dynamically stable under the studied conditions. 
-The local modes show limited damping and would benefit from supplementary control, while the inter-area mode remains acceptably damped. 
-The rigid-body mode is a physical artefact of the reference frame and not a true stability concern. These results are consistent with the 
-classical interpretation of the two-area system and confirm its suitability as a benchmark for electromechanical oscillation studies.
+of the relative motion among machines. In practical studies, this degree of freedom is not considered for the stability analysis. 
+Consequently, although the rigid-body mode is formally marginally stable, it is not regarded as a sign of instability in the power system.
+ 
+These results are consistent with the classical interpretation of the two-area system and confirm its suitability as a benchmark
+ for dynamic studies.
 
 
 

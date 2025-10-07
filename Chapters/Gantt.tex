@@ -1,4 +1,12 @@
 Figure \ref{fig:gantt} shows the temporal evolution of the various tasks that have constituted the project.
+
+\definecolor{strongturquoise}{RGB}{0,153,153} % verd turquesa fort
+\definecolor{pastelturquoise}{RGB}{153,221,221} % verd turquesa pastel
+\definecolor{strongmandarin}{RGB}{255,140,0}   % taronja mandarina forta
+\definecolor{pastelmandarin}{RGB}{255,204,153} % taronja mandarina pastel
+\definecolor{strongbutteryellow}{RGB}{255,210,80}   % groc mantega intens
+\definecolor{pastelbutteryellow}{RGB}{255,240,180}  % groc mantega pastel
+
 \begin{figure}[H]
   \centering
   \resizebox{\textwidth}{!}{
@@ -11,9 +19,9 @@ Figure \ref{fig:gantt} shows the temporal evolution of the various tasks that ha
   title right shift=-.05,
   title height=1,
   progress label text={},
-  bar height=0.5,
+  bar height=0.7,
   group right shift=0,
-  group top shift=.6,
+  group top shift=.5,
   group height=.4]{1}{26}
   %labels
   \gantttitle{2025}{17} 
@@ -25,12 +33,27 @@ Figure \ref{fig:gantt} shows the temporal evolution of the various tasks that ha
   \gantttitle{January}{5} 
   \gantttitle{February}{4} \\
   %tasks
-  \ganttbar[bar/.append style={fill=gray!60}]{\textbf{RMS Small-signal stability}}{1}{5} \\
-  \ganttbar{Literature review}{1}{1} \\
-  \ganttbar{Model development}{1}{1} \\
-  \ganttbar{Benchmarking}{2}{3} \\
-  \ganttbar{VeraGrid GUI integration}{4}{4} \\
-  \ganttbar{Documentation}{5}{5} \\
+  \ganttbar[bar/.append style={fill=strongmandarin}]{\textbf{RMS Small-signal stability}}{1}{5} \\
+  \ganttbar[bar/.append style={fill=pastelmandarin}]{Literature review}{1}{1} \\
+  \ganttbar[bar/.append style={fill=pastelmandarin}]{Model development}{1}{1} \\
+  \ganttbar[bar/.append style={fill=pastelmandarin}]{Benchmarking}{2}{3} \\
+  \ganttbar[bar/.append style={fill=pastelmandarin}]{VeraGrid GUI integration}{4}{4} \\
+  \ganttbar[bar/.append style={fill=pastelmandarin}]{Documentation}{5}{5} \\
+
+  \ganttbar[bar/.append style={fill=strongturquoise}]{\textbf{EMT Tool Development}}{6}{18} \\
+  \ganttbar[bar/.append style={fill=pastelturquoise}]{Literature review}{6}{9} \\
+  \ganttbar[bar/.append style={fill=pastelturquoise}]{Model development}{8}{12} \\
+  \ganttbar[bar/.append style={fill=pastelturquoise}]{Benchmarking}{13}{15} \\
+  \ganttbar[bar/.append style={fill=pastelturquoise}]{VeraGrid GUI integration}{16}{16} \\
+  \ganttbar[bar/.append style={fill=pastelturquoise}]{Documentation}{17}{18} \\
+
+  \ganttbar[bar/.append style={fill=strongbutteryellow}]{\textbf{Report structure writing}}{19}{23} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Introduction}{19}{20} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Environmental, social and gender impact}{21}{21} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Budget}{22}{22} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Conclusions and future work}{22}{22} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Abstract, Resum and Resumen}{23}{23} \\
+  \ganttbar[bar/.append style={fill=pastelbutteryellow}]{Final revision}{23}{23} \\
   
   %relations 
   \ganttlink{elem1}{elem3} 
@@ -38,9 +61,11 @@ Figure \ref{fig:gantt} shows the temporal evolution of the various tasks that ha
   \ganttlink{elem3}{elem4} 
   \ganttlink{elem4}{elem5}
   \ganttlink{elem2}{elem5} 
-  %\ganttlink{elem3}{elem4} 
-  %\ganttlink{elem4}{elem5} 
-  %\ganttlink{elem5}{elem6} 
+  \ganttlink{elem7}{elem8}
+  \ganttlink{elem8}{elem9} 
+  \ganttlink{elem9}{elem10} 
+  \ganttlink{elem10}{elem11}
+  \ganttlink{elem8}{elem11}
   \end{ganttchart}
 }
   \caption{Gantt Chart of the project.}
