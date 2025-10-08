@@ -544,6 +544,359 @@
       \verb https://docs.andes.app/en/stable/getting_started/index.html
       \endverb
     \endentry
+    \entry{IEA2024Transition}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=b33b47b3008c8c47f90a77e0c2dd3060}{%
+           family={{International Energy Agency}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {International Energy Agency (IEA)}%
+      }
+      \strng{namehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{bibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorbibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{World Energy Outlook 2024: The Energy Transition}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.iea.org/reports/world-energy-outlook-2024
+      \endverb
+      \verb{url}
+      \verb https://www.iea.org/reports/world-energy-outlook-2024
+      \endverb
+    \endentry
+    \entry{XiongParaEMT2024}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=e98b7c5ad949a21190c2bc371dad8d1a}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{fullhash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{fullhashraw}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{bibnamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{authorbibnamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{authornamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{authorfullhash}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \strng{authorfullhashraw}{d4a88560da69cebd1e6c1b5d74ab140c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Elsevier / Electric Power Systems Research}
+      \field{title}{An open-source parallel EMT simulation framework}
+      \field{year}{2024}
+    \endentry
+    \entry{YanCompEff2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=aff3423d68fec5011cade79465f0c212}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{fullhash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{fullhashraw}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{bibnamehash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{authorbibnamehash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{authornamehash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{authorfullhash}{d9c11e6c930095c42beaa97f3be99753}
+      \strng{authorfullhashraw}{d9c11e6c930095c42beaa97f3be99753}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energies}
+      \field{title}{Computational Efficiency-Accuracy Trade-Offs in EMT Simulation}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.3390/en18095173
+      \endverb
+    \endentry
+    \entry{TesfatsionOpenSource}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=4f1f9056a599a65ef0f53d1973983c8d}{%
+           family={Tesfatsion},
+           familyi={T\bibinitperiod},
+           given={Leigh},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{fullhash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{fullhashraw}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{bibnamehash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{authorbibnamehash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{authornamehash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{authorfullhash}{4f1f9056a599a65ef0f53d1973983c8d}
+      \strng{authorfullhashraw}{4f1f9056a599a65ef0f53d1973983c8d}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Iowa State University site}
+      \field{title}{Open Source Software for Electric Power Industry}
+      \field{year}{n.d.}
+    \endentry
+    \entry{CircularComputing2022}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a7ebd3fe74235db6b2911185cae12077}{%
+           family={{Circular Computing}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{fullhash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{fullhashraw}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{bibnamehash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{authorbibnamehash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{authornamehash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{authorfullhash}{a7ebd3fe74235db6b2911185cae12077}
+      \strng{authorfullhashraw}{a7ebd3fe74235db6b2911185cae12077}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Carbon Footprint of a Laptop: Understanding the True Impact}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://circularcomputing.com/news/carbon-footprint-laptop/
+      \endverb
+      \verb{url}
+      \verb https://circularcomputing.com/news/carbon-footprint-laptop/
+      \endverb
+    \endentry
+    \entry{HP2021MonitorLCA}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=7dc102707c75d8cee11ad2fe4c6082ae}{%
+           family={{HP Inc.}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {HP Sustainability Report}%
+      }
+      \strng{namehash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{fullhash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{fullhashraw}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{bibnamehash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{authorbibnamehash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{authornamehash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{authorfullhash}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \strng{authorfullhashraw}{7dc102707c75d8cee11ad2fe4c6082ae}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HP Monitor Life Cycle Assessment Summary Report}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08699464
+      \endverb
+      \verb{url}
+      \verb https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08699464
+      \endverb
+    \endentry
+    \entry{ICAEN}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=bc29cb8d5e3fc175c7b41f04b8c0d5dd}{%
+           family={{Institut Català d'Energia (ICAEN)}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Generalitat de Catalunya}%
+      }
+      \strng{namehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{fullhash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{fullhashraw}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{bibnamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{authorbibnamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{authornamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{authorfullhash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \strng{authorfullhashraw}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Online resource}
+      \field{title}{Guia per a la millora de l'eficiència energètica en les instal·lacions industrials}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://icaen.gencat.cat/web/.content/migracio_automatica/documents/sala_de_premsa/arxius/guia.pdf
+      \endverb
+      \verb{url}
+      \verb https://icaen.gencat.cat/web/.content/migracio_automatica/documents/sala_de_premsa/arxius/guia.pdf
+      \endverb
+    \endentry
+    \entry{Gencat2023FactorsEmissio}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1ad7e8192f40ba5830e784731bc4c3b3}{%
+           family={{Generalitat de Catalunya, Departament d'Acció Climàtica, Alimentació i Agenda Rural}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Generalitat de Catalunya}%
+      }
+      \strng{namehash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{fullhash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{fullhashraw}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{bibnamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{authorbibnamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{authornamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{authorfullhash}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \strng{authorfullhashraw}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Online resource}
+      \field{title}{Emission factors associated to the energy mix}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://canviclimatic.gencat.cat/en/actua/factors_demissio_associats_a_lenergia/index.html
+      \endverb
+      \verb{url}
+      \verb https://canviclimatic.gencat.cat/en/actua/factors_demissio_associats_a_lenergia/index.html
+      \endverb
+    \endentry
+    \entry{AsusVivabook}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=5ed0b5f41b21804e51e82664dc24e2dd}{%
+           family={{ASUS}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{fullhash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{fullhashraw}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{bibnamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{authorbibnamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{authornamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{authorfullhash}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \strng{authorfullhashraw}{5ed0b5f41b21804e51e82664dc24e2dd}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Technical specifications Asus Vivabook 15}
+      \field{year}{2025}
+    \endentry
+    \entry{AOC}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=cc013cae430bc1c1e89261e8ef1e9397}{%
+           family={{Display Specifications}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{fullhash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{fullhashraw}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{bibnamehash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{authorbibnamehash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{authornamehash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{authorfullhash}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{authorfullhashraw}{cc013cae430bc1c1e89261e8ef1e9397}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Power consumption specifications AOC W-LED}
+      \field{year}{2025}
+    \endentry
+    \entry{EEA2021OfficeEnergy}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=9aa80cbd4e27fcec08519169fe921f57}{%
+           family={{European Environment Agency}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {EEA Technical Report No 07/2021}%
+      }
+      \strng{namehash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{fullhash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{fullhashraw}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{bibnamehash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{authorbibnamehash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{authornamehash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{authorfullhash}{9aa80cbd4e27fcec08519169fe921f57}
+      \strng{authorfullhashraw}{9aa80cbd4e27fcec08519169fe921f57}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Occupant-related energy use and emissions in office buildings in Europe}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.eea.europa.eu/publications
+      \endverb
+      \verb{url}
+      \verb https://www.eea.europa.eu/publications
+      \endverb
+    \endentry
+    \entry{CircularEcology}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=f501badf91c69c81bb85af15b26ce20b}{%
+           family={{Circular Ecology}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{fullhash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{fullhashraw}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{bibnamehash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{authorbibnamehash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{authornamehash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{authorfullhash}{f501badf91c69c81bb85af15b26ce20b}
+      \strng{authorfullhashraw}{f501badf91c69c81bb85af15b26ce20b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Carbon Emissions of Homeworking and Office Working}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://circularecology.com/news/the-carbon-emissions-of-homeworking-and-office-working
+      \endverb
+      \verb{url}
+      \verb https://circularecology.com/news/the-carbon-emissions-of-homeworking-and-office-working
+      \endverb
+    \endentry
+    \entry{KirliPyPSA2021}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=3bf3cf95bbe7b329e94bce5740086a91}{%
+           family={Kirli},
+           familyi={K\bibinitperiod},
+           given={Desen},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8036f786851ee137c5e82538d214d903}
+      \strng{fullhash}{8036f786851ee137c5e82538d214d903}
+      \strng{fullhashraw}{8036f786851ee137c5e82538d214d903}
+      \strng{bibnamehash}{8036f786851ee137c5e82538d214d903}
+      \strng{authorbibnamehash}{8036f786851ee137c5e82538d214d903}
+      \strng{authornamehash}{8036f786851ee137c5e82538d214d903}
+      \strng{authorfullhash}{8036f786851ee137c5e82538d214d903}
+      \strng{authorfullhashraw}{8036f786851ee137c5e82538d214d903}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{arXiv preprint arXiv:2110.10628}
+      \field{title}{PyPSA meets Africa: Developing an open source electricity network model of the African continent}
+      \field{year}{2021}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

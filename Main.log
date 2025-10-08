@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.30)  8 OCT 2025 13:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.30)  8 OCT 2025 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1323,12 +1323,12 @@ Package biblatex Info: ... file 'Main.bbl' found.
  (Main.bbl)
 Package biblatex Info: Reference section=0 on input line 5.
 Package biblatex Info: Reference segment=0 on input line 5.
-<./Icones-ETSEIB-UPC/ETSEIB.png, id=140, 179.16937pt x 225.84375pt>
+<./Icones-ETSEIB-UPC/ETSEIB.png, id=144, 179.16937pt x 225.84375pt>
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 33.
 (pdftex.def)             Requested size: 53.75122pt x 67.75363pt.
-<./Icones-ETSEIB-UPC/UPC.PNG, id=142, 101.62968pt x 97.86563pt>
+<./Icones-ETSEIB-UPC/UPC.PNG, id=146, 101.62968pt x 97.86563pt>
 File: ./Icones-ETSEIB-UPC/UPC.PNG Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/UPC.PNG>
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/UPC.PNG  used on input line 36.
@@ -1441,7 +1441,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 76.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [14]
-<figures/VeraGrid_banner.png, id=298, 602.25pt x 120.45pt>
+<figures/VeraGrid_banner.png, id=308, 602.25pt x 120.45pt>
 File: figures/VeraGrid_banner.png Graphic file (type png)
 <use figures/VeraGrid_banner.png>
 Package pdftex.def Info: figures/VeraGrid_banner.png  used on input line 79.
@@ -1453,7 +1453,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 99.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [15 <./figures/VeraGrid_banner.png>]
-<figures/VeraGrid_main_page.png, id=306, 1526.70375pt x 876.27374pt>
+<figures/VeraGrid_main_page.png, id=316, 1526.70375pt x 876.27374pt>
 File: figures/VeraGrid_main_page.png Graphic file (type png)
 <use figures/VeraGrid_main_page.png>
 Package pdftex.def Info: figures/VeraGrid_main_page.png  used on input line 106.
@@ -1563,7 +1563,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 359.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [29]
-<inkscape_svg/eigenvalues_plot_example.pdf, id=431, 462.72874pt x 347.2975pt>
+<inkscape_svg/eigenvalues_plot_example.pdf, id=441, 462.72874pt x 347.2975pt>
 File: inkscape_svg/eigenvalues_plot_example.pdf Graphic file (type pdf)
 <use inkscape_svg/eigenvalues_plot_example.pdf>
 Package pdftex.def Info: inkscape_svg/eigenvalues_plot_example.pdf  used on input line 386.
@@ -1575,7 +1575,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 390.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [30]) (Chapters/1_2ImplementationSmall.tex
-<figures/DataModelSimulationStructure.png, id=439, 1006.76125pt x 464.73625pt>
+<figures/DataModelSimulationStructure.png, id=449, 1006.76125pt x 464.73625pt>
 File: figures/DataModelSimulationStructure.png Graphic file (type png)
 <use figures/DataModelSimulationStructure.png>
 Package pdftex.def Info: figures/DataModelSimulationStructure.png  used on input line 12.
@@ -1593,12 +1593,12 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 40.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [32 <./figures/DataModelSimulationStructure.png>]
-<inkscape_svg/block_diagram_full_code_smallsignal.pdf, id=470, 169.63374pt x 369.38pt>
+<inkscape_svg/block_diagram_full_code_smallsignal.pdf, id=480, 169.63374pt x 369.38pt>
 File: inkscape_svg/block_diagram_full_code_smallsignal.pdf Graphic file (type pdf)
 <use inkscape_svg/block_diagram_full_code_smallsignal.pdf>
 Package pdftex.def Info: inkscape_svg/block_diagram_full_code_smallsignal.pdf  used on input line 45.
 (pdftex.def)             Requested size: 159.33821pt x 346.97488pt.
-<inkscape_svg/block_diagram_run_smallsignal.pdf, id=471, 517.935pt x 837.1275pt>
+<inkscape_svg/block_diagram_run_smallsignal.pdf, id=481, 517.935pt x 837.1275pt>
 File: inkscape_svg/block_diagram_run_smallsignal.pdf Graphic file (type pdf)
 <use inkscape_svg/block_diagram_run_smallsignal.pdf>
 Package pdftex.def Info: inkscape_svg/block_diagram_run_smallsignal.pdf  used on input line 52.
@@ -1616,7 +1616,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 63.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [34 <./inkscape_svg/block_diagram_run_smallsignal.pdf>]
-<inkscape_svg/small_signal_icon.pdf, id=555, 48.18pt x 48.18pt>
+<inkscape_svg/small_signal_icon.pdf, id=565, 48.18pt x 48.18pt>
 File: inkscape_svg/small_signal_icon.pdf Graphic file (type pdf)
 <use inkscape_svg/small_signal_icon.pdf>
 Package pdftex.def Info: inkscape_svg/small_signal_icon.pdf  used on input line 72.
@@ -1628,17 +1628,17 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 86.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [35 <./inkscape_svg/small_signal_icon.pdf>]
-<figures/settings_GUI.png, id=569, 794.97pt x 483.0045pt>
+<figures/settings_GUI.png, id=579, 794.97pt x 483.0045pt>
 File: figures/settings_GUI.png Graphic file (type png)
 <use figures/settings_GUI.png>
 Package pdftex.def Info: figures/settings_GUI.png  used on input line 91.
 (pdftex.def)             Requested size: 364.19667pt x 221.27824pt.
-<figures/results_desplegable_GUI.png, id=570, 102.98476pt x 176.45924pt>
+<figures/results_desplegable_GUI.png, id=580, 102.98476pt x 176.45924pt>
 File: figures/results_desplegable_GUI.png Graphic file (type png)
 <use figures/results_desplegable_GUI.png>
 Package pdftex.def Info: figures/results_desplegable_GUI.png  used on input line 104.
 (pdftex.def)             Requested size: 95.6039pt x 163.8119pt.
-<figures/result_modes_ss_GUI.png, id=576, 362.5545pt x 194.52675pt>
+<figures/result_modes_ss_GUI.png, id=586, 362.5545pt x 194.52675pt>
 File: figures/result_modes_ss_GUI.png Graphic file (type png)
 <use figures/result_modes_ss_GUI.png>
 Package pdftex.def Info: figures/result_modes_ss_GUI.png  used on input line 120.
@@ -1650,17 +1650,17 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 124.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [36 <./figures/settings_GUI.png> <./figures/results_desplegable_GUI.png>]
-<figures/result_pfactors_GUI.png, id=583, 664.28175pt x 195.73125pt>
+<figures/result_pfactors_GUI.png, id=593, 664.28175pt x 195.73125pt>
 File: figures/result_pfactors_GUI.png Graphic file (type png)
 <use figures/result_pfactors_GUI.png>
 Package pdftex.def Info: figures/result_pfactors_GUI.png  used on input line 127.
 (pdftex.def)             Requested size: 455.24411pt x 134.14378pt.
-<figures/smallsignal_plot_GUI.pdf, id=584, 578.16pt x 433.62pt>
+<figures/smallsignal_plot_GUI.pdf, id=594, 578.16pt x 433.62pt>
 File: figures/smallsignal_plot_GUI.pdf Graphic file (type pdf)
 <use figures/smallsignal_plot_GUI.pdf>
 Package pdftex.def Info: figures/smallsignal_plot_GUI.pdf  used on input line 136.
 (pdftex.def)             Requested size: 223.07211pt x 167.29819pt.
-<figures/smallsignal_plot_Hz_GUI.pdf, id=585, 578.16pt x 433.62pt>
+<figures/smallsignal_plot_Hz_GUI.pdf, id=595, 578.16pt x 433.62pt>
 File: figures/smallsignal_plot_Hz_GUI.pdf Graphic file (type pdf)
 <use figures/smallsignal_plot_Hz_GUI.pdf>
 Package pdftex.def Info: figures/smallsignal_plot_Hz_GUI.pdf  used on input line 143.
@@ -1672,7 +1672,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 154.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [37 <./figures/result_modes_ss_GUI.png> <./figures/result_pfactors_GUI.png> <./figures/smallsignal_plot_GUI.pdf> <./figures/smallsignal_plot_Hz_GUI.pdf>]) (Chapters/1_3BenchmarkSmall.tex
-<figures/ANDES_banner.png, id=665, 523.9575pt x 55.70813pt>
+<figures/ANDES_banner.png, id=675, 523.9575pt x 55.70813pt>
 File: figures/ANDES_banner.png Graphic file (type png)
 <use figures/ANDES_banner.png>
 Package pdftex.def Info: figures/ANDES_banner.png  used on input line 19.
@@ -1684,7 +1684,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 32.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [38 <./figures/ANDES_banner.png>]
-<inkscape_svg/Kundur_system_no_shunt.pdf, id=675, 565.11125pt x 242.9075pt>
+<inkscape_svg/Kundur_system_no_shunt.pdf, id=685, 565.11125pt x 242.9075pt>
 File: inkscape_svg/Kundur_system_no_shunt.pdf Graphic file (type pdf)
 <use inkscape_svg/Kundur_system_no_shunt.pdf>
 Package pdftex.def Info: inkscape_svg/Kundur_system_no_shunt.pdf  used on input line 44.
@@ -1696,7 +1696,7 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 56.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [39 <./inkscape_svg/Kundur_system_no_shunt.pdf>]
-<inkscape_svg/andes_vs_veragrid_kundur.pdf, id=684, 462.72874pt x 347.2975pt>
+<inkscape_svg/andes_vs_veragrid_kundur.pdf, id=694, 462.72874pt x 347.2975pt>
 File: inkscape_svg/andes_vs_veragrid_kundur.pdf Graphic file (type pdf)
 <use inkscape_svg/andes_vs_veragrid_kundur.pdf>
 Package pdftex.def Info: inkscape_svg/andes_vs_veragrid_kundur.pdf  used on input line 117.
@@ -1736,74 +1736,121 @@ File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
 Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 100.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
-[44] (Chapters/Environment.tex)
+[44] (Chapters/Environment.tex
+Overfull \hbox (4.21616pt too wide) in paragraph at lines 13--20
+\T1/qpl/m/n/10.95 phys-i-cal in-fras-truc-ture, it nonethe-less car-ries mean-ing-ful en-vi-ron-men-tal im-pli-ca-tions. Ad-vanced
+ []
+
+
 
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
-Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 104.
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 39.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
 [45]
 
-[46
+File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
+<use ./Icones-ETSEIB-UPC/ETSEIB.png>
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 87.
+(pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
+[46]
+Overfull \hbox (6.45972pt too wide) in paragraph at lines 118--124
+\T1/qpl/m/n/10.95 per em-ployee [[][]22[][]]. The cor-re-spond-ing con-tri-bu-tion of 5 months is be-tween 625 and 833 kgCO$[]$eq.
+ []
 
 
-] (Chapters/Budget.tex)
 
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
-Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 110.
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 133.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
-[47]
+[47])
 
-[48
+File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
+<use ./Icones-ETSEIB-UPC/ETSEIB.png>
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 103.
+(pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
+[48] (Chapters/Budget.tex)
+
+File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
+<use ./Icones-ETSEIB-UPC/ETSEIB.png>
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 109.
+(pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
+[49
+
+
+]
+
+[50
 
 
 ] (Chapters/Gantt.tex) (Chapters/Conclusion.tex)
 
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
-Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 116.
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 115.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
-[49] (Chapters/Acknowledgements.tex)
+[51] (Chapters/Acknowledgements.tex)
 
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
-Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 123.
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 122.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
-[50]
+[52]
 
 File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
 <use ./Icones-ETSEIB-UPC/ETSEIB.png>
-Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 130.
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 128.
 (pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
-[51
+[53
 
 
 
 
-{C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}] (Main.aux)
+{C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}]
+Overfull \hbox (1.88379pt too wide) in paragraph at lines 129--129
+\T1/qpl/m/it/10.95 stal\TS1/qpl/m/it/10.95 ·\T1/qpl/m/it/10.95 lacions in-dus-tri-als\T1/qpl/m/n/10.95 , On-line re-source, 2023. [On-line]. Avail-able: [][]$\T1/cmtt/m/n/10.95 https : / / icaen . gencat .
+ []
+
+
+Overfull \hbox (0.63326pt too wide) in paragraph at lines 129--129
+\T1/qpl/m/n/10.95 build-ings in eu-rope,^^Q EEA Tech-ni-cal Re-port No 07/2021, 2021. [On-line]. Avail-able: [][]$\T1/cmtt/m/n/10.95 https :
+ []
+
+
+Overfull \hbox (18.73972pt too wide) in paragraph at lines 129--129
+\T1/qpl/m/n/10.95 Avail-able: [][]$\T1/cmtt/m/n/10.95 https : / / circularecology . com / news / the -[] carbon -[] emissions -[] of -[] homeworking -[]
+ []
+
+
+
+File: ./Icones-ETSEIB-UPC/ETSEIB.png Graphic file (type png)
+<use ./Icones-ETSEIB-UPC/ETSEIB.png>
+Package pdftex.def Info: ./Icones-ETSEIB-UPC/ETSEIB.png  used on input line 129.
+(pdftex.def)             Requested size: 35.83324pt x 45.16794pt.
+[54] (Main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 7BC9EE41D04C467C0D5E95671DBFAB60;5430.
+(rerunfilecheck)             Checksum: 236CC9CA62EFCC2989F88CA8DF33A9B8;5494.
 Package logreq Info: Writing requests to 'Main.run.xml'.
 \openout1 = `Main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 69281 strings out of 468130
- 1707278 string characters out of 5430633
- 3027598 words of memory out of 5000000
- 96788 multiletter control sequences out of 15000+600000
- 678516 words of font info for 101 fonts, out of 8000000 for 9000
+ 69350 strings out of 468130
+ 1709758 string characters out of 5430633
+ 3028693 words of memory out of 5000000
+ 96834 multiletter control sequences out of 15000+600000
+ 678923 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,17n,121p,1247b,3283s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\maria\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/maria/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on Main.pdf (53 pages, 1153190 bytes).
+Output written on Main.pdf (56 pages, 1194120 bytes).
 PDF statistics:
- 935 PDF objects out of 1000 (max. 8388607)
- 148 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1020 PDF objects out of 1200 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 

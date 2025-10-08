@@ -29,9 +29,10 @@
 \contentsline {subsubsection}{\numberline {2.3.1}ANDES}{38}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Test case: Kundur two-area system}{39}{subsubsection.2.3.2}%
 \contentsline {section}{\numberline {3}EMT Dynamic framework}{44}{section.3}%
-\contentsline {section}{\numberline {4}Environmental, Social, and Gender Impact}{45}{section.4}%
-\contentsline {section}{\numberline {5}Budget}{47}{section.5}%
-\contentsline {section}{\numberline {6}Time Planning}{49}{section.6}%
-\contentsline {section}{\numberline {7}Conclusion}{49}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Further Work}{49}{subsection.7.1}%
-\contentsline {section}{Acknowledgments}{50}{subsection.7.1}%
+\contentsline {section}{\numberline {4}Environmental impact}{45}{section.4}%
+\contentsline {section}{\numberline {5}Gender and social impact}{48}{section.5}%
+\contentsline {section}{\numberline {6}Budget}{49}{section.6}%
+\contentsline {section}{\numberline {7}Time Planning}{51}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{51}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Further Work}{51}{subsection.8.1}%
+\contentsline {section}{Acknowledgments}{52}{subsection.8.1}%
