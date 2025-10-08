@@ -10,7 +10,7 @@ dynamic simulation framework in Veragrid. The general simulation structure for a
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/DataModelSimulationStructure.png}
-  \caption{General simulation structure. \textit{Source: VeraGrid documentation \cite{veragrid}}}
+  \caption{General simulation structure. \textit{Source}: VeraGrid documentation \cite{veragrid}.}
   \label{fig:General_Simulation_Structure}
 \end{figure}
 
@@ -59,13 +59,13 @@ Therefore, each simulation has three main classes explained below:
 The GUI is creased using the open source program Qt Designer \cite{qt_designer}, which allows to create the GUI using a drag 
 and drop interface. The GUI implementation consists on creating a new settings page for the small-signal stability analysis,
 adding the option to run the simulation in the main tools bar, and creating a new results page to show the results of the simulation. 
-The GUI implementationis not only adding the new pages, but also connecting the GUI with the code developed in Python.
+The GUI implementation is not only adding the new pages, but also connecting the GUI with the code developed in Python.
 
 However, the first initial step is to choose an icon for the small-signal stability analysis that will be shown in the tools bar and will 
-hels users identify the option. The icon chosen is shown in Figure \ref{fig:small_signal_icon}. The icon represents a magnifying glass 
+help users identify the option. The icon chosen is shown in Figure \ref{fig:small_signal_icon}. The icon represents a magnifying glass 
 looking at a wave. The magnifying glass represents the small-signal analysis, which works around a small perturbation and a small interval
 around the operating point, so the user needs the magnifying glass to see those small perturbations. The wave represents the system variables
-represented in the time domain, which are the ones that will be analysed in the small-signal stability analysis.
+represented in the time domain, which are the ones that will be analyzed in the small-signal stability analysis.
 
 \begin{figure}[H]
   \centering
@@ -102,7 +102,7 @@ The small-signal stability analysis can only be performed if the power flow has 
   \begin{minipage}{0.35\textwidth}
     \centering
     \includegraphics[width=0.6\linewidth]{figures/results_desplegable_GUI.png}
-    \caption{Results drowdown.}
+    \caption{Results dropdown.}
     \label{fig:results_dropdown_GUI}
   \end{minipage}
   \hfill
@@ -146,9 +146,9 @@ The small-signal stability analysis can only be performed if the power flow has 
   \end{minipage}
 \end{figure}
 
-In the eigenvale plots, the user can take a look at the eigenvalues exact values
+In the eigenvalue plots, the user can take a look at the eigenvalues exact values
 by hovering the mouse over the points. Moreover, the 5\% damping ratio line is shown to help the user identify
-the unstable modes. It should also be noted that the colour of the modes is determined by their real part.
+the unstable modes. It should also be noted that the color of the modes is determined by their real part.
  Therefore, the mode with the largest real part (the dominant mode) will be the darkest, 
  and the mode with the smallest real part will be the lightest.
 

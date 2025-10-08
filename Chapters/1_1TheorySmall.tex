@@ -16,7 +16,7 @@ interactions among its elements, and its response to perturbations is influenced
 and the specific nature of the disturbance. Stability is understood around an equilibrium point and is subject to change
 under small or large disturbances.
 
-Power system stability is commonly classified depending on the pysical nature of the instability, the size of the disturbance 
+Power system stability is commonly classified depending on the physical nature of the instability, the size of the disturbance 
 considered and the devices, processes and time span that must be considered to assess stability \cite{KundurDef}.
 The combination of these factors influence the methodologies, tools and considerations used in the analysis. The main categories of power system stability are 
 described in the following enumeration.
@@ -31,23 +31,23 @@ described in the following enumeration.
     \item \textit{Voltage stability}: The capacity of the network to maintain acceptable voltage magnitudes at all buses 
     during normal operation and following disturbances, such that voltages do not decrease sustainedly. Loss of this 
     capacity manifests as progressive voltage drops and, ultimately, voltage collapse, which may force extensive load disconnection 
-    or generalised service interruption.
+    or generalized service interruption.
     \item \textit{Frequency stability}: The capability of the system to preserve a near-nominal frequency following a major 
     imbalance between generation and demand, through inertial response and secondary/tertiary control actions. Inadequate frequency 
     stability results in sustained under-frequency or over-frequency transients that can damage equipment, trigger protective disconnections, 
     and precipitate broader system failure.
 \end{itemize}
 
-Due to the incrising penetration of power electronics into the grid, two new categories of stability have been considered \cite{DefStabExtended}.
+Due to the increasing penetration of power electronics into the grid, two new categories of stability have been considered \cite{DefStabExtended}.
 
   
 \begin{itemize}
-    \item \textit{Converter-driven stability}: Refers to oscillatory behaviour caused by control interactions in converter-interfaced generation (CIG). 
+    \item \textit{Converter-driven stability}: Refers to oscillatory behavior caused by control interactions in converter-interfaced generation (CIG). 
     Fast-interaction instabilities arise from high-frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
     Slow-interaction instabilities occur at low frequencies (<10 Hz), driven by PLL and outer-loop controls, especially 
     in weak grids. Synchronization issues and power transfer limits further compromise stability. 
     These phenomena differ from classical generator dynamics and require tailored mitigation strategies
-    \item \textit{Ressonance stability}: Refers to the system's ability to withstand oscillatory 
+    \item \textit{Resonance stability}: Refers to the system's ability to withstand oscillatory 
     energy exchange without magnifying voltage, current, or torque beyond safe limits. It includes subsynchronous 
     resonance (SSR), which arises from interactions between series compensation and either mechanical shaft modes or 
     electrical generator characteristics. The mechanical form leads to torsional resonance, while the electrical 
@@ -67,7 +67,7 @@ Insufficient or negative synchronizing torque produces aperiodic, non-oscillator
 and is typically studied with time-domain numerical integration. In contrast, the absence of adequate damping torque gives rise to small-disturbance
 oscillatory instability.
 
-In the context of this thesis, the focus is on rotor angle stability, particularly small-signal stability, its eigenvaule-based characterization, 
+In the context of this thesis, the focus is on rotor angle stability, particularly small-signal stability, its eigenvalue-based characterization, 
 modal properties, and analysis methods. The following sections describe the theoretical background and methodologies used for small-signal stability 
 analysis in power systems. 
 
@@ -90,7 +90,7 @@ stability is classified into the following categories:
 
 Therefore, linearizing a non-linear system around an equilibrium point allows to study its local stability as if it was a linear system. 
 
-\subsubsection{Small-Signal stability}
+\subsubsection{Small-signal stability}
 
 Small-signal stability refers to the ability of a power system to maintain synchronism when subjected to 
 small disturbances \cite{StabilityAndControlKundur}, such as minor load changes or small faults. These small disturbances
@@ -135,8 +135,8 @@ differential equations written in the following form:
 
 Where $x$ is the state column vector that stores the state variables, $u$ is the input column vector that stores external
 signals that influence the system performance and $t$ is time. The system can also not depend on time, that system is called 
-time-invariant. It is also important to notw that state variables are the minimum amount of variables needed to represent the
-system and be able to compute its future behaviour.
+time-invariant. It is also important to note that state variables are the minimum amount of variables needed to represent the
+system and be able to compute its future behavior.
 
 Often the purpose of the state-space representation is to look at a set of the system variables, called outputs $y$. Then, a new 
 expression is added to the state-space representation:
@@ -150,7 +150,7 @@ A dynamic system can be described in many different ways depending on which vari
 and outputs. These choices shape how the system behaves mathematically and how easily can it be analyzed. For example, 
 using electrical quantities like voltage and current might be more practical for converter models, while mechanical variables 
 such as rotor angle and speed are better suited for synchronous machines. The flexibility in selecting these variables allows
-to adapt the model to the specific goals of the study while still ensuring that the essencial dynamics of the system are captured. 
+to adapt the model to the specific goals of the study while still ensuring that the essential dynamics of the system are captured. 
 
 State-space models are commonly represented in their matrix formulation as follows:
 
@@ -176,7 +176,7 @@ Where:
 \paragraph{Linearization of state-space models}
 
 
-In order to linearize a non-linear state-space model, a small perturbation is applied around the operationg point (equilibrium point).
+In order to linearize a non-linear state-space model, a small perturbation is applied around the operation point (equilibrium point).
 
 \begin{equation}
    \mathcal{X} \overset{\triangle}{=} x-x^*
@@ -259,7 +259,7 @@ For simplicity, the perturbation notation is often omitted, and the linearized s
 
 \subsubsection{DAE to state-space representation}
 
-In power systems, the dynamic behaviour is mathematically represented by a set of Differential-Algebraic Equations (DAEs) 
+In power systems, the dynamic behavior is mathematically represented by a set of Differential-Algebraic Equations (DAEs) 
 that capture the interaction between dynamic components and network constraints. This formulation naturally arises because power systems
  combine elements with both dynamic and instantaneous responses.
 
@@ -316,7 +316,7 @@ From the state matrix the stability assessment can be performed as explained in 
 \subsubsection{Stability assessment: Liapunov's first method}
 
 The stability of a system can be studied in large-signal and small-signal therms. Stability \textit{in the large} needs to study the whole non-linear system. This method is complex and requires a high
-computational effort. On the other hand, stability \textit{in the small} studies the system behaviour around an equilibrium point. This method is simpler and less computationally intensive, but it only 
+computational effort. On the other hand, stability \textit{in the small} studies the system behavior around an equilibrium point. This method is simpler and less computationally intensive, but it only 
 provides information about the local stability of the system \cite{StabilityAndControlKundur}. Computing the eigenvalues of the state matrix $A$ allows to determine the small-signal stability of the system.
 
 Eigenvalue analysis and participation factors (PF) are key tools for identifying dominant modes and evaluating system stability. These methods are well established in conventional 
@@ -364,7 +364,7 @@ they indicate how much a given state contributes to a specific mode and, convers
 This dual interpretation makes participation factors a valuable tool for understanding the internal structure of system dynamics \cite{KonovaPF}.
 
 In the context of power systems, participation factors play a key role in identifying the physical origin of oscillations and instabilities.
-By analysing these factors, it is possible to determine which components—such as generators, controllers, or converter units—are most involved in poorly damped or unstable modes.
+By analyzing these factors, it is possible to determine which components—such as generators, controllers, or converter units—are most involved in poorly damped or unstable modes.
 This information supports targeted actions for control tuning, model validation, and stability improvement. Participation factors are calculated as follows:
 
 \begin{equation}
@@ -374,8 +374,8 @@ PF_{i,k} = W_{i,k} \cdot V_{i,k}
 Where:
 \begin{itemize}
   \item $PF_{i,k}$ is the participation factor of the $k$-th state variable to the $i$-th mode.
-  \item $W_{i,k}$ is the left eigenvector of the $k$-th state variable to the $i$-th mode of matrix $A$. It satisifies $w^T A = \lambda w^T$.
-  \item $V_{i,k}$ is the right eigenvector of the $k$-th state variable to the $i$-th mode of matrix $A$. It satisifies $A v= \lambda v$.
+  \item $W_{i,k}$ is the left eigenvector of the $k$-th state variable to the $i$-th mode of matrix $A$. It satisfies $w^T A = \lambda w^T$.
+  \item $V_{i,k}$ is the right eigenvector of the $k$-th state variable to the $i$-th mode of matrix $A$. It satisfies $A v= \lambda v$.
 \end{itemize}
 
 The graphical representation of the eigenvalues in the complex plane, provides a visual tool for assessing system stability. Then, it is possible to identify

@@ -53,28 +53,29 @@
       \verb https://www.eroots.io/veragrid
       \endverb
     \endentry
-    \entry{PolitoDAE}{inproceedings}{}{}
+    \entry{CasellaDAE}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=52a2b599044825deb6f8f29f30c5390b}{%
-           family={Zanino},
-           familyi={Z\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
+        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
       }
-      \strng{namehash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{fullhash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{fullhashraw}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{bibnamehash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{authorbibnamehash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{authornamehash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{authorfullhash}{52a2b599044825deb6f8f29f30c5390b}
-      \strng{authorfullhashraw}{52a2b599044825deb6f8f29f30c5390b}
+      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
       \field{sortinit}{9}
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Modelica Mini Course Lecture Notes}
-      \field{title}{Properties of Differential-Algebraic Equations Systems (DAE)}
+      \field{howpublished}{Lecture slides, Dipartimento di Elettronica e Informazione, Politecnico di Milano}
+      \field{note}{Available at \url{https://staff.polito.it/roberto.zanino/sub1/teach_files/modelica_minicourse/02\%20-\%20DAE\%20Systems.pdf}.}
+      \field{title}{Properties of Differential-Algebraic Equation Systems (DAE)}
       \field{year}{2010}
     \endentry
     \entry{SauerPaiBook}{book}{}{}
@@ -107,6 +108,48 @@
       \field{labeltitlesource}{title}
       \field{title}{Power System Dynamics and Stability}
       \field{year}{1997}
+    \endentry
+    \entry{SymbolicHantao}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ecec65b415b19b3621e8d452315cd17f}{%
+           family={Cui},
+           familyi={C\bibinitperiod},
+           given={Hantao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=50d012f9296d486c31076084ff77e333}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Fangxing},
+           giveni={F\bibinitperiod}}}%
+        {{hash=402a97251064f641a5cbd4b76df519d7}{%
+           family={Tomsovic},
+           familyi={T\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab8dca7225c5ba4306b65ef5ff745889}
+      \strng{fullhash}{124e8edb88345350d4e5cbcb18547d98}
+      \strng{fullhashraw}{124e8edb88345350d4e5cbcb18547d98}
+      \strng{bibnamehash}{124e8edb88345350d4e5cbcb18547d98}
+      \strng{authorbibnamehash}{124e8edb88345350d4e5cbcb18547d98}
+      \strng{authornamehash}{ab8dca7225c5ba4306b65ef5ff745889}
+      \strng{authorfullhash}{124e8edb88345350d4e5cbcb18547d98}
+      \strng{authorfullhashraw}{124e8edb88345350d4e5cbcb18547d98}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Power Systems}
+      \field{number}{2}
+      \field{title}{Hybrid Symbolic-Numeric Framework for Power System Modeling and Analysis}
+      \field{volume}{36}
+      \field{year}{2021}
+      \field{pages}{1373\bibrangedash 1384}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/TPWRS.2020.3017019
+      \endverb
+      \keyw{Power systems,open-source,DAE modeling,symbolic calculation,time-domain simulation,ANDES library}
     \endentry
     \entry{StabilityAndControlKundur}{book}{}{}
       \name{author}{2}{}{%

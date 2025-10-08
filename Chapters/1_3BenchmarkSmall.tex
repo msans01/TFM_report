@@ -1,8 +1,13 @@
 %BENCHMARK SMALL-SIGNAL STABILITY ANALYSIS
 
+The validation of the developed implementation is performed by comparing its results with those obtained using 
+\textit{Advanced Network Dynamics and Equilibrium Simulator} (ANDES). The comparison is carried out on the classical Kundur two-area test system, 
+a standard benchmark for dynamic systems, enabling a direct verification the small-signal stability analysis between both tools.
+
+
 \subsubsection{ANDES}
 
-Thanks to its combination of symbolic precision and robust numerical performance, the \textit{Advanced Network Dynamics and Equilibrium Simulator} (ANDES) 
+Thanks to its combination of symbolic precision and robust numerical performance, \textit{Advanced Network Dynamics and Equilibrium Simulator} (ANDES) 
 provides an excellent reference platform for the validation of dynamic and stability analysis tools in modern power system research. 
 Developed as an open-source framework for modelling differential-algebraic systems, ANDES enables a fully symbolic formulation of network equations and 
 control models, which ensures reproducibility and analytical transparency across a wide range of test systems. 
@@ -12,10 +17,10 @@ used here as the reference software against which the performance of VeraGrid ha
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/ANDES_banner.png}
-    \caption{ANDES logo. \textit{Source: ANDES documentation \cite{andes}.}}
+    \caption{ANDES logo. \textit{Source}: ANDES documentation \cite{andes}.}
 \end{figure}
 
-VeraGrid imports ANDES models directly from standardised \texttt{.json} files, allowing the seamless translation of system data, dynamic models, 
+VeraGrid imports ANDES models directly from standardized \texttt{.json} files, allowing the seamless translation of system data, dynamic models, 
 and numerical parameters. Once imported, VeraGrid performs the ANDES small-signal stability computations internally, based on ANDES numerical engine. 
 The results obtained from VeraGrid have been compared with those from ANDES. VeraGrid successfully reproduces the full set of eigenvalues,
 damping ratios, and oscillation frequencies computed by ANDES, confirming the equivalence of its linearisation procedures and numerical solvers. 
@@ -181,19 +186,19 @@ In this case, two pairs of complex conjugate eigenvalues located at $-0,3938 \pm
  of $1,1519$ and $1,1310$~Hz respectively with damping ratios near $5,5\%$. These modes involve mainly the rotor angles and 
  speeds of generators within each area, indicating local electromechanical interactions between closely coupled machines. The higher frequencies reflect the local nature of these oscillations, which are typically faster than inter-area modes due to the stronger electrical coupling and lower inertia involved. 
  The relatively low damping (just above the threshold 5\%) means that oscillations at these frequencies would decay slowly after a 
- disturbance, and therefore these modes are usually targeted for improvement through power system stabilisers designed to increase 
+ disturbance, and therefore these modes are usually targeted for improvement through power system stabilizers designed to increase 
  the effective damping while maintaining the natural frequency range around one hertz.
 
 The inter-area mode, represented by the eigenvalue pair $-0,3931 \pm j2,7838$, exhibits a frequency of  $0,4431$~Hz and a damping 
 ratio of $13,98\%$. The participation factors show that the mode involves the collective motion of generators in one area oscillating 
-against those in the other, with all machines in each group moving coherently. This behaviour reflects the exchange of power 
+against those in the other, with all machines in each group moving coherently. This behavior reflects the exchange of power 
 through the tie-line connecting the two subsystems, which gives rise to slow, large-scale oscillations of the inter-area type. 
 The relatively higher damping compared with the local modes suggests that the tie-line 
-contribute sufficient stabilising torque under the present operating point. Nevertheless, variations in power transfer or network 
+contribute sufficient stabilizing torque under the present operating point. Nevertheless, variations in power transfer or network 
 strength could reduce this damping and make the inter-area oscillation more critical, as observed in many large interconnected grids.
 
 Among the real modes, one negative mode at approximately $-0,7926$ represents a non-oscillatory but fast-decaying mode, 
-mainly related to the mechanical dynamics of the generating units. Its time constant ($\tau = 1/Re(\lambda)$), around $1,26$~s, indicates a rapid stabilising
+mainly related to the mechanical dynamics of the generating units. Its time constant ($\tau = 1/Re(\lambda)$), around $1,26$~s, indicates a rapid stabilizing
 effect that brings the system back to equilibrium after active-power mismatches or primary control actions. This mode is considered 
 dominant in the sense that it governs the short-term return to balance but does not limit the overall stability margins of the system.
 

@@ -39,8 +39,8 @@
       \strng{authornamehash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhashraw}{01468113d9b6fb6865fdf685b31832b4}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Combines AC/DC power flow, optimisation, and time-series simulation in an open and extensible architecture.}
@@ -52,6 +52,62 @@
       \verb{url}
       \verb https://www.eroots.io/veragrid
       \endverb
+    \endentry
+    \entry{CasellaDAE}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Lecture slides, Dipartimento di Elettronica e Informazione, Politecnico di Milano}
+      \field{note}{Available at \url{https://staff.polito.it/roberto.zanino/sub1/teach_files/modelica_minicourse/02%20-%20DAE%20Systems.pdf}.}
+      \field{title}{Properties of Differential-Algebraic Equation Systems (DAE)}
+      \field{year}{2010}
+    \endentry
+    \entry{SauerPaiBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=5de2b455a89c970c334b8bd78ac2e5a5}{%
+           family={Sauer},
+           familyi={S\bibinitperiod},
+           given={P.\bibnamedelimi W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=86cbebb4d2ec295d66d769a4423a05a1}{%
+           family={Pai},
+           familyi={P\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{fullhash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{fullhashraw}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{bibnamehash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{authorbibnamehash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{authornamehash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{authorfullhash}{8a02578e8c2034cacd35327a42b6b64b}
+      \strng{authorfullhashraw}{8a02578e8c2034cacd35327a42b6b64b}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Power System Dynamics and Stability}
+      \field{year}{1997}
     \endentry
     \entry{StabilityAndControlKundur}{book}{}{}
       \name{author}{2}{}{%
@@ -83,8 +139,8 @@
       \strng{authornamehash}{78f96d6a82f5d716ff83cf2098c674d0}
       \strng{authorfullhash}{78f96d6a82f5d716ff83cf2098c674d0}
       \strng{authorfullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -164,8 +220,8 @@
       \strng{authornamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authorfullhash}{6d434dcd73a1feb7d2ee305450efd4b4}
       \strng{authorfullhashraw}{6d434dcd73a1feb7d2ee305450efd4b4}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -409,6 +465,41 @@
       \endverb
       \verb{url}
       \verb https://www.qt.io/product/development-tools
+      \endverb
+    \endentry
+    \entry{andes}{software}{}{}
+      \name{author}{1}{}{%
+        {{hash=317cfa4a68c58f8fdc04c1a848390ccb}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           given={Hongzhi\bibnamedelima Zhang},
+           giveni={H\bibinitperiod\bibinitdelim Z\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Tennessee, Knoxville}%
+      }
+      \strng{namehash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{fullhash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{fullhashraw}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{bibnamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{authorbibnamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{authornamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{authorfullhash}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{authorfullhashraw}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at \url{https://docs.andes.app}.}
+      \field{title}{ANDES: Advanced Network Dynamics and Equilibrium Simulator}
+      \field{version}{v1.8.0}
+      \verb{urlraw}
+      \verb https://docs.andes.app/en/stable/getting_started/index.html
+      \endverb
+      \verb{url}
+      \verb https://docs.andes.app/en/stable/getting_started/index.html
       \endverb
     \endentry
   \enddatalist
