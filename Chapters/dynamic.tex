@@ -1,0 +1,442 @@
+
+\subsection{Dynamic framework}
+
+The evolution of power systems towards greater complexity and decentralization has introduced new challenges in modeling and analyzing system dynamics. 
+Traditional approaches, which often relied on simplifying assumptions and linear models, are increasingly inadequate for capturing the intricate behaviors 
+exhibited by modern grids. These grids, characterized by high penetration of Inverter-Based Resources (IBRs), such as photovoltaic and wind generation,
+needing more detailed and accurate simulation methods to ensure reliable operation and stability~\cite{LaraTDS}.
+
+Time-domain simulations (TDS) have become a key point in the study of power system dynamics, providing a temporal perspective on system behavior following disturbances.
+Unlike steady-state analyses, TDS allows for the examination of transient phenomena, including voltage sags, frequency deviations, and oscillatory modes, 
+which are critical for assessing system stability and performance. The ability to simulate the system's response over time enables engineers to design and test control strategies,
+protection schemes, and operational protocols in a virtual environment before implementation in the field.
+
+A TDS requires the specification of two parts: the model of the system which must include the differential equations that describe the system and the
+integration algorithm to be used to solve those equations over time~\cite{LaraTDS}. 
+
+The system model is a set of dynamic equations that represent and interconnect the components of a system expressed with differential equations. Those
+equations are divided between the device equations that store the state of the system and the circuit dynamics of the network. Depending on the type of
+simulation to be performed, the model of the system can have many different forms, mainly influenced by simplifications and transformations of the system equations and 
+variables. A general explanation of the main methods to simplify and transform systems based on~\cite{LaraTDS} are listed below.
+
+\begin{itemize}
+    \item \textit{Averaging dynamics}: These simplifying methods replace fast dynamics of complicated time-varying variables with their average value. 
+    An example is setting the system's frequency to its averaged value or replacing discontinuous switching in a converter with its average behavior. 
+    Three main methods are distinguished:
+    \begin{itemize}
+        \item \textit{Steady-state phasors}: Commonly used in engineering using the wave's root-mean-square value instead of the instantaneous value. 
+        It requires stationary conditions and homogeneous frequency.
+        \item \textit{Dynamic phasors}: Used to describe the behavior of time-varying periodic signals, particularly under conditions where the system frequency 
+        or amplitude may vary slowly compared to the fundamental period. These capture both the slowly-varying average and instantaneous phase of the signal. 
+        Three different approaches are considered (Fourier approach, time-varying phasors, and Shifted Frequency Analysis (SFA) based), 
+        but all of them must ensure that the integral of the signal over the studied period is well-defined and that the signal is band-limited for a given frequency.
+        \item \textit{Three-Phase signals \& models}: For three-phase systems, SFA is applied phase by phase to a three-phase \textit{abc} representation to study unbalanced systems. 
+        Using the Fortescue transform~\cite{Fortescue}, multi-phase quantities (voltages, currents, electromagnetic fluxes, and impedances) with a common system frequency $w_s$ 
+        and offset $\theta$ are represented in a two-dimensional vector dividing the positive and negative-frequency. 
+        It should be noted that in balanced systems, the signal phasor is completely determined by the positive-sequence phasor.
+    \end{itemize}
+
+    \item \textit{Reference frame transformations}: Such as the Park Transform (or \textit{dq0} transform), which allow the representation of time-variant signals as quasi-static ones, simplifying its analysis.
+
+    \item \textit{Singular Perturbation Theory (SPT)}: Used to analyze dynamic systems with widely separated time scales by decomposing them into fast and slow subsystems. 
+    In power systems, SPT is applied to separate the fast transients of synchronous machines and converters (milliseconds) from the slow dynamics of controllers 
+    and system frequency (seconds to minutes), enabling more efficient RMS and small-signal analyses.
+\end{itemize}
+
+
+\subsubsection{Types of TDS}
+
+In power systems, time-domain simulations can generally be divided into two main categories~\cite{LaraTDS}. 
+
+The first category, \textit{Quasi-Static Phasor (QSP) simulations}, models the transmission network dynamics in an algebraic manner by considering discrete transitions
+between successive steady-state operating points, in other words, QSP focus on dynamics that do not deviate much from steady-state frequency.
+These simulations are primarily used to analyze low-frequency phenomena, such as inertial responses and frequency regulation. 
+Many different options are exposed for QSP:
+
+\begin{itemize}
+    \item \textit{RMS balanced} or \textit{Positive sequence}: The system is modeled using a single phase, the positive sequence. The models are formulated as DAEs of the general form.
+     These types of simulators are primarily designed for the analysis of machine angles in balanced transmission systems. 
+    \item \textit{RMS unbalanced}: These simulations are applied to networks with asymmetrical configurations. The three sequence networks are simplified according to the type 
+    of fault being analyzed. Such models are typically used to assess the system's transient response both during and after unbalanced fault events.
+    \item \textit{RMS Dynamic Phasors}: This approach models the network using Fourier dynamic phasors, representing each harmonic component with a subset of differential-algebraic equations. 
+    In most RMS applications, the derivative terms of the network are neglected, as they correspond to faster dynamics than those of the connected devices. 
+    The model's accuracy depends on the number of harmonics included and on whether the dynamics around each harmonic allow this simplification.
+    \item \textit{dq0-Model with Algebraic Network}: This simulation approach applies a dq0 transformation and assumes steady-state conditions by neglecting the derivative terms
+     of the network. In balanced systems, it is equivalent to the positive-sequence model. For asymmetric networks or when including harmonics, the method can require larger
+     integration steps, and its usefulness is limited due to the resulting time-varying behavior.
+\end{itemize}
+
+
+The second category, \textit{Electromagnetic Transient (EMT) simulations}: These models incorporate detailed system dynamics to capture fast transient phenomena and deviations 
+from steady-state conditions. They are commonly used to study high-frequency events such as transmission line dynamics, converter switching, machine flux behavior, 
+overvoltages, harmonic propagation, sub-synchronous resonance, transient recovery voltages, and external disturbances like lightning surges. 
+A variety of modeling and computational techniques are employed to balance accuracy with the computational cost of these simulations.
+Many different options are exposed for EMT:
+
+\begin{itemize}
+    \item \textit{Waveform} or \textit{abc-simulations}: They represent the full voltage and current waveforms throughout the simulation, producing a fully time-varying system. 
+Waveform simulations require careful initialization and selection of integration techniques, and typically employ detailed transmission line models, such as Bergeron or frequency-dependent
+representations, to capture fast electromagnetic phenomena.
+    \item \textit{dq0-model}: This approach models the network in a rotating reference frame using a transformed $\pi$-model. In balanced systems, the model produces a time-invariant 
+    formulation and shares the same initialization routine as the positive-sequence RMS model. Since the network is represented using only ODEs, the system becomes a set of 
+    stiff differential equations due to the multi-rate dynamics, often necessitating simultaneous-implicit solution methods. However, the advantages of this 
+    formulation diminish in unbalanced networks or when harmonics are included, as the model then produces time-varying signals similar to full waveform simulations.
+    \item \textit{Dynamic Phasors}: This method models power system transients using dynamic phasors, ideal for narrow-band signals around harmonic frequencies. 
+    It can produce time-invariant models with additional states or time-variant models for advanced analyses like small-signal sensitivity studies. 
+    The approach improves computational efficiency when reducing bandwidth outweighs the cost of extra states.
+\end{itemize}
+
+In this thesis, and within the context of the VeraGrid project, the simulations primarily rely on RMS balanced models, which are already implemented in VeraGrid. 
+Additionally, EMT waveform  or \textit{abc} domain simulations will be developed as a foundational part of this work.
+
+
+\subsection{Differential-Algebraic Equations (DAEs)}
+
+At the core of time-domain simulations lie the mathematical models that describe the system's dynamics. These models are typically formulated as Differential-Algebraic Equations
+(DAEs), which combine differential equations that represent the system's dynamic behavior with algebraic equations that describe instantaneous relationships between system variables. 
+In contrast, Ordinary Differential Equations (ODEs) are used to model systems where all variables change continuously over time without algebraic constraints. 
+The choice between DAEs and ODEs depends on the specific characteristics of the system being modeled and the phenomena of interest.
+
+In many dynamic systems, including power systems, their model is not only composed of purely differential equations but also algebraic constraints linking the state
+variables. Such systems are naturally represented by differential-algebraic equations (DAEs). Formally, a DAE is an equation of the form: 
+
+\begin{equation}
+  F\bigl(\dot{x}(t), x(t), y(t), t\bigr) = 0
+\end{equation}
+
+
+Where $x(t)\in \mathbb{R}^n$ are the differential variables, $y(t)\in \mathbb{R}^m$ are algebraic variables, and the function
+ $F$ encodes both the differential and algebraic relations. 
+In contrast to an ordinary differential equation (ODE), not all derivatives $\dot{x}$ can be explicitly solved from the system because some variables appear only 
+algebraically, that is, without derivative~\cite{CasellaDAE}.
+
+One common formulation is the so-called semi-explicit DAE:  
+\begin{equation}
+\begin{cases}
+\dot x = f\bigl(x,\,y,\,t\bigr) \\
+0 = g\bigl(x,\,y,\,t\bigr)
+\end{cases}
+\end{equation} 
+
+Where $f\colon \mathbb{R}^{n+m+1} \to \mathbb{R}^n$ and $g\colon \mathbb{R}^{n+m+1} \to \mathbb{R}^m$. In this form, one treats some variables $x$ as dynamic and others $y$
+as constrained by algebraic equations. The condition to solve the DAE is that the partial jacobian $\partial g / \partial y$ is nonsingular so that $y$ can be locally solved as
+a function of $x$ and $t$ \cite{CasellaDAE}. If the partial jacobian is singular an iterative process must be done re-casting the problem until it is possible to solve.  
+
+An alternative is the fully implicit form:  
+
+\begin{equation}
+f\bigl(\dot{x},\, x,\, y,\, t \bigr) = 0
+\end{equation}
+
+With no explicit separation of differential and algebraic parts. In that representation, one works directly with the combined vector $(\dot{x}, x, y)$ and the solver must treat 
+the singularity in $\partial f / \partial \dot{x}$. Implicit DAEs are more general and often arise in multiphysics problems and constrained mechanical systems~\cite{CasellaDAE}.  
+
+ 
+In power system dynamics, the network and algebraic constraints ( Kirchhoff's current law, network admittance equations, etc.) naturally provide algebraic equations, 
+while generator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is  
+
+\begin{equation}
+\begin{cases}
+\dot{x} = f(x,\, y) \\
+0 = g(x,\, y)
+\end{cases}
+\end{equation}
+
+Where $x$ includes rotor angles, speed deviations, internal voltages, control states, and $y$ includes bus voltages, phase angles, algebraic currents, and so on~\cite{SauerPaiBook}. 
+The coupling is strong: every time step, the algebraic network equations must be solved together with the differential updates, typically via Newton-Raphson or other Newton-based 
+solvers applied to the full system jacobian.   
+
+This DAE-based representation ensures that the physical constraints of the network are never violated, and that stability and modal analysis reflect the full coupled system behavior,
+rather than an oversimplified reduced ODE form.  
+
+\subsection{Symbolic framework}
+
+The development of modern power system simulation tools has progressively incorporated symbolic computation to enhance both the analytical transparency and numerical
+robustness of dynamic models. A symbolic framework refers to an environment in which the mathematical equations describing a physical system are manipulated symbolically
+before numerical evaluation. This approach enables the explicit representation of the differential and algebraic equations governing power system dynamics, allowing the 
+automatic derivation of jacobians and linearized models directly from the symbolic expressions.
+Such symbolic processing bridges the gap between manual analytical formulation and automated numerical computation, ensuring consistency and reproducibility across 
+different analysis tasks~\cite{SymbolicHantao}.
+
+In general, a symbolic modeling framework treats system equations as algebraic entities rather than arrays of numbers. Each state variable, parameter, and equation
+is represented symbolically and stored in structured form. Once the symbolic system is constructed, operations such as differentiation, substitution, and matrix assembly
+can be performed analytically. These expressions can then be compiled into efficient numerical routines to be executed by solvers. 
+This two-step process, symbolic formulation followed by numerical evaluation, provides the flexibility to modify models, perform analytical checks
+and generate adapted code for various simulation modes without redefining the mathematical structure.
+
+Power systems are naturally suited to this formulation, as their behavior is described by a set of coupled DAEs representing both dynamic components and network constraints.
+In this context, generators, exciters, governors, and control systems contribute differential equations, whereas network variables, bus voltages, currents, and algebraic 
+constraints from Kirchhoff's laws; are represented algebraically. By expressing these components symbolically, they can be automatically assembled into a unified 
+system model and linearized analytically to obtain small-signal representations. This methodology ensures that the global model preserves physical consistency and that 
+linearization results, such as eigenvalues and participation factors, are computed with exact analytical derivatives rather than numerical approximations.
+
+It should be noted that the DAEs representing each element and device in the network can be simplified or extended depending on the desired level of modelling accuracy. 
+A trade-off must therefore be established between computational complexity and numerical accuracy. In practical applications, simplified formulations are often used for 
+large-scale steady-state or RMS simulations, whereas more detailed dynamic representations are required for transient and small-signal stability studies. The flexibility 
+of the symbolic framework allows the modeller to adapt the formulation of each component accordingly, preserving analytical consistency while optimizing computational 
+performance.
+
+\subsection{RMS simulations in VeraGrid}
+
+In the context of VeraGrid, time-domain simulations have been implemented to model the dynamic behavior of power systems.
+The framework supports balanced Root Mean Square (RMS) simulations, which are suitable for analyzing low-frequency dynamics in systems dominated by synchronous machines.
+The implementation includes:
+
+\begin{itemize}
+    \item \textit{Symbolic framework}: A new set of classes is created in order to be able to operate in the symbolic framework
+    \item \textit{Models}: Detailed representations of system components, including generators, transformers, and transmission lines, are developed to capture their dynamic
+    responses accurately.
+    \item \textit{Solver}: The implicit Euler integration method is employed to solve the system's DAEs, ensuring stable and accurate simulation results.
+    \item \textit{Initialization}: Procedures are established to determine the steady-state operating point of the system before introducing disturbances,
+    providing a consistent starting point for dynamic simulations.
+\end{itemize}
+
+This subsection acts as a summary of the already done work on RMS simulations in Veragrid.
+
+\subsubsection{Symbolic framework}
+To implement the symbolic formulation in practice, VeraGrid defines a minimal hierarchy  of classes that abstract mathematical entities such as variables,
+ constants, and operators. The main classes are stated below.
+
+\begin{itemize}
+  \item \textit{Expr}: Expression is an abstract class that can be used as any expression for a node. Depending of it's nature it can work as many different objects.
+  \item \textit{Var}: Variables are stored as their name (string) and their value set as Number (integer, float or complex number) or \textit{Expr}. This allows values stored in
+  \textit{Var} to be able to change. Some of the variables can be assigned as \textit{Dynamic variable} which means those variables are part of an other device but are also used in
+  the DAEs of the device created.
+  \item \textit{Const}: Constants are stored as their name (string) and their value set as Number (integer, float or complex number). Those are frozen parameters of the grid.
+  \item \textit{BinOp}: Binary operator stores each possibility of binary operation. The following arithmetic operations are defined: addition, subtraction, multiplication, division and exponentiation.
+  \item \textit{Func}: Functions store each individual function possible that can be part of an equation: sinus, cosinus, tangent, logarithm, real or imaginary parts among others.
+\end{itemize}
+
+All these elements are unified to create \textit{Blocks}, a set of differential and algebraic equations and stated variables that form the symbolic representation of the DAEs of each
+element. Blocks also include a set of initializing variables and equations and fixed variables and equations that help initialize the DAEs and allow a fastest solution. All variables in a Block are stored as 
+children of that Block in order to allow recursivity. This recursive structure means that each block can contain child elements (either variables or 
+other blocks) allowing a hierarchical representation of the power system. Such a design enables complex devices and networks to be constructed from smaller symbolic components 
+while maintaining full analytical traceability. Moreover, parameters are also defined as the variables or constants affected by events that can be added to the grid.
+
+\subsubsection{RMS models}
+
+VeraGrid's version of the symbolic framework includes three different types of elements in the grid: buses, injections and branches. Injections include all types of elements
+that contribute actively to the system: generators, loads, batteries, shunts... Branches include the devices that connect buses: lines, transformers, converters... 
+
+In this subsection, the RMS models of the grid elements in VeraGrid are exposed.
+
+\paragraph{Injections}
+
+\begin{itemize}
+\item \textbf{Static load}
+The model for the static load is quite simple since $P$ and $Q$ are meant to be constant. Therefore, the algebraic equations
+corresponding to the load are only initializing the power to its value.
+\begin{equation}
+\begin{cases}
+P_l -P_{l,0} = 0\\
+Q_l -Q_{l,0} = 0
+\end{cases}
+\label{eq:alg_eq_load}
+\end{equation}
+
+Where:
+\begin{itemize}
+  \item $P_l$: (Algebraic variable) Active power consumed by the load [MW].
+  \item $Q_l$: (Algebraic variable) Reactive power consumed by the load [Mvar].
+  \item $P_{l,0}$: (Algebraic variable) Active power consumed by the load at time 0 [MW].
+  \item $Q_{l,0}$: (Algebraic variable) Reactive power consumed by the load at time 0 [Mvar].
+\end{itemize}
+
+\item  \textbf{Shunt}
+For the shunt, the algebraic equations are also simple. They define the formula for the active and reactive power.
+
+\begin{equation}
+\begin{cases}
+P_{sh} - g V^2 = 0 \\
+P_{sh} - b V^2 = 0
+\end{cases}
+\label{eq:alg_eq_shunt}
+\end{equation}
+
+Where:
+\begin{itemize}
+  \item $P_{sh}$: (Algebraic variable) Active power injected or absorbed by the shunt [MW].
+  \item $Q_{sh}$: (Algebraic variable) Reactive power injected or absorbed by the shunt [Mvar].
+  \item $g$: (Constant parameter) Shunt conductance [p.u.].
+  \item $b$: (Constant parameter) Shunt susceptance [p.u.].
+  \item $V$: (Constant parameter) Shunt voltage [p.u.].
+\end{itemize}
+
+\item \textbf{Synchronous generator}
+The synchronous generator is defined by a set of differential(or state) and algebraic equations. 
+
+
+\begin{equation}
+\begin{cases}
+\delta = 2\pi f\,(\omega - \omega_{ref}) \\
+\omega = \dfrac{\Gamma_m - \Gamma_e - D(\omega - \omega_{ref})}{M}
+\end{cases}
+\label{eq:diff_eq_gen}
+\end{equation}
+
+\begin{equation}
+\begin{cases}
+\psi_d - (R \cdot i_q + v_q) = 0 \\
+\psi_q + (R\cdot i_d + v_d) = 0\\
+0 - ( \psi_d + X \cdot i_d - v_f ) = 0\\
+0 - (\psi_q + X \cdot i_q) = 0 \\
+v_d - (V \cdot \sin(\delta - \theta)) = 0\\
+v_q - (V \cdot \cos(\delta - \theta)) = 0\\
+\Gamma_e - ( \psi_d \cdot i_q - \psi_q \cdot i_d ) = 0\\
+P_g - (v_d \cdot i_d + v_q \cdot i_q) = 0\\
+Q_g - (v_q \cdot i_d - v_d \cdot i_q) = 0 \\
+\Gamma_m - (\Gamma_{m0} + K_p(\omega - \omega_{ref}) + K_i \cdot e_t) = 0\\
+2\pi f \cdot e_t - \delta = 0
+\end{cases}
+\label{eq:alg_eq_gen}
+\end{equation}
+
+Where:
+\begin{itemize}
+  \item $\delta$: (State variable) Rotor electrical angle with respect to the synchronous reference frame [rad].
+  \item $\omega$: (State variable) Rotor angular speed [rad/s].
+  \item $P_g$: (Algebraic variable) Active electrical power delivered by the generator [MW].
+  \item $Q_g$: (Algebraic variable) Reactive electrical power delivered by the generator [Mvar].
+  \item $v_d$: (Algebraic variable) d-axis stator voltage component in Park reference frame [p.u.].
+  \item $v_q$: (Algebraic variable) q-axis stator voltage component in Park reference frame [p.u.].
+  \item $i_d$: (Algebraic variable) d-axis stator current component in Park reference frame [p.u.].
+  \item $i_q$: (Algebraic variable) q-axis stator current component in Park reference frame [p.u.].
+  \item $\psi_d$: (Algebraic variable) d-axis stator flux linkage in Park reference frame [p.u.].
+  \item $\psi_q$: (Algebraic variable) q-axis stator flux linkage in Park reference frame[p.u.].
+  \item $\Gamma_e$: (Algebraic variable) Electromagnetic torque produced by the generator [p.u.].
+  \item $\Gamma_m$: (Algebraic variable) Mechanical torque applied to the rotor [p.u.].
+  \item $e_t$: (Algebraic variable) Integral term of the governor controller, representing the accumulated speed error [rad/s].
+  \item $V$: (Algebraic variable from the bus) Magnitude of the terminal voltage phasor [p.u.].
+  \item $\theta$: (Algebraic variable from the bus) Angle of the terminal voltage phasor with respect to the reference frame [rad].
+  \item $\Gamma_{m,0}$: (Fixed variable) Initial mechanical torque reference [p.u.].
+  \item $f$: (Constant parameter) Nominal electrical frequency [Hz].
+  \item $D$: (Constant parameter) Damping coefficient representing mechanical damping effects [p.u.].
+  \item $M$: (Constant parameter) Inertia constant of the rotor [p.u.·s].
+  \item $R$: (Constant parameter) Stator winding resistance [p.u.].
+  \item $X$: (Constant parameter) Stator synchronous reactance [p.u.].
+  \item $v_f$: (Constant parameter) Field excitation voltage [p.u.].
+  \item $K_p$: (Constant parameter) Proportional gain of the speed governor control [-].
+  \item $K_i$: (Constant parameter) Integral gain of the speed governor control [-].
+\end{itemize}
+\end{itemize}
+
+\paragraph{Branches}
+
+\begin{itemize}
+
+\item \textbf{Line}
+The line algebraic equations are the active and reactive power equations corresponding to the $\pi$ model of lines.
+In this case, the RMS model for the lines is also valid for the transformers.
+
+\begin{equation}
+\begin{cases}
+P_f &= V_{f}^2 \, g - g \, V_{f} V_{t} \cos(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \cos\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
+Q_f &= V_{f}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{f} V_{t} \sin(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \sin\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
+P_t &= V_{t}^2 \, g - g \, V_{t} V_{f} \cos(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \cos\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big) \\
+Q_t &= V_{t}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{t} V_{f} \sin(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \sin\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big)
+\end{cases}
+\label{eq:alg_eq_line}
+\end{equation}
+
+Where:
+\begin{itemize}
+  \item $P_{f}$: (Algebraic variable) Active power at the beginning of the line (at the bus defined as beginning) [MW].
+  \item $Q_{f}$: (Algebraic variable)Reactive power at the beginning of the line (at the bus defined as beginning) [Mvar].
+  \item $P_{t}$: (Algebraic variable) Active power at the end of the line (at the bus defined as end) [MW].
+  \item $Q_{t}$: (Algebraic variable)Reactive power at the end of the line (at the bus defined as end) [Mvar].
+  \item $V_f$: (Algebraic variable) Voltage magnitude at the beginning of the line (at the bus defined as beginning) [p.u.].
+  \item $V_t$: (Algebraic variable) Voltage magnitude at the end of the line (at the bus defined as end) [p.u.].
+  \item $\theta_f$: (Algebraic variable) Voltage angle at the beginning of the line (at the bus defined as beginning) [rad].
+  \item $\theta_t$: (Algebraic variable) Voltage angle at the end of the line (at the bus defined as end) [rad].
+  \item $g$: (Constant parameter) Line conductance [p.u.].
+  \item $b$: (Constant parameter) Line susceptance [p.u.].
+  \item $b_{sh}$: (Constant parameter) Shunt susceptance [p.u.].
+\end{itemize}
+
+\end{itemize}
+
+\paragraph{Bus}
+The buses store the conservation equations itself. Those are algebraic equations in \ref{eq:alg_eq_bus}. For example in a bus where a 
+generator is connected, the power that the generator delivers to the bus must be the same as the power in the line connected to the bus. However, the
+variables associated to the bus are the voltage magnitude $V$ and angle $\theta$.
+All the variables in the bus algebraic equations are defined as \textit{dynamic variables} since they also appear on other devices (such as 
+the generators or lines connected to the bus) so those must be able to be callable from all the device's blocks.
+
+\begin{equation}
+\begin{cases}
+\sum_i P_{inj} + \sum_i P_{branch} = 0\\
+\sum_i Q_{inj} + \sum_i Q_{branch} = 0
+\end{cases}
+\label{eq:alg_eq_bus}
+\end{equation}
+
+Where:
+\begin{itemize}
+  \item $P_{inj}$: (Algebraic variable) Active power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [MW].
+  \item $Q_{inj}$: (Algebraic variable) Reactive power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [Mvar].
+  \item $P_{branch}$: (Algebraic variable) Active power that is transported from or to the line connected to the bus [MW].
+  \item $Q_{branch}$: (Algebraic variable) Reactive power that is transported from or to the line connected to the bus [Mvar].
+\end{itemize}
+
+\subsubsection{Integration method: Implicit Euler}
+
+In the numerical integration of differential or differential-algebraic equations (DAEs), Euler methods represent one of the most fundamental approaches
+for approximating the time evolution of system variables. They discretize the continuous time domain into a series of steps of size $h$,
+and approximate the derivative using finite differences. In RMS power system simulations, which combine slow electromechanical dynamics with algebraic network equations,
+Euler methods are often used to understand the basic principles of time integration before moving to more advanced schemes~\cite{Butcher2008}.
+
+
+The explicit, or forward, Euler method estimates the derivative at the current time step $t_i$ and updates the state variable $y$ according to:
+\begin{equation}
+    y_{i+1} = y_i + h \left.\frac{\delta y}{\delta t}\right|_{t_i, \, y_i}
+    \label{eq:forward_euler}
+\end{equation}
+
+This simple expression is obtained by integrating the differential equation
+$\dot{y} = f(t, y)$ over the interval $[t_i, t_{i+1}]$ and approximating the derivative by its value at $t_i$. The method is straightforward to implement and
+computationally inexpensive, as the right-hand side depends only on known quantities at the current time step. However, it is \textit{conditionally stable},
+which means that the time step $h$ must remain below a certain limit for the numerical solution to remain stable~\cite{Butcher2008}. 
+
+For stiff systems, those in which some variables evolve much faster than others, this stability condition becomes extremely restrictive.
+In power system models, where fast control loops and electromagnetic effects coexist with slow mechanical dynamics, the forward Euler method becomes inefficient and may
+even diverge if the step size is not sufficiently small~\cite{LaraTDS}.
+
+On the contrary, the implicit, or backward, Euler method overcomes these limitations by evaluating the derivative at the next time step $t_{i+1}$:
+
+\begin{equation}
+    y_{i+1} = y_i + h \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
+    \label{eq:backward_euler}
+\end{equation}
+This can alternatively be expressed as:
+\begin{equation}
+    y_i = y_{i+1} - h \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
+\end{equation}
+
+Since the derivative depends on the unknown future value $y_{i+1}$, this approach is called implicit. Solving for $y_{i+1}$ requires finding the root of a
+nonlinear equation, which is typically done using an iterative method such as Newton-Raphson~\cite{Hindmarsh1995}. Although this increases the computational cost per
+time step, the backward Euler method provides unconditional stability for linear systems and is therefore well-suited for stiff problems~\cite{Butcher2008}. 
+
+Intuitively, the method tends to damp fast transients, which makes it ideal for systems dominated by both fast and slow dynamics, as in power systems.
+Its numerical damping helps maintain stability even with relatively large time steps, although at the expense of reduced accuracy, since the method is only first order.
+
+Applying the implicit Euler method to DAE systems:
+
+\begin{equation}
+    \begin{cases}
+        \dfrac{x_{i+1} - x_i}{h} = f(x_{i+1}, y_{i+1}) \\
+        0 = g(x_{i+1}, y_{i+1})
+    \end{cases}
+    \label{eq:dae_implicit_step}
+\end{equation}
+
+which forms a set of nonlinear algebraic equations in the unknowns $(x_{i+1}, y_{i+1})$. This system is solved iteratively at each time step using Newton-Raphson,
+requiring the evaluation of the Jacobian matrix that couples the differential and algebraic components~\cite{Hindmarsh1995}. 
+
+Despite its simplicity and low order of accuracy, the backward Euler method remains one of the most robust integration schemes for stiff power system DAEs.
+Its unconditional stability makes it particularly suitable for RMS simulations involving large time constants or strong coupling between network and control equations~\cite{LaraTDS}.
+
+
+\subsubsection{Initialization}
+
+coses de pablo i marina
+

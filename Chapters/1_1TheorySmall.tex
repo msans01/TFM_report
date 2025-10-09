@@ -43,10 +43,10 @@ Due to the increasing penetration of power electronics into the grid, two new ca
   
 \begin{itemize}
     \item \textit{Converter-driven stability}: Refers to oscillatory behavior caused by control interactions in converter-interfaced generation (CIG). 
-    Fast-interaction instabilities arise from high-frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
+    Fast-interaction instabilities arise from high- frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
     Slow-interaction instabilities occur at low frequencies (<10 Hz), driven by PLL and outer-loop controls, especially 
     in weak grids. Synchronization issues and power transfer limits further compromise stability. 
-    These phenomena differ from classical generator dynamics and require tailored mitigation strategies
+    These phenomena differ from classical generator dynamics and require tailored mitigation strategies.
     \item \textit{Resonance stability}: Refers to the system's ability to withstand oscillatory 
     energy exchange without magnifying voltage, current, or torque beyond safe limits. It includes subsynchronous 
     resonance (SSR), which arises from interactions between series compensation and either mechanical shaft modes or 
@@ -326,9 +326,12 @@ The eigenvalues $\lambda$ of the state matrix A, commonly referred to as the sys
 
 \begin{itemize}
   \item All modes satisfy $Re(\lambda) < 0$: the system is asymptotically stable
-  \item All modes satisfy $Re(\lambda) \leq 0$ : the system is marginally stable
+  \item All modes satisfy $Re(\lambda) \leq 0$: the system is marginally stable
   \item At least one mode satisfies $Re(\lambda) > 0$: the system is unstable
 \end{itemize}
+
+In this way, for the stable poles, the real part defines the time constant as $\tau = -1/ Re(\lambda) $ [s] which represents the time that passes until
+the 63,2\% of the steady state value is achieved, said in other words, the time that passes for the oscillations to decay by a 37\%.
 
 When a linearized system has complex conjugate modes, they represent oscillatory modes in the dynamic response:
 
