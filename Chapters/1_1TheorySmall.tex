@@ -22,7 +22,7 @@ The combination of these factors influence the methodologies, tools and consider
 described in the following enumeration.
 
 \begin{itemize}
-    \item \textit{Rotor angle stability}: The ability the ability of the interconnected synchronous machines in a power system 
+    \item \textit{Rotor angle stability}: The ability of the interconnected synchronous machines in a power system 
     to remain in synchronism under normal operating conditions and to regain synchronism after being subjected to a
      small or large disturbance \cite{StabilityAndControlKundur}. A synchronous machine stays in synchronism when the 
      electromagnetic torque exactly balances the mechanical torque from the prime mover, producing zero net accelerating torque. 
@@ -43,7 +43,7 @@ Due to the increasing penetration of power electronics into the grid, two new ca
   
 \begin{itemize}
     \item \textit{Converter-driven stability}: Refers to oscillatory behavior caused by control interactions in converter-interfaced generation (CIG). 
-    Fast-interaction instabilities arise from high- frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
+    Fast-interaction instabilities arise from high frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
     Slow-interaction instabilities occur at low frequencies (<10 Hz), driven by PLL and outer-loop controls, especially 
     in weak grids. Synchronization issues and power transfer limits further compromise stability. 
     These phenomena differ from classical generator dynamics and require tailored mitigation strategies.
@@ -51,7 +51,7 @@ Due to the increasing penetration of power electronics into the grid, two new ca
     energy exchange without magnifying voltage, current, or torque beyond safe limits. It includes subsynchronous 
     resonance (SSR), which arises from interactions between series compensation and either mechanical shaft modes or 
     electrical generator characteristics. The mechanical form leads to torsional resonance, while the electrical 
-    form—9 (Induction Generator Effect (IGE)) can cause self-excitation. Converter controls in DFIGs can exacerbate these 
+    form (Induction Generator Effect (IGE)) can cause self-excitation. Converter controls in DFIGs can exacerbate these 
     effects, leading to subsynchronous control interaction (SSCI). These phenomena pose risks to both mechanical integrity 
     and electrical equipment.
 \end{itemize}
@@ -63,7 +63,7 @@ and have an effect on the electromechanical modes. However, the fundamental prin
 a crucial role on stability analysis of power systems.
 
 Therefore, understanding and analyzing rotor-angle stability remains essential for ensuring the overall reliability of power systems. 
-Insufficient or negative synchronizing torque produces aperiodic, non-oscillatory transient instability that drives large rotor-angle deviations
+Insufficient or negative synchronizing torque produces a periodic, non-oscillatory transient instability that drives large rotor-angle deviations
 and is typically studied with time-domain numerical integration. In contrast, the absence of adequate damping torque gives rise to small-disturbance
 oscillatory instability.
 
@@ -77,13 +77,13 @@ A dynamic system is considered stable if, when subjected to a disturbance, it re
 exhibiting unbounded behavior. The equilibrium points are those states where all the derivatives $\dot{x}$ are zero, meaning the system is at rest
 or in a steady state. 
 
-Linearity affects on the stability of a system. The stability of a liner system is independent of the input and the initial conditions.
+Linearity affects on the stability of a system. The stability of a linear system is independent of the input and the initial conditions.
 However, for a non-linear system, stability depends on the magnitude of the input and initial conditions. Depending on the region of the state-space,
-stability is classified into the following categories:
+stability is classified into the following categories~\cite{StabilityAndControlKundur}:
 
 \begin{itemize}
   \item \textit{Local stability}: the system is locally stable around an equilibrium point if when a small perturbation is applied,
-  it remains around the equilibrium point. If as time increases it returns to the equilibrium point, it is locally asymptotically stable\cite{StabilityAndControlKundur}.
+  it remains around that equilibrium point. If as time increases it returns to the equilibrium point, then it is locally asymptotically stable.
   \item \textit{Finite stability}: the system is finitely stable if when a perturbation of finite size is applied, it remains bounded and does not diverge to infinity.
   \item \textit{Global stability}: the system is globally stable if it returns to an equilibrium point for any initial condition in the whole state-space.
 \end{itemize}
@@ -93,14 +93,14 @@ Therefore, linearizing a non-linear system around an equilibrium point allows to
 \subsubsection{Small-signal stability}
 
 Small-signal stability refers to the ability of a power system to maintain synchronism when subjected to 
-small disturbances \cite{StabilityAndControlKundur}, such as minor load changes or small faults. These small disturbances
+small disturbances~\cite{StabilityAndControlKundur}, such as minor load changes or small faults. These small disturbances
 (typically within 1\%)occur frequently in power systems and allow the linearization of non-linear system equations
  around a specific operating point in order to perform analysis. The resulting linear representation enables the use
-  of standard control engineering tools to assess system stability and dynamic performance \cite{SmallSignalCheah}.
+  of standard control engineering tools to assess system stability and dynamic performance~\cite{SmallSignalCheah}.
 
 The resulting instability due to those small perturbations can have two forms: Non-oscillatory unstability defined as an 
 increase in rotor angle due to insufficient synchronizing torque and oscillatory unstability, oscillations of 
-increasing magnitude due to insufficient damping torque \cite{StabilityAndControlKundur}. In practice, most of the 
+increasing magnitude due to insufficient damping torque~\cite{StabilityAndControlKundur}. In practice, most of the 
 instabilities come from insufficient damping torque. The following list summarizes the main oscillatory modes to consider:
 
 \begin{itemize}
@@ -108,7 +108,7 @@ instabilities come from insufficient damping torque. The following list summariz
     against the rest of the system, typically localized near a generating station.
     \item \textit{Inter area modes}: Low-frequency oscillations between large groups of generators in different 
     regions, often linked by weak transmission corridors.
-    \item \textit{Control modes}: Oscillations arising from interactions between poorly tuned control systems—such 
+    \item \textit{Control modes}: Oscillations arising from interactions between poorly tuned control systems such 
     as exciters, speed governors, HVDC converters, or static var compensators.
     \item \textit{Torsional modes}: Oscillations associated with the mechanical shaft system of turbine-generators,
     which may become unstable due to interactions with control systems or series-compensated transmission lines.
@@ -261,17 +261,7 @@ For simplicity, the perturbation notation is often omitted, and the linearized s
 
 In power systems, the dynamic behavior is mathematically represented by a set of Differential-Algebraic Equations (DAEs) 
 that capture the interaction between dynamic components and network constraints. This formulation naturally arises because power systems
- combine elements with both dynamic and instantaneous responses.
-
-\begin{itemize}
-\item \textit{Differential equations}: describe the time-dependent evolution of state variables associated with components that possess energy storage
- or control dynamics. These include synchronous generators (rotor angle and speed dynamics), excitation systems, governors, power electronic converters,
-  and various control loops such as voltage and frequency regulators.
-\item \textit{Algebraic equations}: represent the instantaneous electrical relationships and constraints imposed by the network. They stem primarily from Kirchhoff's laws,
- ensuring power balance and voltage-current consistency at each bus, as well as from static components like loads, transmission lines, and transformers, which are assumed
-  to reach steady-state conditions instantaneously.
-\end{itemize}
-
+combine elements with both dynamic and instantaneous responses.
 
 The explicit formulation of the DAE system is given by:
 \begin{equation}
@@ -331,7 +321,7 @@ The eigenvalues $\lambda$ of the state matrix A, commonly referred to as the sys
 \end{itemize}
 
 In this way, for the stable poles, the real part defines the time constant as $\tau = -1/ Re(\lambda) $ [s] which represents the time that passes until
-the 63,2\% of the steady state value is achieved, said in other words, the time that passes for the oscillations to decay by a 37\%.
+the 63,2\% of the steady state value is achieved, said in other words, the time that passes for the oscillations to decay to a 37\% of their amplitude.
 
 When a linearized system has complex conjugate modes, they represent oscillatory modes in the dynamic response:
 
@@ -358,13 +348,14 @@ Where $Re(\lambda)$ is the real part of the eigenvalue and $Im(\lambda)$ is the 
 \begin{itemize}
   \item $\zeta < 0$: \textit{Unstable oscillations.} The system exhibits modes that grow exponentially with time, caused by eigenvalues located in the right half of the complex plane.
   \item $\zeta = 0$: \textit{Marginal stability.} The system produces undamped, sustained oscillations since the eigenvalues lie exactly on the imaginary axis.
-  \item $0 < \zeta < 1$: \textit{Stable oscillatory response.} The system returns to its equilibrium point through oscillations that gradually decay over time. In practical terms, a damping ratio of about $\zeta = 0.05$ is generally considered sufficient for well-damped behaviour.
+  \item $0 < \zeta < 1$: \textit{Stable oscillatory response.} The system returns to its equilibrium point through oscillations that gradually decay over time. 
+  In practical terms, a damping ratio of about $\zeta = 0.05$ is generally considered a threshold for well-damped behavior.
   \item $\zeta = 1$: \textit{Critical damping.} The system returns to equilibrium without oscillations, reaching the steady state in the shortest possible time without overshoot.
 \end{itemize}
 
 Finally, participation factors quantify the relative influence of each state variable on the different dynamic modes of the system. In essence,
 they indicate how much a given state contributes to a specific mode and, conversely, how strongly that mode affects the state.
-This dual interpretation makes participation factors a valuable tool for understanding the internal structure of system dynamics \cite{KonovaPF}.
+This dual interpretation makes participation factors a valuable tool for understanding the internal structure of system dynamics~\cite{KonovaPF}.
 
 In the context of power systems, participation factors play a key role in identifying the physical origin of oscillations and instabilities.
 By analyzing these factors, it is possible to determine which components—such as generators, controllers, or converter units—are most involved in poorly damped or unstable modes.

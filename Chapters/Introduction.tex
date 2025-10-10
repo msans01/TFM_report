@@ -21,7 +21,7 @@ To develop and validate advanced methodologies for dynamic simulation and stabil
     \item To develop the small-signal analysis module for RMS models, including the formulation and linearization of differential-algebraic equations at the operating point,
      the computation of eigenvalues and participation factors from the jacobian matrix, and its integration into Veragrid's graphical interface.
     \item To implement the foundational components for EMT simulation, modeling transmission lines and system elements in the abc domain, applying discretization techniques
-     such as the Dommel algorithm and alternatives like the 2S-DIRK method, and validating the EMT solver using benchmark systems compared against commercial tools such as PSCAD.
+     such as the Dommel algorithm, and validating the EMT solver using benchmark systems compared against commercial tools such as PSCAD.
     \item To extend symbolic system formulation to support custom models and control schemes, improving numerical routines, and ensuring consistent initialization of dynamic studies.
     \item To validate the developed methodologies through case studies, continuously comparing results with commercial tools to ensure model reliability and correctness.
 \end{itemize}
@@ -31,20 +31,19 @@ To develop and validate advanced methodologies for dynamic simulation and stabil
 
 \subsection{Scope}
 
-This thesis is part of the ongoing development of Veragrid, a leading software platform for power system planning and simulation. 
+This thesis is part of the ongoing development of Veragrid, a software platform for power system planning and simulation. 
 The work focuses on improving dynamic simulation tools for modern grids, particularly in the context of small-signal stability and electromagnetic transient (EMT) modeling.
-Over a nine-month period—from September 2025 to May 2026—the project aims to build essential components that support symbolic formulation, numerical validation,
+Over a five-month period, from September 2025 to January 2026, the project aims to build essential components that support symbolic formulation, numerical validation,
 and integration with existing simulation environments. 
 
 The first major area of focus is the implementation of small-signal stability analysis using RMS-based state-space models.
 This includes the computation of eigenvalues and participation factors, symbolic reduction of system equations,
 and integration of these routines into the VeraGrid graphical interface.
-The goal is to provide researchers and engineers with intuitive and accurate tools for identifying dominant modes and assessing system stability under varying conditions.
+The goal is to provide users with intuitive and accurate tools for identifying dominant modes and assessing system stability under varying conditions.
 
 The second area involves the development of a foundational EMT solver in the abc domain. This includes modeling transmission lines and components,
 implementing discretization techniques such as the Dommel algorithm and two-stage diagonally implicit Runge-Kutta (2S-DIRK) methods,
-and benchmarking solver performance against commercial tools like PSCAD. Although the EMT module is not intended to be exhaustive,
-it serves as a proof of concept for future expansion and integration.
+and benchmarking solver performance against commercial tools like PSCAD.
 
 All development is conducted in Python, with an emphasis on code quality, symbolic computation, and reproducibility.
 The thesis also includes continuous benchmarking and validation using real-world data, including industrial cases.
@@ -56,6 +55,8 @@ This thesis considers all the steps involved in the development process of the R
 dynamic simulation, from the mathematical modelling to the software implementation and validation of results.
 
 \begin{itemize}
+  \item Chapter \ref{dynamic} describes a general introduction to Time-domain simulations with emphasis on the already done RMS dynamic simulations 
+  in VeraGrid.
   \item Chapter \ref{SmallSignal} describes from the theoretical framework to the implementation and benchmarking of the small-signal 
 stability analysis in VeraGrid.
   \item Chapter \ref{EMT} describes ...
@@ -66,9 +67,9 @@ stability analysis in VeraGrid.
 things to say:
 
 \textit{The most developed software solutions for EMT simulations
- focusonwaveformdynamicswithandwithoutconverterswitch
-ing and include models for very detailed component-level anal
-ysis. Examples of software environments are PSCAD, EMTP,
+ focus on waveform dynamics with and without converter switching
+  and include models for very detailed component-level analysis.
+   Examples of software environments are PSCAD, EMTP,
  Simulink, PLECS, among others.}
 
 
@@ -91,7 +92,7 @@ grid modelling.
 The development of VeraGrid began in 2015 with a clear objective: to create a robust programming library supported by a user-friendly interface. 
 This pragmatic vision led to a unique ecosystem where reliability and simplicity coexist with scientific rigour. Over the years, the platform has evolved through a combination 
 of commercial projects, academic collaborations, and internal research initiatives, ensuring that its algorithms and methods remain both practical and forward-looking. 
-Some of its innovations emerged from the need to address real-world industrial requirements, while others stemmed from curiosity and the exploration of new computational paradigms.
+
 
 VeraGrid serves a wide audience. For professionals, it provides transparent, efficient, and reproducible tools that enable detailed grid analysis and operational planning. 
 For researchers, it represents an open and validated environment capable of integrating experimental algorithms and comparing methodologies. For educators and students, 

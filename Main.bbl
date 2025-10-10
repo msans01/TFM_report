@@ -1013,32 +1013,6 @@
       \verb https://circularecology.com/news/the-carbon-emissions-of-homeworking-and-office-working
       \endverb
     \endentry
-    \entry{KirliPyPSA2021}{inproceedings}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=3bf3cf95bbe7b329e94bce5740086a91}{%
-           family={Kirli},
-           familyi={K\bibinitperiod},
-           given={Desen},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{8036f786851ee137c5e82538d214d903}
-      \strng{fullhash}{8036f786851ee137c5e82538d214d903}
-      \strng{fullhashraw}{8036f786851ee137c5e82538d214d903}
-      \strng{bibnamehash}{8036f786851ee137c5e82538d214d903}
-      \strng{authorbibnamehash}{8036f786851ee137c5e82538d214d903}
-      \strng{authornamehash}{8036f786851ee137c5e82538d214d903}
-      \strng{authorfullhash}{8036f786851ee137c5e82538d214d903}
-      \strng{authorfullhashraw}{8036f786851ee137c5e82538d214d903}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{arXiv preprint arXiv:2110.10628}
-      \field{title}{PyPSA meets Africa: Developing an open source electricity network model of the African continent}
-      \field{year}{2021}
-    \endentry
   \enddatalist
 \endrefsection
 \endinput

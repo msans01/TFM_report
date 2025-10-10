@@ -40,7 +40,7 @@ variables. A general explanation of the main methods to simplify and transform s
 
     \item \textit{Singular Perturbation Theory (SPT)}: Used to analyze dynamic systems with widely separated time scales by decomposing them into fast and slow subsystems. 
     In power systems, SPT is applied to separate the fast transients of synchronous machines and converters (milliseconds) from the slow dynamics of controllers 
-    and system frequency (seconds to minutes), enabling more efficient RMS and small-signal analyses.
+    and system frequency (seconds to minutes), enabling more efficient RMS simulations and small-signal analyses.
 \end{itemize}
 
 
@@ -67,7 +67,7 @@ Many different options are exposed for QSP:
 \end{itemize}
 
 
-The second category, \textit{Electromagnetic Transient (EMT) simulations}: These models incorporate detailed system dynamics to capture fast transient phenomena and deviations 
+The second category, \textit{Electromagnetic Transient (EMT) simulations}. These models incorporate detailed system dynamics to capture fast transient phenomena and deviations 
 from steady-state conditions. They are commonly used to study high-frequency events such as transmission line dynamics, converter switching, machine flux behavior, 
 overvoltages, harmonic propagation, sub-synchronous resonance, transient recovery voltages, and external disturbances like lightning surges. 
 A variety of modeling and computational techniques are employed to balance accuracy with the computational cost of these simulations.
@@ -79,11 +79,11 @@ Waveform simulations require careful initialization and selection of integration
 representations, to capture fast electromagnetic phenomena.
     \item \textit{dq0-model}: This approach models the network in a rotating reference frame using a transformed $\pi$-model. In balanced systems, the model produces a time-invariant 
     formulation and shares the same initialization routine as the positive-sequence RMS model. Since the network is represented using only ODEs, the system becomes a set of 
-    stiff differential equations due to the multi-rate dynamics, often necessitating simultaneous-implicit solution methods. However, the advantages of this 
+    stiff differential equations due to the multi-rate dynamics, often needing simultaneous-implicit solution methods. However, the advantages of this 
     formulation diminish in unbalanced networks or when harmonics are included, as the model then produces time-varying signals similar to full waveform simulations.
     \item \textit{Dynamic Phasors}: This method models power system transients using dynamic phasors, ideal for narrow-band signals around harmonic frequencies. 
     It can produce time-invariant models with additional states or time-variant models for advanced analyses like small-signal sensitivity studies. 
-    The approach improves computational efficiency when reducing bandwidth outweighs the cost of extra states.
+    The approach improves computational efficiency when reducing bandwidth, it outweighs the cost of extra states.
 \end{itemize}
 
 In this thesis, and within the context of the VeraGrid project, the simulations primarily rely on RMS balanced models, which are already implemented in VeraGrid. 
@@ -92,7 +92,7 @@ Additionally, EMT waveform  or \textit{abc} domain simulations will be developed
 
 \subsection{Differential-Algebraic Equations (DAEs)}
 
-At the core of time-domain simulations lie the mathematical models that describe the system's dynamics. These models are typically formulated as Differential-Algebraic Equations
+At the core of Time-domain simulations lie the mathematical models that describe the system's dynamics. These models are typically formulated as Differential-Algebraic Equations
 (DAEs), which combine differential equations that represent the system's dynamic behavior with algebraic equations that describe instantaneous relationships between system variables. 
 In contrast, Ordinary Differential Equations (ODEs) are used to model systems where all variables change continuously over time without algebraic constraints. 
 The choice between DAEs and ODEs depends on the specific characteristics of the system being modeled and the phenomena of interest.
@@ -133,7 +133,7 @@ the singularity in $\partial f / \partial \dot{x}$. Implicit DAEs are more gener
 
  
 In power system dynamics, the network and algebraic constraints ( Kirchhoff's current law, network admittance equations, etc.) naturally provide algebraic equations, 
-while generator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is  
+while generator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is:
 
 \begin{equation}
 \begin{cases}
@@ -165,7 +165,7 @@ This two-step process, symbolic formulation followed by numerical evaluation, pr
 and generate adapted code for various simulation modes without redefining the mathematical structure.
 
 Power systems are naturally suited to this formulation, as their behavior is described by a set of coupled DAEs representing both dynamic components and network constraints.
-In this context, generators, exciters, governors, and control systems contribute differential equations, whereas network variables, bus voltages, currents, and algebraic 
+In this context, generators, exciters, governors, and control systems contribute to differential equations, whereas network variables, bus voltages, currents, and algebraic 
 constraints from Kirchhoff's laws; are represented algebraically. By expressing these components symbolically, they can be automatically assembled into a unified 
 system model and linearized analytically to obtain small-signal representations. This methodology ensures that the global model preserves physical consistency and that 
 linearization results, such as eigenvalues and participation factors, are computed with exact analytical derivatives rather than numerical approximations.
@@ -183,8 +183,8 @@ The framework supports balanced Root Mean Square (RMS) simulations, which are su
 The implementation includes:
 
 \begin{itemize}
-    \item \textit{Symbolic framework}: A new set of classes is created in order to be able to operate in the symbolic framework
-    \item \textit{Models}: Detailed representations of system components, including generators, transformers, and transmission lines, are developed to capture their dynamic
+    \item \textit{Symbolic framework}: A new set of classes is created in order to be able to operate in the symbolic framework.
+    \item \textit{Models}: Detailed representations of system components, including generators, loads, and transmission lines, are developed to capture their dynamic
     responses accurately.
     \item \textit{Solver}: The implicit Euler integration method is employed to solve the system's DAEs, ensuring stable and accurate simulation results.
     \item \textit{Initialization}: Procedures are established to determine the steady-state operating point of the system before introducing disturbances,
@@ -330,10 +330,10 @@ In this case, the RMS model for the lines is also valid for the transformers.
 
 \begin{equation}
 \begin{cases}
-P_f &= V_{f}^2 \, g - g \, V_{f} V_{t} \cos(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \cos\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
-Q_f &= V_{f}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{f} V_{t} \sin(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \sin\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
-P_t &= V_{t}^2 \, g - g \, V_{t} V_{f} \cos(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \cos\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big) \\
-Q_t &= V_{t}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{t} V_{f} \sin(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \sin\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big)
+P_f = V_{f}^2 \, g - g \, V_{f} V_{t} \cos(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \cos\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
+Q_f = V_{f}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{f} V_{t} \sin(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \sin\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
+P_t = V_{t}^2 \, g - g \, V_{t} V_{f} \cos(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \cos\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big) \\
+Q_t = V_{t}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{t} V_{f} \sin(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \sin\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big)
 \end{cases}
 \label{eq:alg_eq_line}
 \end{equation}
@@ -394,7 +394,7 @@ The explicit, or forward, Euler method estimates the derivative at the current t
 
 This simple expression is obtained by integrating the differential equation
 $\dot{y} = f(t, y)$ over the interval $[t_i, t_{i+1}]$ and approximating the derivative by its value at $t_i$. The method is straightforward to implement and
-computationally inexpensive, as the right-hand side depends only on known quantities at the current time step. However, it is \textit{conditionally stable},
+computationally inexpensive, as the right-hand side depends only on known quantities at the current time step. However, it is conditionally stable,
 which means that the time step $h$ must remain below a certain limit for the numerical solution to remain stable~\cite{Butcher2008}. 
 
 For stiff systems, those in which some variables evolve much faster than others, this stability condition becomes extremely restrictive.
@@ -438,5 +438,25 @@ Its unconditional stability makes it particularly suitable for RMS simulations i
 
 \subsubsection{Initialization}
 
-coses de pablo i marina
+The initialization of the DAEs' variables and equations done in order to start the RMS dynamic simulation is done considering two main points: the power flow results
+are used as variables' values and the DAe is written in the semi-explicit form. The following lines explain how the equations and variables from all the elements of the 
+system are collected and the initial value of the variables is computed.
+
+\begin{enumerate}
+  \item \textit{Initialize buses}: assign bus variables and equations stored in the general bus model to each bus in the system. Since the bus equations(conservation equations) dependent
+  mainly on the branches and injections connected to the bus, the equations are now empty.
+  \item \textit{Initialize branches}: assign branch variables and equations stored in the general model for each type of branch to each branch in the system. The dynamic variables(the ones that also appear
+  on the conservation equations of the buses), P and Q are defined as dynamic variables.
+  \item \textit{Initialize injections}: assign injection variables and equations stored in the general model for each type of injection to each injection in the system. The dynamic variables(the ones that also appear
+  on the conservation equations of the buses), P and Q are defined as dynamic variables.
+  \item \textit{Initialize conservation equations}: For each bus, the conservation equations are created using the dynamic variables from branches and injections.
+  \item \textit{Compose system block}: Now that all the elements in the grid have their equations and variables assigned, the block is created and the system's DAE solved.
+    \begin{enumerate}
+    \item \textit{Initialize containers}: the empty system block and initial guess for the variables are created.
+    \item \textit{Add and solve bus equations}: Each bus variables and equations are added to the system block and variables are evaluated using directly the Power Flow results ($P$, $Q$, $V$ and $\theta$).
+    \item \textit{Add and solve branch equations}: Each branch variables and equations are added to the system block and variables are evaluated using directly the Power Flow results ($P$, $Q$, $V$ and $\theta$).
+    \item \textit{Add and solve injection equations}: Each branch variables and equations are added to the system block. The variables that are part of the Power flow results ($P$ and $Q$) are directly evaluated.
+    All the other equations are solved.
+    \end{enumerate}
+\end{enumerate}
 

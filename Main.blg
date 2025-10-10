@@ -1,21 +1,21 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'Main.blg'
+[1] Config.pm:331> INFO - Logfile is 'Main.blg'
 [94] biber-MSWIN64:342> INFO - === 
-[134] Biber.pm:421> INFO - Reading 'Main.bcf'
-[232] Biber.pm:1002> INFO - Found 28 citekeys in bib section 0
-[242] Biber.pm:4487> INFO - Processing section 0
-[251] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
-[324] bibtex.pm:1713> INFO - LaTeX decoding ...
-[369] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
-[515] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[515] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[515] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[515] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[531] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
-[545] bbl.pm:779> INFO - Output to Main.bbl
-[545] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
-[545] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_fZnX\283e1cb250985c2debc501124f55eeff_20780.utf8, line 233, warning: 2 characters of junk seen at toplevel
-[545] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_fZnX\283e1cb250985c2debc501124f55eeff_20780.utf8, line 231, warning: undefined macro "https://www.asus.com/laptops/for-home/vivobook/asus-vivobook-15-x1504/techspec/"
-[545] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_fZnX\283e1cb250985c2debc501124f55eeff_20780.utf8, line 240, warning: 2 characters of junk seen at toplevel
-[545] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_fZnX\283e1cb250985c2debc501124f55eeff_20780.utf8, line 237, warning: undefined macro "https://www.displayspecifications.com/en/model-power-consumption/0349510"
-[545] Biber.pm:134> INFO - WARNINGS: 5
+[132] Biber.pm:421> INFO - Reading 'Main.bcf'
+[230] Biber.pm:1002> INFO - Found 27 citekeys in bib section 0
+[241] Biber.pm:4487> INFO - Processing section 0
+[250] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
+[335] bibtex.pm:1713> INFO - LaTeX decoding ...
+[377] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
+[503] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[504] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[504] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[504] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[518] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
+[530] bbl.pm:779> INFO - Output to Main.bbl
+[531] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
+[531] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_G41Z\283e1cb250985c2debc501124f55eeff_7716.utf8, line 233, warning: 2 characters of junk seen at toplevel
+[531] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_G41Z\283e1cb250985c2debc501124f55eeff_7716.utf8, line 231, warning: undefined macro "https://www.asus.com/laptops/for-home/vivobook/asus-vivobook-15-x1504/techspec/"
+[531] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_G41Z\283e1cb250985c2debc501124f55eeff_7716.utf8, line 240, warning: 2 characters of junk seen at toplevel
+[531] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_G41Z\283e1cb250985c2debc501124f55eeff_7716.utf8, line 237, warning: undefined macro "https://www.displayspecifications.com/en/model-power-consumption/0349510"
+[531] Biber.pm:134> INFO - WARNINGS: 5
