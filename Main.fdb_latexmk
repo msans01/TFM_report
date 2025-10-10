@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Main"] 1760084755.37865 "Main.bcf" "Main.bbl" "Main" 1760088078.29379 0
-  "Main.bcf" 1760088077 111647 c0f84b66b2a9f7f821d356879a5f62f0 "pdflatex"
+["biber Main"] 1760084755.37865 "Main.bcf" "Main.bbl" "Main" 1760105232.39216 0
+  "Main.bcf" 1760105232 111647 c0f84b66b2a9f7f821d356879a5f62f0 "pdflatex"
   "bib.bib" 1760024160 10850 1fa83978ad48d173d8877ba582434710 ""
   (generated)
   "Main.bbl"
   "Main.blg"
   (rewritten before read)
-["pdflatex"] 1760088074.0177 "c:/Users/maria/OneDrive/Documentos/memoria/TFM_report/Main.tex" "Main.pdf" "Main" 1760088078.29453 0
+["pdflatex"] 1760105228.17595 "c:/Users/maria/OneDrive/Documentos/memoria/TFM_report/Main.tex" "Main.pdf" "Main" 1760105232.39284 0
   "C:/Users/maria/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1759745118 123509 875fc994f65538c5addd78375f93ddbe ""
   "C:/Users/maria/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1759745126 21972 0b46278c11d40ed1dac0f588407698c3 ""
   "C:/Users/maria/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1759219248 13286966 a5f1d74b0c5b829ae91fda2fafa7ad5c ""
@@ -359,7 +359,7 @@
   "C:/Users/maria/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/maria/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "Chapters/1_1TheorySmall.tex" 1760084750 22977 2d0c56659d0cb8291a3a90bc0c3d5cc3 ""
-  "Chapters/1_2ImplementationSmall.tex" 1760084750 8731 ae7a1ffab1a4fd2d79b17ba23b32bef5 ""
+  "Chapters/1_2ImplementationSmall.tex" 1760105223 8572 8d66b960e3f4d9376b310db7ace85d27 ""
   "Chapters/1_3BenchmarkSmall.tex" 1760084750 12770 9952b26e29b760192fea35a824ecee05 ""
   "Chapters/2_1TheoryEMT.tex" 1759758015 2 68b329da9893e34099c7d8ad5cb9c940 ""
   "Chapters/Abstract.tex" 1759746867 0 d41d8cd98f00b204e9800998ecf8427e ""
@@ -373,18 +373,18 @@
   "Chapters/Preface.tex" 1759745035 0 d41d8cd98f00b204e9800998ecf8427e ""
   "Chapters/Resum.tex" 1759746867 3 2228e977ebea8966e27929f43e39cb67 ""
   "Chapters/Resumen.tex" 1759746867 2 68b329da9893e34099c7d8ad5cb9c940 ""
-  "Chapters/dynamic.tex" 1760087542 35229 21083a93dca77b7f5c0c4e0a1568e67c ""
+  "Chapters/dynamic.tex" 1760103282 35161 569c6be96df39090a59a0f106f2f0827 ""
   "Icones-ETSEIB-UPC/ETSEIB.png" 1759745035 42160 c54e1e4abe39a380d8d32ba4fe1bbb97 ""
   "Icones-ETSEIB-UPC/UPC.PNG" 1759745035 28029 9769ddf571f22530e950c0cb3a4d8944 ""
-  "Main.aux" 1760088077 19825 0d4ac3c9cc71d509353b8fd780937fc7 "pdflatex"
+  "Main.aux" 1760105232 19558 a4ece6d3097c08c2f43db37f7ebc04b2 "pdflatex"
   "Main.bbl" 1760084757 44011 9911d6d29e3819edf638d47957c0ffad "biber Main"
-  "Main.lof" 1760088077 2373 8f08be7b4bb8f3d698967454e2e40b2e "pdflatex"
-  "Main.lot" 1760088077 903 aa47d39ad901a994e5e4e1d7dec2cafe "pdflatex"
-  "Main.out" 1760088077 6397 47acf44378369f07f9d033067eae4f40 "pdflatex"
-  "Main.run.xml" 1760088077 2367 1b1d4dec9524f2393be2464c911c64e2 "pdflatex"
-  "Main.tex" 1760084750 3585 946b6dc6349dc3029e5f5ef8a1f9bead ""
-  "Main.toc" 1760088077 3822 0678ea77a05b651aa35d8eeecdce045e "pdflatex"
-  "c:/Users/maria/OneDrive/Documentos/memoria/TFM_report/Main.tex" 1760084750 3585 946b6dc6349dc3029e5f5ef8a1f9bead ""
+  "Main.lof" 1760105232 2373 c8d6702a00b39c013367eaf6daeeaacb "pdflatex"
+  "Main.lot" 1760105232 903 46f3da80d60590d6db194ced8df5b065 "pdflatex"
+  "Main.out" 1760105232 6087 da6c6c0e412d36c9f2f2f914749f41b5 "pdflatex"
+  "Main.run.xml" 1760105232 2367 1b1d4dec9524f2393be2464c911c64e2 "pdflatex"
+  "Main.tex" 1760103112 3579 371a07fc7dbd954382761b4f39884260 ""
+  "Main.toc" 1760105232 3643 1c04bb6d5f7d77f5619c867942c8b56c "pdflatex"
+  "c:/Users/maria/OneDrive/Documentos/memoria/TFM_report/Main.tex" 1760103112 3579 371a07fc7dbd954382761b4f39884260 ""
   "figures/ANDES_banner.png" 1759846965 7198 c2e81f00d033e35bf535fc5a82944589 ""
   "figures/DataModelSimulationStructure.png" 1759416101 23646 5f14770edf847054905fbabb753bdcd2 ""
   "figures/VeraGrid_banner.png" 1759414106 21569 444d12fe27c4ed420716148f36878a28 ""
