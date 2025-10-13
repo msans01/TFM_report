@@ -382,6 +382,28 @@ the stability of the system and the oscillation of the modes at a glance. An exa
   \label{fig:eigenvalues_plot_example}
 \end{figure}
 
+\begin{comment}
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.6\linewidth,
+  axis on top,          % eixos i grid per sobre de la imatge
+  xmin=0, xmax=460.8,   % extrems del viewBox del SVG (ajusta-ho si vols)
+  ymin=0, ymax=345.6,
+  xlabel={$\Re\{\lambda\}$}, ylabel={$\Im\{\lambda\}$}, % o el que toqui
+  grid=both
+]
+  % Col·loca el PDF exactament dins dels extrems indicats
+  \addplot graphics[
+    xmin=0, xmax=460.8,
+    ymin=0, ymax=345.6
+  ] {inkscape_svg/eigenvalues_plot_example.pdf};
+
+  % (Opcional) Superposar corbes puntuals o anotacions:
+  % \addplot[only marks, red] coordinates {(120,200) (300,100)};
+\end{axis}
+\end{tikzpicture}
+\end{comment}
+
 The imaginary axis divide the stable part (negative real part) from the unstable part (positive real part). Therefore, all the eigenvalues
 represented in the Figure are stable except for one which is in the origin, therefore the system is marginally stable. Moreover, modes outside
 the real axis represent oscillatory modes. In this case, one can see that there are
