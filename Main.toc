@@ -32,14 +32,14 @@
 \contentsline {subsection}{\numberline {3.2}Implementation}{41}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Code development}{41}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}GUI implementation}{45}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Benchmark and validation}{48}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}ANDES}{48}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Test case: Kundur two-area system}{49}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}EMT Dynamic framework}{54}{section.4}%
-\contentsline {section}{\numberline {5}Environmental impact}{55}{section.5}%
-\contentsline {section}{\numberline {6}Gender and social impact}{58}{section.6}%
-\contentsline {section}{\numberline {7}Budget}{59}{section.7}%
-\contentsline {section}{\numberline {8}Time Planning}{61}{section.8}%
-\contentsline {section}{\numberline {9}Conclusion}{61}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Further Work}{61}{subsection.9.1}%
-\contentsline {section}{Acknowledgments}{62}{subsection.9.1}%
+\contentsline {subsection}{\numberline {3.3}Benchmark and validation}{49}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}ANDES}{49}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Test case: Kundur two-area system}{50}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}EMT Dynamic framework}{55}{section.4}%
+\contentsline {section}{\numberline {5}Environmental impact}{56}{section.5}%
+\contentsline {section}{\numberline {6}Gender and social impact}{59}{section.6}%
+\contentsline {section}{\numberline {7}Budget}{61}{section.7}%
+\contentsline {section}{\numberline {8}Time Planning}{63}{section.8}%
+\contentsline {section}{\numberline {9}Conclusion}{63}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Further Work}{63}{subsection.9.1}%
+\contentsline {section}{Acknowledgments}{64}{subsection.9.1}%
