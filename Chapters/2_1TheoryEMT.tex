@@ -1,1 +1,49 @@
 
+\begin{equation}
+    [G]~[v(t)] = [i(t)]-[I_{hist}]
+\end{equation}
+
+
+\begin{equation}
+    i_{1,2}(t) = \frac{1}{Z_c}v_1(t)+I_{hist,1}(t-\tau)
+\end{equation}
+\begin{equation}
+    i_{2,1}(t) = \frac{1}{Z_c}v_2(t)+I_{hist,2}(t-\tau)
+\end{equation}
+
+\begin{equation}
+    I_{hist,1}(t-\tau) = -\frac{1}{Z_c}v_2(t-\tau)-i_{2,1}(t-\tau)
+\end{equation}
+
+\begin{equation}
+    I_{hist,2}(t-\tau) = -\frac{1}{Z_c}v_1(t-\tau)-i_{1,2}(t-\tau)
+\end{equation}
+
+\begin{equation}
+    Z_c = \sqrt{L'/C'}
+\end{equation}
+
+\begin{equation}
+    v = \frac{1}{\sqrt{L'/C'}}
+\end{equation}
+
+G_{00} * v_0 + G_{01} * v_1 = i_0 - ihist_0
+G_{10} * v_0 + G_{11} * v_1 = i_1 - ihist_1
+
+idea de com funcionar:
+
+- tot numèric. per cada element es crea numèricament la seva pròpia G i Itotal=Isource-Ihist i després s'uneix
+tot a la G i Itotal gran del sistema. 
+
+- es fa distinció entre elements actius(generador, etc) i passius (línies, trafos...)
+
+- Els elements actius tindran les seves equacions internes definides simbòlicament i es podran resoldre a cada timestep.
+aquests tindran la tensió com a input i les iabc com a output. També d'aquest model s'ha de poder arribar al Norton equivalent:
+Req i isource eq tenint en compte que les equacions internes poden ser molt diferents entre elles.
+
+- El sistema de simulació EMT no té per a res el mateix format que RMS i no seguirà el format de blocs de RMS.
+
+- G només canvia si hi ha events, en canvi Itotal canvia a cada pas de temps.
+
+- S'inicialitza el sistema a 0 (s'engega tot) i quan ja està a steady state es conta tau i d'allà es pot començar a contar t=0 en endavant.
+
