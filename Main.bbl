@@ -39,8 +39,8 @@
       \strng{authornamehash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhash}{01468113d9b6fb6865fdf685b31832b4}
       \strng{authorfullhashraw}{01468113d9b6fb6865fdf685b31832b4}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Combines AC/DC power flow, optimisation, and time-series simulation in an open and extensible architecture.}
@@ -94,8 +94,8 @@
       \strng{authornamehash}{23b47169da97ba7b5825b14c719696ac}
       \strng{authorfullhash}{d22ca550f9e6c44a87bb40c23f19f379}
       \strng{authorfullhashraw}{d22ca550f9e6c44a87bb40c23f19f379}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -126,8 +126,8 @@
       \strng{authornamehash}{1ff954fa0ec87505429ba7f606016feb}
       \strng{authorfullhash}{1ff954fa0ec87505429ba7f606016feb}
       \strng{authorfullhashraw}{1ff954fa0ec87505429ba7f606016feb}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Transactions of the American Institute of Electrical Engineers}
@@ -281,8 +281,8 @@
       \strng{authornamehash}{965424f460185670783266d3e5e69e81}
       \strng{authorfullhash}{965424f460185670783266d3e5e69e81}
       \strng{authorfullhashraw}{965424f460185670783266d3e5e69e81}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computing in Science \& Engineering}
@@ -511,8 +511,8 @@
       \strng{authornamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorfullhash}{961dcb8291b4785282b397f062db21eb}
       \strng{authorfullhashraw}{961dcb8291b4785282b397f062db21eb}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -574,8 +574,8 @@
       \strng{authornamehash}{46430f97e5f7d31fd3f91a015a2cdc9b}
       \strng{authorfullhash}{5b66321052a942b2a48cd28fc272301c}
       \strng{authorfullhashraw}{5b66321052a942b2a48cd28fc272301c}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2041-8396}
@@ -672,8 +672,8 @@
       \strng{authornamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
       \strng{authorfullhash}{317cfa4a68c58f8fdc04c1a848390ccb}
       \strng{authorfullhashraw}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Available at \url{https://docs.andes.app}.}
@@ -703,8 +703,8 @@
       \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{World Energy Outlook 2024: The Energy Transition}
@@ -900,8 +900,8 @@
       \strng{authornamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
       \strng{authorfullhash}{1ad7e8192f40ba5830e784731bc4c3b3}
       \strng{authorfullhashraw}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{Online resource}
@@ -928,8 +928,8 @@
       \strng{authornamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
       \strng{authorfullhash}{5ed0b5f41b21804e51e82664dc24e2dd}
       \strng{authorfullhashraw}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Technical specifications Asus Vivabook 15}
