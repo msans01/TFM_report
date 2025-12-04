@@ -263,11 +263,14 @@ The synchronous generator is defined by a set of differential(or state) and alge
 
 \begin{equation}
 \begin{cases}
-\delta = 2\pi f\,(\omega - \omega_{ref}) \\
-\omega = \dfrac{\Gamma_m - \Gamma_e - D(\omega - \omega_{ref})}{M}
+\frac{d~\delta}{dt} = 2\pi f\,(\omega - \omega_{ref}) \\
+\frac{d~\omega}{dt} = \dfrac{\Gamma_m - \Gamma_e - D(\omega - \omega_{ref})}{M}
 \end{cases}
 \label{eq:diff_eq_gen}
 \end{equation}
+
+With $\frac{d~\delta}{dt}$ and $\frac{d~\omega}{dt}$ set to zero since steady state conditions are considered in RMS simulations.
+
 
 \begin{equation}
 \begin{cases}
