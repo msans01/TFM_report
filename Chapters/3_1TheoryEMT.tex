@@ -82,7 +82,7 @@ Both approaches are complementary. RMS simulation remains essential for system-w
 while EMT simulation is indispensable for detailed transient analysis, validation of protection schemes, and the study of 
 power-electronic behaviour in modern grids.
 
-\subsection{Line Models}
+\subsection{Line Model: Bergeron's Model}
 
 Accurate modelling of transmission lines is essential in electromagnetic transient (EMT) simulation because wave propagation, reflections, 
 and attenuation determine the fast behaviour of the network during disturbances. Lumped representations such as the classical $\pi$-model 
@@ -279,7 +279,7 @@ remain the established foundation for overhead line parameter calculation~\cite{
 For a Bergeron-type representation, the frequency-independent terms are extracted from $\mathbf{L}'$ and $\mathbf{C}'$. The multiconductor 
 characteristic impedance and the associated conductance matrix are defined by
 \begin{equation}
-    \mathbf{Z}_c = \sqrt( \mathbf{L}' \mathbf{C}' ),
+    \mathbf{Z}_c = \sqrt{ \mathbf{L}' \mathbf{C}' },
 \end{equation}
 \begin{equation}
     \mathbf{G}_c = \mathbf{Z}_c^{-1}.
@@ -378,6 +378,38 @@ injection and conductance to be inserted into the modified nodal analysis (MNA) 
   \caption{Generator EMT-type machine model.}
   \label{fig:generator_model_emt}
 \end{figure}
+
+Where:
+\begin{itemize}
+    \item $v_{abc}$,  are the phase-to-neutral stator voltages,
+    \item $i_{abc}$ are the phase currents injected to the network,
+    \item $I_{abc}$ is the Norton-equivalent current injection from the machine to the network,
+    \item $R_{eq,abc}$ is the generator Norton-equivalent impedance matrix:
+    \begin{equation}
+        [R_{eq,abc}] =
+        \begin{bmatrix}
+            R_{eq,a} & 0         & 0         \\
+            0         & R_{eq,b} & 0         \\
+            0         & 0         & R_{eq,c}
+        \end{bmatrix},
+    \end{equation}
+    Which can be computed from:
+    \begin{equation}
+        [R_{eq,dq0}] =\begin{bmatrix}
+            R_a + \frac{2~L_d''}{\omega_{base}~h} & 0         & 0         \\
+            0         & R_a + \frac{2~L_q''}{\omega_{base}~h} & 0         \\
+            0         & 0         & R_a + \frac{2~L_0}{\omega_{base}~h}
+        \end{bmatrix},
+    \end{equation}
+
+    with $R_a$ being the armature resistance from the generator, $L_d''$, $L_q''$ the subtransient inductances in d and q axis respectively, $L_0$ the zero-axis inductance and h the simulation timestep.
+    $R_{eq,dq0}$ is transformed to $R_{eq,abc}$ using the Park transformation.
+    \item $i_g$ is the history current component computed from the previous state voltages.
+    \begin{equation}
+        i_g = \frac{1}{R_{eq,abc}}~v_{abc}(t-h)
+    \end{equation}
+\end{itemize}
+
 
 The following assumptions are adopted for an ideal synchronous machine:
 \begin{itemize}
@@ -718,7 +750,7 @@ iteration and the internal electrical and mechanical states of the generator. Th
     \end{equation}
     Finally, the Norton-equivalent current source to be inserted into the network is
     \begin{equation}
-        [I_{g,abc}(t)] = [i_{abc}(t)] + [G_{eq0,abc}(t)] [v_{abc}(t-h)].
+        [I_{g,abc}(t)] = [i_{abc}(t)] + [G_{eq,abc}(t)] [v_{abc}(t-h)].
     \end{equation}
     These contributions are added to the global MNA system to obtain the network solution at the next time step.
 \end{enumerate}
@@ -801,7 +833,7 @@ Under these conditions, the steady-state differential equations reduce to
 v_d - i_d R_a - \omega \psi_q = 0, \\[6pt]
 v_{f'} - R_{f'} i_{f'} = 0, \\[6pt]
 v_q - R_a i_q + \omega \psi_d = 0, \\[6pt]
-v_0 - R_a i_0 + \omega \psi_d = 0, \\[6pt]
+v_0 - R_a i_0 = 0, \\[6pt]
 \dfrac{\Gamma_m - \Gamma_e - D(\omega - \omega_{ref})}{2 H} = 0,
 \end{cases}
 \label{eq:diff_eq_gen_ini}
@@ -826,6 +858,175 @@ v_0 = 0.5 v_a + 0.5 v_b + 0.5 v_c. \\[6pt]
 
 Solving this steady-state DAE system provides consistent initial conditions for all state and algebraic variables of the EMT-type synchronous generator model, 
 ensuring a smooth transition to the subsequent time-domain simulation.
+
+\subsection{Transformer}
+
+Transformers have many models depending on the grade of accuracy and the type of transformer itself. In this case, for the EMT 
+simulation, an ideal basic transformer model is used to represent the transformer behaviour. The assumptions made for the ideal transformer are stated below.
+\begin{itemize}
+    \item The transformer is modelled as an ideal transformer with no cooper either iron losses.
+    \item the 
+    \item The transformer is assumed to be balanced, meaning that the three phases have equal voltages and currents.
+\end{itemize}
+
+This basic transformer consists of two mutually coupled inductors. The primary winding has $N_1$ turns, and the secondary winding has $N_2$ turns. 
+The turns ratio is defined as $a = \frac{N_1}{N_2} = \frac{v_1}{v_2} = \frac{i_2}{i_1} $ where $v_1$ and $v_2$ are the primary and secondary voltages, 
+and $i_1$ and $i_2$ are the primary and secondary currents, respectively. The primary winding is the high voltage side, and the secondary winding is 
+the low voltage side. The voltages across the windings are exppressed as:
+
+\textbf{FALTA FIGURA IDEAL TRANSFORMER}
+
+Figure~\ref{fig:ideal_transformer} shows the equivalent circuit of the ideal transformer.
+\begin{equation}
+\begin{pmatrix}
+v_1 \\
+v_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+L_{11} & L_{12} \\
+L_{21} & L_{22}
+\end{pmatrix}
+\frac{d}{dt}
+\begin{pmatrix}
+i_1 \\
+i_2
+\end{pmatrix}
+\label{eq: voltages_transformer}
+\end{equation}
+
+Where $L_{11}$ and $L_{22}$ are the self-inductances of the primary and secondary windings, respectively, and $L_{12}$ and $L_{21}$ are the 
+mutual inductances between the windings. Since the mutual coupling is bilateral, $L_{12} = L_{21}$. Equation \ref{eq: voltages_transformer} can be rewritten as:
+
+\begin{equation}
+\begin{pmatrix}
+v_1 \\
+a~v_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+L_{11} & L_{12} \\
+a~L_{21} & a^2~L_{22}
+\end{pmatrix}
+\frac{d}{dt}
+\begin{pmatrix}
+i_1 \\
+i_2/a
+\end{pmatrix}
+\label{eq: voltages_transformer}
+\end{equation}
+
+Using the relation below, the transformer equivalent circuit is shown in Figure~\ref{fig:ideal_transformer_equivalent_circuit}.
+
+\textbf{FALTA FIGURA IDEAL TRANSFORMER EQUIVALENT CIRCUIT}
+
+
+\subsubsection{Numerical model in EMT}
+
+The transformer model is implemented in the EMT simulation using a numerical approach similar to that used for transmission lines using the Dommel method. 
+Figure~\ref{fig:dommel_transformer_equivalent} shows the equivalent circuit of the transformer used in the EMT simulation. 
+
+\textbf{FALTA FIGURA DOMMEL TRANSFORMER EQUIVALENT}
+
+It's seen how the inductances are represented as a combination of a history component and a conductance derived from the self and mutual inductances. 
+From equation\ref{eq: voltages_transformer}, each winding components are separated as:
+
+\begin{equation}
+\frac{d i_1}{d t}
+=
+\frac{L_{22}}{L_{11}L_{22} - L_{12}L_{21}}\, v_1
+-
+\frac{L_{21}}{L_{11}L_{22} - L_{12}L_{21}}\, v_2
+\end{equation}
+
+\begin{equation}
+\frac{d i_2}{d t}
+=
+-\frac{L_{12}}{L_{11}L_{22} - L_{12}L_{21}}\, v_1
++
+\frac{L_{11}}{L_{11}L_{22} - L_{12}L_{21}}\, v_2
+\end{equation}
+
+
+
+\begin{equation}
+L_1 = L_{11} - a L_{12}
+\end{equation}
+\begin{equation}
+L_2 = a^2 L_{22} - a L_{12}
+\end{equation}
+
+
+\textbf{FIX EQUATIONS}
+
+\begin{equation}
+\begin{aligned}
+i_1(t)
+&= I_{h1}(t-\Delta t)
++ \left(
+\frac{L_{22}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+-
+\frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\right) v_1(t) \\
+&\phantom{=}
++ \frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\left( v_1(t) - v_2(t) \right)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+i_2(t)
+&= I_{h2}(t-\Delta t)
++ \left(
+\frac{L_{11}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+-
+\frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\right) v_1(t) \\
+&\phantom{=}
++ \frac{L_{12}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\left( v_2(t) - v_1(t) \right)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+I_{h1}(t-\Delta t)
+&= i_1(t-\Delta t)
++ \left(
+\frac{L_{22}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+-
+\frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\right) v_1(t-\Delta t) \\
+&\phantom{=}
++ \frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\left( v_1(t-\Delta t) - v_2(t-\Delta t) \right)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+I_{h2}(t-\Delta t)
+&= i_2(t-\Delta t)
++ \left(
+\frac{L_{11}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+-
+\frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\right) v_1(t-\Delta t) \\
+&\phantom{=}
++ \frac{L_{12}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
+\left( v_2(t-\Delta t) - v_1(t-\Delta t) \right)
+\end{aligned}
+\end{equation}
+
+The transformer implementation will be completely numerical following the same structure as for the lines. 
+
+The history component lags only by one time step (in lines is tau).
+
+Add trafo equivalent circuit figure.
+
+Trafos are added to the system as trafos with different bus voltages at the two ends. 
+
 
 
 
