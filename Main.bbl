@@ -25,9 +25,6 @@
            family={{eRoots Analytics S.L.}},
            familyi={e\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {Barcelona, Spain}%
-      }
       \list{publisher}{1}{%
         {eRoots Analytics}%
       }
@@ -43,156 +40,14 @@
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Combines AC/DC power flow, optimisation, and time-series simulation in an open and extensible architecture.}
-      \field{title}{VeraGrid: Open-source code to power model handling, powerful simulations, and seamless visualization.}
-      \field{version}{v1.0}
+      \field{title}{VeraGrid}
+      \field{year}{2024}
       \verb{urlraw}
       \verb https://www.eroots.io/veragrid
       \endverb
       \verb{url}
       \verb https://www.eroots.io/veragrid
       \endverb
-    \endentry
-    \entry{LaraTDS}{article}{}{}
-      \name{author}{6}{}{%
-        {{hash=80ea9455fe829f3e8e10c315f9eb2f89}{%
-           family={Lara},
-           familyi={L\bibinitperiod},
-           given={Jose\bibnamedelima Daniel},
-           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=3bf946ce2536ded289cd5a4cb3a30c5a}{%
-           family={Henriquez-Auba},
-           familyi={H\bibinithyphendelim A\bibinitperiod},
-           given={Rodrigo},
-           giveni={R\bibinitperiod}}}%
-        {{hash=f62081471adbf287b0a60d67ca3be294}{%
-           family={Ramasubramanian},
-           familyi={R\bibinitperiod},
-           given={Deepak},
-           giveni={D\bibinitperiod}}}%
-        {{hash=33cc657b8ddf7e6d5d5dccfabc0d3054}{%
-           family={Dhople},
-           familyi={D\bibinitperiod},
-           given={Sairaj},
-           giveni={S\bibinitperiod}}}%
-        {{hash=81df36c7f2108db7d47e8de999e11c70}{%
-           family={Callaway},
-           familyi={C\bibinitperiod},
-           given={Duncan\bibnamedelima S.},
-           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=0dcacabdc6b356e29278a86876e4a177}{%
-           family={Sanders},
-           familyi={S\bibinitperiod},
-           given={Seth},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{23b47169da97ba7b5825b14c719696ac}
-      \strng{fullhash}{d22ca550f9e6c44a87bb40c23f19f379}
-      \strng{fullhashraw}{d22ca550f9e6c44a87bb40c23f19f379}
-      \strng{bibnamehash}{d22ca550f9e6c44a87bb40c23f19f379}
-      \strng{authorbibnamehash}{d22ca550f9e6c44a87bb40c23f19f379}
-      \strng{authornamehash}{23b47169da97ba7b5825b14c719696ac}
-      \strng{authorfullhash}{d22ca550f9e6c44a87bb40c23f19f379}
-      \strng{authorfullhashraw}{d22ca550f9e6c44a87bb40c23f19f379}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Power Systems}
-      \field{number}{2}
-      \field{title}{Revisiting Power Systems Time-Domain Simulation Methods and Models}
-      \field{volume}{39}
-      \field{year}{2024}
-      \field{pages}{2421\bibrangedash 2437}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1109/TPWRS.2023.3303291
-      \endverb
-      \keyw{Power system dynamics;Time-domain analysis;Mathematical models;Computational modeling;Taxonomy;Power system modeling;Power system simulation;Modeling;power system analysis;simulation}
-    \endentry
-    \entry{Fortescue}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=1ff954fa0ec87505429ba7f606016feb}{%
-           family={Fortescue},
-           familyi={F\bibinitperiod},
-           given={C.\bibnamedelimi L.},
-           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \strng{namehash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{fullhash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{fullhashraw}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{bibnamehash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{authorbibnamehash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{authornamehash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{authorfullhash}{1ff954fa0ec87505429ba7f606016feb}
-      \strng{authorfullhashraw}{1ff954fa0ec87505429ba7f606016feb}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Transactions of the American Institute of Electrical Engineers}
-      \field{number}{2}
-      \field{title}{Method of symmetrical co-ordinates applied to the solution of polyphase networks}
-      \field{volume}{XXXVII}
-      \field{year}{1918}
-      \field{pages}{1027\bibrangedash 1140}
-      \range{pages}{114}
-    \endentry
-    \entry{CasellaDAE}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
-           family={Casella},
-           familyi={C\bibinitperiod},
-           given={Francesco},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Lecture slides, Dipartimento di Elettronica e Informazione, Politecnico di Milano}
-      \field{note}{Available at \url{https://staff.polito.it/roberto.zanino/sub1/teach_files/modelica_minicourse/02\%20-\%20DAE\%20Systems.pdf}.}
-      \field{title}{Properties of Differential-Algebraic Equation Systems (DAE)}
-      \field{year}{2010}
-    \endentry
-    \entry{SauerPaiBook}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=5de2b455a89c970c334b8bd78ac2e5a5}{%
-           family={Sauer},
-           familyi={S\bibinitperiod},
-           given={P.\bibnamedelimi W.},
-           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-        {{hash=86cbebb4d2ec295d66d769a4423a05a1}{%
-           family={Pai},
-           familyi={P\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Prentice Hall}%
-      }
-      \strng{namehash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{fullhash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{fullhashraw}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{bibnamehash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{authorbibnamehash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{authornamehash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{authorfullhash}{8a02578e8c2034cacd35327a42b6b64b}
-      \strng{authorfullhashraw}{8a02578e8c2034cacd35327a42b6b64b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Power System Dynamics and Stability}
-      \field{year}{1997}
     \endentry
     \entry{SymbolicHantao}{article}{}{}
       \name{author}{3}{}{%
@@ -234,64 +89,6 @@
       \verb{doi}
       \verb 10.1109/TPWRS.2020.3017019
       \endverb
-      \keyw{Power systems,open-source,DAE modeling,symbolic calculation,time-domain simulation,ANDES library}
-    \endentry
-    \entry{Butcher2008}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=a4c07e4cc385d9cf46acf16ba5968a19}{%
-           family={Butcher},
-           familyi={B\bibinitperiod},
-           given={John\bibnamedelima C.},
-           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Chichester, UK}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{fullhash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{fullhashraw}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{bibnamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{authorbibnamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{authornamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{authorfullhash}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \strng{authorfullhashraw}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Numerical Methods for Ordinary Differential Equations}
-      \field{year}{2008}
-    \endentry
-    \entry{Hindmarsh1995}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=965424f460185670783266d3e5e69e81}{%
-           family={Hindmarsh},
-           familyi={H\bibinitperiod},
-           given={A.\bibnamedelimi C.},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \strng{namehash}{965424f460185670783266d3e5e69e81}
-      \strng{fullhash}{965424f460185670783266d3e5e69e81}
-      \strng{fullhashraw}{965424f460185670783266d3e5e69e81}
-      \strng{bibnamehash}{965424f460185670783266d3e5e69e81}
-      \strng{authorbibnamehash}{965424f460185670783266d3e5e69e81}
-      \strng{authornamehash}{965424f460185670783266d3e5e69e81}
-      \strng{authorfullhash}{965424f460185670783266d3e5e69e81}
-      \strng{authorfullhashraw}{965424f460185670783266d3e5e69e81}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computing in Science \& Engineering}
-      \field{number}{1}
-      \field{title}{Algebraic Equations, Part I: Euler Methods and error behaviour}
-      \field{volume}{9}
-      \field{year}{1995}
-      \field{pages}{34\bibrangedash 44}
-      \range{pages}{11}
     \endentry
     \entry{StabilityAndControlKundur}{book}{}{}
       \name{author}{2}{}{%
@@ -306,14 +103,8 @@
            given={Om\bibnamedelima P.},
            giveni={O\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {English}%
-      }
-      \list{location}{1}{%
-        {New York}%
-      }
       \list{publisher}{1}{%
-        {McGraw Hill}%
+        {McGraw-Hill}%
       }
       \strng{namehash}{78f96d6a82f5d716ff83cf2098c674d0}
       \strng{fullhash}{78f96d6a82f5d716ff83cf2098c674d0}
@@ -328,10 +119,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
-      \field{isbn}{9781260473544}
       \field{title}{Power System Stability and Control}
       \field{year}{2022}
-      \keyw{electric power systems,stability}
     \endentry
     \entry{KundurDef}{article}{}{}
       \name{author}{12}{}{%
@@ -385,11 +174,11 @@
            familyi={T\bibinitperiod},
            given={C.},
            giveni={C\bibinitperiod}}}%
-        {{hash=a6dabe1610d68284ef16ec9c2235e0d6}{%
-           family={Cutsem},
-           familyi={C\bibinitperiod},
-           given={T.\bibnamedelimi Van},
-           giveni={T\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=815b7af39d41ab990e603881ba375595}{%
+           family={Van\bibnamedelima Cutsem},
+           familyi={V\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
         {{hash=ef80e06e2cd953eb8a21f586d2ee82d6}{%
            family={Vittal},
            familyi={V\bibinitperiod},
@@ -397,19 +186,18 @@
            giveni={V\bibinitperiod}}}%
       }
       \strng{namehash}{71149832b250c0f46be74580f793cf30}
-      \strng{fullhash}{6d434dcd73a1feb7d2ee305450efd4b4}
-      \strng{fullhashraw}{6d434dcd73a1feb7d2ee305450efd4b4}
+      \strng{fullhash}{292600aede8c8e53df78cb2be1d6dd81}
+      \strng{fullhashraw}{292600aede8c8e53df78cb2be1d6dd81}
       \strng{bibnamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authorbibnamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authornamehash}{71149832b250c0f46be74580f793cf30}
-      \strng{authorfullhash}{6d434dcd73a1feb7d2ee305450efd4b4}
-      \strng{authorfullhashraw}{6d434dcd73a1feb7d2ee305450efd4b4}
+      \strng{authorfullhash}{292600aede8c8e53df78cb2be1d6dd81}
+      \strng{authorfullhashraw}{292600aede8c8e53df78cb2be1d6dd81}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
-      \field{month}{5}
       \field{number}{2}
       \field{title}{Definition and Classification of Power System Stability}
       \field{volume}{19}
@@ -421,103 +209,30 @@
       \endverb
     \endentry
     \entry{DefStabExtended}{article}{}{}
-      \name{author}{16}{}{%
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
         {{hash=4428296899abf0f1937746377abc0de7}{%
            family={Hatziargyriou},
            familyi={H\bibinitperiod},
            given={Nikos},
            giveni={N\bibinitperiod}}}%
-        {{hash=c1af983abee0aeae438d073f91f7b1eb}{%
-           family={Milanovic},
-           familyi={M\bibinitperiod},
-           given={Jovica},
-           giveni={J\bibinitperiod}}}%
-        {{hash=9cc441f41cb13480af2d7c4efd9478b8}{%
-           family={Rahmann},
-           familyi={R\bibinitperiod},
-           given={Claudia},
-           giveni={C\bibinitperiod}}}%
-        {{hash=17e7582c68276d29819f9cf647e1d98e}{%
-           family={Ajjarapu},
-           familyi={A\bibinitperiod},
-           given={Venkataramana},
-           giveni={V\bibinitperiod}}}%
-        {{hash=11404896cb4070231f0351cfd4d41576}{%
-           family={Canizares},
-           familyi={C\bibinitperiod},
-           given={Claudio},
-           giveni={C\bibinitperiod}}}%
-        {{hash=0cea5ca337018f3c37ad39aa6f2a6d6a}{%
-           family={Erlich},
-           familyi={E\bibinitperiod},
-           given={Istvan},
-           giveni={I\bibinitperiod}}}%
-        {{hash=adb5797edad2975fdfafaaa7afcc19b3}{%
-           family={Hill},
-           familyi={H\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
-        {{hash=60c1946c41d59aa3d71be0d20cb31f00}{%
-           family={Hiskens},
-           familyi={H\bibinitperiod},
-           given={Ian},
-           giveni={I\bibinitperiod}}}%
-        {{hash=6dad76729104393071c18157d8e5490e}{%
-           family={Kamwa},
-           familyi={K\bibinitperiod},
-           given={Innocent},
-           giveni={I\bibinitperiod}}}%
-        {{hash=7306cbd00a1ff72b04712082649406ea}{%
-           family={Pal},
-           familyi={P\bibinitperiod},
-           given={Bikash},
-           giveni={B\bibinitperiod}}}%
-        {{hash=f61ffdcd448ff58421d9ae55227dbd53}{%
-           family={Pourbeik},
-           familyi={P\bibinitperiod},
-           given={Pouyan},
-           giveni={P\bibinitperiod}}}%
-        {{hash=10a712cbcc905286ceee0eb0a78b7f8e}{%
-           family={Sanchez-Gasca},
-           familyi={S\bibinithyphendelim G\bibinitperiod},
-           given={Juan},
-           giveni={J\bibinitperiod}}}%
-        {{hash=c5d25b21fc0b21b10424174fd05d347b}{%
-           family={Stankovic},
-           familyi={S\bibinitperiod},
-           given={Aleksandar},
-           giveni={A\bibinitperiod}}}%
-        {{hash=80f5725f1aff45cf468f119b202525b9}{%
-           family={Cutsem},
-           familyi={C\bibinitperiod},
-           given={Thierry\bibnamedelima Van},
-           giveni={T\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-        {{hash=e3eb2323cfc519b09f12d8ce1bb715d6}{%
-           family={Vittal},
-           familyi={V\bibinitperiod},
-           given={Vijay},
-           giveni={V\bibinitperiod}}}%
-        {{hash=5ce7e3615a1f9a1ba22c76e89152ae2f}{%
-           family={Vournas},
-           familyi={V\bibinitperiod},
-           given={Costas},
-           giveni={C\bibinitperiod}}}%
       }
       \strng{namehash}{92928230bbf9b90fd7b3349fe3839579}
-      \strng{fullhash}{961dcb8291b4785282b397f062db21eb}
-      \strng{fullhashraw}{961dcb8291b4785282b397f062db21eb}
+      \strng{fullhash}{92928230bbf9b90fd7b3349fe3839579}
+      \strng{fullhashraw}{92928230bbf9b90fd7b3349fe3839579}
       \strng{bibnamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorbibnamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authornamehash}{92928230bbf9b90fd7b3349fe3839579}
-      \strng{authorfullhash}{961dcb8291b4785282b397f062db21eb}
-      \strng{authorfullhashraw}{961dcb8291b4785282b397f062db21eb}
+      \strng{authorfullhash}{92928230bbf9b90fd7b3349fe3839579}
+      \strng{authorfullhashraw}{92928230bbf9b90fd7b3349fe3839579}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
       \field{number}{4}
-      \field{title}{Definition and Classification of Power System Stability -- Revisited \& Extended}
+      \field{title}{Definition and Classification of Power System Stability -- Revisited and Extended}
       \field{volume}{36}
       \field{year}{2021}
       \field{pages}{3271\bibrangedash 3281}
@@ -525,7 +240,6 @@
       \verb{doi}
       \verb 10.1109/TPWRS.2020.3041774
       \endverb
-      \keyw{Power system stability,stability criteria,power electronics,converter-driven stability,small-signal stability,transient stability,voltage stability,frequency stability}
     \endentry
     \entry{SmallSignalCheah}{article}{}{}
       \name{author}{6}{}{%
@@ -560,12 +274,6 @@
            given={Lie},
            giveni={L\bibinitperiod}}}%
       }
-      \list{language}{1}{%
-        {English}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons Ltd}%
-      }
       \strng{namehash}{46430f97e5f7d31fd3f91a015a2cdc9b}
       \strng{fullhash}{5b66321052a942b2a48cd28fc272301c}
       \strng{fullhashraw}{5b66321052a942b2a48cd28fc272301c}
@@ -578,7 +286,6 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{2041-8396}
       \field{journaltitle}{Wiley Interdisciplinary Reviews: Energy and Environment}
       \field{number}{1}
       \field{title}{Modeling and Analysis Approaches for Small-Signal Stability Assessment of Power-Electronic-Dominated Systems}
@@ -587,7 +294,6 @@
       \verb{doi}
       \verb 10.1002/wene.453
       \endverb
-      \keyw{distributed generation,advanced review,stability,modeling,power electronics,power systems,small signal}
     \endentry
     \entry{KonovaPF}{article}{}{}
       \name{author}{2}{}{%
@@ -618,132 +324,101 @@
       \field{title}{Participation Factor in Modal Analysis of Power Systems Stability}
       \field{year}{2016}
     \endentry
-    \entry{qt_designer}{software}{}{}
-      \name{author}{1}{}{%
-        {{hash=f1c8ea9c914fd64f65b44686f35d325b}{%
-           family={{Qt Group}},
-           familyi={Q\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Espoo, Finland}%
-      }
-      \list{publisher}{1}{%
-        {Qt Group}%
-      }
-      \strng{namehash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{fullhash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{fullhashraw}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{bibnamehash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{authorbibnamehash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{authornamehash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{authorfullhash}{f1c8ea9c914fd64f65b44686f35d325b}
-      \strng{authorfullhashraw}{f1c8ea9c914fd64f65b44686f35d325b}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Part of the Qt framework for developing graphical user interfaces and cross-platform applications.}
-      \field{title}{Qt Designer: Cross-platform GUI Design Tool}
-      \verb{urlraw}
-      \verb https://www.qt.io/product/development-tools
-      \endverb
-      \verb{url}
-      \verb https://www.qt.io/product/development-tools
-      \endverb
-    \endentry
     \entry{andes}{software}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
       \name{author}{1}{}{%
-        {{hash=317cfa4a68c58f8fdc04c1a848390ccb}{%
-           family={al.},
-           familyi={a\bibinitperiod},
-           given={Hongzhi\bibnamedelima Zhang},
-           giveni={H\bibinitperiod\bibinitdelim Z\bibinitperiod},
-           prefix={et},
-           prefixi={e\bibinitperiod}}}%
+        {{hash=93904770562cbd1b66e1d26865662c23}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hongzhi},
+           giveni={H\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {University of Tennessee, Knoxville}%
-      }
-      \strng{namehash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{fullhash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{fullhashraw}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{bibnamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{authorbibnamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{authornamehash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{authorfullhash}{317cfa4a68c58f8fdc04c1a848390ccb}
-      \strng{authorfullhashraw}{317cfa4a68c58f8fdc04c1a848390ccb}
+      \strng{namehash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{fullhash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{fullhashraw}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{bibnamehash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{authorbibnamehash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{authornamehash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{authorfullhash}{58828315d53c7612f0bf7ebc12f099f4}
+      \strng{authorfullhashraw}{58828315d53c7612f0bf7ebc12f099f4}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Available at \url{https://docs.andes.app}.}
       \field{title}{ANDES: Advanced Network Dynamics and Equilibrium Simulator}
-      \field{version}{v1.8.0}
+      \field{year}{2024}
       \verb{urlraw}
-      \verb https://docs.andes.app/en/stable/getting_started/index.html
+      \verb https://docs.andes.app
       \endverb
       \verb{url}
-      \verb https://docs.andes.app/en/stable/getting_started/index.html
+      \verb https://docs.andes.app
       \endverb
     \endentry
-    \entry{Dommel_EMTP_Theory_Book_1986}{report}{}{}
+    \entry{Dommel_EMTP_Theory_Book_1986}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=da8060ca190df3563ebd244ed13db445}{%
-           family={Dommel},
-           familyi={D\bibinitperiod},
-           given={Hermann\bibnamedelima W.},
-           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=63de9f8cf92899a119df283e3bea879f}{%
+           family={{Bonneville Power Administration}},
+           familyi={B\bibinitperiod}}}%
       }
-      \list{institution}{1}{%
+      \list{location}{1}{%
+        {Portland, OR}%
+      }
+      \list{publisher}{1}{%
         {Bonneville Power Administration}%
       }
-      \list{location}{1}{%
-        {Portland, Oregon, USA}%
-      }
-      \strng{namehash}{da8060ca190df3563ebd244ed13db445}
-      \strng{fullhash}{da8060ca190df3563ebd244ed13db445}
-      \strng{fullhashraw}{da8060ca190df3563ebd244ed13db445}
-      \strng{bibnamehash}{da8060ca190df3563ebd244ed13db445}
-      \strng{authorbibnamehash}{da8060ca190df3563ebd244ed13db445}
-      \strng{authornamehash}{da8060ca190df3563ebd244ed13db445}
-      \strng{authorfullhash}{da8060ca190df3563ebd244ed13db445}
-      \strng{authorfullhashraw}{da8060ca190df3563ebd244ed13db445}
+      \strng{namehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{fullhash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{fullhashraw}{63de9f8cf92899a119df283e3bea879f}
+      \strng{bibnamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorbibnamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authornamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorfullhash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorfullhashraw}{63de9f8cf92899a119df283e3bea879f}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Electromagnetic Transients Program (EMTP) Theory Book}
+      \field{note}{Revised edition}
       \field{title}{EMTP Theory Book}
-      \field{type}{techreport}
-      \field{year}{1986}
+      \field{year}{1982}
     \endentry
-    \entry{carson1926}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=12ef2d35cda56b5bc979dca16e29abb1}{%
-           family={Carson},
-           familyi={C\bibinitperiod},
-           given={J.\bibnamedelimi R.},
-           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+    \entry{WatsonArrillagaEMT2019}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c18aefc6b11748e89d5cfcd190a96958}{%
+           family={Watson},
+           familyi={W\bibinitperiod},
+           given={Neville},
+           giveni={N\bibinitperiod}}}%
+        {{hash=31b3d438792f49b76a22124e80c565ab}{%
+           family={Arrillaga},
+           familyi={A\bibinitperiod},
+           given={Jos},
+           giveni={J\bibinitperiod}}}%
       }
-      \strng{namehash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{fullhash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{fullhashraw}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{bibnamehash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{authorbibnamehash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{authornamehash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{authorfullhash}{12ef2d35cda56b5bc979dca16e29abb1}
-      \strng{authorfullhashraw}{12ef2d35cda56b5bc979dca16e29abb1}
+      \list{location}{1}{%
+        {London, UK}%
+      }
+      \list{publisher}{2}{%
+        {The Institution of Engineering}%
+        {Technology}%
+      }
+      \strng{namehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{fullhash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{fullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{bibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorbibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authornamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorfullhash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorfullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Bell System Technical Journal}
-      \field{number}{4}
-      \field{title}{Wave Propagation in Overhead Wires with Ground Return}
-      \field{volume}{5}
-      \field{year}{1926}
-      \field{pages}{539\bibrangedash 554}
-      \range{pages}{16}
+      \field{edition}{2}
+      \field{isbn}{978-1-78561-344-0}
+      \field{title}{Power Systems Electromagnetic Transients Simulation}
+      \field{year}{2019}
     \endentry
     \entry{IEA2024Transition}{report}{}{}
       \name{author}{1}{}{%
@@ -752,7 +427,7 @@
            familyi={I\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {International Energy Agency (IEA)}%
+        {International Energy Agency}%
       }
       \strng{namehash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{fullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
@@ -762,18 +437,14 @@
       \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{World Energy Outlook 2024: The Energy Transition}
+      \field{type}{techreport}
       \field{year}{2024}
-      \verb{urlraw}
-      \verb https://www.iea.org/reports/world-energy-outlook-2024
-      \endverb
-      \verb{url}
-      \verb https://www.iea.org/reports/world-energy-outlook-2024
-      \endverb
     \endentry
     \entry{XiongParaEMT2024}{article}{}{}
       \true{moreauthor}
@@ -797,8 +468,8 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Elsevier / Electric Power Systems Research}
-      \field{title}{An open-source parallel EMT simulation framework}
+      \field{journaltitle}{Electric Power Systems Research}
+      \field{title}{An Open-Source Parallel EMT Simulation Framework}
       \field{year}{2024}
     \endentry
     \entry{YanCompEff2025}{article}{}{}
@@ -819,12 +490,12 @@
       \strng{authornamehash}{d9c11e6c930095c42beaa97f3be99753}
       \strng{authorfullhash}{d9c11e6c930095c42beaa97f3be99753}
       \strng{authorfullhashraw}{d9c11e6c930095c42beaa97f3be99753}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Energies}
-      \field{title}{Computational Efficiency-Accuracy Trade-Offs in EMT Simulation}
+      \field{title}{Computational Efficiency--Accuracy Trade-Offs in EMT Simulation}
       \field{year}{2025}
       \verb{doi}
       \verb 10.3390/en18095173
@@ -846,19 +517,30 @@
       \strng{authornamehash}{4f1f9056a599a65ef0f53d1973983c8d}
       \strng{authorfullhash}{4f1f9056a599a65ef0f53d1973983c8d}
       \strng{authorfullhashraw}{4f1f9056a599a65ef0f53d1973983c8d}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Iowa State University site}
       \field{title}{Open Source Software for Electric Power Industry}
       \field{year}{n.d.}
+      \verb{urlraw}
+      \verb https://www2.econ.iastate.edu/tesfatsi/
+      \endverb
+      \verb{url}
+      \verb https://www2.econ.iastate.edu/tesfatsi/
+      \endverb
     \endentry
-    \entry{CircularComputing2022}{misc}{}{}
+    \entry{CircularComputing2022}{report}{}{}
       \name{author}{1}{}{%
         {{hash=a7ebd3fe74235db6b2911185cae12077}{%
            family={{Circular Computing}},
            familyi={C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Circular Computing}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
       }
       \strng{namehash}{a7ebd3fe74235db6b2911185cae12077}
       \strng{fullhash}{a7ebd3fe74235db6b2911185cae12077}
@@ -872,13 +554,17 @@
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{The Carbon Footprint of a Laptop: Understanding the True Impact}
+      \field{title}{Circular Computing: Calculating the Carbon Footprint of Laptops}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
       \field{year}{2022}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://circularcomputing.com/news/carbon-footprint-laptop/
+      \verb https://circularcomputing.com
       \endverb
       \verb{url}
-      \verb https://circularcomputing.com/news/carbon-footprint-laptop/
+      \verb https://circularcomputing.com
       \endverb
     \endentry
     \entry{HP2021MonitorLCA}{report}{}{}
@@ -888,7 +574,10 @@
            familyi={H\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {HP Sustainability Report}%
+        {HP Sustainability}%
+      }
+      \list{location}{1}{%
+        {Palo Alto, CA, USA}%
       }
       \strng{namehash}{7dc102707c75d8cee11ad2fe4c6082ae}
       \strng{fullhash}{7dc102707c75d8cee11ad2fe4c6082ae}
@@ -902,118 +591,141 @@
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{HP Monitor Life Cycle Assessment Summary Report}
-      \field{year}{2021}
+      \field{title}{Life Cycle Assessment of HP Monitors}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08699464
+      \verb https://www.hp.com/sustainableimpact
       \endverb
       \verb{url}
-      \verb https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c08699464
+      \verb https://www.hp.com/sustainableimpact
       \endverb
     \endentry
-    \entry{ICAEN}{misc}{}{}
+    \entry{ICAEN}{report}{}{}
       \name{author}{1}{}{%
-        {{hash=bc29cb8d5e3fc175c7b41f04b8c0d5dd}{%
-           family={{Institut Català d'Energia (ICAEN)}},
+        {{hash=98c3e9a4a01470d8ad58b85d6e952579}{%
+           family={{Institut Català de l'Energia}},
            familyi={I\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {Generalitat de Catalunya}%
+        {ICAEN}%
       }
-      \strng{namehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{fullhash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{fullhashraw}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{bibnamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{authorbibnamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{authornamehash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{authorfullhash}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
-      \strng{authorfullhashraw}{bc29cb8d5e3fc175c7b41f04b8c0d5dd}
+      \list{location}{1}{%
+        {Barcelona, Spain}%
+      }
+      \strng{namehash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{fullhash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{fullhashraw}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{bibnamehash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{authorbibnamehash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{authornamehash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{authorfullhash}{98c3e9a4a01470d8ad58b85d6e952579}
+      \strng{authorfullhashraw}{98c3e9a4a01470d8ad58b85d6e952579}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Online resource}
-      \field{title}{Guia per a la millora de l'eficiència energètica en les instal·lacions industrials}
-      \field{year}{2023}
+      \field{title}{Guia d'Eficiència Energètica en Edificis d'Oficines}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2020}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://icaen.gencat.cat/web/.content/migracio_automatica/documents/sala_de_premsa/arxius/guia.pdf
+      \verb https://icaen.gencat.cat
       \endverb
       \verb{url}
-      \verb https://icaen.gencat.cat/web/.content/migracio_automatica/documents/sala_de_premsa/arxius/guia.pdf
+      \verb https://icaen.gencat.cat
       \endverb
     \endentry
-    \entry{Gencat2023FactorsEmissio}{misc}{}{}
+    \entry{Gencat2023FactorsEmissio}{report}{}{}
       \name{author}{1}{}{%
-        {{hash=1ad7e8192f40ba5830e784731bc4c3b3}{%
-           family={{Generalitat de Catalunya, Departament d'Acció Climàtica, Alimentació i Agenda Rural}},
+        {{hash=b89e996dae1e72a98b8c6c3b9420ed1f}{%
+           family={{Generalitat de Catalunya}},
            familyi={G\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {Generalitat de Catalunya}%
+        {Departament d'Acció Climàtica, Alimentació i Agenda Rural}%
       }
-      \strng{namehash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{fullhash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{fullhashraw}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{bibnamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{authorbibnamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{authornamehash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{authorfullhash}{1ad7e8192f40ba5830e784731bc4c3b3}
-      \strng{authorfullhashraw}{1ad7e8192f40ba5830e784731bc4c3b3}
+      \list{location}{1}{%
+        {Barcelona, Spain}%
+      }
+      \strng{namehash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{fullhash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{fullhashraw}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{bibnamehash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{authorbibnamehash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{authornamehash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{authorfullhash}{b89e996dae1e72a98b8c6c3b9420ed1f}
+      \strng{authorfullhashraw}{b89e996dae1e72a98b8c6c3b9420ed1f}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Online resource}
-      \field{title}{Emission factors associated to the energy mix}
+      \field{title}{Factors d'Emissió de CO\textsubscript{2} del Consum Elèctric}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
       \field{year}{2023}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://canviclimatic.gencat.cat/en/actua/factors_demissio_associats_a_lenergia/index.html
+      \verb https://mediambient.gencat.cat
       \endverb
       \verb{url}
-      \verb https://canviclimatic.gencat.cat/en/actua/factors_demissio_associats_a_lenergia/index.html
+      \verb https://mediambient.gencat.cat
       \endverb
     \endentry
-    \entry{AsusVivabook}{misc}{}{}
+    \entry{AsusVivabook}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=5ed0b5f41b21804e51e82664dc24e2dd}{%
-           family={{ASUS}},
+        {{hash=36a5c4d1088e7ae1b63dbb933a8bf9c3}{%
+           family={{ASUSTeK Computer Inc.}},
            familyi={A\bibinitperiod}}}%
       }
-      \strng{namehash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{fullhash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{fullhashraw}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{bibnamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{authorbibnamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{authornamehash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{authorfullhash}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \strng{authorfullhashraw}{5ed0b5f41b21804e51e82664dc24e2dd}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Technical specifications Asus Vivabook 15}
-      \field{year}{2025}
-    \endentry
-    \entry{AOC}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=cc013cae430bc1c1e89261e8ef1e9397}{%
-           family={{Display Specifications}},
-           familyi={D\bibinitperiod}}}%
+      \list{publisher}{1}{%
+        {ASUS}%
       }
-      \strng{namehash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{fullhash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{fullhashraw}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{bibnamehash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{authorbibnamehash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{authornamehash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{authorfullhash}{cc013cae430bc1c1e89261e8ef1e9397}
-      \strng{authorfullhashraw}{cc013cae430bc1c1e89261e8ef1e9397}
+      \strng{namehash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{fullhash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{fullhashraw}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{bibnamehash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{authorbibnamehash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{authornamehash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{authorfullhash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
+      \strng{authorfullhashraw}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Power consumption specifications AOC W-LED}
-      \field{year}{2025}
+      \field{note}{Manufacturer technical documentation}
+      \field{title}{ASUS Vivobook Technical Specifications}
+      \field{year}{2023}
+    \endentry
+    \entry{AOC}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=543a6da7df52496ee7f7b2b93aba68ea}{%
+           family={{AOC International}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {AOC}%
+      }
+      \strng{namehash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{fullhash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{fullhashraw}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{bibnamehash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{authorbibnamehash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{authornamehash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{authorfullhash}{543a6da7df52496ee7f7b2b93aba68ea}
+      \strng{authorfullhashraw}{543a6da7df52496ee7f7b2b93aba68ea}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Manufacturer documentation}
+      \field{title}{AOC Monitor User Manual and Technical Specifications}
+      \field{year}{2022}
     \endentry
     \entry{EEA2021OfficeEnergy}{report}{}{}
       \name{author}{1}{}{%
@@ -1022,7 +734,10 @@
            familyi={E\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {EEA Technical Report No 07/2021}%
+        {European Environment Agency}%
+      }
+      \list{location}{1}{%
+        {Copenhagen, Denmark}%
       }
       \strng{namehash}{9aa80cbd4e27fcec08519169fe921f57}
       \strng{fullhash}{9aa80cbd4e27fcec08519169fe921f57}
@@ -1032,24 +747,33 @@
       \strng{authornamehash}{9aa80cbd4e27fcec08519169fe921f57}
       \strng{authorfullhash}{9aa80cbd4e27fcec08519169fe921f57}
       \strng{authorfullhashraw}{9aa80cbd4e27fcec08519169fe921f57}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Occupant-related energy use and emissions in office buildings in Europe}
-      \field{year}{2021}
+      \field{title}{Energy Consumption and Greenhouse Gas Emissions from Office Buildings in Europe}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://www.eea.europa.eu/publications
+      \verb https://www.eea.europa.eu
       \endverb
       \verb{url}
-      \verb https://www.eea.europa.eu/publications
+      \verb https://www.eea.europa.eu
       \endverb
     \endentry
-    \entry{CircularEcology}{misc}{}{}
+    \entry{CircularEcology}{report}{}{}
       \name{author}{1}{}{%
         {{hash=f501badf91c69c81bb85af15b26ce20b}{%
            family={{Circular Ecology}},
            familyi={C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Circular Ecology}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
       }
       \strng{namehash}{f501badf91c69c81bb85af15b26ce20b}
       \strng{fullhash}{f501badf91c69c81bb85af15b26ce20b}
@@ -1063,16 +787,254 @@
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{The Carbon Emissions of Homeworking and Office Working}
-      \field{year}{2023}
+      \field{title}{Carbon Footprint of Office-Based Working}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2020}
+      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://circularecology.com/news/the-carbon-emissions-of-homeworking-and-office-working
+      \verb https://circularecology.com
       \endverb
       \verb{url}
-      \verb https://circularecology.com/news/the-carbon-emissions-of-homeworking-and-office-working
+      \verb https://circularecology.com
+      \endverb
+    \endentry
+    \entry{IEA2024Gender}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=b33b47b3008c8c47f90a77e0c2dd3060}{%
+           family={{International Energy Agency}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {International Energy Agency}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \strng{namehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{bibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorbibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Gender and the Energy Transition}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.iea.org
+      \endverb
+      \verb{url}
+      \verb https://www.iea.org
+      \endverb
+    \endentry
+    \entry{UNESCOWomenSTEM}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=24a0ef0a6269be289db4de9570763de3}{%
+           family={{UNESCO}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {United Nations Educational, Scientific}%
+        {Cultural Organization}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \strng{namehash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{fullhash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{fullhashraw}{24a0ef0a6269be289db4de9570763de3}
+      \strng{bibnamehash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{authorbibnamehash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{authornamehash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{authorfullhash}{24a0ef0a6269be289db4de9570763de3}
+      \strng{authorfullhashraw}{24a0ef0a6269be289db4de9570763de3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cracking the Code: Girls' and Women's Education in STEM}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://unesdoc.unesco.org
+      \endverb
+      \verb{url}
+      \verb https://unesdoc.unesco.org
+      \endverb
+    \endentry
+    \entry{OECDGenderSTEM}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=f5afee891ee6cfd141898b22d69e737f}{%
+           family={{Organisation for Economic Co-operation and Development}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {OECD Publishing}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \strng{namehash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{fullhash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{fullhashraw}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{bibnamehash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{authorbibnamehash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{authornamehash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{authorfullhash}{f5afee891ee6cfd141898b22d69e737f}
+      \strng{authorfullhashraw}{f5afee891ee6cfd141898b22d69e737f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bridging the Digital Gender Divide: Include, Upskill, Innovate}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.oecd.org
+      \endverb
+      \verb{url}
+      \verb https://www.oecd.org
+      \endverb
+    \endentry
+    \entry{EUOpenScience}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=a1b813a6e85874b4c945aec2cdbea74c}{%
+           family={{European Commission}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {Directorate-General for Research}%
+        {Innovation}%
+      }
+      \list{location}{1}{%
+        {Brussels, Belgium}%
+      }
+      \strng{namehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{bibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorbibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authornamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Open Science, Open Innovation and Open to the World}
+      \field{urlday}{15}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://research-and-innovation.ec.europa.eu
+      \endverb
+      \verb{url}
+      \verb https://research-and-innovation.ec.europa.eu
+      \endverb
+    \endentry
+    \entry{IEA2022Buildings}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=b33b47b3008c8c47f90a77e0c2dd3060}{%
+           family={{International Energy Agency}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {International Energy Agency}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \strng{namehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{fullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{bibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorbibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
+      \field{extraname}{3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Buildings Sector: Tracking Clean Energy Progress}
+      \field{urlday}{20}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.iea.org/reports/buildings
+      \endverb
+      \verb{url}
+      \verb https://www.iea.org/reports/buildings
+      \endverb
+    \endentry
+    \entry{ADEME2023Offices}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=5678fb9c4bf23d1146b3d6ff0b9cb8b9}{%
+           family={{Agence de la transition écologique}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ADEME}%
+      }
+      \list{location}{1}{%
+        {Angers, France}%
+      }
+      \strng{namehash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{fullhash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{fullhashraw}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{bibnamehash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{authorbibnamehash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{authornamehash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{authorfullhash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \strng{authorfullhashraw}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Environmental Assessment of Office Equipment and Digital Uses}
+      \field{urlday}{20}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ademe.fr
+      \endverb
+      \verb{url}
+      \verb https://www.ademe.fr
       \endverb
     \endentry
   \enddatalist
+  \missing{Butcher2008}
+  \missing{CasellaDAE}
+  \missing{Fortescue}
+  \missing{Hindmarsh1995}
+  \missing{LaraTDS}
+  \missing{SauerPaiBook}
+  \missing{carson1926}
+  \missing{qt_designer}
 \endrefsection
 \endinput
 

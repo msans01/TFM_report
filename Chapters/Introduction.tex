@@ -1,52 +1,115 @@
 %INTRODUCTION
+
 \subsection{Motivation}
 
-...
+Power systems are undergoing a huge transformation driven by the increasing penetration
+of renewable generation, the widespread adoption of power electronic converters, and the
+progressive reduction of system inertia. These changes challenge many of the assumptions
+underlying traditional power system analysis tools, which were primarily developed for
+networks dominated by synchronous machines and relatively slow electromechanical dynamics.
+As a consequence, the accurate assessment of system stability now requires simulation
+frameworks capable of capturing a wide range of dynamic phenomena, from low-frequency
+oscillations to fast electromagnetic transients.
+
+RMS-based dynamic simulations and small-signal stability analysis remain essential tools for
+understanding system behaviour around an operating point, identifying poorly damped modes,
+and evaluating the impact of control systems. These techniques are computationally efficient
+and well suited for large-scale studies, making them indispensable for planning and operational
+applications. However, their effectiveness depends strongly on the consistency between the
+nonlinear dynamic models and their linearised representations, as well as on the transparency
+of the modelling and linearisation process.
+
+At the same time, EMT simulations have become increasingly relevant due to the presence of
+converter-interfaced generation, fast control loops, and electromagnetic interactions that cannot
+be represented accurately using phasor-based models. EMT tools allow the study of waveform-
+level phenomena, detailed device behavior, and fast transients, but they are computationally
+demanding and often difficult to integrate into broader system-level analyses.
+
+In this context, there is a clear need for simulation platforms that combine numerical robustness
+with modelling transparency, allowing engineers and researchers to move seamlessly between
+nonlinear time-domain simulations and analytical stability assessments. Symbolic formulation
+of system equations provides a powerful foundation for such platforms, enabling automated
+linearisation, exact Jacobian computation, and consistent model reuse across different types of
+analysis.
+
+VeraGrid has been developed with this philosophy in mind, aiming to provide an open and
+extensible environment for power system analysis that bridges academic research and practical
+engineering applications. While VeraGrid already includes a broad set of steady-state and
+planning tools, its dynamic simulation capabilities are an active area of development. The
+motivation of this thesis is to contribute to this development by extending the framework with
+small-signal stability analysis and by laying the foundations for EMT simulation, ensuring
+coherent modelling, reliable numerical behavior, and validation against established
+commercial tools.
+
+By addressing both RMS-based stability analysis and EMT dynamics within a unified framework,
+this work aims to support the analysis of modern power systems in a transparent and flexible
+way, providing tools that are suitable for research, education, and real-world engineering
+studies.
+
 
 \subsection{Objectives}
 
-This thesis is part of the ongoing development of the dynamic simulation framework, 
-with a focus on extending its capabilities to include small-signal stability analysis and foundational electromagnetic transient (EMT) modeling. 
-The work is carried out within the Veragrid environment, where new modules and methodologies are being implemented. 
-The main goal is to equip Veragrid with advanced tools for studying the dynamic behavior of power systems, integrating symbolic modeling, numerical routines,
-and graphical interfaces for analysis and visualization.
+This thesis is part of the ongoing development of the dynamic simulation framework within
+VeraGrid, with a focus on extending its capabilities towards small-signal stability analysis
+and the implementation of foundational electromagnetic transient (EMT) simulations.
+The work is carried out in the context of VeraGrid's symbolic-numeric architecture, aiming
+to strengthen its dynamic analysis capabilities while maintaining consistency, transparency,
+and numerical robustness.
 
-\subsubsection*{General Objectives}
+The main objective is to provide VeraGrid with reliable tools for analysing the dynamic
+behaviour of power systems across different time scales, combining RMS-based stability
+analysis with waveform-level EMT modelling, and ensuring coherence between nonlinear
+time-domain simulations and their analytical representations.
 
-To develop and validate advanced methodologies for dynamic simulation and stability analysis of power systems by incorporating small-signal stability techniques and foundational EMT modeling, fully integrated into the Veragrid environment.
+\subsubsection*{General Objective}
+
+To develop, integrate, and validate advanced dynamic simulation and stability analysis
+capabilities in VeraGrid by incorporating small-signal stability analysis for RMS models
+and establishing the foundations for EMT simulation using a combined symbolic-numeric approach.
 
 \subsubsection*{Specific Objectives}
 
 \begin{itemize}
-    \item To develop the small-signal analysis module for RMS models, including the formulation and linearization of differential-algebraic equations at the operating point,
-     the computation of eigenvalues and participation factors from the jacobian matrix, and its integration into Veragrid's graphical interface.
-    \item To implement the foundational components for EMT simulation, modeling transmission lines and system elements in the abc domain, applying discretization techniques
-     such as the Dommel algorithm, and validating the EMT solver using benchmark systems compared against commercial tools such as PSCAD.
-    \item To extend symbolic system formulation to support custom models and control schemes, improving numerical routines, and ensuring consistent initialization of dynamic studies.
-    \item To validate the developed methodologies through case studies, continuously comparing results with commercial tools to ensure model reliability and correctness.
+    \item To develop a small-signal stability analysis module for RMS dynamic models,
+    including the symbolic formulation and linearisation of differential-algebraic equations
+    at an operating point, the computation of eigenvalues, damping ratios, and participation
+    factors, and their integration into the VeraGrid graphical user interface.
+
+    \item To design and implement a foundational EMT simulation framework in the abc
+    domain, including the numerical formulation of transmission lines, synchronous
+    machines, and transformers, using time-domain discretisation techniques derived
+    from classical EMTP methods.
+
+    \item To extend the existing symbolic framework to support EMT formulations,
+    enabling a consistent symbolic-numeric treatment of both RMS and EMT models,
+    and facilitating coherent model definition, and initialization.
+
+    \item To ensure consistent initialization procedures for both EMT simulations,
+    allowing stable and physically meaningful dynamic studies starting from steady-state
+    operating points.
+
+    \item To validate the developed small-signal and EMT methodologies through benchmark
+    studies, comparing results against established tools.
 \end{itemize}
-
-
-
 
 \subsection{Scope}
 
-This thesis is part of the ongoing development of Veragrid, a software platform for power system planning and simulation. 
+This thesis is part of the ongoing development of VeraGrid, a software platform for power system planning and simulation. 
 The work focuses on improving dynamic simulation tools for modern grids, particularly in the context of small-signal stability and electromagnetic transient (EMT) modeling.
 Over a five-month period, from September 2025 to January 2026, the project aims to build essential components that support symbolic formulation, numerical validation,
 and integration with existing simulation environments. 
 
 The first major area of focus is the implementation of small-signal stability analysis using RMS-based state-space models.
-This includes the computation of eigenvalues and participation factors, symbolic reduction of system equations,
-and integration of these routines into the VeraGrid graphical interface.
+This includes the computation of eigenvalues and participation factors and symbolic reduction of system equations.
+Out of scope but relevant in terms of VeraGrid development, the integration of these routines into the VeraGrid graphical interface is carried out.
 The goal is to provide users with intuitive and accurate tools for identifying dominant modes and assessing system stability under varying conditions.
 
 The second area involves the development of a foundational EMT solver in the abc domain. This includes modeling transmission lines and components,
-implementing discretization techniques such as the Dommel algorithm and two-stage diagonally implicit Runge-Kutta (2S-DIRK) methods,
-and benchmarking solver performance against commercial tools like PSCAD.
+implementing discretization techniques such as the Dommel algorithm and implementing it together with the Symbolic-Numeric approach already used in 
+the RMS simulations in VeraGrid. This foundational EMT solver serves as a basis for future enhancements, creating the environment for EMT studies with the basic models 
+and numerical methods needed. 
 
 All development is conducted in Python, with an emphasis on code quality, symbolic computation, and reproducibility.
-The thesis also includes continuous benchmarking and validation using real-world data, including industrial cases.
 Technical supervision is provided by the eRoots team, ensuring alignment with architectural standards and long-term project goals.
 
 \subsection{Structure of the document}
@@ -59,19 +122,53 @@ dynamic simulation, from the mathematical modelling to the software implementati
   in VeraGrid.
   \item Chapter \ref{SmallSignal} describes from the theoretical framework to the implementation and benchmarking of the small-signal 
 stability analysis in VeraGrid.
-  \item Chapter \ref{EMT} describes ...
-\end{itemize}
+  \item Chapter \ref{EMT} describes the theoretical framework and implementation of the EMT simulator in VeraGrid. It includes the mathematical modelling
+   of the main components, the numerical methods used, the software implementation and the validation of results with benchmark systems.
+   \item Chapter \ref{environment} discusses the environmental impact of the project and the chapter \ref{Gender} discusses the gender and social impact of the project. Chapter \ref{Budget} 
+    presents the budget of the project while chapter \ref{TimePlanning} shows the Gantt chart with the time planning of the project.
+   \item Finally, chapter \ref{Conclusion} summarizes the main conclusions of the project and
+
+  \end{itemize}
 
 \subsection{State of the art}
 
-things to say:
+The dynamic analysis of power systems has traditionally been divided into two main
+approaches: RMS or phasor-based simulations, used to study low-frequency
+electromechanical dynamics and stability, and Electromagnetic Transient (EMT)
+simulations, which resolve fast electromagnetic phenomena at the waveform level.
+Both approaches remain essential for understanding system behavior under different
+types of disturbances and time scales.
 
-\textit{The most developed software solutions for EMT simulations
- focus on waveform dynamics with and without converter switching
-  and include models for very detailed component-level analysis.
-   Examples of software environments are PSCAD, EMTP,
- Simulink, PLECS, among others.}
+Small-signal stability analysis, based on the linearisation of differential-algebraic
+equations around a steady-state operating point, is a well-established technique for
+characterizing oscillatory behavior, damping, and modal interactions in power systems.
+It has been extensively applied to the analysis of electromechanical modes, inter-area
+oscillations, and control system performance. RMS-based dynamic simulations and
+small-signal analysis are computationally efficient and widely used in planning and
+operational studies, particularly in systems dominated by synchronous machines.
 
+Commercial tools such as DIgSILENT PowerFactory
+and similar environments provide robust implementations of RMS simulations and
+small-signal analysis. However, these tools typically rely on internally defined models
+and linearisation routines, offering limited transparency and flexibility when custom
+models or control strategies need to be analysed.
+
+EMT simulation tools, including EMTP-type programs, focus on detailed time-domain
+representations of voltages and currents and are commonly used to study fast transients,
+converter dynamics, and electromagnetic interactions. While highly accurate, EMT
+simulations are computationally demanding and often less suitable for large-scale
+system studies or systematic stability assessments.
+
+The increasing penetration of converter-interfaced generation has highlighted the need
+for simulation frameworks that provide consistent modelling across different time
+scales and levels of detail. Symbolic-numeric approaches have gained attention in this
+context, as they enable explicit equation formulation, automated linearisation, and
+greater consistency between nonlinear simulations and analytical stability analysis.
+
+Within this framework, the development of RMS small-signal analysis and foundational
+EMT capabilities inside an open and extensible platform such as VeraGrid aligns with
+current research and industry needs, combining numerical robustness with modelling
+transparency and flexibility.
 
 \subsection{Veragrid}
 

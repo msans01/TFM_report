@@ -2417,22 +2417,35 @@
     <bcf:citekey order="42" intorder="1">StabilityAndControlKundur</bcf:citekey>
     <bcf:citekey order="43" intorder="1">Dommel_EMTP_Theory_Book_1986</bcf:citekey>
     <bcf:citekey order="44" intorder="1">StabilityAndControlKundur</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">carson1926</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">IEA2024Transition</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">XiongParaEMT2024</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">YanCompEff2025</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">TesfatsionOpenSource</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">CircularComputing2022</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">HP2021MonitorLCA</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">ICAEN</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">Gencat2023FactorsEmissio</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">CircularComputing2022</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">HP2021MonitorLCA</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">AsusVivabook</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">AOC</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">ICAEN</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">EEA2021OfficeEnergy</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">CircularEcology</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">Dommel_EMTP_Theory_Book_1986</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">carson1926</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">WatsonArrillagaEMT2019</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">IEA2024Transition</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">XiongParaEMT2024</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">YanCompEff2025</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">TesfatsionOpenSource</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">CircularComputing2022</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">HP2021MonitorLCA</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">ICAEN</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">Gencat2023FactorsEmissio</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">CircularComputing2022</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">HP2021MonitorLCA</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">AsusVivabook</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">AOC</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">ICAEN</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">EEA2021OfficeEnergy</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">CircularEcology</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">IEA2024Gender</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">UNESCOWomenSTEM</bcf:citekey>
+    <bcf:citekey order="64" intorder="2">OECDGenderSTEM</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">EUOpenScience</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">ICAEN</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">IEA2022Buildings</bcf:citekey>
+    <bcf:citekey order="67" intorder="2">EEA2021OfficeEnergy</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">AsusVivabook</bcf:citekey>
+    <bcf:citekey order="68" intorder="2">AOC</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">ADEME2023Offices</bcf:citekey>
+    <bcf:citekey order="69" intorder="2">EEA2021OfficeEnergy</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

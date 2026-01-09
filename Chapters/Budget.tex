@@ -1,3 +1,4 @@
+\begin{comment}
 
 TO CHECK!!!
 
@@ -29,5 +30,124 @@ si estan separades per les tasques executades segons la planificació. En una pr
 	\end{tabular}
 	\label{tab:equip}
 \end{table}
+\end{comment}
 
 
+This section provides an estimated budget for the development of the present master's thesis. 
+While the work has been carried out as part of professional activity at eRoots Analytics, 
+the following analysis reflects the costs that would reasonably be incurred if the project were to be 
+considered as an engineering activity. The objective of this section is therefore 
+to quantify the economic resources associated with the execution of the work, including labour, operational 
+expenses, equipment usage, and other indirect costs.
+
+The main cost associated with this project corresponds to the time devoted to its development. 
+The work has been carried out during regular working hours, with a full-time dedication equivalent 
+to eight hours per day during a total time of 22 weeks which is equivalent to 880~h. In line with the academic requirements of the Master's Thesis, the total workload 
+is assumed to correspond to the standard number of credits associated with the TFE.
+
+For the purpose of this estimation, an hourly cost of 15~€/h is assumed, as suggested in the project guidelines. 
+The total effort is distributed among the main tasks defined in the project planning, including literature review, 
+model development, implementation of RMS and EMT simulation tools, validation and testing, and report writing.
+
+\begin{table}[H]
+\centering
+\caption{Estimated labour cost}
+\begin{tabular}{l c c c}
+\hline
+Task category & Estimated hours & Unit cost [€/h] & Cost [€] \\
+\hline
+Literature review and theoretical study & 160 & 15 & 2400 \\
+Software development and implementation & 400 & 15 & 6000 \\
+Simulation, testing and validation & 200 & 15 & 3000 \\
+Documentation and thesis writing & 120 & 15 & 1800 \\
+\hline
+Total labour cost & 880 & -- & 13200 \\
+\hline
+\end{tabular}
+\end{table}
+
+The execution of the project entails operational costs related to electricity consumption, HVAC usage, 
+internet connectivity and general office resources. As the work was performed in a shared office 
+environment with approximately 20 occupants, only the proportional share attributable to the thesis 
+activity has been considered.
+
+Office energy consumption values are derived from recommendations published by the Institut Català 
+de l'Energia (ICAEN), which reports an average HVAC energy use of 140~kWh/m$^2$·year for office buildings 
+\cite{ICAEN}. Additional reference values for office energy use and services are consistent with studies 
+by the International Energy Agency and the European Environment Agency 
+\cite{IEA2022Buildings,EEA2021OfficeEnergy}.
+
+\begin{table}[H]
+\centering
+\caption{Estimated operational expenses}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Concept} & \textbf{Estimated cost [€]} \\
+\hline
+Electricity and HVAC (proportional share) & 380 \\
+Internet and telecommunication services & 120 \\
+Office consumables and miscellaneous expenses & 100 \\
+\hline
+Total operational expenses & 600 \\
+\hline
+\end{tabular}
+\end{table}
+
+The thesis was developed using company-owned electronic equipment, namely a work laptop and an external 
+monitor. The technical characteristics and typical power consumption of these devices are consistent 
+with commercially available mid-range equipment, such as the ASUS Vivobook series and standard AOC 
+monitors \cite{AsusVivabook,AOC}.
+
+A linear amortisation model has been applied, assuming a useful life of five years for both devices. 
+This assumption is consistent with common practice in life-cycle assessments and office energy studies 
+\cite{ADEME2023Offices,EEA2021OfficeEnergy}. In line with the environmental impact assessment, an allocation 
+factor of 0.084 has been used, corresponding to five months of use over a five-year lifespan.
+
+\begin{table}[H]
+\centering
+\caption{Equipment amortisation}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Equipment} & \textbf{Purchase value [€]} & \textbf{Allocation factor} & \textbf{Allocated cost [€]} \\
+\hline
+Laptop & 1\,800 & 0,084 & 151,2 \\
+External monitor & 300 & 0,084 & 25,2 \\
+\hline
+Total equipment amortisation & -- & -- & 176,4 \\
+\hline
+\end{tabular}
+\end{table}
+
+The project relies exclusively on numerical simulation and software development. All tools employed are 
+either open-source or licensed by the hosting company, and no additional paid licenses, experimental 
+services, or external data sources were required specifically for the execution of this work. As a result, 
+no direct costs are allocated to software and external services.
+
+\subsection*{Total estimated budget}
+
+Table~\ref{tab:total_budget} summarizes the total estimated cost of the project, combining labour, 
+operational expenses and equipment amortization. This budget represents an approximation of the 
+resources required to carry out the thesis in a professional engineering context.
+
+\begin{table}[H]
+\centering
+\caption{Total estimated project budget}
+\label{tab:total_budget}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Cost category} & \textbf{Cost [€]} \\
+\hline
+Labour costs & 13\,200 \\
+Operational expenses & 600 \\
+Equipment amortisation & 176 \\
+\hline
+\textbf{Total estimated budget} & \textbf{13\,976} \\
+\hline
+\end{tabular}
+\end{table}

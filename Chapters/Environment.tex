@@ -1,6 +1,3 @@
-
-\section{Environmental impact}
-
 An environmental contribution of this work lies in its support for energy efficiency and the 
 ongoing energy transition. The developed framework contributes to the optimal operation and planning
 of power systems with high shares of renewable generation. Stability analysis allows network operators to 
@@ -11,7 +8,8 @@ In a broader context, the development of robust and open simulation tools is ess
 decarbonisation objectives and ensuring a stable, sustainable transition towards a low-carbon energy system \cite{IEA2024Transition}.
 
 Although the present work involves primarily computational and simulation tasks rather than physical infrastructure,
-it nonetheless carries meaningful environmental implications. Advanced RMS and EMT tools aid in the integration of 
+it nonetheless carries meaningful environmental implications. 
+Advanced RMS and EMT tools aid in the integration of 
 renewable energy sources by improving the predictability and security of grid behavior, thereby helping reduce
 reliance on fossil fuel backup plants and associated greenhouse gas emissions\cite{XiongParaEMT2024}. 
 The trade-off between simulation fidelity and computational cost is also well documented; for example, Yan et al.\ examine
@@ -20,7 +18,7 @@ Minimizing computational energy consumption through algorithmic optimization is 
 
 Moreover, the promotion of open-source platforms in power system research enhances resource efficiency by reducing 
 duplicated development efforts and enabling community-driven innovation. The use of openly shared modeling libraries 
-accelerates progress and lowers barriers to entry\cite{TesfatsionOpenSource}. By providing validated simulation tools, 
+accelerates progress and lowers barriers to entry \cite{TesfatsionOpenSource}. By providing validated simulation tools, 
 this work contributes to more sustainable and cost-effective grid planning, potentially reducing the environmental 
 footprint of energy infrastructure expansion.
 
@@ -41,12 +39,12 @@ study, the following assumptions are done:
 \end{itemize}
 
 
-For the Laptop embodied emissions Circular Computing \cite{CircularComputing2022} proposes 331~kg\,CO$_2$eq/device accounting for manufacturing,
+For the Laptop embodied emissions Circular Computing \cite{CircularComputing2022} proposes 331~kg\,CO$_2$~eq/device accounting for manufacturing,
 transport and 4 first years of use. According to their calculations, manufacturing and transport accounts by approximately 90\% of those emissions.
-For the monitor, a standard monitor has been selected. HP sustainability report \cite{HP2021MonitorLCA} states that 210~kg\,CO$_2$eq/device 
+For the monitor, a standard monitor has been selected. HP sustainability report \cite{HP2021MonitorLCA} states that 210~kg\,CO$_2$~eq/device 
 are emitted during manufacturing, transport, use and end of life. Manufacturing, transport and end of life account for a 47\% of those emissions.
 According to l'Institut Català de l'Energia (ICAEN) \cite{ICAEN}, the recommended average HVAC energy consumption in an office building is 140~kWh/m$^2$~year. 
-Scaling this consumption to an average of 5m$^2$ per person in a office and 260 working days a year the resulting energy consumption is 
+Scaling this consumption to an average of 5~m$^2$ per person in a office and 260 working days a year the resulting energy consumption is 
 0,299 kWh/hour~person. For the allocation factor of the laptop and monitor, 5 years of lifespan are assumed.
 
 All parameters used are summarized in Table~\ref{tab:co2_inputs_full}.
@@ -75,22 +73,22 @@ Allocation factor laptop and monitor & 0.084 & -- & assumed \\
 The total electricity consumption during the five-month period can be expressed as:
 
 \begin{equation}
-E_{total} = E_{PC+monitor}  + E_{HVAC}~[kWh]
+E_{total} = E_{PC+monitor}  + E_{HVAC}~[\text{kWh}]
 \end{equation}
 where:
 
 \begin{equation}
-E_{PC+monitor} = (P_L~W + P_M ~W) \cdot  \frac{880~h}{1000~W/kW} = 72,16 kWh
+E_{PC+monitor} = (P_L~[\text{W}] + P_M ~[\text{W}]) \cdot  \frac{880~h}{1000~[\text{W/kW}]} = 72,16 [\text{kWh}]
 \end{equation}
 \begin{equation}
-E_{HVAC} = 0,299~kWh/h \cdot 880~h = 263,25~kWh
+E_{HVAC} = 0,299~\text{kWh/h} \cdot 880~\text{h} = 263,25~\text{kWh}
 \end{equation}
 
-Corresponding to a total of 87,206 kg of CO$_2$eq due to energy consumption.
+Corresponding to a total of 87,206 kg of CO$_2$~eq due to energy consumption.
 
-The allocation contribution of the LCA for the laptop and monitor correspond to a total of $(297,9 + 94,47)$~kg~CO$_2$eq $\cdot 0,084 = 32,959$~kg~CO$_2$eq.
+The allocation contribution of the LCA for the laptop and monitor correspond to a total of $(297,9 + 94,47)$~kg~CO$_2$~eq $\cdot 0,084 = 32,959$~kg~CO$_2$~eq.
 
-The total emissions are 120,165 kg of CO$_2$eq. Table \ref{tab:contribution_CO2} summarizes the contribution of each element to the total 
+The total emissions are 120,165 kg of CO$_2$~eq. Table \ref{tab:contribution_CO2} summarizes the contribution of each element to the total 
 
 \begin{table}[H]
 \centering
@@ -118,28 +116,16 @@ is much higher than the operation itself, highlighting the importance of Life Cy
 To contextualize the estimated footprint of this work, it is useful to compare it with reference studies on greenhouse gas emissions in office environments. 
 According to the European Environment Agency, the annual emissions associated with a standard office workplace in 
 Europe (including HVAC, lighting, equipment, and commuting) are between 1500 and 2000~kg\,CO$_2$eq per employee \cite{EEA2021OfficeEnergy}. The corresponding contribution
-of 5 months is  between 625 and 833~kg\,CO$_2$eq. As noted, in this study the EEA considers also the commuting to work. Circular Ecology \cite{CircularEcology} states that, in Europe. only 53\%
+of 5 months is  between 625 and 833~kg\,CO$_2$~eq. As noted, in this study the EEA considers also the commuting to work. Circular Ecology \cite{CircularEcology} states that, in Europe. only 53\%
 of the emissions of going to work in an office account for the office itself meaning 47\% of the emissions correspond to commuting. Applying this percentage
-the average office emissions(including HVAC, lighting, equipment) in Europe are between 331,250 and 441,677~kg\,CO$_2$eq.
+the average office emissions(including HVAC, lighting, equipment) in Europe are between 331,250 and 441,677~kg\,CO$_2$~eq.
 
 In comparison, the total estimated footprint of approximately 120~kg\,CO$_2$eq for this thesis project is lower than the studies stated in the previous paragraph.
 It is to be considered that the EEA study considers both lightning and equipment while this study does not. Moreover, the average energy consumption in Europe is
 higher than in Spain so this result may be affected. Therefore, the result is considered correct and highlights the importance of energy-efficient habits.
 
-\section{Gender and social impact}
 
-%TO CHECK!!
 
-%Beyond technical contributions, this project supports broader social goals through the promotion of inclusive and accessible tools. 
-%Open-source frameworks for power system analysis democratize advanced engineering capabilities, enabling participation from researchers 
-%and engineers in diverse regions and institutions. For instance, the development of open and transparent electricity network 
-%models demonstrates how access to modeling tools can empower under-resourced communities \cite{KirliPyPSA2021}. Open-source frameworks
-%support the idea that knowledgment must be a social right and accessible for everybody.
 
-%From a gender perspective, power systems engineering remains dominated by men in many contexts. Disseminating open methodologies 
-%and encouraging diverse collaboration may help widen participation of underrepresented groups in STEM fields. 
-
-%Finally, improving the reliability, stability, and efficiency of power systems has direct social benefits: fewer outages, better access to electricity, 
-%and more resilient grids that support sustainable development goals.  
 
 

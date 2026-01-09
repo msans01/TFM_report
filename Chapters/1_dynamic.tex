@@ -223,18 +223,18 @@ The model for the static load is quite simple since $P$ and $Q$ are meant to be 
 corresponding to the load are only initializing the power to its value.
 \begin{equation}
 \begin{cases}
-P_l -P_{l,0} = 0\\
-Q_l -Q_{l,0} = 0
+P_\text{l} -P_{\text{l,0}} = 0\\
+Q_\text{l} -Q_{\text{l,0}} = 0
 \end{cases}
 \label{eq:alg_eq_load}
 \end{equation}
 
 Where:
 \begin{itemize}
-  \item $P_l$: (Algebraic variable) Active power consumed by the load [MW].
-  \item $Q_l$: (Algebraic variable) Reactive power consumed by the load [Mvar].
-  \item $P_{l,0}$: (Algebraic variable) Active power consumed by the load at time 0 [MW].
-  \item $Q_{l,0}$: (Algebraic variable) Reactive power consumed by the load at time 0 [Mvar].
+  \item $P_\text{l}$: (Algebraic variable) Active power consumed by the load [MW].
+  \item $Q_\text{l}$: (Algebraic variable) Reactive power consumed by the load [Mvar].
+  \item $P_{\text{l,0}}$: (Algebraic variable) Active power consumed by the load at time 0 [MW].
+  \item $Q_{\text{l,0}}$: (Algebraic variable) Reactive power consumed by the load at time 0 [Mvar].
 \end{itemize}
 
 \item  \textbf{Shunt}
@@ -242,16 +242,16 @@ For the shunt, the algebraic equations are also simple. They define the formula 
 
 \begin{equation}
 \begin{cases}
-P_{sh} - g V^2 = 0 \\
-P_{sh} - b V^2 = 0
+P_{\text{sh}} - g V^2 = 0 \\
+P_{\text{sh}} - b V^2 = 0
 \end{cases}
 \label{eq:alg_eq_shunt}
 \end{equation}
 
 Where:
 \begin{itemize}
-  \item $P_{sh}$: (Algebraic variable) Active power injected or absorbed by the shunt [MW].
-  \item $Q_{sh}$: (Algebraic variable) Reactive power injected or absorbed by the shunt [Mvar].
+  \item $P_{\text{sh}}$: (Algebraic variable) Active power injected or absorbed by the shunt [MW].
+  \item $Q_{\text{sh}}$: (Algebraic variable) Reactive power injected or absorbed by the shunt [Mvar].
   \item $g$: (Constant parameter) Shunt conductance [p.u.].
   \item $b$: (Constant parameter) Shunt susceptance [p.u.].
   \item $V$: (Constant parameter) Shunt voltage [p.u.].
@@ -263,10 +263,10 @@ The synchronous generator is defined by a set of differential(or state) and alge
 
 \begin{equation}
 \begin{cases}
-\frac{d~\delta}{dt} = 2\pi f\,(\omega - \omega_{ref}) \\
-\frac{d~\omega}{dt} = \dfrac{\Gamma_m - \Gamma_e - D(\omega - \omega_{ref})}{M}
+\frac{d~\delta}{dt} = 2\pi f\,(\omega - \omega_{\text{ref}}) \\
+\frac{d~\omega}{dt} = \dfrac{\Gamma_\text{m} - \Gamma_\text{e} - D(\omega - \omega_{\text{ref}})}{M}
 \end{cases}
-\label{eq:diff_eq_gen}
+\label{eq:diff_eq_gen_1}
 \end{equation}
 
 With $\frac{d~\delta}{dt}$ and $\frac{d~\omega}{dt}$ set to zero since steady state conditions are considered in RMS simulations.
@@ -274,17 +274,17 @@ With $\frac{d~\delta}{dt}$ and $\frac{d~\omega}{dt}$ set to zero since steady st
 
 \begin{equation}
 \begin{cases}
-\psi_d - (R \cdot i_q + v_q) = 0 \\
-\psi_q + (R\cdot i_d + v_d) = 0\\
-0 - ( \psi_d + X \cdot i_d - v_f ) = 0\\
-0 - (\psi_q + X \cdot i_q) = 0 \\
-v_d - (V \cdot \sin(\delta - \theta)) = 0\\
-v_q - (V \cdot \cos(\delta - \theta)) = 0\\
-\Gamma_e - ( \psi_d \cdot i_q - \psi_q \cdot i_d ) = 0\\
-P_g - (v_d \cdot i_d + v_q \cdot i_q) = 0\\
-Q_g - (v_q \cdot i_d - v_d \cdot i_q) = 0 \\
-\Gamma_m - (\Gamma_{m0} + K_p(\omega - \omega_{ref}) + K_i \cdot e_t) = 0\\
-2\pi f \cdot e_t - \delta = 0
+\psi_\text{d} - (R \cdot i_\text{q} + v_\text{q}) = 0 \\
+\psi_\text{q} + (R\cdot i_\text{d} + v_\text{d}) = 0\\
+0 - ( \psi_\text{d} + X \cdot i_\text{d} - v_\text{f} ) = 0\\
+0 - (\psi_\text{q} + X \cdot i_\text{q}) = 0 \\
+v_\text{d} - (V \cdot \sin(\delta - \theta)) = 0\\
+v_\text{q} - (V \cdot \cos(\delta - \theta)) = 0\\
+\Gamma_\text{e} - ( \psi_\text{d} \cdot i_\text{q} - \psi_\text{q} \cdot i_\text{d} ) = 0\\
+P_\text{g} - (v_\text{d} \cdot i_\text{d} + v_\text{q} \cdot i_\text{q}) = 0\\
+Q_\text{g} - (v_\text{q} \cdot i_\text{d} - v_\text{d} \cdot i_\text{q}) = 0 \\
+\Gamma_\text{m} - (\Gamma_{\text{m0}} + K_\text{p}(\omega - \omega_{\text{ref}}) + K_\text{i} \cdot e_\text{t}) = 0\\
+2\pi f \cdot e_\text{t} - \delta = 0
 \end{cases}
 \label{eq:alg_eq_gen}
 \end{equation}
@@ -293,28 +293,28 @@ Where:
 \begin{itemize}
   \item $\delta$: (State variable) Rotor electrical angle with respect to the synchronous reference frame [rad].
   \item $\omega$: (State variable) Rotor angular speed [rad/s].
-  \item $P_g$: (Algebraic variable) Active electrical power delivered by the generator [MW].
-  \item $Q_g$: (Algebraic variable) Reactive electrical power delivered by the generator [Mvar].
-  \item $v_d$: (Algebraic variable) d-axis stator voltage component in Park reference frame [p.u.].
-  \item $v_q$: (Algebraic variable) q-axis stator voltage component in Park reference frame [p.u.].
-  \item $i_d$: (Algebraic variable) d-axis stator current component in Park reference frame [p.u.].
-  \item $i_q$: (Algebraic variable) q-axis stator current component in Park reference frame [p.u.].
-  \item $\psi_d$: (Algebraic variable) d-axis stator flux linkage in Park reference frame [p.u.].
-  \item $\psi_q$: (Algebraic variable) q-axis stator flux linkage in Park reference frame[p.u.].
-  \item $\Gamma_e$: (Algebraic variable) Electromagnetic torque produced by the generator [p.u.].
-  \item $\Gamma_m$: (Algebraic variable) Mechanical torque applied to the rotor [p.u.].
-  \item $e_t$: (Algebraic variable) Integral term of the governor controller, representing the accumulated speed error [rad/s].
+  \item $P_\text{g}$: (Algebraic variable) Active electrical power delivered by the generator [MW].
+  \item $Q_\text{g}$: (Algebraic variable) Reactive electrical power delivered by the generator [Mvar].
+  \item $v_\text{d}$: (Algebraic variable) d-axis stator voltage component in Park reference frame [p.u.].
+  \item $v_\text{q}$: (Algebraic variable) q-axis stator voltage component in Park reference frame [p.u.].
+  \item $i_\text{d}$: (Algebraic variable) d-axis stator current component in Park reference frame [p.u.].
+  \item $i_\text{q}$: (Algebraic variable) q-axis stator current component in Park reference frame [p.u.].
+  \item $\psi_\text{d}$: (Algebraic variable) d-axis stator flux linkage in Park reference frame [p.u.].
+  \item $\psi_\text{q}$: (Algebraic variable) q-axis stator flux linkage in Park reference frame[p.u.].
+  \item $\Gamma_\text{e}$: (Algebraic variable) Electromagnetic torque produced by the generator [p.u.].
+  \item $\Gamma_\text{m}$: (Algebraic variable) Mechanical torque applied to the rotor [p.u.].
+  \item $e_\text{t}$: (Algebraic variable) Integral term of the governor controller, representing the accumulated speed error [rad/s].
   \item $V$: (Algebraic variable from the bus) Magnitude of the terminal voltage phasor [p.u.].
   \item $\theta$: (Algebraic variable from the bus) Angle of the terminal voltage phasor with respect to the reference frame [rad].
-  \item $\Gamma_{m,0}$: (Fixed variable) Initial mechanical torque reference [p.u.].
+  \item $\Gamma_{\text{m,0}}$: (Fixed variable) Initial mechanical torque reference [p.u.].
   \item $f$: (Constant parameter) Nominal electrical frequency [Hz].
   \item $D$: (Constant parameter) Damping coefficient representing mechanical damping effects [p.u.].
   \item $M$: (Constant parameter) Inertia constant of the rotor [p.u.·s].
   \item $R$: (Constant parameter) Stator winding resistance [p.u.].
   \item $X$: (Constant parameter) Stator synchronous reactance [p.u.].
-  \item $v_f$: (Constant parameter) Field excitation voltage [p.u.].
-  \item $K_p$: (Constant parameter) Proportional gain of the speed governor control [-].
-  \item $K_i$: (Constant parameter) Integral gain of the speed governor control [-].
+  \item $v_\text{f}$: (Constant parameter) Field excitation voltage [p.u.].
+  \item $K_\text{p}$: (Constant parameter) Proportional gain of the speed governor control [-].
+  \item $K_\text{i}$: (Constant parameter) Integral gain of the speed governor control [-].
 \end{itemize}
 \end{itemize}
 
@@ -328,27 +328,27 @@ In this case, the RMS model for the lines is also valid for the transformers.
 
 \begin{equation}
 \begin{cases}
-P_f = V_{f}^2 \, g - g \, V_{f} V_{t} \cos(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \cos\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
-Q_f = V_{f}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{f} V_{t} \sin(\theta_{f} - \theta_{t}) + b \, V_{f} V_{t} \sin\Big(\theta_{f} - \theta_{t} + \frac{\pi}{2}\Big) \\
-P_t = V_{t}^2 \, g - g \, V_{t} V_{f} \cos(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \cos\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big) \\
-Q_t = V_{t}^2 \, \Big(-\frac{b_{sh}}{2} - b \Big) - g \, V_{t} V_{f} \sin(\theta_{t} - \theta_{f}) + b \, V_{t} V_{f} \sin\Big(\theta_{t} - \theta_{f} + \frac{\pi}{2}\Big)
+P_f = V_{\text{f}}^2 \, g - g \, V_{\text{f}} V_{\text{t}} \cos(\theta_{\text{f}} - \theta_{\text{t}}) + b \, V_{\text{f}} V_{t} \cos\Big(\theta_{\text{f}} - \theta_{\text{t}} + \frac{\pi}{2}\Big) \\
+Q_f = V_{\text{f}}^2 \, \Big(-\frac{b_{\text{sh}}}{2} - b \Big) - g \, V_{\text{f}} V_{\text{t}} \sin(\theta_{\text{f}} - \theta_{\text{t}}) + b \, V_{\text{f}} V_{\text{t}} \sin\Big(\theta_{\text{f}} - \theta_{\text{t}} + \frac{\pi}{2}\Big) \\
+P_t = V_{\text{t}}^2 \, g - g \, V_{\text{t}} V_{\text{f}} \cos(\theta_{\text{t}} - \theta_{\text{f}}) + b \, V_{\text{t}} V_{\text{f}} \cos\Big(\theta_{\text{t}} - \theta_{\text{f}} + \frac{\pi}{2}\Big) \\
+Q_t = V_{\text{\text{t}}}^2 \, \Big(-\frac{b_{\text{sh}}}{2} - b \Big) - g \, V_{\text{t}} V_{\text{f}} \sin(\theta_{\text{t}} - \theta_{\text{f}}) + b \, V_{\text{t}} V_{\text{f}} \sin\Big(\theta_{\text{t}} - \theta_{\text{f}} + \frac{\pi}{2}\Big)
 \end{cases}
 \label{eq:alg_eq_line}
 \end{equation}
 
 Where:
 \begin{itemize}
-  \item $P_{f}$: (Algebraic variable) Active power at the beginning of the line (at the bus defined as beginning) [MW].
-  \item $Q_{f}$: (Algebraic variable)Reactive power at the beginning of the line (at the bus defined as beginning) [Mvar].
-  \item $P_{t}$: (Algebraic variable) Active power at the end of the line (at the bus defined as end) [MW].
-  \item $Q_{t}$: (Algebraic variable)Reactive power at the end of the line (at the bus defined as end) [Mvar].
-  \item $V_f$: (Algebraic variable) Voltage magnitude at the beginning of the line (at the bus defined as beginning) [p.u.].
-  \item $V_t$: (Algebraic variable) Voltage magnitude at the end of the line (at the bus defined as end) [p.u.].
-  \item $\theta_f$: (Algebraic variable) Voltage angle at the beginning of the line (at the bus defined as beginning) [rad].
-  \item $\theta_t$: (Algebraic variable) Voltage angle at the end of the line (at the bus defined as end) [rad].
+  \item $P_{\text{f}}$: (Algebraic variable) Active power at the beginning of the line (at the bus defined as beginning) [MW].
+  \item $Q_{\text{f}}$: (Algebraic variable)Reactive power at the beginning of the line (at the bus defined as beginning) [Mvar].
+  \item $P_{\text{t}}$: (Algebraic variable) Active power at the end of the line (at the bus defined as end) [MW].
+  \item $Q_{\text{t}}$: (Algebraic variable)Reactive power at the end of the line (at the bus defined as end) [Mvar].
+  \item $V_\text{f}$: (Algebraic variable) Voltage magnitude at the beginning of the line (at the bus defined as beginning) [p.u.].
+  \item $V_\text{t}$: (Algebraic variable) Voltage magnitude at the end of the line (at the bus defined as end) [p.u.].
+  \item $\theta_\text{f}$: (Algebraic variable) Voltage angle at the beginning of the line (at the bus defined as beginning) [rad].
+  \item $\theta_\text{t}$: (Algebraic variable) Voltage angle at the end of the line (at the bus defined as end) [rad].
   \item $g$: (Constant parameter) Line conductance [p.u.].
   \item $b$: (Constant parameter) Line susceptance [p.u.].
-  \item $b_{sh}$: (Constant parameter) Shunt susceptance [p.u.].
+  \item $b_{\text{sh}}$: (Constant parameter) Shunt susceptance [p.u.].
 \end{itemize}
 
 \end{itemize}
@@ -362,18 +362,18 @@ the generators or lines connected to the bus) so those must be able to be callab
 
 \begin{equation}
 \begin{cases}
-\sum_i P_{inj} + \sum_i P_{branch} = 0\\
-\sum_i Q_{inj} + \sum_i Q_{branch} = 0
+\sum_i P_{\text{inj}} + \sum_i P_{\text{branch}} = 0\\
+\sum_i Q_{\text{inj}} + \sum_i Q_{\text{branch}} = 0
 \end{cases}
 \label{eq:alg_eq_bus}
 \end{equation}
 
 Where:
 \begin{itemize}
-  \item $P_{inj}$: (Algebraic variable) Active power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [MW].
-  \item $Q_{inj}$: (Algebraic variable) Reactive power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [Mvar].
-  \item $P_{branch}$: (Algebraic variable) Active power that is transported from or to the line connected to the bus [MW].
-  \item $Q_{branch}$: (Algebraic variable) Reactive power that is transported from or to the line connected to the bus [Mvar].
+  \item $P_{\text{inj}}$: (Algebraic variable) Active power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [MW].
+  \item $Q_{\text{inj}}$: (Algebraic variable) Reactive power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [Mvar].
+  \item $P_{\text{branch}}$: (Algebraic variable) Active power that is transported from or to the line connected to the bus [MW].
+  \item $Q_{\text{branch}}$: (Algebraic variable) Reactive power that is transported from or to the line connected to the bus [Mvar].
 \end{itemize}
 
 \subsubsection{Integration method: Implicit Euler}

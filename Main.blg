@@ -1,21 +1,26 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'Main.blg'
-[324] biber-MSWIN64:342> INFO - === 
-[483] Biber.pm:421> INFO - Reading 'Main.bcf'
-[592] Biber.pm:1002> INFO - Found 29 citekeys in bib section 0
-[604] Biber.pm:4487> INFO - Processing section 0
-[641] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
-[763] bibtex.pm:1713> INFO - LaTeX decoding ...
-[811] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
-[1142] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1142] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1146] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[1146] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[1258] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
-[1272] bbl.pm:779> INFO - Output to Main.bbl
-[1273] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
-[1273] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_mG3F\283e1cb250985c2debc501124f55eeff_17356.utf8, line 264, warning: 2 characters of junk seen at toplevel
-[1273] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_mG3F\283e1cb250985c2debc501124f55eeff_17356.utf8, line 262, warning: undefined macro "https://www.asus.com/laptops/for-home/vivobook/asus-vivobook-15-x1504/techspec/"
-[1273] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_mG3F\283e1cb250985c2debc501124f55eeff_17356.utf8, line 271, warning: 2 characters of junk seen at toplevel
-[1273] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\maria\AppData\Local\Temp\biber_tmp_mG3F\283e1cb250985c2debc501124f55eeff_17356.utf8, line 268, warning: undefined macro "https://www.displayspecifications.com/en/model-power-consumption/0349510"
-[1273] Biber.pm:134> INFO - WARNINGS: 5
+[100] biber-MSWIN64:342> INFO - === 
+[138] Biber.pm:421> INFO - Reading 'Main.bcf'
+[230] Biber.pm:1002> INFO - Found 36 citekeys in bib section 0
+[241] Biber.pm:4487> INFO - Processing section 0
+[250] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
+[332] bibtex.pm:1713> INFO - LaTeX decoding ...
+[375] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
+[524] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[524] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[524] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[524] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[539] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
+[550] bbl.pm:779> INFO - Output to Main.bbl
+[550] Biber.pm:132> WARN - ISBN '978-1-78561-344-0' in entry 'WatsonArrillagaEMT2019' is invalid - run biber with '--validate_datamodel' for details.
+[551] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'LaraTDS' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'Fortescue' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'CasellaDAE' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'SauerPaiBook' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'Butcher2008' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'Hindmarsh1995' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'qt_designer' (section 0)
+[551] Biber.pm:132> WARN - I didn't find a database entry for 'carson1926' (section 0)
+[551] Biber.pm:134> INFO - WARNINGS: 10
