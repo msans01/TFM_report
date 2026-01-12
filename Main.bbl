@@ -49,6 +49,132 @@
       \verb https://www.eroots.io/veragrid
       \endverb
     \endentry
+    \entry{LaraTDS}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=bcb91ec9677b4e1654feb1eff94320e8}{%
+           family={Lara},
+           familyi={L\bibinitperiod},
+           given={Francisco\bibnamedelima M.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Gomaringen, Germany}%
+      }
+      \list{organization}{1}{%
+        {DIgSILENT GmbH}%
+      }
+      \strng{namehash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{fullhash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{fullhashraw}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{bibnamehash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{authorbibnamehash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{authornamehash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{authorfullhash}{bcb91ec9677b4e1654feb1eff94320e8}
+      \strng{authorfullhashraw}{bcb91ec9677b4e1654feb1eff94320e8}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Technical documentation}
+      \field{title}{Time Domain Simulation in PowerFactory}
+      \field{year}{2018}
+    \endentry
+    \entry{Fortescue1918}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d552d69ef1e6cdf7c42c3347971c3230}{%
+           family={Fortescue},
+           familyi={F\bibinitperiod},
+           given={Charles\bibnamedelima LeGeyt},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{fullhash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{fullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{bibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorbibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authornamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorfullhash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorfullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the American Institute of Electrical Engineers}
+      \field{number}{2}
+      \field{title}{Method of Symmetrical Co-ordinates Applied to the Solution of Polyphase Networks}
+      \field{volume}{37}
+      \field{year}{1918}
+      \field{pages}{1027\bibrangedash 1140}
+      \range{pages}{114}
+      \verb{doi}
+      \verb 10.1109/T-AIEE.1918.4765570
+      \endverb
+    \endentry
+    \entry{CasellaDAE}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Simulation Modelling Practice and Theory}
+      \field{title}{Simulation of Large-Scale Models in Modelica: State of the Art and Future Perspectives}
+      \field{volume}{52}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.simpat.2014.12.007
+      \endverb
+    \endentry
+    \entry{SauerPaiBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=b57a58154d60b88458906097e21b5555}{%
+           family={Sauer},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=86cbebb4d2ec295d66d769a4423a05a1}{%
+           family={Pai},
+           familyi={P\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press / Wiley}%
+      }
+      \strng{namehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{fullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{fullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{bibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorbibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authornamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorfullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorfullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Power System Dynamics and Stability: With Synchrophasor Measurement and Power System Toolbox}
+      \field{year}{2017}
+    \endentry
     \entry{SymbolicHantao}{article}{}{}
       \name{author}{3}{}{%
         {{hash=ecec65b415b19b3621e8d452315cd17f}{%
@@ -88,6 +214,67 @@
       \range{pages}{12}
       \verb{doi}
       \verb 10.1109/TPWRS.2020.3017019
+      \endverb
+    \endentry
+    \entry{Butcher2008}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=a4c07e4cc385d9cf46acf16ba5968a19}{%
+           family={Butcher},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chichester, UK}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{fullhash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{fullhashraw}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{bibnamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{authorbibnamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{authornamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{authorfullhash}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \strng{authorfullhashraw}{a4c07e4cc385d9cf46acf16ba5968a19}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Numerical Methods for Ordinary Differential Equations}
+      \field{year}{2008}
+    \endentry
+    \entry{Hindmarsh1995}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=61352b48b93bc3f63e471b5aed3c1018}{%
+           family={Hindmarsh},
+           familyi={H\bibinitperiod},
+           given={Alan\bibnamedelima C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{fullhash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{fullhashraw}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{bibnamehash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{authorbibnamehash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{authornamehash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{authorfullhash}{61352b48b93bc3f63e471b5aed3c1018}
+      \strng{authorfullhashraw}{61352b48b93bc3f63e471b5aed3c1018}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIAM Journal on Scientific Computing}
+      \field{number}{1}
+      \field{title}{DAE Solvers for Large-Scale Scientific Computing}
+      \field{volume}{16}
+      \field{year}{1995}
+      \field{pages}{1\bibrangedash 22}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1137/0916001
       \endverb
     \endentry
     \entry{StabilityAndControlKundur}{book}{}{}
@@ -382,6 +569,37 @@
       \field{note}{Revised edition}
       \field{title}{EMTP Theory Book}
       \field{year}{1982}
+    \endentry
+    \entry{carson1926}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=586d43d637d248e29a6fdc890a726474}{%
+           family={Carson},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{586d43d637d248e29a6fdc890a726474}
+      \strng{fullhash}{586d43d637d248e29a6fdc890a726474}
+      \strng{fullhashraw}{586d43d637d248e29a6fdc890a726474}
+      \strng{bibnamehash}{586d43d637d248e29a6fdc890a726474}
+      \strng{authorbibnamehash}{586d43d637d248e29a6fdc890a726474}
+      \strng{authornamehash}{586d43d637d248e29a6fdc890a726474}
+      \strng{authorfullhash}{586d43d637d248e29a6fdc890a726474}
+      \strng{authorfullhashraw}{586d43d637d248e29a6fdc890a726474}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bell System Technical Journal}
+      \field{number}{4}
+      \field{title}{Wave Propagation in Overhead Wires with Ground Return}
+      \field{volume}{5}
+      \field{year}{1926}
+      \field{pages}{539\bibrangedash 554}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1926.tb00122.x
+      \endverb
     \endentry
     \entry{WatsonArrillagaEMT2019}{book}{}{}
       \name{author}{2}{}{%
@@ -1027,13 +1245,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{Butcher2008}
-  \missing{CasellaDAE}
-  \missing{Fortescue}
-  \missing{Hindmarsh1995}
-  \missing{LaraTDS}
-  \missing{SauerPaiBook}
-  \missing{carson1926}
   \missing{qt_designer}
 \endrefsection
 \endinput

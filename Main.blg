@@ -1,26 +1,19 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'Main.blg'
-[100] biber-MSWIN64:342> INFO - === 
-[138] Biber.pm:421> INFO - Reading 'Main.bcf'
-[230] Biber.pm:1002> INFO - Found 36 citekeys in bib section 0
-[241] Biber.pm:4487> INFO - Processing section 0
-[250] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
-[332] bibtex.pm:1713> INFO - LaTeX decoding ...
-[375] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
-[524] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[524] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[524] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[524] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[539] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
-[550] bbl.pm:779> INFO - Output to Main.bbl
-[550] Biber.pm:132> WARN - ISBN '978-1-78561-344-0' in entry 'WatsonArrillagaEMT2019' is invalid - run biber with '--validate_datamodel' for details.
-[551] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'LaraTDS' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'Fortescue' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'CasellaDAE' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'SauerPaiBook' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'Butcher2008' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'Hindmarsh1995' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'qt_designer' (section 0)
-[551] Biber.pm:132> WARN - I didn't find a database entry for 'carson1926' (section 0)
-[551] Biber.pm:134> INFO - WARNINGS: 10
+[1] Config.pm:331> INFO - Logfile is 'Main.blg'
+[394] biber-MSWIN64:342> INFO - === 
+[533] Biber.pm:421> INFO - Reading 'Main.bcf'
+[808] Biber.pm:1002> INFO - Found 36 citekeys in bib section 0
+[842] Biber.pm:4487> INFO - Processing section 0
+[896] Biber.pm:4678> INFO - Looking for bibtex file 'bib.bib' for section 0
+[998] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1090] bibtex.pm:1519> INFO - Found BibTeX data source 'bib.bib'
+[1679] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1680] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1684] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[1684] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[1792] bbl.pm:676> INFO - Writing 'Main.bbl' with encoding 'UTF-8'
+[1824] bbl.pm:779> INFO - Output to Main.bbl
+[1824] Biber.pm:132> WARN - ISBN '978-1-78561-344-0' in entry 'WatsonArrillagaEMT2019' is invalid - run biber with '--validate_datamodel' for details.
+[1825] Biber.pm:132> WARN - legacy year field 'n.d.' in entry 'TesfatsionOpenSource' is not an integer - this will probably not sort properly.
+[1825] Biber.pm:132> WARN - I didn't find a database entry for 'qt_designer' (section 0)
+[1825] Biber.pm:134> INFO - WARNINGS: 3

@@ -1,33 +1,42 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces VeraGrid banner. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{18}{figure.caption.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces VeraGrid main page. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{19}{figure.caption.2}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Eigenvalue plot example.}}{44}{figure.caption.3}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces General simulation structure. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{45}{figure.caption.4}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Small-signal stability analysis full simulation block diagram.}}{46}{figure.caption.5}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Small-signal stability analysis computation block diagram.}}{47}{figure.caption.6}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Icon for the small-signal stability analysis.}}{48}{figure.caption.7}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Small-signal stability analysis settings page.}}{49}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Results dropdown.}}{50}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Table result with the state matrix.}}{50}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Table result with the modes, damping ratio and oscillation frequencies.}}{51}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Table result with the participation factors.}}{51}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Complex domain plot.}}{51}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Complex domain plot in Hz.}}{51}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces ANDES logo. \textit {Source}: ANDES documentation \blx@tocontentsinit {0}\cite {andes}.}}{52}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Kundur two-area system without shunt.}}{53}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Andes vs VeraGrid complex domain plot comparison.}}{55}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Bergeron's lossless line model.}}{62}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Bergeron's line model with lumped resistance.}}{62}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Half Bergeron line model with lumped resistance.}}{63}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Bergeron's line model with lumped resistance two-nodes equivalent.}}{63}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Generator EMT-type machine model. }}{66}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Generator $d$-axis equivalent model.}}{69}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Generator $q$-axis equivalent model.}}{69}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces VeraGrid banner. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{19}{figure.caption.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces VeraGrid main page. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{20}{figure.caption.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Eigenvalue plot example.}}{45}{figure.caption.3}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces General simulation structure. \textit {Source}: VeraGrid documentation \blx@tocontentsinit {0}\cite {veragrid}.}}{46}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Small-signal stability analysis full simulation block diagram.}}{47}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Small-signal stability analysis computation block diagram.}}{48}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Icon for the small-signal stability analysis.}}{49}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Small-signal stability analysis settings page.}}{50}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Results dropdown.}}{51}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Table result with the state matrix.}}{51}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Table result with the modes, damping ratio and oscillation frequencies.}}{52}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Table result with the participation factors.}}{52}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Complex domain plot.}}{52}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Complex domain plot in Hz.}}{52}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces ANDES logo. \textit {Source}: ANDES documentation \blx@tocontentsinit {0}\cite {andes}.}}{53}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Kundur two-area system without shunt.}}{54}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Andes vs VeraGrid complex domain plot comparison.}}{56}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Bergeron's lossless line model.}}{63}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Bergeron's line model with lumped resistance.}}{63}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Half Bergeron line model with lumped resistance.}}{64}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Bergeron's line model with lumped resistance two-nodes equivalent.}}{64}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Generator EMT-type machine model. }}{67}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Generator $d$-axis equivalent model.}}{70}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Generator $q$-axis equivalent model.}}{70}{figure.caption.26}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Generator EMT-type machine model and network solution process at each time step.}}{74}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Generator EMT-type machine model including the interfacing resistor.}}{74}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Ideal transformer equivalent circuit.}}{78}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Ideal transformer equivalent circuit.}}{79}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces EMT simulation block diagram.}}{81}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces EMT simulation block diagram.}}{84}{figure.caption.32}%
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Gantt Chart of the project.}}{95}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Generator EMT-type machine model including the interfacing resistor.}}{75}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Ideal transformer equivalent circuit.}}{79}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Ideal transformer equivalent circuit.}}{80}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces EMT simulation block diagram.}}{82}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces EMT simulation block diagram.}}{86}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Voltages and currents at the 1 bus case.}}{87}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Rotor angle $\theta $ of the generator.}}{88}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Angular speed $\omega $ of the generator rotor.}}{88}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Electrical $\Gamma _e$ and mechanical $\Gamma _m$ torque of the generator.}}{88}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Electrical $P_e$, $Q_e$ and mechanic power $P_m$ of the generator rotor.}}{88}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Derivatives of state variables at the 1 bus case.}}{89}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Test case 2: Two-bus system diagram.}}{89}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Voltages at the 2 bus case. WITH VOLTAGE SOURCE!! TO CHANGE}}{91}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Line currents at the 2 bus case. WITH VOLTAGE SOURCE!! TO CHANGE}}{92}{figure.caption.41}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Gantt Chart of the project.}}{102}{figure.caption.48}%

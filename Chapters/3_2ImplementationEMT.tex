@@ -3,7 +3,7 @@ the integration with existing  models, and the creation of user interfaces for c
 this project scope, the focus has been placed on the core simulation engine development and device models, and its integration with the existing
 dynamic framework. The GUI implementation, then, stays out of scope of this project and awaits as future work to be done.
 
-\subsection{Core simulation development: EMTP combined with the Symbolic-Numeric approach}
+\subsubsection{Core simulation development: EMTP combined with the Symbolic-Numeric approach}
 
 The EMT simulation engine is developed in Python, following the general structure of the dynamic simulation framework in VeraGrid. The general simulation structure for any simulation in VeraGrid
  is shown in Figure \ref{fig:General_Simulation_Structure} and widely explained in the subsection \ref{2_2ImplementationSmall}. 
@@ -24,7 +24,7 @@ to define custom models and parameters. This combination provides both flexibili
 
 In the context of this thesis, the generator model used is the EMT-type model synchronous machine explained in the previous subsection.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.35\linewidth]{inkscape_svg/block_diagram_full_EMT_simulation.pdf}
   \caption{EMT simulation block diagram.}
@@ -48,17 +48,20 @@ The operations done during an EMT simulation are summarized in Figure~\ref{fig:b
     with Symbolic-Numeric models connected to it. Then, a BlockSolver is created for each region, which will be used to solve the local equations of the region during the time-stepping loop. In this way, the size of each system block to be solved is reduced and the calculation 
     could be parallelized in future implementations to improve calculation time. A new class called "EMTSolverProperties" is created to store the Blocksolver, parameters, initial guesses and solutions of each region.
     \item \textit{G matrix factorization:} The conductance matrix G is factorized using an LU decomposition to prepare it for the time-stepping loop. 
-    \item \textit{Time-stepping loop:} For each time-step, the following operations are performed to simulate the system dynamics:
+    \item \textit{Time-stepping loop:} For each time-step, voltages, currents and internal variables from the symbolic-numeric devices are calculated. This is done using the predictor-corrector algorithm: first
+    internal variables as well as current sources are calculated using the previous step voltage solution. Using this currents, the MNA is solved and voltages are found. With the new voltages, the variables are corrected again. The following operations are performed to simulate the system dynamics:
         \begin{itemize}
-            \item \textit{Update Isources:} The current sources contributions from the Symbolic-Numeric models are calculated based on the previous step voltage solution. One time-step simulation is performed for each region using the BlockSolver created during initialization. Afterwards,
+            \item \textit{Predict Isources:} The current sources contributions from the Symbolic-Numeric models are calculated based on the previous step voltage solution. One time-step simulation is performed for each region using the BlockSolver created during initialization. Afterwards,
             the current contributions found in the simulations are assembled into the global current source vector.
             \item \textit{Update history currents:} The line and transformer history currents are updated based on the previous voltage and current solutions. It must be highlighted that in the case of the line,
             the history terms are updated only after the delay time has passed for each line. In the case of the transformers, the history components are updated at each time-step regarding the previous step results.
             \item \textit{Solve MNA equations:} The MNA equation system is solved using the factorized G matrix and the updated current and history contributions. 
+            \item \textit{Update(correct) Isources:} The current sources contributions from the Symbolic-Numeric models are calculated based on the recalculated voltage solution.This is done exactly as in 
+            \textit{Predict Isources} step but using the updated voltages in order to have the most accurate solution.
             \item \textit{Calculate branch currents:} The currents through each branch are calculated based on the updated voltages. Those are needed in future timesteps.
         \end{itemize}
              Figure \ref{fig:block_diagram_general_EMT} shows the block diagram of the EMT simulation process.
-        \begin{figure}[h]
+        \begin{figure}[h!]
             \centering
             \includegraphics[width=0.66\linewidth]{inkscape_svg/block_diagram_run_EMTP.pdf}
             \caption{EMT simulation block diagram.}
