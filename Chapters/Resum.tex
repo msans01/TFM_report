@@ -1,3 +1,27 @@
+Aquest treball final de màster aborda el desenvolupament i l'ampliació del marc de simulació dinàmica de sistemes de
+potència dins de la plataforma VeraGrid, el software de codi obert d'eRoots, amb l'objectiu d'incorporar tant l'anàlisi de petit senyal com els fonaments 
+de la simulació de transitoris electromagnètics (EMT). Tot el desenvolupament s'ha dut a terme en llenguatge Python, 
+posant ènfasi en la modularitat i l'escalabilitat del codi amb una arquitectura clara i orientada a l'evolució de l'eina.
+El treball s'emmarca en el context actual dels sistemes elèctrics, caracteritzats per una creixent presència de dispositius basats 
+en electrònica de potència i per la necessitat d'eines de simulació capaces de representar fenòmens dinàmics en diferents escales temporals.
 
+En una primera part, es desenvolupa un mòdul d'anàlisi de petita senyal per a models dinàmics en domini de valor de tensió eficaç (RMS per les seves sigles en anglès, root mean square) , 
+basat en la formulació simbòlica d'equacions diferencials-algebraiques i en la seva linealització al voltant del punt d'operació. 
+Aquesta aproximació permet el càlcul automàtic de jacobians, autovalors i factors de participació, garantint la coherència entre la 
+simulació no lineal i l'anàlisi linealitzada del sistema, i facilitant l'estudi de l'estabilitat i del comportament modal del sistema elèctric. 
+Els resultats obtinguts es validen mitjançant la comparació amb ANDES, una eina de referència en l'àmbit Simbòlic-Numèric.
+
+Posteriorment, s'estableixen els fonaments per a la simulació EMT mitjançant la implementació de models en el 
+domini temporal amb variables instantànies en coordenades abc. Es desenvolupen models bàsics de generador síncron, 
+línies de transmissió i càrregues, amb especial èmfasi en el model de línia basat en el model de Bergeron i 
+en la teoria d'ones viatgeres. La formulació EMT s'implementa utilitzant l'algoritme de Dommel conjuntament amb el marc de treball Simbòlic-Numèric 
+i esquemes d'integració trapezoïdal, assegurant una representació físicament coherent dels fenòmens electromagnètics ràpids. 
+La validació es realitza mitjançant diferents casos d'estudi, que permeten analitzar la propagació d'ones i els mecanismes de 
+reflexió sota diverses condicions.
+
+Els resultats obtinguts mostren un comportament basat en la teoria clàssica dels transitoris electromagnètics i confirmen la 
+correcció tant de la formulació matemàtica com de la implementació numèrica. Aquest treball estableix una base sòlida, extensible i robusta per al 
+desenvolupament d'un motor de simulació EMT avançat integrat dins de VeraGrid, amb un alt potencial d'impacte tant en l'àmbit acadèmic com en aplicacions 
+industrials reals.
 
 

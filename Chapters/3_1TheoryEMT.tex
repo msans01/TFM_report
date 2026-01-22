@@ -1,44 +1,31 @@
 
 Electromagnetic transient (EMT) simulation focuses on resolving the instantaneous 
-behaviour of electrical networks when they are subject to fast and often severe disturbances.
+behavior of electrical networks when they are subject to fast and often severe disturbances.
  Unlike RMS or phasor-domain studies, which assume that voltages and currents remain 
- approximately sinusoidal within each time step, EMT models compute these quantities directly 
+ approximately sinusoidal within each time-step, EMT models compute these quantities directly 
  in the time domain. This makes it possible to capture the full electromagnetic response of components, 
  including switching actions, resonances, travelling waves, and short-duration dynamic interactions 
  between converters and the grid.
 
-Modern EMT tools are based on the numerical formulation introduced by Dommel 
-in the late 1960s and subsequently used in the Electromagnetic Transients Program (EMTP)~\cite{Dommel_EMTP_Theory_Book_1986}.
-In this approach, each network element is represented through an equivalent conductance and a history-dependent 
-current source. By assembling all contributions at every time step, the simulator solves a linear algebraic 
-system of the form:
 
 
-\begin{equation}
-    [G]~[v(t)] = [i(t)]-[I_{\text{hist}}]
-\end{equation}
-
-where $[G]$ is the global conductance matrix of the network, $v(t)$ is the vector of node voltages, 
-$i(t)$ contains the instantaneous current injections, and $i_{\text{hist}}(t)$ represents the history terms 
-accumulated from previous time steps. This formulation is flexible and allows linear, nonlinear, 
-and power-electronic elements to be incorporated into the same solution process. This type of solver is called a 
-Modified Nodal Analysis (MNA) solver. 
+ 
 
 %The time-step size in EMT simulations is typically in the order of microseconds to capture high-frequency events while 
 
 EMT simulation is essential whenever the assumptions of RMS-based dynamic studies no longer hold. 
 RMS models use phasors to represent voltages and currents, and they rely on the idea that the waveform remains nearly sinusoidal. 
-This approximation is often sufficient for analysing electromechanical behaviour, such as rotor-angle stability, 
+This approximation is often sufficient for analyzing electromechanical behavior, such as rotor-angle stability, 
 slow voltage dynamics, or generator control interactions, where the dominant time constants range from tens of milliseconds 
 to several seconds~\cite{StabilityAndControlKundur}.
 
-However, RMS models inherently filter out high-frequency and sub-cycle behaviour. They cannot accurately represent:
+However, RMS models inherently filter out high-frequency and sub-cycle behavior. They cannot accurately represent:
 \begin{itemize}
     \item Switching transients in power-electronic converters.
     \item Transformer inrush and magnetic saturation.
     \item Lightning impulses and surge propagation.
     \item Fast protection and relay actions.
-    \item Travelling waves on overhead lines and underground cables.
+    \item travelling waves on overhead lines and underground cables.
     \item Harmonic and resonance interactions.
     \item Instabilities driven by phase-locked loops or weak-grid conditions.
 \end{itemize}
@@ -50,28 +37,28 @@ fast control loops and grid dynamics may lead to oscillations or instabilities t
 
 In practice, EMT simulation is used to:
 \begin{itemize}
-    \item Analyse the internal behaviour of converter controllers,
+    \item Analyze the internal behavior of converter controllers,
     \item Validate protection algorithms relying on high-speed measurements,
     \item Assess resonance propagation along cables and transformers,
     \item Evaluate insulation coordination and surge propagation,
-    \item Study black-start and grid-forming behaviour,
+    \item Study black-start and grid-forming behavior,
     \item Examine the detailed impact of grid faults on converter-rich systems.
 \end{itemize}
 
-Although RMS and EMT simulations aim to describe power-system behaviour, they operate at very different levels of detail. 
-The main conceptual differences are summarised below:
+Although RMS and EMT simulations aim to describe power-system behavior, they operate at very different levels of detail. 
+The main conceptual differences are summarized below:
 \begin{itemize}
     \item \textit{Waveform representation:}  
-    RMS models use phasors, assuming sinusoidal waveforms with slowly varying magnitude and phase.  
+    RMS models use phasors, assuming sinusoidal waveforms with slowly varying magnitude and phase assuming constant frequency.  
     EMT models compute instantaneous voltages and currents, allowing arbitrary waveform distortion.
 
     \item \textit{Time resolution:}  
-    RMS simulations typically use time steps between 1--10~ms.  
-    EMT simulations use time steps in the range of 20--50~$\mu$s, or even smaller when needed.
+    RMS simulations typically use time steps between 100 ms -- seconds.
+    EMT simulations use time steps in the range of $\mu$s -- 100 ms, or even smaller when needed.
 
     \item \textit{Phenomena captured:}  
-    RMS simulations focus on electromechanical dynamics and long-term voltage behaviour.  
-    EMT simulations capture electromagnetic transients, converter switching, resonances, saturation, and sub–cycle interactions.
+    RMS simulations focus on electromechanical dynamics and long-term voltage behavior.  
+    EMT simulations capture electromagnetic transients, converter switching, resonances, saturation, and sub-cycle interactions.
 
     \item \textit{Computational requirements:}  
     RMS simulations are computationally efficient and scale well to large networks.  
@@ -80,12 +67,52 @@ The main conceptual differences are summarised below:
 
 Both approaches are complementary. RMS simulation remains essential for system-wide stability and planning studies, 
 while EMT simulation is indispensable for detailed transient analysis, validation of protection schemes, and the study of 
-power-electronic behaviour in modern grids.
+power-electronic behavior in modern grids.
+
+\subsection{General EMT Solver Structure}
+Modern EMT tools are based on the numerical formulation introduced by Dommel 
+in the late 1960s and subsequently used in the Electromagnetic Transients Program (EMTP)~\cite{Dommel_EMTP_Theory_Book_1986}.
+In this approach, each network element is represented through an equivalent conductance and a history-dependent 
+current source. By assembling all contributions at every time-step, the simulator solves a linear algebraic 
+system. This formulation is flexible and allows linear, nonlinear, 
+and power-electronic elements to be incorporated into the same solution process. This type of solver is called a 
+Modified Nodal Analysis (MNA) solver. The linear algebraic system solved is:
+
+\begin{equation}
+    [\bm{G}]~[\bm{v}(t)] = [\bm{i}(t)]-[\bm{i_{\text{hist}}}(t-\Delta t)]
+\end{equation}
+
+where $[\bm{G}]$ is the global conductance matrix of the network, $\bm{v}(t)$ is the vector of node voltages, 
+$\bm{i}(t)$ contains the instantaneous current injections, and $\bm{i_{\text{hist}}}(t)$ represents the history terms 
+accumulated from previous time steps. This formulation is flexible and allows linear, nonlinear, 
+and power-electronic elements to be incorporated into the same solution process.
+
+This formulation is derived from the trapezoidal integration of each element equations over the time step $\Delta t$. This integration method is used due to its stability, simplicity and accuracy in most EMT applications. 
+The trapezoidal rule is based on the truncation of the Taylor series expansion of the function to be integrated.  
+For a generic element with voltage $v(t)$ and current $i(t)$, the trapezoidal rule gives:
+\begin{equation}
+    \int_{t-\Delta t}^{t} v(t) dt \approx \frac{\Delta t}{2} \big( v(t-\Delta t) + v(t) \big),
+\end{equation}
+
+This leads to a general current expression for each element in the grid. This expression expresses the current at time $t$ as the 
+sum of an instantaneous contribution through an equivalent conductance $G_{\text{eq}}$ and a history-dependent current source $I_{\text{hist}}$.
+\begin{equation}
+    \bm{i}(t) = \bm{G_{\text{eq}}} \, \bm{v}(t) + \bm{i_{\text{hist}}}(t).
+\end{equation}
+where $G_{\text{eq}}$ is the conductance matrix for each element and $i_{\text{hist}}(t)$ the history current source that depends on past voltages and currents.
+\begin{equation}
+    \bm{i_{\text{hist}}}(t) = -\bm{G_{\text{eq}}} \, \bm{v}(t-\Delta t) + \bm{i}(t-\Delta t).
+\end{equation}
+The history current source is different for each element depending on its model and trapezoidal integration.
+
+The following subsections describe the specific models adopted for the main elements on a grid.
+
+
 
 \subsection{Line Model: Bergeron's Model}
 
 Accurate modelling of transmission lines is essential in electromagnetic transient (EMT) simulation because wave propagation, reflections, 
-and attenuation determine the fast behaviour of the network during disturbances. Lumped representations such as the classical $\pi$-model 
+and attenuation determine the fast behavior of the network during disturbances. Lumped representations such as the classical $\pi$-model 
 are widely used in steady-state and RMS dynamic analysis; however, their structural assumptions make them inadequate for EMT studies. 
 A $\pi$-model represents the line using a single series impedance and two shunt admittances, implicitly assuming that the line is electrically 
 short relative to the wavelength of interest and that propagation effects can be neglected. 
@@ -121,6 +148,8 @@ Differentiating each equation with respect to $x$ and $t$ and substituting leads
     \frac{\partial^2 i(x,t)}{\partial x^2} = L' C' \frac{\partial^2 i(x,t)}{\partial t^2}.
 \end{equation}
 
+This step is done to allow having the derivative of voltage not depending on current and vice versa. Moreover, these equations depend on the position,
+which makes them hard to deal with.
 The general solution of these equations is a superposition of forward- and backward-travelling waves,
 
 \begin{equation}
@@ -130,7 +159,7 @@ The general solution of these equations is a superposition of forward- and backw
     i(x,t) = \frac{1}{Z_c} v^{+}(t - x/v) - \frac{1}{Z_c} v^{-}(t + x/v),
 \end{equation}
 
-where the characteristic impedance and wave velocity are
+where the characteristic impedance and wave velocity are:
 \begin{equation}
     Z_c = \sqrt{\frac{L'}{C'}}, \qquad v = \frac{1}{\sqrt{L' C'}}.
 \end{equation}
@@ -160,7 +189,7 @@ history-dependent term:
 \begin{equation}
     i_{\text{t,f}}(t) = \frac{1}{Z_c} v_\text{t}(t) + I_{\text{hist,t}}(t - \tau),
 \end{equation}
-with history currents
+with history currents:
 \begin{equation}
     I_{\text{hist,f}}(t-\tau) = -\frac{1}{Z_c} v_\text{t}(t-\tau) - i_{\text{t,f}}(t-\tau),
 \end{equation}
@@ -185,7 +214,7 @@ Figure \ref{fig:bergeron_lossless} illustrates the Bergeron's lossless line mode
 
 Real transmission lines exhibit losses; therefore, the model must incorporate attenuation. A standard EMT approximation 
 introduces the total series resistance $R$ by splitting the line into two halves and representing each half with its own 
-Bergeron equivalent.Each halve has $R/4$ resistances added to each terminal, effectively distributing the losses along 
+Bergeron equivalent. Each halve has $R/4$ resistances added to each terminal, effectively distributing the losses along 
 the line. Figure~\ref{fig:bergeron_losses} shows this configuration.
 
 \begin{figure}[H]
@@ -195,12 +224,12 @@ the line. Figure~\ref{fig:bergeron_losses} shows this configuration.
   \label{fig:bergeron_losses}
 \end{figure}
 
-Splitting the resistance modifies the apparent characteristic impedance of each half-line. The equivalent becomes
+Splitting the resistance modifies the apparent characteristic impedance of each half-line. The equivalent becomes:
 \begin{equation}
     Z = Z_c + \frac{R}{4},
 \end{equation}
 because each resistor of value $R/2$ is divided in two and attached symmetrically to each end. This adjustment introduces 
-attenuation in the travelling wave components. The attenuation coefficient is defined as
+attenuation in the travelling wave components. The attenuation coefficient is defined as:
 \begin{equation}
     H = \frac{Z_c - R/4}{Z_c + R/4},
 \end{equation}
@@ -223,7 +252,7 @@ The half-line equivalent, shown in Fig.~\ref{fig:bergeron_losses_half}, leads to
 This expression already reflects both the propagation delay and the attenuation due to the series resistance.
 
 To recover a two-terminal equivalent, the contributions of the two half-lines are combined, producing the structure in 
-Fig.~ \ref{fig:bergeron_losses_equiv}. The resulting history current at the sending terminal is a weighted combination of 
+Fig.~\ref{fig:bergeron_losses_equiv}. The resulting history current at the sending terminal is a weighted combination of 
 delayed voltages and currents at both ends:
 \begin{figure}[H]
   \centering
@@ -266,70 +295,70 @@ multiconductor framework capable of modelling an arbitrary number of phases, inc
  with or without neutral configurations. This flexibility allows accurate treatment of networks where conductor geometry or availability 
  changes across sections.
 
-The formulation begins with the computation of the distributed impedance and admittance matrices per unit length, denoted by $\mathbf{Z}'$ and 
-$\mathbf{Y}'$. These matrices are derived from Carson's formulas, which incorporate both self and mutual coupling among conductors and 
-remain the established foundation for overhead line parameter calculation~\cite{carson1926}. The matrices are expressed as
+The formulation begins with the computation of the distributed impedance and admittance matrices per unit length, denoted by $\bm{Z}'$ and 
+$\bm{Y}'$. These matrices are derived from Carson's formulas, which incorporate both self and mutual coupling among conductors and 
+remain the established foundation for overhead line parameter calculation~\cite{carson1926}. The matrices are expressed as:
 \begin{equation}
-    \mathbf{Z}' = \mathbf{R}' + j \omega \mathbf{L}',
+    \bm{Z}' = \bm{R}' + j \omega \bm{L}',
 \end{equation}
 \begin{equation}
-    \mathbf{Y}' = \mathbf{G}' + j \omega \mathbf{C}'.
+    \bm{Y}' = \bm{G}' + j \omega \bm{C}'.
 \end{equation}
 
-For a Bergeron-type representation, the frequency-independent terms are extracted from $\mathbf{L}'$ and $\mathbf{C}'$. The multiconductor 
-characteristic impedance and the associated conductance matrix are defined by
+For a Bergeron-type representation, the frequency-independent terms are extracted from $\bm{L}'$ and $\bm{C}'$. The multiconductor 
+characteristic impedance and the associated conductance matrix are defined by:
 \begin{equation}
-    \mathbf{Z}_c = \sqrt{ \mathbf{L}' \mathbf{C}' },
+    \bm{Z}_c = \sqrt{ \bm{L}' \bm{C}' },
 \end{equation}
 \begin{equation}
-    \mathbf{G}_c = \mathbf{Z}_c^{-1}.
+    \bm{G}_c = \bm{Z}_c^{-1}.
 \end{equation}
-These expressions generalise the scalar characteristic impedance and Norton equivalent of the single-phase Bergeron's line model to the 
+These expressions generalize the scalar characteristic impedance and Norton equivalent of the single-phase Bergeron's line model to the 
 multiconductor case.
 
-To incorporate attenuation effects, the distributed resistance matrix $\mathbf{R}'$ is included following the same principle as the 
-single-phase lossy Bergeron model. The equivalent impedance matrix becomes
+To incorporate attenuation effects, the distributed resistance matrix $\bm{R}'$ is included following the same principle as the 
+single-phase lossy Bergeron model. The equivalent impedance matrix becomes:
 \begin{equation}
-    \mathbf{Z} = \mathbf{Z}_c + \frac{1}{4}\mathbf{R}',
+    \bm{Z} = \bm{Z}_c + \frac{1}{4}\bm{R}',
 \end{equation}
-and the attenuation matrix is defined as
+and the attenuation matrix is defined as:
 \begin{equation}
-    \mathbf{H} = \left( \mathbf{Z}_c - \tfrac{1}{4}\mathbf{R}' \right)
-                 \left( \mathbf{Z}_c + \tfrac{1}{4}\mathbf{R}' \right)^{-1}.
+    \bm{H} = \left( \bm{Z}_c - \tfrac{1}{4}\bm{R}' \right)
+                 \left( \bm{Z}_c + \tfrac{1}{4}\bm{R}' \right)^{-1}.
 \end{equation}
 These matrices describe how electromagnetic waves attenuate and interact across conductors while travelling along the line.
 
-Although $\mathbf{Z}_c$, $\mathbf{G}_c$, and $\mathbf{H}$ are treated as matrices, the propagation delay is implemented as a 
+Although $\bm{Z}_c$, $\bm{G}_c$, and $\bm{H}$ are treated as matrices, the propagation delay is implemented as a 
 scalar quantity. This choice follows standard EMT practice: Carson's derivations produce a physically meaningful self-propagation 
-velocity based on the diagonal terms of the inductance and capacitance matrices. The wave velocity is therefore computed as
+velocity based on the diagonal terms of the inductance and capacitance matrices. The wave speed is therefore computed as:
 \begin{equation}
     v = \frac{1}{\sqrt{L'_{\mathrm{self}} C'_{\mathrm{self}}}},
 \end{equation}
-and the corresponding propagation time is
+and the corresponding propagation time is:
 \begin{equation}
     \tau = \frac{\ell}{v}.
 \end{equation}
 Using a single propagation delay for all conductors avoids the need for modal decomposition while maintaining adequate accuracy in 
 EMT applications, particularly for transposed lines or configurations where the difference in modal velocities is small.
 
-With this structure, each terminal of a multiconductor line contributes a Norton-type equivalent current defined by
+With this structure, each terminal of a multiconductor line contributes a Norton-type equivalent current defined by:
 \begin{equation}
-    \mathbf{i}_f(t) = \mathbf{G}_c \, \mathbf{v}_f(t) + \mathbf{I}_{\mathrm{hist},f}(t-\tau),
+    \bm{i}_f(t) = \bm{G}_c \, \bm{v}_f(t) + \bm{I}_{\mathrm{hist},f}(t-\tau),
 \end{equation}
 \begin{equation}
-    \mathbf{i}_t(t) = \mathbf{G}_c \, \mathbf{v}_t(t) + \mathbf{I}_{\mathrm{hist},t}(t-\tau).
+    \bm{i}_t(t) = \bm{G}_c \, \bm{v}_t(t) + \bm{I}_{\mathrm{hist},t}(t-\tau).
 \end{equation}
 The history currents are vector quantities that incorporate delayed voltages and currents from all conductors, weighted 
-by the matrices $\mathbf{H}$ and $\mathbf{Z}$:
+by the matrices $\bm{H}$ and $\bm{Z}$:
 \begin{equation}
-    \mathbf{I}_{\mathrm{hist},f}(t-\tau)
-        = -\mathbf{Z}^{-1}\mathbf{v}_t(t-\tau)
-          -\mathbf{i}_{t,f}(t-\tau),
+    \bm{I}_{\mathrm{hist},f}(t-\tau)
+        = -\bm{Z}^{-1}\bm{v}_t(t-\tau)
+          -\bm{i}_{t,f}(t-\tau),
 \end{equation}
 \begin{equation}
-    \mathbf{I}_{\mathrm{hist},t}(t-\tau)
-        = -\mathbf{Z}^{-1}\mathbf{v}_f(t-\tau)
-          -\mathbf{i}_{f,t}(t-\tau).
+    \bm{I}_{\mathrm{hist},t}(t-\tau)
+        = -\bm{Z}^{-1}\bm{v}_f(t-\tau)
+          -\bm{i}_{f,t}(t-\tau).
 \end{equation}
 
 This multiconductor travelling wave representation preserves conductor coupling without requiring modal transformations 
@@ -427,7 +456,7 @@ For the general EMT machine model, the following additional assumptions are adop
     \item Saliency effects are not neglected, i.e.\ $X_\text{d} \neq X_\text{q}$.
     \item Saturation effects are neglected in the initial model.
     \item Damper winding effects are neglected in the present implementation.
-    \item The machine is represented as an equivalent two-pole machine. If the physical machine has $p$ poles, the actual angular frequency and torque are recovered as
+    \item The machine is represented as an equivalent two-pole machine. If the physical machine has $p$ poles, the actual angular frequency and torque are recovered as:
     \begin{equation}
         \omega_{\text{actual}} = \frac{\omega_{\text{2-pole}}}{p/2},
     \end{equation}
@@ -455,15 +484,15 @@ v_\text{c} - i_\text{c} R_\text{a}
 \psi_\text{c}
 \end{pmatrix},
 \end{equation}
-where $v_\text{a}$, $v_\text{b}$, $v_\text{c}$ are phase-to-neutral stator voltages, $i_\text{a}$, $i_\text{b}$, $i_\text{c}$ are stator currents, $R_\text{a}$ is the stator resistance (assumed equal in all phases), and $\psi_\text{a}$, $\psi_\text{b}$, $\psi_\text{c}$ are the corresponding flux linkages. The field winding (referred to the stator) satisfies
+where $v_\text{a}$, $v_\text{b}$, $v_\text{c}$ are phase-to-neutral stator voltages, $i_\text{a}$, $i_\text{b}$, $i_\text{c}$ are stator currents, $R_\text{a}$ is the stator resistance (assumed equal in all phases), and $\psi_\text{a}$, $\psi_\text{b}$, $\psi_\text{c}$ are the corresponding flux linkages. The field winding (referred to the stator) satisfies:
 \begin{equation}
     v_{\text{f}'} - i_{\text{f}'} R_{\text{f}'} = \frac{d \psi_{\text{f}'}}{dt},
 \end{equation}
 where $v_{\text{f}'}$ is the field voltage, $i_{\text{f}'}$ is the field current, $R_{\text{f}'}$ is the field resistance and $\psi_{\text{f}'}$ is the field flux linkage.
 
-For the EMT formulation, it is convenient to express the stator quantities in the rotating $dq$ reference frame using the Park transformation. The transformation from $\text{abc}$ to $\text{dq0}$ variables is
+For the EMT formulation, it is convenient to express the stator quantities in the rotating $dq$ reference frame using the Park transformation. The transformation from $\text{abc}$ to $\text{dq0}$ variables is:
 \begin{equation}
-    [T(\theta)] =
+    [\bm{T}(\theta)] =
     \frac{2}{3}
     \begin{bmatrix}
         \cos(\theta)                 & \cos\!\left(\theta - \tfrac{2\pi}{3}\right) & \cos\!\left(\theta + \tfrac{2\pi}{3}\right) \\[6pt]
@@ -471,9 +500,9 @@ For the EMT formulation, it is convenient to express the stator quantities in th
         \tfrac{1}{2}                 & \tfrac{1}{2}                                 & \tfrac{1}{2}
     \end{bmatrix},
 \end{equation}
-and the inverse transformation is
+and the inverse transformation is:
 \begin{equation}
-    [T(\theta)]^{-1} =
+    [\bm{T}(\theta)]^{-1} =
     \begin{bmatrix}
         \cos(\theta)                 & \sin(\theta)                 & 1 \\[6pt]
         \cos\!\left(\theta - \tfrac{2\pi}{3}\right) & \sin\!\left(\theta - \tfrac{2\pi}{3}\right) & 1 \\[6pt]
@@ -481,22 +510,24 @@ and the inverse transformation is
     \end{bmatrix}.
 \end{equation}
 
-In the $\text{dq0}$ reference frame and for the simplified model considered (one field winding, no explicit damper windings), the stator $d$- and $q$-axis voltage equations take the form
+In the $\text{dq0}$ reference frame and for the simplified model considered (one field winding, no explicit damper windings), the stator $d$- and $q$-axis voltage equations take the form:
 \begin{equation}
-    v_\text{d} = R_\text{a} i_\text{d} + \frac{d} \psi_\text{d}{dt} - \omega \psi_\text{q},
+    v_\text{d} = R_\text{a} i_\text{d} + \frac{d\psi_\text{d}}{dt} - \omega \psi_\text{q},
 \end{equation}
 \begin{equation}
-    v_\text{q} = R_\text{a} i_\text{q} + \frac{d} \psi_\text{q}{dt} + \omega \psi_\text{d},
+    v_\text{q} = R_\text{a} i_\text{q} + \frac{d\psi_\text{q}}{dt} + \omega \psi_\text{d},
 \end{equation}
 \begin{equation}
     v_\text{0} = R_\text{0} i_\text{0} 
 \end{equation}
-and the field equation becomes
+and the field equation becomes:
 \begin{equation}
     v_{\text{f}'} = R_{\text{f}'} i_{\text{f}'} + \frac{d \psi_{\text{f}'}}{dt}.
 \end{equation}
 
-Flux linkages are expressed in terms of currents through the $d$- and $q$-axis inductances. For the $d$-axis, including stator leakage inductance $L_\text{a}$, magnetising inductance $L_{\text{md}}$ and field inductance (referred to stator) $L_\text{a}$ for the $\text{f}'$ winding, the relations are
+Flux linkages are expressed in terms of currents through the $d$- and $q$-axis inductances. 
+For the $d$-axis, including stator leakage inductance $L_\text{a}$, magnetizing inductance $L_{\text{md}}$ and field inductance 
+(referred to stator) $L_\text{a}$ for the $\text{f}'$ winding, the relations are:
 \begin{equation}
 \begin{pmatrix}
 \psi_\text{d} \\
@@ -517,35 +548,33 @@ whereas for the $q$-axis (with magnetising inductance $L_{\text{mq}}$ and stator
     \psi_\text{q} = (L_{\text{mq}} + L_\text{a}) \, i_\text{q}.
 \end{equation}
 
-Figure~\ref{fig:generator_dq_models} shows the equivalent $d$- and $q$-axis circuit representations corresponding to these equations.
+Figures~\ref{fig:generator_daxis_model} and \ref{fig:generator_qaxis_model} show the equivalent $d$- and $q$-axis circuit representations corresponding to these equations.
 
-
-\begin{figure}
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\linewidth]{inkscape_svg/generator_daxis_model.pdf}
 \caption{Generator $d$-axis equivalent model.}
 \label{fig:generator_daxis_model}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.77\linewidth]{inkscape_svg/generator_qaxis_model.pdf}
+\includegraphics[width=0.5\linewidth]{inkscape_svg/generator_qaxis_model.pdf}
 \caption{Generator $q$-axis equivalent model.}
 \label{fig:generator_qaxis_model}
 \end{figure}
 
 
-The electromagnetic torque is obtained from the $dq$ quantities as
+The electromagnetic torque is obtained from the $dq0$ quantities as:
 \begin{equation}
     T_\text{e} = \frac{3}{2} \left( \psi_\text{d} i_\text{q} - \psi_\text{q} i_\text{d} \right),
 \end{equation}
 which is consistent with the adopted sign convention. This expression is used both in the mechanical equations and in the symbolic implementation of the model.
 
-% ---------------------------------------------------
 \subsubsection{Mechanical part}
 
 The mechanical dynamics of the rotor are described by a two-state system in rotor angle $\theta$ and speed $\omega$. 
-In continuous time, the mechanical equations can be written as
+In continuous time, the mechanical equations can be written as:
 \begin{equation}
 \frac{d}{dt}
 \begin{pmatrix}
@@ -569,7 +598,7 @@ In continuous time, the mechanical equations can be written as
 \end{equation}
 where $J$ is the rotor inertia, $D$ is the damping coefficient, $T_m$ is the mechanical torque and $T_e$ is 
 the electromagnetic torque. In per-unit form, and using the inertia constant $H$ and base speed $\omega_b$, 
-the equations are commonly written as
+the equations are commonly written as:
 \begin{equation}
     \frac{d \theta}{dt}(t) = \omega_\text{b} \, (\omega(t) - \omega_{\text{ref}}),
 \end{equation}
@@ -577,7 +606,7 @@ the equations are commonly written as
     \frac{d \omega}{dt}(t)
     = \frac{\Gamma_\text{m}(t) - \Gamma_\text{e}(t) - D (\omega(t) - \omega_{\text{ref}})}{2 H},
 \end{equation}
-with
+with:
 \begin{equation}
     \Gamma_\text{m}(t) = \frac{P(t)}{\omega},
 \end{equation}
@@ -620,7 +649,7 @@ The magnetising inductances and rotor inductances are derived from these effecti
     L_{\text{md}} = L_\text{d} - L_\text{a},
 \end{equation}
 and the rotor branch inductances and resistances are determined from the differences between $L_\text{d}$, $L_\text{d}'$, $L_\text{d}''$ 
-and the corresponding time constants. An analogous procedure is followed for the $q$-axis. These calculations provide 
+and the corresponding time constants. An analogous procedure is followed for the $q$ axis. These calculations provide 
 $L_{\text{md}}$, $L_{\text{mq}}$, $L_\text{a}$, $L_{\text{f}'}$, and any additional rotor parameters required by the selected level of detail.
 
 % ---------------------------------------------------
@@ -631,11 +660,11 @@ iteration and the internal electrical and mechanical states of the generator. Th
 
 \begin{enumerate}
     \item \textit{Park transformation of terminal voltages.}  
-    The stator terminal voltages in $abc$ coordinates at the previous time step $t-h$ are transformed to $\text{dq0}$ variables using
+    The stator terminal voltages in $abc$ coordinates at the previous time step $t-h$ are transformed to $\text{dq0}$ variables using:
     \begin{equation}
         [v_{\text{dq0}}(t-h)] = [T(\theta(t-h))] \, [v_{\text{abc}}(t-h)],
     \end{equation}
-    where
+    where:
     \begin{equation}
     [T(\theta)] =
     \frac{2}{3}
@@ -647,7 +676,7 @@ iteration and the internal electrical and mechanical states of the generator. Th
     \end{equation}
 
     \item \textit{Evaluation of flux-derivative terms.}  
-    Using the electrical equations in the $dq0$ frame, the derivatives of the flux linkages are computed at time $t$ based on known quantities at $t-h$:
+    Using the electrical equations in the $dq0$ frame, the derivatives of the flux linkages are computed at time $t$ based on known quantities at $t-\Delta t$:
     \begin{equation}
     \begin{aligned}
     v_\text{d} &= R_\text{a} i_\text{d} + \frac{d\psi_\text{d}}{dt} - \omega \psi_\text{q}, \\[4pt]
@@ -656,35 +685,36 @@ iteration and the internal electrical and mechanical states of the generator. Th
     \end{aligned}
     \end{equation}
 
-    The field voltage equation remains
+    The field voltage equation remains:
     \begin{equation}
     v_{\text{f}'} = R_{\text{f}'} i_{\text{f}'} + \frac{d\psi_{\text{f}'}}{dt}.
     \end{equation}
 
-    Thus, the flux derivatives evaluated at time $t$ using information at time $t-h$ are:
+    Thus, the flux derivatives evaluated at time $t$ using information at time $t-\Delta t$ are:
     \begin{equation}
     \begin{aligned}
-    \frac{d\psi_\text{d}}{dt}(t) &= v_\text{d}(t-h) - R_\text{a} i_\text{d}(t-h) - \omega(t-h)\psi_\text{q}(t-h), \\[4pt]
-    \frac{d\psi_\text{q}}{dt}(t) &= v_\text{q}(t-h) - R_\text{a} i_\text{q}(t-h) + \omega(t-h)\psi_\text{d}(t-h), \\[4pt]
-    \frac{d\psi_\text{0}}{dt}(t) &= v_\text{0}(t-h) - R_\text{a} i_\text{0}(t-h), \\[4pt]
-    \frac{d\psi_{\text{f}'}}{dt}(t) &= v_{\text{f}'}(t-h) - R_{\text{f}'} i_{\text{f}'}(t-h).
+    \frac{d\psi_\text{d}}{dt}(t) &= v_\text{d}(t-\Delta t) - R_\text{a} i_\text{d}(t-\Delta t) - \omega(t-\Delta t)\psi_\text{q}(t-\Delta t), \\[4pt]
+    \frac{d\psi_\text{q}}{dt}(t) &= v_\text{q}(t-\Delta t) - R_\text{a} i_\text{q}(t-\Delta t) + \omega(t-\Delta t)\psi_\text{d}(t-\Delta t), \\[4pt]
+    \frac{d\psi_\text{0}}{dt}(t) &= v_\text{0}(t-\Delta t) - R_\text{a} i_\text{0}(t-\Delta t), \\[4pt]
+    \frac{d\psi_{\text{f}'}}{dt}(t) &= v_{\text{f}'}(t-\Delta t) - R_{\text{f}'} i_{\text{f}'}(t-\Delta t).
     \end{aligned}
     \label{eq:dq0_flux_derivatives}
     \end{equation}
 
     \item \textit{Trapezoidal integration of flux linkages.}  
-    The fluxes at the new time step $t$ are obtained by trapezoidal integration:
+    The fluxes at the new time step $t$ are obtained by trapezoidal integration. Since the derivative depends only on past values,
+    the fluxes now also depend only on past values.
     \begin{equation}
         \begin{aligned}
-            \psi_\text{d}(t) &= \psi_\text{d}(t-h) + h \, \frac{\tfrac{d \psi_\text{d}(t)}{d t} + \tfrac{d \psi_\text{d}(t-h)}{d t}}{2}, \\
-            \psi_{\text{f}'}(t) &= \psi_{\text{f}'}(t-h) + h \, \frac{\tfrac{d \psi_{\text{f}'}(t)}{d t} + \tfrac{d \psi_{\text{f}'}(t-h)}{d t}}{2}, \\
-            \psi_\text{q}(t) &= \psi_\text{q}(t-h) + h \, \frac{\tfrac{d \psi_\text{q}(t)}{d t} + \tfrac{d \psi_\text{q}(t-h)}{d t}}{2}. \\
-            \psi_\text{0}(t) &= \psi_\text{0}(t-h) + h \, \frac{\tfrac{d \psi_\text{0}(t)}{d t} + \tfrac{d \psi_\text{0}(t-h)}{d t}}{2}.
+            \psi_\text{d}(t) &= \psi_\text{d}(t-\Delta t) + \Delta t \, \frac{\tfrac{d \psi_\text{d}(t)}{d t} + \tfrac{d \psi_\text{d}(t-\Delta t)}{d t}}{2}, \\
+            \psi_{\text{f}'}(t) &= \psi_{\text{f}'}(t-\Delta t) + \Delta t \, \frac{\tfrac{d \psi_{\text{f}'}(t)}{d t} + \tfrac{d \psi_{\text{f}'}(t-\Delta t)}{d t}}{2}, \\
+            \psi_\text{q}(t) &= \psi_\text{q}(t-\Delta t) + \Delta t \, \frac{\tfrac{d \psi_\text{q}(t)}{d t} + \tfrac{d \psi_\text{q}(t-\Delta t)}{d t}}{2}. \\
+            \psi_\text{0}(t) &= \psi_\text{0}(t-\Delta t) + \Delta t \, \frac{\tfrac{d \psi_\text{0}(t)}{d t} + \tfrac{d \psi_\text{0}(t-\Delta t)}{d t}}{2}.
         \end{aligned}
     \end{equation}
 
     \item \textit{Computation of $\text{dq0}$ currents.}  
-    Once the new flux linkages are known, the $\text{dq0}$-axis currents are obtained from
+    Once the new flux linkages are known, the $\text{dq0}$-axis currents are obtained from:
     \begin{equation}
         \begin{pmatrix}
         i_\text{d}(t) \\
@@ -697,7 +727,7 @@ iteration and the internal electrical and mechanical states of the generator. Th
         \psi_{\text{f}'}(t)
         \end{pmatrix},
     \end{equation}
-    where
+    where:
     \begin{equation}
         [L_\text{d}] =
         \begin{bmatrix}
@@ -705,7 +735,7 @@ iteration and the internal electrical and mechanical states of the generator. Th
         L_{\text{md}}       & L_{\text{md}} + L_\text{a}
         \end{bmatrix},
     \end{equation}
-    for the $q$-axis current is
+    for the $q$-axis current is:
     \begin{equation}
         i_\text{q}(t) = \frac{\psi_\text{q}(t)}{L_{\text{mq}} + L_\text{a}}.
     \end{equation}
@@ -715,11 +745,11 @@ iteration and the internal electrical and mechanical states of the generator. Th
     \end{equation}
 
     \item \textit{Update of mechanical states.}  
-    With $i_\text{d}(t)$, $i_\text{q}(t)$, $\psi_\text{d}(t)$, $\psi_\text{q}(t)$ available, the electromagnetic torque $\Gamma_\text{e}(t)$ is computed as
+    With $i_\text{d}(t)$, $i_\text{q}(t)$, $\psi_\text{d}(t)$, $\psi_\text{q}(t)$ available, the electromagnetic torque $\Gamma_\text{e}(t)$ is computed as:
     \begin{equation}
-        \Gamma_\text{e}(t) = -\frac{3}{2} \left( i_\text{d}(t) \psi_\text{q}(t) - i_\text{q}(t) \psi_\text{d}(t) \right).
+        \Gamma_\text{e}(t) = \frac{3}{2} \left( i_\text{d}(t) \psi_\text{q}(t) - i_\text{q}(t) \psi_\text{d}(t) \right).
     \end{equation}
-    The mechanical equations are then integrated (e.g.\ by trapezoidal rule) to obtain the updated $\omega(t)$ and $\theta(t)$, using
+    The mechanical equations are then integrated (e.g.\ by trapezoidal rule) to obtain the updated $\omega(t)$ and $\theta(t)$, using:
     \begin{equation}
         \frac{d \theta}{dt}(t) = \omega_\text{b} (\omega(t)),
     \end{equation}
@@ -728,27 +758,27 @@ iteration and the internal electrical and mechanical states of the generator. Th
     \end{equation}
 
     \item \textit{Equivalent Norton quantities in $\text{dq0}$.}  
-    The Norton-equivalent current injection in the $\text{dq0}$ frame is obtained from an equivalent conductance matrix $[G_{\text{eq,dq}}]$ as
+    The Norton-equivalent current injection in the $\text{dq0}$ frame is obtained from an equivalent conductance matrix $[G_{\text{eq,dq}}]$ as:
     \begin{equation}
-        [I_{\text{g,dq0}}(t)] = [G_{\text{eq,dq0}}] \, [v_{\text{dq0}}(t-h)]
+        [I_{\text{g,dq0}}(t)] = [G_{\text{eq,dq0}}] \, [v_{\text{dq0}}(t-\Delta t)]
     \end{equation}
     The specific form of $[G_{\text{eq,dq0}}]$ follows from the trapezoidal discretisation of the $\text{dq0}$-axis circuit equations.
 
     \item \textit{Transformation back to $\text{abc}$ and MNA insertion.}  
-    The $\text{dq0}$ currents and Norton current injection are transformed back to phase coordinates using
+    The $\text{dq0}$ currents and Norton current injection are transformed back to phase coordinates using:
     \begin{equation}
         [i_{\text{abc}}(t)] = [T(\theta(t))]^{-1} [i_{\text{dq0}}(t)],
     \end{equation}
     \begin{equation}
         [i_{\text{g,abc}}(t)] = [T(\theta(t))]^{-1} [I_{\text{g,dq0}}(t)],
     \end{equation}
-    and the equivalent conductance matrix in $abc$ coordinates is
+    and the equivalent conductance matrix in $abc$ coordinates is:
     \begin{equation}
-        [G_{\text{eq,abc}}(t)] = [T(\theta(t))]^{-1} [G_{\text{eq,dq0}}]  [T(\theta(t))].
+        [G_{\text{eq,abc}}(t)] = [T(\theta(t))]^{-1} [G_{\text{eq,dq0}}]  [T(\theta(t))]
     \end{equation}
-    Finally, the Norton-equivalent current source to be inserted into the network is
+    Finally, the Norton-equivalent current source to be inserted into the network is:
     \begin{equation}
-        [I_{\text{g,abc}}(t)] = [i_{\text{abc}}(t)] + [G_{\text{eq,abc}}(t)] [v_{\text{abc}}(t-h)].
+        [I_{\text{g,abc}}(t)] = [i_{\text{abc}}(t)] + [G_{\text{eq,abc}}(t)] [v_{\text{abc}}(t-\Delta t)]
     \end{equation}
     These contributions are added to the global MNA system to obtain the network solution at the next time step.
 \end{enumerate}
@@ -762,17 +792,26 @@ Figure~ \ref{fig:machine_net_sol} shows the overall interaction between the mach
 \label{fig:machine_net_sol}
 \end{figure}
 
-In the EMTDC program, synchronous machines are represented in the network by means of current injections 
+In the EMTP program, synchronous machines are represented in the network by means of current injections 
 formulated through the system admittance matrix. As in any current-injection-based interface, the injected currents are computed 
 using terminal voltages from previous time-steps. Consequently, an abrupt change in the terminal voltage does not influence the injected 
-current until the following time step, which effectively causes the machine to behave as an open circuit during that interval. 
+current until the following time step, which effectively causes the machine to behave as an open circuit during that interval \cite{Wang2010InterfacingResistor}. 
 This numerical delay may produce artificial voltage spikes at the machine terminals. When several machines are connected within the same 
 subsystem, the cumulative effect of these spikes can compromise numerical stability. To mitigate this issue, the machine model is augmented 
 with an interfacing resistor, which introduces a direct voltage-current coupling and significantly improves the robustness of the numerical 
 solution \cite{WatsonArrillagaEMT2019}. 
 
-The value of this resistor should be chosen carefully to balance numerical stability and physical accuracy. Each comercial EMT software uses its own criteria
-being R between 10 and 20 times the base impedance a common choice. In VeraGrid, the interfacing resistor is set to 20 times the base impedance of the machine.
+The value of this resistor should be chosen carefully to balance numerical stability and physical accuracy. Based on Wang \cite{Wang2010InterfacingResistor}, the interfacing resistor
+value in the Norton equivalent circuit should be calculated as:
+\begin{equation}
+    r'' = \frac{2~L''}{N~\Delta~t}
+\end{equation}
+Being $L''$ the subtransient inductance, $N$ the number of machines in parallel, and $\Delta t$ the simulation time step. This interfacing resistor should be compensated
+in the network solution with a parallel current source defined as:
+\begin{equation}
+    i_r(t) = \frac{v(t-\Delta~t)}{r''}
+\end{equation}
+Where $v(t-\Delta~t)$ is the terminal voltage of the machine at the previous time step.
 The equivalent circuit of the generator model including the interfacing resistor is shown in Figure~\ref{fig:generator_emt_model_resistor}.
 
 \begin{figure}[H]
@@ -806,18 +845,18 @@ with differential equations:
 The corresponding algebraic equations include the electromagnetic torque, flux-current relations and Park transformations:
 \begin{equation}
 \begin{cases}
-\Gamma_\text{e} = -\dfrac{3}{2} (i_\text{d} \psi_\text{q} - i_\text{q} \psi_\text{d}), \\[6pt]
+\Gamma_\text{e} = \dfrac{3}{2} (i_\text{d} \psi_\text{q} - i_\text{q} \psi_\text{d}), \\[6pt]
 \psi_\text{d} = (L_{\text{md}} + L_\text{a}) i_\text{d} + L_{\text{md}} i_{\text{f}'}, \\[6pt]
 \psi_{\text{f}'} = L_{\text{md}} i_\text{d} + (L_{\text{md}} + L_\text{f'}) i_{\text{f}'}, \\[6pt]
 \psi_\text{q} = (L_{\text{mq}} + L_\text{a}) i_\text{q}, \\[6pt]
-\psi_\text{0} = (L_\text{0}) i_\text{0}, \\[6pt]
+\psi_\text{0} = L_\text{0}~i_\text{0}, \\[6pt]
 P_\text{e} = v_\text{a} i_\text{a} + v_\text{b} i_\text{b} + v_\text{c} i_\text{c}, \\[6pt]
-Q_\text{e} - (1 / \sqrt(3))~ ((v_\text{a} - v_\text{b})~ i_\text{c} + (v_\text{b} - v_\text{c})~ i_\text{a} + (v_\text{c} - v_\text{a})~ i_\text{b}),
-i_\text{a} = \cos(\theta) i_\text{d} + \sin(\theta) i_\text{q} + i_\text{0}, \\[6pt]
-i_\text{b} = \cos(\theta - 2\pi/3) i_\text{d} + \sin(\theta - 2\pi/3) i_\text{q} + i_\text{0}, \\[6pt]
-i_\text{c} = \cos(\theta + 2\pi/3) i_\text{d} + \sin(\theta + 2\pi/3) i_\text{q} + i_\text{0}, \\[6pt]
-v_\text{d} = \cos(\theta) v_\text{a} + \cos(\theta - 2\pi/3) v_\text{b} + \cos(\theta + 2\pi/3) v_\text{c}, \\[6pt]
-v_\text{q} = \sin(\theta) v_\text{a} + \sin(\theta - 2\pi/3) v_\text{b} + \sin(\theta + 2\pi/3) v_\text{c}, \\[6pt]
+Q_\text{e} - (1 / \sqrt(3))~ ((v_\text{a} - v_\text{b})~ i_\text{c} + (v_\text{b} - v_\text{c})~ i_\text{a} + (v_\text{c} - v_\text{a})~ i_\text{b}),\\[6pt]
+i_\text{a} = i_\text{d} \cos(\theta)  + i_\text{q} \sin(\theta)  + i_\text{0}, \\[6pt]
+i_\text{b} = i_\text{d} \cos(\theta - 2\pi/3)  + i_\text{q} \sin(\theta - 2\pi/3)  + i_\text{0}, \\[6pt]
+i_\text{c} = i_\text{d} \cos(\theta + 2\pi/3)  + i_\text{q} \sin(\theta + 2\pi/3)  + i_\text{0}, \\[6pt]
+v_\text{d} = v_\text{a} \cos(\theta) +  v_\text{b} \cos(\theta - 2\pi/3) + v_\text{c}\cos(\theta + 2\pi/3) , \\[6pt]
+v_\text{q} = v_\text{a} \sin(\theta) + v_\text{b} \sin(\theta - 2\pi/3)  + v_\text{c} \sin(\theta + 2\pi/3) , \\[6pt]
 v_\text{0} = 0,5 v_\text{a} + 0,5 v_\text{b} + 0,5 v_\text{c} \\[6pt]
 \end{cases}
 \label{eq:alg_eq_gen}
@@ -829,8 +868,11 @@ The field voltage $v_{\text{f}'}$ must be provided by the exciter model, and the
 % ---------------------------------------------------
 \subsubsection{Initialization of variables}
 
-The EMT-type generator model is initialised by solving the differential-algebraic equations (DAEs) under steady-state conditions using 
-a Newton-Raphson procedure. Steady state is defined by the following assumptions:
+The synchronous generator model is initialized in VeraGrid by assuming steady-state conditions. The initialization is based on
+the power flow solution, which provides the terminal phasor voltages and active and reactive power injections at the generator bus \cite{UPC_2023EMTInitialization}. From this information,
+the internal variables of the generator model are computed by solving the differential-algebraic equations (DAEs) under steady-state conditions.
+
+Steady state is defined by the following assumptions:
 \begin{itemize}
     \item The derivatives of the flux and speed states are set to zero:
     \begin{equation}
@@ -844,41 +886,194 @@ a Newton-Raphson procedure. Steady state is defined by the following assumptions
     \end{equation}
     The derivative of $\theta$ is not set to zero but is given by $\dfrac{d \theta}{dt} = \omega_\text{b} (\omega)$.
     \item The rotor speed is set to the reference value, $\omega = \omega_{\text{ref}} = 1$ p.u.
-    %\item The mechanical torque $\Gamma_\text{m$ is set to 1 p.u.\ (or to the desired operating point).
-    \item The RMS voltages at the machine terminals $v_\text{a}$, $v_\text{b}$, $v_\text{c}$ are set to their steady-state values, which are 1 p.u. since the RMS voltage is used as base.
 \end{itemize}
 
-Under these conditions, the steady-state differential equations reduce to
+Under these conditions, the procedure to compute the initial conditions involves the following steps:
+\begin{enumerate}
+\item \textit{Instantaneous voltages calculation from the power flow solution:} From the phasor voltages at the generator terminal bus,
+the instantaneous phase voltages are computed as:
 \begin{equation}
-\begin{cases}
-v_\text{d} - i_\text{d} R_\text{a} - \omega \psi_\text{q} = 0, \\[6pt]
-v_{\text{f}'} - R_{\text{f}'} i_{\text{f}'} = 0, \\[6pt]
-v_\text{q} - R_\text{a} i_\text{q} + \omega \psi_\text{d} = 0, \\[6pt]
-v_\text{0} - R_\text{a} i_\text{0} = 0, \\[6pt]
-\dfrac{\Gamma_\text{m} - \Gamma_\text{e} - D(\omega - \omega_{\text{ref}})}{2 H} = 0,
-\end{cases}
-\label{eq:diff_eq_gen_ini}
-\end{equation}
-while the algebraic relations for torques, fluxes and Park transformations retain the same form as in~\eqref{eq:alg_eq_gen}, namely
-\begin{equation}
-\begin{cases}
-T_\text{e} = -\dfrac{3}{2} (i_\text{d} \psi_\text{q} - i_\text{q} \psi_\text{d}), \\[6pt]
-\psi_\text{d} = (L_{\text{md}} + L_\text{a}) i_d + L_{\text{md}} i_{\text{f}'}, \\[6pt]
-\psi_{\text{f}'} = L_{\text{md}} i_\text{d} + (L_{\text{md}} + L_\text{a}) i_{\text{f}'}, \\[6pt]
-\psi_\text{q} = (L_{\text{mq}} + L_\text{a}) i_\text{q}, \\[6pt]
-\psi_\text{0} = (L_\text{0}) i_\text{0}, \\[6pt]
-i_\text{a} = \cos(\theta) i_\text{d} + \sin(\theta) i_\text{q} + i_\text{0}, \\[6pt]
-i_\text{b} = \cos(\theta - 2\pi/3) i_\text{d} + \sin(\theta - 2\pi/3) i_\text{q} + i_\text{0}, \\[6pt]
-i_\text{c} = \cos(\theta + 2\pi/3) i_\text{d} + \sin(\theta + 2\pi/3) i_\text{q} + i_\text{0}, \\[6pt]
-v_\text{d} = \cos(\theta) v_\text{a} + \cos(\theta - 2\pi/3) v_\text{b} + \cos(\theta + 2\pi/3) v_\text{c}, \\[6pt]
-v_\text{q} = \sin(\theta) v_\text{a} + \sin(\theta - 2\pi/3) v_\text{b} + \sin(\theta + 2\pi/3) v_\text{c}, \\[6pt]
-v_\text{0} = 0,5 v_\text{a} + 0,5 v_\text{b} + 0,5 v_\text{c} \\[6pt]
-\end{cases}
-\label{eq:alg_eq_gen_ini}
+\begin{aligned}
+v_\text{a}(t) &= \sqrt{2} |\underline{V_\text{a}}| \cos(\omega_\text{b} t + \angle \underline{V_\text{a}}), \\
+v_\text{b}(t) &= \sqrt{2} |\underline{V_\text{b}}| \cos(\omega_\text{b} t + \angle \underline{V_\text{b}}), \\
+v_\text{c}(t) &= \sqrt{2} |\underline{V_\text{c}}| \cos(\omega_\text{b} t + \angle \underline{V_\text{c}})
+\end{aligned}
 \end{equation}
 
-Solving this steady-state DAE system provides consistent initial conditions for all state and algebraic variables of the EMT-type synchronous generator model, 
-ensuring a smooth transition to the subsequent time-domain simulation.
+\item \textit{Determination of active and reactive power injections from the power flow solution:} 
+The active and reactive power injections at the generator bus are retrieved from :
+\begin{equation}
+\begin{aligned}
+P_\text{e} = \Re(\underline{S}), \\
+Q_\text{e} = \Im(\underline{S}), \\
+\end{aligned}
+\end{equation}
+
+\item \textit{Instantaneous currents calculation:} From the voltages and power injections from the power flow solution, the instantaneous phase currents are computed as:
+\begin{equation}
+\begin{aligned}
+    \underline{I_\text{a}} = \left( \frac{\underline{S_\text{a}}}{\underline{V_\text{a}}} \right)^*, \\
+    \underline{I_\text{b}} = \left( \frac{\underline{S_\text{b}}}{\underline{V_\text{b}}} \right)^*, \\
+    \underline{I_\text{c}} = \left( \frac{\underline{S_\text{c}}}{\underline{V_\text{c}}} \right)^*, \\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+i_\text{a}(t) &= \sqrt{2} |\underline{I_\text{a}}| \cos(\omega_\text{b} t + \angle \underline{I_\text{a}}), \\
+i_\text{b}(t) &= \sqrt{2} |\underline{I_\text{b}}| \cos(\omega_\text{b} t + \angle \underline{I_\text{b}}), \\
+i_\text{c}(t) &= \sqrt{2} |\underline{I_\text{c}}| \cos(\omega_\text{b} t + \angle \underline{I_\text{c}})
+\end{aligned}
+\end{equation}
+
+\item \textit{Rotor angle computation:} The rotor angle $\theta$ is determined from the terminal voltage phasors from the positive sequence voltage:
+\begin{equation}
+\underline{V_1} = \frac{1}{3}\left( \underline{V_a} + \alpha \,\underline{V_b} + \alpha ^2\,\underline{V_c} \right)
+\end{equation}
+With $\alpha = e^{j \frac{2\pi}{3}}$. Finally $\theta$ is the angle of the positive sequence voltage.
+
+
+\item \textit{Find generator internal variables using the DAE's at steady state:} Assuming $\omega = 1$ p.u., the internal variables of the generator model are computed as:
+\begin{equation}
+\begin{aligned}
+    P_{\text{m}} &= P_{\text{e}}, \\[6pt]
+    v_{\text{d}} &= \frac{2}{3}\left[        v_{\text{a}} \cos(\theta) +        v_{\text{b}} \cos\!\left(\theta - \frac{2\pi}{3}\right) +        v_{\text{c}}  \cos\!\left(\theta + \frac{2\pi}{3}\right)   \right], \\[6pt]
+    v_{\text{q}} &= \frac{2}{3}\left[        v_{\text{a}} \sin(\theta) +        v_{\text{b}} \sin\!\left(\theta - \frac{2\pi}{3}\right) +        v_{\text{c}} \sin\!\left(\theta + \frac{2\pi}{3}\right)    \right], \\[6pt]
+    v_{\text{0}} &= \frac{2}{3}\left[        \tfrac{1}{2}v_{\text{a}} +        \tfrac{1}{2}v_{\text{b}} +        \tfrac{1}{2}v_{\text{c}}    \right], \\[6pt]
+    i_{\text{d}} &= \frac{2}{3}\left[        i_{\text{a}} \cos(\theta) +        i_{\text{b}} \cos\!\left(\theta - \frac{2\pi}{3}\right) +   i_{\text{c}} \cos\!\left(\theta + \frac{2\pi}{3}\right)    \right], \\[6pt]
+    i_{\text{q}} &= \frac{2}{3}\left[        i_{\text{a}} \sin(\theta) +        i_{\text{b}} \sin\!\left(\theta - \frac{2\pi}{3}\right) +        i_{\text{c}} \sin\!\left(\theta + \frac{2\pi}{3}\right)    \right], \\[6pt]
+    i_{\text{0}} &= \frac{2}{3}\left[        \tfrac{1}{2}i_{\text{a}} +        \tfrac{1}{2}i_{\text{b}} +        \tfrac{1}{2}i_{\text{c}}    \right], \\[6pt]
+    \psi_{\text{d}} &= \frac{i_{\text{q}} R_{\text{a}} - v_{\text{q}}}{\omega}, \\[6pt]
+    i_{\text{f}} &= -\frac{(L_{\text{a}} + L_{\text{md}})\,i_{\text{d}} - \psi_{\text{d}}}{L_{\text{md}}}, \\[6pt]
+    v_{\text{f}} &= R_{\text{f}}\, i_{\text{f}}, \\[6pt]
+    \psi_{\text{f}} &= L_{\text{md}}\, i_{\text{d}} + (L_{\text{a}} + L_{\text{md}})\, i_{\text{f}}, \\[6pt]
+    \psi_{\text{q}} &= -\frac{R_{\text{a}}\, i_{\text{d}} - v_{\text{d}}}{\omega}, \\[6pt]
+    \psi_{\text{0}} &= L_{\text{0}}\, i_{\text{0}}, \\[6pt]
+    T_{\text{e}} &= -\frac{3}{2}\left(i_{\text{q}}\,\psi_{\text{d}} - i_{\text{d}}\,\psi_{\text{q}}\right), \\[6pt]
+    T_{\text{m}} &= T_{\text{e}}
+\end{aligned}
+\end{equation}
+
+\end{enumerate}
+
+\subsection{Load}
+
+In EMT simulations, loads can be represented using various models depending on the level of detail required. Common load models include constant impedance, constant current and constant power. 
+In this case, a constant impedance load model is used following the Dommel approach \cite{Dommel_EMTP_Theory_Book_1986}. The load is represented as a parallel combination of resistive and inductive elements for each phase.
+The load parameters are derived from the specified active and reactive power consumption at nominal voltage. The equivalent three-phase resistance $R$ and inductance $L$ for each phase are calculated as follows:
+\begin{equation}
+    R = \frac{V_\text{nom}^2}{P_\text{load}},
+\end{equation}
+\begin{equation}
+\begin{aligned}
+    X = \frac{V_\text{nom}^2}{Q_\text{load}}
+\end{aligned}  
+\end{equation}
+where $V_\text{nom}$ is the nominal voltage, $P_\text{load}$ is the active power consumption, $Q_\text{load}$ is the reactive power consumption, and $f$ is the system base frequency. 
+
+The Dommel trapezoidal discretization method is employed to model the load components in the EMT simulation.
+Using this method, the voltage-current relationships for the resistive and inductive components of the load can be derived.
+
+\subsubsection{Resistance}
+
+The resistance is the simplest load component to model. The voltage-current relationship for a resistor is given by Ohm's law:
+\begin{equation}
+    i_{\text{12}}(t) = R~(v_\text{1}(t) - v_\text{2}(t))
+\end{equation}
+Using the Dommel trapezoidal discretization, the voltage-current relationship for the resistor has no current dependency on the previous time step, resulting in the model shown in Figure~\ref{fig:resistor_emt_model}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{inkscape_svg/resistance_dommel_equivalent.pdf}
+    \caption{Resistor EMT discrete model using Dommel trapezoidal discretization.}
+    \label{fig:resistor_emt_model}
+\end{figure}
+
+
+\subsubsection{Inductance}
+
+The inductance model is derived from the voltage-current relationship for an inductor:
+\begin{equation}
+    v_\text{1} - v_\text{2} = L \frac{d i_{\text{12}}}{dt}
+\end{equation}
+
+Using the Dommel trapezoidal discretization, the voltage-current relationship for the inductor can be expressed as:
+\begin{equation}
+i_{12}(t) = i_{12}(t-\Delta t) + \int_{t-\Delta t}^{t} \left( v_1 - v_2 \right)\, dt
+\end{equation}
+
+\begin{equation}
+i_{12}(t) = i_{12}(t-\Delta t) 
++ \frac{\Delta t}{2L} \left( v_1(t-\Delta t) - v_2(t-\Delta t) \right)
++ \frac{\Delta t}{2L} \left( v_1(t) - v_2(t) \right)
+\end{equation}
+
+Which can be rearranged to obtain the equivalent circuit shown in Figure~\ref{fig:inductor_emt_model} with the following history and equivalent conductance terms:
+\begin{equation}
+i_{12}(t) = I_{\text{history}}(t-\Delta t) 
++ \frac{1}{R_{\text{eff}}} \left( v_1(t) - v_2(t) \right)
+\end{equation}
+with:
+\begin{equation}
+I_{\text{history}}(t-\Delta t)
+= i_{12}(t-\Delta t) 
++ \frac{\Delta t}{2L} \left( v_1(t-\Delta t) - v_2(t-\Delta t) \right)
+\end{equation}
+\begin{equation}
+R_{\text{eff}} = \frac{2L}{\Delta t}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{inkscape_svg/inductance_dommel_equivalent.pdf}
+    \caption{Inductance EMT discrete model using Dommel trapezoidal discretization.}
+    \label{fig:inductor_emt_model}
+\end{figure}
+
+
+
+
+\subsubsection{Capacitance}
+The capacitance model is derived from the voltage-current relationship for a capacitor:
+\begin{equation}
+    i_{\text{12}}(t) = C \frac{d (v_\text{1} - v_\text{2})}{dt}
+\end{equation}
+Using the Dommel trapezoidal discretization, the voltage-current relationship for the capacitor can be expressed as:
+\begin{equation}
+v_{12}(t) = v_1(t) - v_2(t) 
+= v_1(t-\Delta t) - v_2(t-\Delta t)
++ \frac{1}{C} \int_{t-\Delta t}^{t} i_{12} \, dt
+\end{equation}
+
+\begin{equation}
+v_{12}(t) = v_1(t) - v_2(t) 
+= v_k(t-\Delta t) - v_2(t-\Delta t)
++ \frac{\Delta t}{2C} 
+\left( i_{12}(t) + i_{12}(t-\Delta t) \right)
+\end{equation}
+Which can be rearranged to obtain the equivalent circuit shown in Figure~\ref{fig:capacitor_emt_model} with the following history and equivalent conductance terms:
+\begin{equation}
+i_{12}(t) =
+\frac{1}{R_{\text{eff}}} \left( v_1(t) - v_2(t) \right)
++ I_{\text{History}}(t-\Delta t)
+\end{equation}
+with:
+\begin{equation}
+I_{\text{History}}(t-\Delta t)
+= - i_{12}(t-\Delta t)
+- \frac{2C}{\Delta t}
+\left( v_1(t-\Delta t) - v_2(t-\Delta t) \right)
+\end{equation}
+
+\begin{equation}
+R_{\text{eff}} = \frac{\Delta t}{2C}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{inkscape_svg/capacitance_dommel_equivalent.pdf}
+    \caption{Capacitance EMT discrete model using Dommel trapezoidal discretization.}
+    \label{fig:capacitor_emt_model}
+\end{figure}
 
 
 \subsection{Transformer}
@@ -886,7 +1081,7 @@ ensuring a smooth transition to the subsequent time-domain simulation.
 Transformers have many models depending on the grade of accuracy and the type of transformer itself. In this case, for the EMT 
 simulation, an ideal basic transformer model is used to represent the transformer behaviour. The assumptions made for the ideal transformer are stated below.
 \begin{itemize}
-    \item The transformer is modelled as an ideal transformer with no cooper either iron losses.
+    \item The transformer is modelled as an ideal transformer with no copper either iron losses.
     \item The leakage inductance is assumed to be equally divided between the two windings. 
     \item The transformer is assumed to be balanced, meaning that the three phases have equal voltages and currents.
 \end{itemize}
@@ -904,18 +1099,18 @@ v_2
 =
 \begin{pmatrix}
 L_{11} & L_{12} \\
-L_{21} & L_{22}
+L_{12} & L_{22}
 \end{pmatrix}
 \frac{d}{dt}
 \begin{pmatrix}
 i_1 \\
 i_2
 \end{pmatrix}
-\label{eq: voltages_transformer_1}
+\label{eq:voltages_transformer_1}
 \end{equation}
 
 Where $L_{11}$ and $L_{22}$ are the self-inductances of the primary and secondary windings, respectively, and $L_{12}$ and $L_{21}$ are the 
-mutual inductances between the windings. Since the mutual coupling is bilateral, $L_{12} = L_{21}$. Equation \ref{eq: voltages_transformer} can be rewritten as:
+mutual inductances between the windings. Since the mutual coupling is bilateral, $L_{12} = L_{21}$. Equation \eqref{eq:voltages_transformer} can be rewritten as:
 
 \begin{equation}
 \begin{pmatrix}
@@ -932,7 +1127,7 @@ a~L_{21} & a^2~L_{22}
 i_1 \\
 i_2/a
 \end{pmatrix}
-\label{eq: voltages_transformer}
+\label{eq:voltages_transformer}
 \end{equation}
 
 Using the relation above, the transformer equivalent circuit is shown in Figure~\ref{fig:trafo_equivalent}.
@@ -987,20 +1182,20 @@ Using the relation above, the transformer equivalent circuit is shown in Figure~
 
 % \end{circuitikz}
 
-\subsubsection{Numerical model in EMT}
+\subsubsection*{Numerical model in EMT}
 
 The transformer model is implemented in the EMT simulation using a numerical approach similar to that used for transmission lines using the Dommel method. 
-Figure~\ref{fig:dommel_transformer_equivalent} shows the equivalent circuit of the transformer used in the EMT simulation. 
+Figure~\ref{fig:dommel_trafo_eq} shows the equivalent circuit of the transformer used in the EMT simulation. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\linewidth]{inkscape_svg/transformer_dommel.pdf}
-  \caption{Ideal transformer equivalent circuit.}
-  \label{fig:dommel_transformer_equivalent}
+  \caption{Numerical model ideal transformer equivalent circuit.}
+  \label{fig:dommel_trafo_eq}
 \end{figure}
 
-It's seen how the inductances are represented as a combination of a history component and a conductance derived from the self and mutual inductances. 
-From equation~\ref{eq: voltages_transformer}, each winding components are separated as:
+It is seen how the inductances are represented as a combination of a history component and a conductance derived from the self and mutual inductances. 
+From equation~\eqref{eq:voltages_transformer}, each winding components are separated as:
 
 \begin{equation}
 \frac{d i_1}{d t}
@@ -1048,7 +1243,7 @@ i_2(t)
 \frac{L_{11}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
 -
 \frac{L_{21}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
-\right) v_1(t) \\
+\right) v_2(t) \\
 &\phantom{=}
 + \frac{L_{12}\,\Delta t}{2\left(L_{11}L_{22}-L_{12}L_{21}\right)}
 \left( v_2(t) - v_1(t) \right)
@@ -1084,11 +1279,41 @@ I_{h2}(t-\Delta t)
 \left( v_2(t-\Delta t) - v_1(t-\Delta t) \right)
 \end{aligned}
 \end{equation}
+The history currents $I_{h1}(t-\Delta t)$ and $I_{h2}(t-\Delta t)$ can be simplified to:
+
+\begin{equation}
+\begin{aligned}
+I_{\text{hist},1}(t-\Delta t)
+&=
+i_1(t-\Delta t)
++
+\frac{\Delta t}{2D}
+\Big(
+L_{22}\,v_1(t-\Delta t)
+-
+L_{12}\,v_2(t-\Delta t)
+\Big)
+\\[6pt]
+I_{\text{hist},2}(t-\Delta t)
+&=
+i_2(t-\Delta t)
++
+\frac{\Delta t}{2D}
+\Big(
+L_{11}\,v_2(t-\Delta t)
+-
+L_{12}\,v_1(t-\Delta t)
+\Big)
+\end{aligned}
+\end{equation}
+
+where $D = L_{11}L_{22} - L_{12}L_{21}$.
 
 As seen, formulas for the equivalent current injections can be derived from the equations above and are similar to those used for the lines. 
-Some differences between lines and transformers can be highlighted . On the one hand, the currents and history components are calculated with different formulas.
+Some differences between lines and transformers can be highlighted. On the one hand, the currents and history components are calculated with different formulas.
 On the other hand, the history component in transformers
 delay only in one time-step, while in lines, the delay is $\tau$ depending on the characteristics of each line.
+Moreover, the primary and secondary buses are coupled in the conductance matrix by means of a conductance seen in Figure~\ref{fig:dommel_trafo_eq}.
 
 In order to add transformers to the system to be simulated, those are added as lines with different bus voltages at the two ends.
 

@@ -49,6 +49,75 @@
       \verb https://www.eroots.io/veragrid
       \endverb
     \endentry
+    \entry{StabilityAndControlKundur}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=bc3671b26e65327b8ad25c81cf1c11e4}{%
+           family={Kundur},
+           familyi={K\bibinitperiod},
+           given={Prabha\bibnamedelima S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=cd64891790932bff57d8d231907563ff}{%
+           family={Malik},
+           familyi={M\bibinitperiod},
+           given={Om\bibnamedelima P.},
+           giveni={O\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{fullhash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{fullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{bibnamehash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{authorbibnamehash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{authornamehash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{authorfullhash}{78f96d6a82f5d716ff83cf2098c674d0}
+      \strng{authorfullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Power System Stability and Control}
+      \field{year}{2022}
+    \endentry
+    \entry{WatsonArrillagaEMT2019}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c18aefc6b11748e89d5cfcd190a96958}{%
+           family={Watson},
+           familyi={W\bibinitperiod},
+           given={Neville},
+           giveni={N\bibinitperiod}}}%
+        {{hash=31b3d438792f49b76a22124e80c565ab}{%
+           family={Arrillaga},
+           familyi={A\bibinitperiod},
+           given={Jos},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
+      }
+      \list{publisher}{2}{%
+        {The Institution of Engineering}%
+        {Technology}%
+      }
+      \strng{namehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{fullhash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{fullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{bibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorbibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authornamehash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorfullhash}{b3e3905e360dbd0a7646a878048e7bf7}
+      \strng{authorfullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{978-1-78561-344-0}
+      \field{title}{Power Systems Electromagnetic Transients Simulation}
+      \field{year}{2019}
+    \endentry
     \entry{LaraTDS}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=bcb91ec9677b4e1654feb1eff94320e8}{%
@@ -71,109 +140,41 @@
       \strng{authornamehash}{bcb91ec9677b4e1654feb1eff94320e8}
       \strng{authorfullhash}{bcb91ec9677b4e1654feb1eff94320e8}
       \strng{authorfullhashraw}{bcb91ec9677b4e1654feb1eff94320e8}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Technical documentation}
-      \field{title}{Time Domain Simulation in PowerFactory}
+      \field{title}{Time-Domain Simulation in PowerFactory}
       \field{year}{2018}
     \endentry
-    \entry{Fortescue1918}{article}{}{}
+    \entry{Dommel_EMTP_Theory_Book_1986}{book}{}{}
       \name{author}{1}{}{%
-        {{hash=d552d69ef1e6cdf7c42c3347971c3230}{%
-           family={Fortescue},
-           familyi={F\bibinitperiod},
-           given={Charles\bibnamedelima LeGeyt},
-           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \strng{namehash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{fullhash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{fullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{bibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{authorbibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{authornamehash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{authorfullhash}{d552d69ef1e6cdf7c42c3347971c3230}
-      \strng{authorfullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Transactions of the American Institute of Electrical Engineers}
-      \field{number}{2}
-      \field{title}{Method of Symmetrical Co-ordinates Applied to the Solution of Polyphase Networks}
-      \field{volume}{37}
-      \field{year}{1918}
-      \field{pages}{1027\bibrangedash 1140}
-      \range{pages}{114}
-      \verb{doi}
-      \verb 10.1109/T-AIEE.1918.4765570
-      \endverb
-    \endentry
-    \entry{CasellaDAE}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
-           family={Casella},
-           familyi={C\bibinitperiod},
-           given={Francesco},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
-      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Simulation Modelling Practice and Theory}
-      \field{title}{Simulation of Large-Scale Models in Modelica: State of the Art and Future Perspectives}
-      \field{volume}{52}
-      \field{year}{2015}
-      \field{pages}{1\bibrangedash 17}
-      \range{pages}{17}
-      \verb{doi}
-      \verb 10.1016/j.simpat.2014.12.007
-      \endverb
-    \endentry
-    \entry{SauerPaiBook}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=b57a58154d60b88458906097e21b5555}{%
-           family={Sauer},
-           familyi={S\bibinitperiod},
-           given={Peter\bibnamedelima W.},
-           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-        {{hash=86cbebb4d2ec295d66d769a4423a05a1}{%
-           family={Pai},
-           familyi={P\bibinitperiod},
-           given={M.\bibnamedelimi A.},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=63de9f8cf92899a119df283e3bea879f}{%
+           family={{Bonneville Power Administration}},
+           familyi={B\bibinitperiod}}}%
       }
       \list{location}{1}{%
-        {Hoboken, NJ, USA}%
+        {Portland, OR}%
       }
       \list{publisher}{1}{%
-        {IEEE Press / Wiley}%
+        {Bonneville Power Administration}%
       }
-      \strng{namehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{fullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{fullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{bibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{authorbibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{authornamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{authorfullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
-      \strng{authorfullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{namehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{fullhash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{fullhashraw}{63de9f8cf92899a119df283e3bea879f}
+      \strng{bibnamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorbibnamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authornamehash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorfullhash}{63de9f8cf92899a119df283e3bea879f}
+      \strng{authorfullhashraw}{63de9f8cf92899a119df283e3bea879f}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{2}
-      \field{title}{Power System Dynamics and Stability: With Synchrophasor Measurement and Power System Toolbox}
-      \field{year}{2017}
+      \field{note}{Revised edition}
+      \field{title}{EMTP Theory Book}
+      \field{year}{1982}
     \endentry
     \entry{SymbolicHantao}{article}{}{}
       \name{author}{3}{}{%
@@ -216,6 +217,125 @@
       \verb 10.1109/TPWRS.2020.3017019
       \endverb
     \endentry
+    \entry{Fortescue1918}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d552d69ef1e6cdf7c42c3347971c3230}{%
+           family={Fortescue},
+           familyi={F\bibinitperiod},
+           given={Charles\bibnamedelima LeGeyt},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{fullhash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{fullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{bibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorbibnamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authornamehash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorfullhash}{d552d69ef1e6cdf7c42c3347971c3230}
+      \strng{authorfullhashraw}{d552d69ef1e6cdf7c42c3347971c3230}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the American Institute of Electrical Engineers}
+      \field{number}{2}
+      \field{title}{Method of Symmetrical Co-ordinates Applied to the Solution of Polyphase Networks}
+      \field{volume}{37}
+      \field{year}{1918}
+      \field{pages}{1027\bibrangedash 1140}
+      \range{pages}{114}
+      \verb{doi}
+      \verb 10.1109/T-AIEE.1918.4765570
+      \endverb
+    \endentry
+    \entry{CasellaDAE}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=afe294a79e1e837e84ed9bb94b74afbf}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{fullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{bibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorbibnamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authornamehash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhash}{afe294a79e1e837e84ed9bb94b74afbf}
+      \strng{authorfullhashraw}{afe294a79e1e837e84ed9bb94b74afbf}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Simulation Modelling Practice and Theory}
+      \field{title}{Simulation of Large-Scale Models in Modelica: State of the Art and Future Perspectives}
+      \field{volume}{52}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.simpat.2014.12.007
+      \endverb
+    \endentry
+    \entry{SauerPaiBook}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=b57a58154d60b88458906097e21b5555}{%
+           family={Sauer},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=86cbebb4d2ec295d66d769a4423a05a1}{%
+           family={Pai},
+           familyi={P\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press / Wiley}%
+      }
+      \strng{namehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{fullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{fullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{bibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorbibnamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authornamehash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorfullhash}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \strng{authorfullhashraw}{ade122626cb0b55cd6d1c7b35fbd2e59}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Power System Dynamics and Stability: With Synchrophasor Measurement and Power System Toolbox}
+      \field{year}{2017}
+    \endentry
+    \entry{colib}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=bbfd6db6e99a077ec626aa6fe8defcb3}{%
+           family={{Colib Contributors}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{fullhash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{fullhashraw}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{bibnamehash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{authorbibnamehash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{authornamehash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{authorfullhash}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \strng{authorfullhashraw}{bbfd6db6e99a077ec626aa6fe8defcb3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://colib.net/}}
+      \field{note}{Accessed: 2026-01-22}
+      \field{title}{{Colib}: Collaborative Library for Power System Modelling}
+      \field{year}{2024}
+    \endentry
     \entry{Butcher2008}{book}{}{}
       \name{author}{1}{}{%
         {{hash=a4c07e4cc385d9cf46acf16ba5968a19}{%
@@ -238,8 +358,8 @@
       \strng{authornamehash}{a4c07e4cc385d9cf46acf16ba5968a19}
       \strng{authorfullhash}{a4c07e4cc385d9cf46acf16ba5968a19}
       \strng{authorfullhashraw}{a4c07e4cc385d9cf46acf16ba5968a19}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -262,8 +382,8 @@
       \strng{authornamehash}{61352b48b93bc3f63e471b5aed3c1018}
       \strng{authorfullhash}{61352b48b93bc3f63e471b5aed3c1018}
       \strng{authorfullhashraw}{61352b48b93bc3f63e471b5aed3c1018}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SIAM Journal on Scientific Computing}
@@ -276,38 +396,6 @@
       \verb{doi}
       \verb 10.1137/0916001
       \endverb
-    \endentry
-    \entry{StabilityAndControlKundur}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=bc3671b26e65327b8ad25c81cf1c11e4}{%
-           family={Kundur},
-           familyi={K\bibinitperiod},
-           given={Prabha\bibnamedelima S.},
-           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=cd64891790932bff57d8d231907563ff}{%
-           family={Malik},
-           familyi={M\bibinitperiod},
-           given={Om\bibnamedelima P.},
-           giveni={O\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {McGraw-Hill}%
-      }
-      \strng{namehash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{fullhash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{fullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{bibnamehash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{authorbibnamehash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{authornamehash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{authorfullhash}{78f96d6a82f5d716ff83cf2098c674d0}
-      \strng{authorfullhashraw}{78f96d6a82f5d716ff83cf2098c674d0}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{2}
-      \field{title}{Power System Stability and Control}
-      \field{year}{2022}
     \endentry
     \entry{KundurDef}{article}{}{}
       \name{author}{12}{}{%
@@ -380,8 +468,8 @@
       \strng{authornamehash}{71149832b250c0f46be74580f793cf30}
       \strng{authorfullhash}{292600aede8c8e53df78cb2be1d6dd81}
       \strng{authorfullhashraw}{292600aede8c8e53df78cb2be1d6dd81}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -413,8 +501,8 @@
       \strng{authornamehash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorfullhash}{92928230bbf9b90fd7b3349fe3839579}
       \strng{authorfullhashraw}{92928230bbf9b90fd7b3349fe3839579}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -469,8 +557,8 @@
       \strng{authornamehash}{46430f97e5f7d31fd3f91a015a2cdc9b}
       \strng{authorfullhash}{5b66321052a942b2a48cd28fc272301c}
       \strng{authorfullhashraw}{5b66321052a942b2a48cd28fc272301c}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Wiley Interdisciplinary Reviews: Energy and Environment}
@@ -503,13 +591,41 @@
       \strng{authornamehash}{a8ad2b3480a049974e3311f960b01acf}
       \strng{authorfullhash}{a8ad2b3480a049974e3311f960b01acf}
       \strng{authorfullhashraw}{a8ad2b3480a049974e3311f960b01acf}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Poznan University of Technology Academic Journals. Electrical Engineering}
       \field{title}{Participation Factor in Modal Analysis of Power Systems Stability}
       \field{year}{2016}
+    \endentry
+    \entry{qt_designer}{software}{}{}
+      \name{author}{1}{}{%
+        {{hash=8fdd00b7aac42271736575410d6a2219}{%
+           family={{The Qt Company}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{fullhash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{fullhashraw}{8fdd00b7aac42271736575410d6a2219}
+      \strng{bibnamehash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{authorbibnamehash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{authornamehash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{authorfullhash}{8fdd00b7aac42271736575410d6a2219}
+      \strng{authorfullhashraw}{8fdd00b7aac42271736575410d6a2219}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2026-01-22}
+      \field{title}{{Qt Designer}}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://doc.qt.io/qt-6/qtdesigner-manual.html
+      \endverb
+      \verb{url}
+      \verb https://doc.qt.io/qt-6/qtdesigner-manual.html
+      \endverb
     \endentry
     \entry{andes}{software}{}{}
       \true{moreauthor}
@@ -529,8 +645,8 @@
       \strng{authornamehash}{58828315d53c7612f0bf7ebc12f099f4}
       \strng{authorfullhash}{58828315d53c7612f0bf7ebc12f099f4}
       \strng{authorfullhashraw}{58828315d53c7612f0bf7ebc12f099f4}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{ANDES: Advanced Network Dynamics and Equilibrium Simulator}
@@ -541,34 +657,6 @@
       \verb{url}
       \verb https://docs.andes.app
       \endverb
-    \endentry
-    \entry{Dommel_EMTP_Theory_Book_1986}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=63de9f8cf92899a119df283e3bea879f}{%
-           family={{Bonneville Power Administration}},
-           familyi={B\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Portland, OR}%
-      }
-      \list{publisher}{1}{%
-        {Bonneville Power Administration}%
-      }
-      \strng{namehash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{fullhash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{fullhashraw}{63de9f8cf92899a119df283e3bea879f}
-      \strng{bibnamehash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{authorbibnamehash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{authornamehash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{authorfullhash}{63de9f8cf92899a119df283e3bea879f}
-      \strng{authorfullhashraw}{63de9f8cf92899a119df283e3bea879f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Revised edition}
-      \field{title}{EMTP Theory Book}
-      \field{year}{1982}
     \endentry
     \entry{carson1926}{article}{}{}
       \name{author}{1}{}{%
@@ -586,8 +674,8 @@
       \strng{authornamehash}{586d43d637d248e29a6fdc890a726474}
       \strng{authorfullhash}{586d43d637d248e29a6fdc890a726474}
       \strng{authorfullhashraw}{586d43d637d248e29a6fdc890a726474}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Bell System Technical Journal}
@@ -601,42 +689,200 @@
       \verb 10.1002/j.1538-7305.1926.tb00122.x
       \endverb
     \endentry
-    \entry{WatsonArrillagaEMT2019}{book}{}{}
-      \name{author}{2}{}{%
-        {{hash=c18aefc6b11748e89d5cfcd190a96958}{%
-           family={Watson},
+    \entry{Wang2010InterfacingResistor}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9a75ee293f2555f40976345739087998}{%
+           family={Wang},
            familyi={W\bibinitperiod},
-           given={Neville},
-           giveni={N\bibinitperiod}}}%
-        {{hash=31b3d438792f49b76a22124e80c565ab}{%
-           family={Arrillaga},
-           familyi={A\bibinitperiod},
-           given={Jos},
-           giveni={J\bibinitperiod}}}%
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b07e08d389bfad6c22931b7cb072ed36}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=9cc5732089326c986faf294e12849fd9}{%
+           family={Dommel},
+           familyi={D\bibinitperiod},
+           given={H.\bibnamedelimi W.},
+           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {London, UK}%
-      }
-      \list{publisher}{2}{%
-        {The Institution of Engineering}%
-        {Technology}%
-      }
-      \strng{namehash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{fullhash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{fullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{bibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{authorbibnamehash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{authornamehash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{authorfullhash}{b3e3905e360dbd0a7646a878048e7bf7}
-      \strng{authorfullhashraw}{b3e3905e360dbd0a7646a878048e7bf7}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \strng{namehash}{5af5ee7e60ec3528b59ab3d857ea6f93}
+      \strng{fullhash}{56f59acc20162db129624cccd6b60a72}
+      \strng{fullhashraw}{56f59acc20162db129624cccd6b60a72}
+      \strng{bibnamehash}{56f59acc20162db129624cccd6b60a72}
+      \strng{authorbibnamehash}{56f59acc20162db129624cccd6b60a72}
+      \strng{authornamehash}{5af5ee7e60ec3528b59ab3d857ea6f93}
+      \strng{authorfullhash}{56f59acc20162db129624cccd6b60a72}
+      \strng{authorfullhashraw}{56f59acc20162db129624cccd6b60a72}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{2}
-      \field{isbn}{978-1-78561-344-0}
-      \field{title}{Power Systems Electromagnetic Transients Simulation}
-      \field{year}{2019}
+      \field{journaltitle}{IEEE Transactions on Power Delivery}
+      \field{number}{2}
+      \field{title}{A New Interfacing Technique for Transient Simulation of Power Systems}
+      \field{volume}{25}
+      \field{year}{2010}
+      \field{pages}{1001\bibrangedash 1009}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/TPWRD.2009.2039665
+      \endverb
+    \endentry
+    \entry{UPC_2023EMTInitialization}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=7765817c223e25d0eeca601f32721638}{%
+           family={Alican},
+           familyi={A\bibinitperiod},
+           given={Onur},
+           giveni={O\bibinitperiod}}}%
+        {{hash=979ffb041a1fc10c72f03cf8e9cfc32b}{%
+           family={Collados-Rodriguez},
+           familyi={C\bibinithyphendelim R\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b5615bdca736bedc93d95c1af147a56b}{%
+           family={Westerman\bibnamedelima Spier},
+           familyi={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7ccb8aa9bd8f2701d3e503037d1b48b3}{%
+           family={Cheah-Mané},
+           familyi={C\bibinithyphendelim M\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dd60251b6213da382edf3daf634a0ce9}{%
+           family={Prieto-Araujo},
+           familyi={P\bibinithyphendelim A\bibinitperiod},
+           given={Eduardo},
+           giveni={E\bibinitperiod}}}%
+        {{hash=3241bb77928a8eddfdc6a7a4265eb6ee}{%
+           family={Gomis-Bellmunt},
+           familyi={G\bibinithyphendelim B\bibinitperiod},
+           given={Oriol},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{f159ccfcedbf83494e54cb08c71f1aa6}
+      \strng{fullhash}{e4e828e1123600959572bc4a88ec4a21}
+      \strng{fullhashraw}{e4e828e1123600959572bc4a88ec4a21}
+      \strng{bibnamehash}{e4e828e1123600959572bc4a88ec4a21}
+      \strng{authorbibnamehash}{e4e828e1123600959572bc4a88ec4a21}
+      \strng{authornamehash}{f159ccfcedbf83494e54cb08c71f1aa6}
+      \strng{authorfullhash}{e4e828e1123600959572bc4a88ec4a21}
+      \strng{authorfullhashraw}{e4e828e1123600959572bc4a88ec4a21}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Initialization Method of Power Electronic Dominated Networks in EMT Simulations}
+      \field{volume}{11}
+      \field{year}{2023}
+      \field{pages}{XXXX\bibrangedash XXXX}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2023.XXXXX
+      \endverb
+      \keyw{EMT simulation,initialization,inverter-based resources,power electronics dominated systems}
+    \endentry
+    \entry{XiongParaETM2024}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=2864d4620004755222145053bb9f2d65}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dc58cd6a24a023ce7177d8f199d47875}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=368fc974d6c2d6005e4ab1755e58a0f6}{%
+           family={Vaidhynathan},
+           familyi={V\bibinitperiod},
+           given={Deepthi},
+           giveni={D\bibinitperiod}}}%
+        {{hash=fe6d188ad66f959da8b3801911c4d437}{%
+           family={Maack},
+           familyi={M\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e1c6a31e9ac3a0ec6c7040754acbdd23}{%
+           family={Reynolds},
+           familyi={R\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fef3dad1a0bd4df5611b08cccfa916cb}{%
+           family={Hoke},
+           familyi={H\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod}}}%
+        {{hash=98210c76ec641441f10ac28bc51b3f02}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=fb754c43cd6acce0c3908a992ca267db}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Jin},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {American English}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers Inc.}%
+      }
+      \strng{namehash}{cdfb8e74f391291b5db4f79170aa6454}
+      \strng{fullhash}{78f9013222075e2116b25be8adfad230}
+      \strng{fullhashraw}{78f9013222075e2116b25be8adfad230}
+      \strng{bibnamehash}{cdfb8e74f391291b5db4f79170aa6454}
+      \strng{authorbibnamehash}{cdfb8e74f391291b5db4f79170aa6454}
+      \strng{authornamehash}{cdfb8e74f391291b5db4f79170aa6454}
+      \strng{authorfullhash}{78f9013222075e2116b25be8adfad230}
+      \strng{authorfullhashraw}{78f9013222075e2116b25be8adfad230}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0885-8977}
+      \field{journaltitle}{IEEE Transactions on Power Delivery}
+      \field{number}{2}
+      \field{title}{ParaEMT: An Open Source, Parallelizable, and HPC-Compatible EMT Simulator for Large-Scale IBR-Rich Power Grids}
+      \field{volume}{39}
+      \field{year}{2024}
+      \field{pages}{911\bibrangedash 921}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/TPWRD.2023.3342715
+      \endverb
+    \endentry
+    \entry{ATPManual}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=494726626a6257a992f3a78f0174c2c3}{%
+           family={{Canadian/American EMTP User Group, 1994}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {CAEMTP User Group}%
+      }
+      \strng{namehash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{fullhash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{fullhashraw}{494726626a6257a992f3a78f0174c2c3}
+      \strng{bibnamehash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{authorbibnamehash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{authornamehash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{authorfullhash}{494726626a6257a992f3a78f0174c2c3}
+      \strng{authorfullhashraw}{494726626a6257a992f3a78f0174c2c3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at: \url{https://www.atp-emtp.org}}
+      \field{title}{ATP--EMTP: Alternative Transients Program -- Rule Book}
     \endentry
     \entry{IEA2024Transition}{report}{}{}
       \name{author}{1}{}{%
@@ -656,38 +902,12 @@
       \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{World Energy Outlook 2024: The Energy Transition}
       \field{type}{techreport}
-      \field{year}{2024}
-    \endentry
-    \entry{XiongParaEMT2024}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=e98b7c5ad949a21190c2bc371dad8d1a}{%
-           family={Xiong},
-           familyi={X\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{fullhash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{fullhashraw}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{bibnamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{authorbibnamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{authornamehash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{authorfullhash}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \strng{authorfullhashraw}{d4a88560da69cebd1e6c1b5d74ab140c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Electric Power Systems Research}
-      \field{title}{An Open-Source Parallel EMT Simulation Framework}
       \field{year}{2024}
     \endentry
     \entry{YanCompEff2025}{article}{}{}
@@ -708,8 +928,8 @@
       \strng{authornamehash}{d9c11e6c930095c42beaa97f3be99753}
       \strng{authorfullhash}{d9c11e6c930095c42beaa97f3be99753}
       \strng{authorfullhashraw}{d9c11e6c930095c42beaa97f3be99753}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Energies}
@@ -735,8 +955,8 @@
       \strng{authornamehash}{4f1f9056a599a65ef0f53d1973983c8d}
       \strng{authorfullhash}{4f1f9056a599a65ef0f53d1973983c8d}
       \strng{authorfullhashraw}{4f1f9056a599a65ef0f53d1973983c8d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Open Source Software for Electric Power Industry}
@@ -768,8 +988,8 @@
       \strng{authornamehash}{a7ebd3fe74235db6b2911185cae12077}
       \strng{authorfullhash}{a7ebd3fe74235db6b2911185cae12077}
       \strng{authorfullhashraw}{a7ebd3fe74235db6b2911185cae12077}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Circular Computing: Calculating the Carbon Footprint of Laptops}
@@ -805,8 +1025,8 @@
       \strng{authornamehash}{7dc102707c75d8cee11ad2fe4c6082ae}
       \strng{authorfullhash}{7dc102707c75d8cee11ad2fe4c6082ae}
       \strng{authorfullhashraw}{7dc102707c75d8cee11ad2fe4c6082ae}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Life Cycle Assessment of HP Monitors}
@@ -841,8 +1061,8 @@
       \strng{authornamehash}{98c3e9a4a01470d8ad58b85d6e952579}
       \strng{authorfullhash}{98c3e9a4a01470d8ad58b85d6e952579}
       \strng{authorfullhashraw}{98c3e9a4a01470d8ad58b85d6e952579}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Guia d'Eficiència Energètica en Edificis d'Oficines}
@@ -878,8 +1098,8 @@
       \strng{authornamehash}{b89e996dae1e72a98b8c6c3b9420ed1f}
       \strng{authorfullhash}{b89e996dae1e72a98b8c6c3b9420ed1f}
       \strng{authorfullhashraw}{b89e996dae1e72a98b8c6c3b9420ed1f}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Factors d'Emissió de CO\textsubscript{2} del Consum Elèctric}
@@ -912,8 +1132,8 @@
       \strng{authornamehash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
       \strng{authorfullhash}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
       \strng{authorfullhashraw}{36a5c4d1088e7ae1b63dbb933a8bf9c3}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Manufacturer technical documentation}
@@ -937,8 +1157,8 @@
       \strng{authornamehash}{543a6da7df52496ee7f7b2b93aba68ea}
       \strng{authorfullhash}{543a6da7df52496ee7f7b2b93aba68ea}
       \strng{authorfullhashraw}{543a6da7df52496ee7f7b2b93aba68ea}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Manufacturer documentation}
@@ -965,8 +1185,8 @@
       \strng{authornamehash}{9aa80cbd4e27fcec08519169fe921f57}
       \strng{authorfullhash}{9aa80cbd4e27fcec08519169fe921f57}
       \strng{authorfullhashraw}{9aa80cbd4e27fcec08519169fe921f57}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Energy Consumption and Greenhouse Gas Emissions from Office Buildings in Europe}
@@ -1001,8 +1221,8 @@
       \strng{authornamehash}{f501badf91c69c81bb85af15b26ce20b}
       \strng{authorfullhash}{f501badf91c69c81bb85af15b26ce20b}
       \strng{authorfullhashraw}{f501badf91c69c81bb85af15b26ce20b}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Carbon Footprint of Office-Based Working}
@@ -1039,8 +1259,8 @@
       \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
       \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Gender and the Energy Transition}
@@ -1077,8 +1297,8 @@
       \strng{authornamehash}{24a0ef0a6269be289db4de9570763de3}
       \strng{authorfullhash}{24a0ef0a6269be289db4de9570763de3}
       \strng{authorfullhashraw}{24a0ef0a6269be289db4de9570763de3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Cracking the Code: Girls' and Women's Education in STEM}
@@ -1114,8 +1334,8 @@
       \strng{authornamehash}{f5afee891ee6cfd141898b22d69e737f}
       \strng{authorfullhash}{f5afee891ee6cfd141898b22d69e737f}
       \strng{authorfullhashraw}{f5afee891ee6cfd141898b22d69e737f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Bridging the Digital Gender Divide: Include, Upskill, Innovate}
@@ -1152,8 +1372,8 @@
       \strng{authornamehash}{a1b813a6e85874b4c945aec2cdbea74c}
       \strng{authorfullhash}{a1b813a6e85874b4c945aec2cdbea74c}
       \strng{authorfullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Open Science, Open Innovation and Open to the World}
@@ -1167,44 +1387,6 @@
       \endverb
       \verb{url}
       \verb https://research-and-innovation.ec.europa.eu
-      \endverb
-    \endentry
-    \entry{IEA2022Buildings}{report}{}{}
-      \name{author}{1}{}{%
-        {{hash=b33b47b3008c8c47f90a77e0c2dd3060}{%
-           family={{International Energy Agency}},
-           familyi={I\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {International Energy Agency}%
-      }
-      \list{location}{1}{%
-        {Paris, France}%
-      }
-      \strng{namehash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{fullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{fullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{bibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{authorbibnamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{authornamehash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{authorfullhash}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \strng{authorfullhashraw}{b33b47b3008c8c47f90a77e0c2dd3060}
-      \field{extraname}{3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Buildings Sector: Tracking Clean Energy Progress}
-      \field{urlday}{20}
-      \field{urlmonth}{5}
-      \field{urlyear}{2024}
-      \field{year}{2022}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.iea.org/reports/buildings
-      \endverb
-      \verb{url}
-      \verb https://www.iea.org/reports/buildings
       \endverb
     \endentry
     \entry{ADEME2023Offices}{report}{}{}
@@ -1227,8 +1409,8 @@
       \strng{authornamehash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
       \strng{authorfullhash}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
       \strng{authorfullhashraw}{5678fb9c4bf23d1146b3d6ff0b9cb8b9}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Environmental Assessment of Office Equipment and Digital Uses}
@@ -1245,7 +1427,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{qt_designer}
 \endrefsection
 \endinput
 

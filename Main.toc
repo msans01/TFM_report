@@ -1,25 +1,26 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {section}{Glossary}{12}{Doc-Start}%
-\contentsline {section}{Preface}{14}{Doc-Start}%
-\contentsline {section}{\numberline {1}Introduction}{15}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Motivation}{15}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Objectives}{16}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Scope}{17}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Structure of the document}{17}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}State of the art}{18}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Veragrid}{19}{subsection.1.6}%
-\contentsline {section}{\numberline {2}Dynamic framework}{21}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Differential-Algebraic Equations (DAEs)}{24}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Symbolic framework}{25}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}RMS simulations in VeraGrid}{26}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Symbolic framework}{27}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}RMS models}{28}{subsubsection.2.3.2}%
-\contentsline {paragraph}{Injections}{28}{subsubsection.2.3.2}%
+\contentsline {section}{Glossary}{10}{Doc-Start}%
+\contentsline {section}{Preface}{12}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{13}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Motivation}{13}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Objectives}{14}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Scope}{15}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Structure of the document}{15}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}State of the art}{16}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}VeraGrid}{17}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Dynamic framework}{19}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Overview of the Dynamic Simulation Framework}{22}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Differential-Algebraic Equations (DAEs)}{23}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Symbolic framework}{25}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}RMS simulations in VeraGrid}{26}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Symbolic framework}{26}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}RMS models}{27}{subsubsection.2.4.2}%
+\contentsline {paragraph}{Injections}{27}{subsubsection.2.4.2}%
 \contentsline {paragraph}{Branches}{30}{equation.2.8}%
-\contentsline {paragraph}{Bus}{32}{equation.2.9}%
-\contentsline {subsubsection}{\numberline {2.3.3}Integration method: Implicit Euler}{32}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Initialization}{34}{subsubsection.2.3.4}%
+\contentsline {paragraph}{Bus}{31}{equation.2.9}%
+\contentsline {subsubsection}{\numberline {2.4.3}Integration method: Implicit Euler}{32}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Initialization}{34}{subsubsection.2.4.4}%
 \contentsline {section}{\numberline {3}Small-signal stability analysis}{36}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Theoretical background}{36}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Power system stability}{36}{subsubsection.3.1.1}%
@@ -28,36 +29,40 @@
 \contentsline {subsubsection}{\numberline {3.1.4}State-space representation}{39}{subsubsection.3.1.4}%
 \contentsline {paragraph}{Linearization of state-space models}{40}{equation.3.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}DAE to state-space representation}{41}{subsubsection.3.1.5}%
-\contentsline {subsubsection}{\numberline {3.1.6}Stability assessment: Liapunov's first method}{42}{subsubsection.3.1.6}%
+\contentsline {subsubsection}{\numberline {3.1.6}Stability assessment: Lyapunov's first method}{42}{subsubsection.3.1.6}%
 \contentsline {subsection}{\numberline {3.2}Implementation}{45}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Code development}{45}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1}Code development}{46}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}GUI implementation}{49}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Benchmark and validation}{53}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}ANDES}{53}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Test case: Kundur two-area system}{54}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}EMT Dynamic framework}{59}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Line Model: Bergeron's Model}{61}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}From Telegrapher's Equations to the Bergeron's line Model}{61}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Bergeron's line Model with Lumped Resistances}{63}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Three-Phase and Multiconductor Line Implementation}{65}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Three-phase synchronous generator}{66}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Electrical part}{68}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Mechanical part}{70}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Parameters determination}{71}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Transient solution}{72}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}VeraGrid implementation}{75}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Initialization of variables}{77}{subsubsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.3}Transformer}{78}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Numerical model in EMT}{79}{subsubsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.4}Implementation}{81}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Core simulation development: EMTP combined with the Symbolic-Numeric approach}{81}{subsubsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.5}Benchmark and validation}{84}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Test case 1: Three-phase synchronous generator.}{84}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Test case 2: 2 bus case.}{88}{subsubsection.4.5.2}%
-\contentsline {section}{\numberline {5}Environmental impact}{93}{section.5}%
-\contentsline {section}{\numberline {6}Gender and social impact}{96}{section.6}%
-\contentsline {section}{\numberline {7}Budget}{99}{section.7}%
-\contentsline {section}{\numberline {8}Time Planning}{102}{section.8}%
-\contentsline {section}{\numberline {9}Conclusion}{102}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Further Work}{102}{subsection.9.1}%
-\contentsline {section}{Acknowledgments}{104}{subsection.9.1}%
+\contentsline {subsection}{\numberline {3.3}Benchmark and validation}{54}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}ANDES}{54}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Test case: Kundur two-area system}{55}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}EMT Dynamic framework}{60}{section.4}%
+\contentsline {subsection}{\numberline {4.1}General EMT Solver Structure}{61}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Line Model: Bergeron's Model}{62}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}From Telegrapher's Equations to the Bergeron's line Model}{63}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Bergeron's line Model with Lumped Resistances}{65}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Three-Phase and Multiconductor Line Implementation}{66}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Three-phase synchronous generator}{68}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Electrical part}{70}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Mechanical part}{71}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Parameters determination}{73}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Transient solution}{73}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}VeraGrid implementation}{77}{subsubsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.6}Initialization of variables}{78}{subsubsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.4}Load}{81}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Resistance}{81}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Inductance}{82}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Capacitance}{82}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Transformer}{83}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Implementation}{86}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Benchmark and validation}{91}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Test case 1: Three-phase synchronous generator.}{91}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Test case 2: Line model in a two bus system.}{95}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Test case 3: transformer model in a two bus system.}{99}{subsubsection.4.7.3}%
+\contentsline {section}{\numberline {5}Environmental impact}{103}{section.5}%
+\contentsline {section}{\numberline {6}Gender and social impact}{106}{section.6}%
+\contentsline {section}{\numberline {7}Budget}{108}{section.7}%
+\contentsline {section}{\numberline {8}Time Planning}{111}{section.8}%
+\contentsline {section}{\numberline {9}Conclusion}{112}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Future Work}{113}{subsection.9.1}%
+\contentsline {section}{Acknowledgments}{114}{subsection.9.1}%

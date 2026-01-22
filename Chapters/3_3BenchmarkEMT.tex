@@ -1,5 +1,27 @@
-- which benchmarks are used? ATP, paraEMT? What test systems? What scenarios?
-- how to do it, i dont know :)
+The validation of an EMT simulator cannot rely solely on the direct numerical comparison of results, 
+but must primarily be based on the physical and mathematical consistency of the obtained responses. 
+In this sense, the simulated waveforms and system behaviors must be interpretable through the theoretical formulation of the modelled components, 
+the governing equations of the system, and the electromagnetic phenomena that are being represented. 
+This physical and mathematical coherence constitutes the first and most fundamental validation criterion for the EMT solver developed in this work.
+
+In addition, comparison with existing tools is a common and valuable practice to contextualize results and assess their correctness. 
+In this work, two well-established EMT simulation tools have been used as references: ParaEMT and ATP. 
+ParaEMT is a research-oriented platform with a modern architecture and detailed implementations of advanced EMT models; 
+access to its source code has enabled the analysis of solver structure, implementation strategies, and numerical treatment of specific modelling aspects \cite{XiongParaETM2024}. 
+ATP, on the other hand, is a freely available and widely used tool, particularly suitable for building and analyzing simple EMT test cases, 
+making it a useful reference for qualitative result interpretation \cite{ATPManual}.
+
+It is important to emphasize that the objective of this work is not to directly compete with these tools or to reproduce their full set of 
+functionalities. The EMT solver developed here has a foundational character, focusing on the explicit implementation of basic component models 
+and essential physical mechanisms. In contrast, ParaEMT and ATP incorporate more sophisticated models, advanced numerical techniques, 
+and additional stabilization or enhancement methods that are beyond the scope of this thesis. For this reason, a direct quantitative comparison
+has not been pursued; instead, these tools have been used as conceptual references to support result interpretation and to verify that the observed 
+behaviors are consistent with established EMT theory.
+
+The validation of the implemented code is carried out through some test cases. These test cases are designed to validate, on the one 
+hand, the individual implementation of each system component (sources, transmission lines...), and on the other hand, 
+the correct coupling and interaction of all elements within the EMT solver. This incremental validation strategy ensures that the global system 
+behavior emerges correctly from the individual component models, thereby reinforcing confidence in the overall implementation.
 
 \subsubsection{Test case 1: Three-phase synchronous generator.}
 
@@ -15,6 +37,11 @@ while the load is modelled as a balanced three-phase resistor of 3 p.u. (equival
 \begin{tabular}{|l|l|c|l|}
 \hline
 \textbf{Parameter} & \textbf{Description} & \textbf{Magnitude} & \textbf{Units} \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Simulation parameters}} \\
+\hline
+Time-step & Time-step & 5e-6 & s \\
+Time & Total simulation time & 50 & ms \\
 \hline
 \multicolumn{4}{|l|}{\textbf{Synchronous generator}} \\
 \hline
@@ -49,15 +76,15 @@ $R_\text{3ph}$ & Three-phase resistive load & 3.0 & p.u. \\
 \end{tabular}
 \end{table}
 
-As seen in the properties, a $K_p$ and $K_i$ are stated. Those make reference to the basic PI controller implemented to control the torque. It is important to note that no governor or exciter models are implemented and therefore 
+As seen in the properties, $K_p$ and $K_i$ are stated. Those make reference to the basic PI controller implemented to control the torque. It is important to note that no governor or exciter models are implemented and therefore 
 some type of control should be added. In the case of the governor, a simple PI controller is implemented to control the mechanical torque based on the electrical torque and the speed deviation. In this test case, both gains
 are set to 0.0, meaning that no governor control is implemented in this test case. In the case of the exciter, regarding that there are no events that change the operating point, a constant field voltage is imposed, being this the simplest
 exciter model possible (if any exciter at all).
 
-The system is simulated for a total time of 50ms seconds with a time-step of 5e-6s. The generator is initialized to operate at its nominal conditions, supplying the load with the required power.The Figures below show the results
+The system is simulated for a total time of 50 ms seconds with a time-step of 5e-6 s. The generator is initialized to operate at its nominal conditions, supplying the load with the required power. The Figures below show the results
 obtained from the simulation. 
 Figure \ref{fig:voltages_currents_generator} shows the voltages and currents at the generator terminals. As seen, the voltages and currents remain stable during the simulation confirming steady state. Voltages and currents in the abc domain keep a 
-balanced and simmetric sinusoidal waveform as expected, with a peak voltage of $\sqrt{2}$ which confirms the rms voltage at 1 p.u., nominal conditions.The currents are 1/3 of the voltages as expected. In the dq0 domain, the 0 axis voltage and current 
+balanced and symmetric sinusoidal waveform as expected, with a peak voltage of $\sqrt{2}$ which confirms the rms voltage at 1 p.u., nominal conditions.The currents are 1/3 of the voltages as expected. In the RMS domain, the 0 axis voltage and current 
 remain at 0.0 as expected due to the balanced conditions of the system.
 
 
@@ -114,7 +141,8 @@ supplying the load with the required power.
 
 Finally, Figure \ref{fig:derivatives_generator} show the derivatives of the state variables of the generator. 
 As seen, all derivatives remain at 0.0 confirming that the system is at steady state during the whole simulation. Only one derivative 
-remains at $2\pi f$, which is the derivative of the rotor angle $\theta$, confirming that the rotor is spinning at nominal speed. 
+remains at $2\pi f$, which is the derivative of the rotor angle $\theta$, confirming that the rotor is spinning at nominal speed.  This derivative starts at 0 and in the first time step goes to
+$2\pi f$; this is because all derivatives are initialized at zero to generalize steady-state conditions.
 
 \begin{figure}[h!]
     \centering
@@ -125,55 +153,77 @@ remains at $2\pi f$, which is the derivative of the rotor angle $\theta$, confir
 
 
 
-\subsubsection{Test case 2: 2 bus case.}
+\subsubsection{Test case 2: Line model in a two bus system.}
 
-This test case consists on a simple 2 bus system where a three-phase synchronous generator is connected to a three-phase load by means of a three-phase line.
-This is the simplest test case possible considering a system (more than one bus) where the line model can be tested. The system diagram is shown in Figure \ref{fig:2bus_case_diagram}.
-Three different scenarios are simulated to test the line model: matched $Z_c$ resistance, short-circuited receiving end and open-circuited receiving end. Table \ref{tab:test_case_2_parameters} 
-summarizes the main parameters of the system.
-\begin{table}[htbp]
+This test case consists of a simple two-bus system in which a three-phase source is connected to a three-phase load through a three-phase transmission 
+line. It represents the simplest configuration that still includes more than one bus, and therefore allows the travelling-wave line model to be 
+tested in isolation. The system diagram is shown in Figure~\ref{fig:2bus_case_diagram}.
+
+In contrast to the previous case study, the sending-end device, the generator, is simplified as a voltage source.
+This choice is intentional: the objective of this test case is to observe and validate the propagation and reflection behavior 
+introduced by the line model, without additional electromechanical or control dynamics that could mask the waveform features of interest. 
+By using an ideal voltage source, the injected waveforms remain well defined and the resulting responses can be directly attributed to the 
+transmission line and its termination conditions.
+
+The system is simulated under matched-impedance conditions, where the load impedance is set equal to the characteristic impedance of the line, 
+$Z_{\text{load}} = Z_c$. This configuration suppresses reflections at the receiving end and provides a clear reference scenario in which the measured 
+delays and waveform shapes are solely driven by the line propagation time.
+
+%Three different scenarios are simulated to test the line model: matched $Z_c$ resistance, short-circuited receiving end and open-circuited receiving end. 
+Table \ref{tab:test_case_2_parameters} summarizes the main parameters of the system.
+
+\begin{table}[htbp!]
 \centering
-\caption{Main parameters of the synchronous generator, transmission line, and load for the travelling-wave test cases.}
+\caption{Main parameters of the synchronous generator, transmission line, and load for the Test case 2.}
 \label{tab:test_case_2_parameters}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|l|c|l|}
 \hline
 \textbf{Parameter} & \textbf{Description} & \textbf{Magnitude} & \textbf{Units} \\
 \hline
-\multicolumn{4}{|l|}{\textbf{Synchronous generator}} \\
+\multicolumn{4}{|l|}{\textbf{Simulation parameters}} \\
 \hline
--- & Generator EMT-type model & Same as Test Case~1 & -- \\
+Time-step & Time-step & 5e-6 & s \\
+Time & Total simulation time & 30 & ms \\
+\hline
+\multicolumn{4}{|l|}{\textbf{System base}} \\
+\hline
+Base power & System base power & 160 & MVA \\
+Base Voltage & System base voltage & 15 & kV \\
+Nominal frequency & System frequency & 50 & Hz \\
+Bus configuration & Three-phase (no neutral) & -- & -- \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Voltage source (Bus 1)}} \\
+\hline
+Generator power & Generator apparent power & 160 & MVA \\
+Voltage & Nominal line-to-line voltage & 15 & kV \\
 \hline
 \multicolumn{4}{|l|}{\textbf{Transmission line}} \\
 \hline
 Line name & Line identifier & Line 1--2 & -- \\
 Length & Line physical length & 100 & km \\
-Rated power & Thermal rating & 200 & MVA \\
-Voltage level & Nominal line-to-line voltage & $V_\text{base}$ & kV \\
+Rated power & Rating & 200 & MVA \\
+Voltage & Nominal line-to-line voltage & 15 & kV \\
 \hline
 \multicolumn{4}{|l|}{\textit{Tower and conductor geometry}} \\
 \hline
-Tower type & Overhead line configuration & Tower & -- \\
+Tower type & Overhead line configuration & -- & -- \\
 Conductor type & Phase conductor & Panther 30/7 ACSR & -- \\
-Outer diameter & Conductor external diameter & 21.0 & mm \\
-Inner diameter & Conductor internal diameter & 9.0 & mm \\
-DC resistance & Conductor resistance & 0.1363 & $\Omega$/km \\
-Maximum current & Thermal current limit & 1.0 & p.u. \\
+Outer diameter & Conductor external diameter & 21,0 & mm \\
+Inner diameter & Conductor internal diameter & 9,0 & mm \\
+Resistance & Conductor resistance per unit length & 0,1363 & $\Omega$/km \\
 \hline
-Phase A position & Horizontal / vertical position & $(-12.65,\;27.5)$ & m \\
-Phase B position & Horizontal / vertical position & $(0,\;27.5)$ & m \\
-Phase C position & Horizontal / vertical position & $(12.65,\;27.5)$ & m \\
+Phase A position & x,y position & $(-12,65,\;27,5)$ & m \\
+Phase B position & x,y position & $(0,\;27,5)$ & m \\
+Phase C position & x,y position & $(12,65,\;27,5)$ & m \\
 \hline
-\multicolumn{4}{|l|}{\textbf{Load / termination conditions}} \\
+\multicolumn{4}{|l|}{\textbf{Three phase load (bus 2)}} \\
 \hline
-Case~1 & Matched termination & $Z_\text{load} = Z_c$ & p.u. \\
-Case~2 & Short-circuit termination & $Z_\text{load} = 0$ & p.u. \\
-Case~3 & Open-circuit termination & $Z_\text{load} \rightarrow \infty$ & -- \\
+Voltage & Nominal line-to-line voltage & 15 & kV \\
+Load & Matched termination & $Z_\text{load} = Z_c$ & p.u. \\
 \hline
 \end{tabular}
 \end{table}
-
-
 
 \begin{figure}[h!]
     \centering
@@ -182,16 +232,14 @@ Case~3 & Open-circuit termination & $Z_\text{load} \rightarrow \infty$ & -- \\
     \label{fig:2bus_case_diagram}
 \end{figure}
 
-\textbf{Matched $Z_c$ resistance.}
-
-In this case, the impedance at the receiving end is set to match the characteristic impedance of the line.
+\vspace{1cm}
 
 The results shown in Figures~\ref{fig:matched_voltages} and~\ref{fig:matched_line_currents} show a clear time shift of exactly one propagation delay
 $\tau$ between the waveforms measured at the sending and receiving ends of the line, both for
 voltages and currents. This behavior is a direct consequence of the travelling-wave nature of
 electromagnetic transients in distributed-parameter transmission lines, as described by the
 telegrapher's equations. In this formulation, voltage and current disturbances propagate along
-the line as forward and backward travelling waves at a finite velocity determined by the line
+the line as forward and backward travelling waves at a finite speed determined by the line
 inductance and capacitance per unit length.
 
 In this test case, the load is perfectly matched to the characteristic impedance of the line
@@ -204,24 +252,49 @@ the absence of reflections ensures that the source does not experience any delay
 from the line.
 
 This explains the identical waveform shapes observed at both ends of the line, with the only
-difference being a pure time delay equal to the propagation time, which is the expected behaviour
-of a lossless Bergeron-type line model under matched termination.
+difference being a pure time delay equal to the propagation time, which is the expected behavior
+of a lossless Bergeron's type line model under matched termination.
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/vsource_line_3ph/Voltages_matched.pdf}
-    \caption{Voltages at the 2 bus case. WITH VOLTAGE SOURCE!! TO CHANGE}
+    \includegraphics[width=0.9\linewidth]{figures/vsource_line_3ph/voltage_test2.pdf}
+    \caption{Voltages at the Test case 2.}
     \label{fig:matched_voltages}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/vsource_line_3ph/line_currents_matched.pdf}
-    \caption{Line currents at the 2 bus case. WITH VOLTAGE SOURCE!! TO CHANGE}
+    \includegraphics[width=0.9\linewidth]{figures/vsource_line_3ph/line_currents_test2.pdf}
+    \caption{Line currents at the Test case 2.}
     \label{fig:matched_line_currents}
 \end{figure}
 
-\textbf{Short-circuited receiving end.}
+The characteristic impedance matrix calculated using the Carson's equations for this line is:
+\begin{equation}
+\mathbf{Z}_c =
+\begin{bmatrix}
+4.213 \times 10^{2} & 1.174 \times 10^{2} & 8.758 \times 10^{1} \\
+1.142 \times 10^{2} & 4.217 \times 10^{2} & 1.142 \times 10^{2} \\
+8.758 \times 10^{1} & 1.174 \times 10^{2} & 4.213 \times 10^{2}
+\end{bmatrix}
+[\text{p.u.}]
+\label{eq:Zc_line_testcase2}
+\end{equation}
+and the propagation time is $\tau = 0,39$ ms. 
+
+As seen in the matrix \ref{eq:Zc_line_testcase2}, the characteristic self impedances of each phase
+are not identical due to the asymmetrical configuration of the overhead line. However, the differences are small enough that
+the voltages and currents in all three phases exhibit very similar magnitudes and waveforms. However, this small change of magnitude can be seen in the 
+resulting line currents where phase B amplitude has a slightly lower current than phases A and C.
+This confirms the results obtained in the simulation. With a 1 p.u. voltage source, the resulting current is around 0,004 p.u., which makes sense 
+considering the characteristic impedance values shown in \ref{eq:Zc_line_testcase2}.
+Finally, a small transient numerical steps can be observed at the first two $\tau$ intervals, 
+which are attributed to the initialization of the history component buffers which are initialized in a operating point near 
+to the steady-state conditions based on the power-flow solution. 
+This type of numerical artifact is common in EMT simulations initialization and does not affect the overall correctness of the results.
+
+
+% \textbf{Short-circuited receiving end.}
 
 \begin{comment}
 The results corresponding to the short-circuited receiving end show a markedly different
@@ -269,7 +342,7 @@ conditions in the Bergeron-type line model.
 
 \end{comment}
 
-\textbf{Open-circuited receiving end.}
+%\textbf{Open-circuited receiving end.}
 
 \begin{comment}
 
@@ -315,3 +388,117 @@ type transmission line representation.
     \label{fig:open_circuit_line_line_currents}
 \end{figure}
 \end{comment}
+
+\subsubsection{Test case 3: transformer model in a two bus system.}
+
+This test case considers a simple two-bus system composed of a three-phase synchronous generator connected to a 
+three-phase load through a two-winding transformer. The objective of this case study is to validate the EMT 
+implementation of the transformer model and to analyze its dynamic behavior in isolation, without the influence of 
+transmission line travelling-wave effects. The system configuration allows a clear assessment of voltage transformation, 
+coupling between windings, and the impact of leakage and magnetizing parameters on transient responses.
+
+As in the previous test case, the sending-end device is modelled as an ideal three-phase voltage source. 
+This modelling choice is intentional and aims to decouple the transformer behavior from generator electromechanical 
+dynamics and control effects, ensuring that the observed transients are solely attributable to the transformer model and 
+its interaction with the load. Figure~\ref{fig:2bus_case_diagram_transformer} exposes the circuit diagram for this test case.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{inkscape_svg/transformer_test_eq_circuit.pdf}
+    \caption{Test case 3: Two-bus system diagram.}
+    \label{fig:2bus_case_diagram_transformer}
+\end{figure}
+
+The system operates at a nominal frequency of 50~Hz and is defined using a common system base power. Two buses are considered: 
+the primary-side bus, operating at a nominal line-to-line voltage of 15~kV and defined as the slack bus, and the 
+secondary-side bus, operating at $1/10$ the primary voltage. Both buses are modelled as three-phase nodes without a neutral 
+connection. The EMT bus templates ensure consistent formulation of instantaneous voltage and current variables at each node.
+
+The transformer is modelled as a two-winding element with explicit representation of leakage and magnetizing branches. 
+Leakage resistance and reactance model the series impedance of the windings, while the magnetizing branch accounts for core
+ excitation effects. This formulation enables the reproduction of both steady-state voltage transformation and transient 
+phenomena associated with energization and load variations. The load is connected at the secondary side, allowing the analysis 
+of voltage and current waveforms across the transformer under EMT conditions.
+
+Table~\ref{tab:test_case_3_parameters} summarizes the main parameters of the system and the transformer model used in this test case.
+\begin{table}[htbp!]
+\centering
+\caption{Main parameters of the voltage source, transformer, and load for Test Case 3.}
+\label{tab:test_case_3_parameters}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|l|c|l|}
+\hline
+\textbf{Parameter} & \textbf{Description} & \textbf{Magnitude} & \textbf{Units} \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Simulation parameters}} \\
+\hline
+Time-step & Time-step & 5e-6 & s \\
+Time & Total simulation time & 30 & ms \\
+\hline
+\multicolumn{4}{|l|}{\textbf{System base}} \\
+\hline
+Base power & System base power & 160 & MVA \\
+Base Voltage bus 1 & Base voltage & 15 & kV \\
+Base Voltage bus 2 & Base voltage & 1,5 & kV \\
+Nominal frequency & System frequency & 50 & Hz \\
+Bus configuration & Three-phase (no neutral) & -- & -- \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Voltage source (Bus 1)}} \\
+\hline
+Generator power & Generator apparent power & 160 & MVA \\
+Voltage & Nominal line-to-line voltage & 15 & kV \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Transformer}} \\
+\hline
+Rated power & Transformer nominal rating & 200 & MVA \\
+Primary voltage & Primary nominal line-to-line voltage & 15 & kV \\
+Secondary voltage & Secondary nominal line-to-line voltage & 1.5 & kV \\
+Leakage reactance & Series leakage reactance & 0,1 & p.u. \\
+Leakage resistance & Series leakage resistance & 0,01 & p.u. \\
+Magnetizing reactance & Core magnetizing reactance & 100 & p.u. \\
+Magnetizing resistance & Core magnetizing resistance & 0 & p.u. \\
+Turns ratio & Primary to secondary turns ratio & 10 & -- \\
+\hline
+\multicolumn{4}{|l|}{\textbf{Load (bus 2)}} \\
+\hline
+Load type & Three-phase resistive load & -- & -- \\
+Load power & Three-phase power & 160 & MW\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/vsource_trafo_3ph/voltages_trafo_testcase.pdf}
+    \caption{Voltages at the Test case 3.}
+    \label{fig:trafo_voltages}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/vsource_trafo_3ph/transformer_currents_testcase.pdf}
+    \caption{Transformer currents at the Test case 3.}
+    \label{fig:trafo_currents}
+\end{figure}
+
+
+The electromagnetic transient simulation results obtained for the transformer test case confirm the correct 
+behavior of the implemented model under steady-state balanced operating conditions. 
+The three-phase voltages at buses~1 and~2 present perfectly sinusoidal and symmetrical waveforms, with no observable phase 
+shift or unbalance between phases. As expected, the voltage magnitude at bus~2 is slightly lower than that at bus~1 due to 
+the inclusion of transformer losses, modelled through series resistances. This voltage drop is consistent with physical 
+expectations and aligns with the corresponding steady-state power flow results, which yield a voltage of 1.0~p.u. at bus~1 
+and 0.9955~p.u. at bus~2. Both voltage waveforms reach a peak value of $\sqrt{2}$~p.u., indicating operation at nominal 
+voltage and confirming that the generated power is correctly matched with the load power under impedance-invariant conditions.
+Since each bus has its own base, the turn ratio in p.u. units becomes $a=1$. As stated, this is seen in the simulation results
+where both voltages and currents are around 1 p.u. no matter the bus.
+
+The transformer currents at the primary and secondary sides further support the validity of the EMT model. 
+The three-phase currents are balanced, sinusoidal, and identical in magnitude at both ends of the transformer,
+ which is consistent with the absence of a magnetizing resistance in the model. This behavior confirms that no 
+ active power is dissipated in the magnetizing branch and that current continuity across the transformer is 
+ correctly preserved. Additionally, the currents are in phase with the corresponding phase voltages, indicating 
+ operation at unity power factor and the absence of reactive power exchange or dynamic effects. The lack of numerical 
+ artifacts, such as oscillations or offsets, demonstrates the numerical stability of the trapezoidal integration scheme 
+ and the robustness of the transformer formulation in EMT simulations.
+
+

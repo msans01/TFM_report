@@ -6,11 +6,11 @@ Power system stability is defined as that property of a power system that enable
 remain in a state of operating equilibrium under normal conditions and to regain an acceptable 
 state of equilibrium after being subjected to a disturbance \cite{StabilityAndControlKundur}. Other definitions
 state not only the state of equilibrium must be acceptable but also most system variables must be 
-bounded so that practically the entire system remains intact\cite{KundurDef}.
+bounded so that practically the entire system remains intact \cite{KundurDef}.
 
 
 Although the primary concern is the behavior of the interconnected system as a whole, the stability of individual
-components such as generators, motor loads, or regional subsystems; can be equally significant, particularly when 
+components such as generators, motor loads, or regional subsystems can be equally significant, particularly when 
 localized instability does not propagate to the broader network. The system's dynamic behavior is governed by nonlinear 
 interactions among its elements, and its response to perturbations is influenced by both the prevailing operating conditions
 and the specific nature of the disturbance. Stability is understood around an equilibrium point and is subject to change
@@ -44,14 +44,14 @@ Due to the increasing penetration of power electronics into the grid, two new ca
 \begin{itemize}
     \item \textit{Converter-driven stability}: Refers to oscillatory behavior caused by control interactions in converter-interfaced generation (CIG). 
     Fast-interaction instabilities arise from high frequency dynamics (hundreds of Hz to kHz) involving inner control loops and grid components. 
-    Slow-interaction instabilities occur at low frequencies (<10 Hz), driven by PLL and outer-loop controls, especially 
+    Slow-interaction instabilities occur at low frequencies (<10 Hz), driven by phase lock loop (PLL) and outer-loop controls, especially 
     in weak grids. Synchronization issues and power transfer limits further compromise stability. 
     These phenomena differ from classical generator dynamics and require tailored mitigation strategies.
     \item \textit{Resonance stability}: Refers to the system's ability to withstand oscillatory 
     energy exchange without magnifying voltage, current, or torque beyond safe limits. It includes subsynchronous 
     resonance (SSR), which arises from interactions between series compensation and either mechanical shaft modes or 
     electrical generator characteristics. The mechanical form leads to torsional resonance, while the electrical 
-    form (Induction Generator Effect (IGE)) can cause self-excitation. Converter controls in DFIGs can exacerbate these 
+    form (Induction Generator Effect (IGE)) can cause self-excitation. Converter controls in Doubly-Fed Induction Generators (DFIGs) can exacerbate these 
     effects, leading to subsynchronous control interaction (SSCI). These phenomena pose risks to both mechanical integrity 
     and electrical equipment.
 \end{itemize}
@@ -94,12 +94,12 @@ Therefore, linearizing a non-linear system around an equilibrium point allows to
 
 Small-signal stability refers to the ability of a power system to maintain synchronism when subjected to 
 small disturbances~\cite{StabilityAndControlKundur}, such as minor load changes or small faults. These small disturbances
-(typically within 1\%)occur frequently in power systems and allow the linearization of non-linear system equations
+(typically within 1\%) occur frequently in power systems and allow the linearization of non-linear system equations
  around a specific operating point in order to perform analysis. The resulting linear representation enables the use
   of standard control engineering tools to assess system stability and dynamic performance~\cite{SmallSignalCheah}.
 
 The resulting instability due to those small perturbations can have two forms: Non-oscillatory unstability defined as an 
-increase in rotor angle due to insufficient synchronizing torque and oscillatory unstability, oscillations of 
+increase in rotor angle due to insufficient synchronizing torque and oscillatory unstability and oscillations of 
 increasing magnitude due to insufficient damping torque~\cite{StabilityAndControlKundur}. In practice, most of the 
 instabilities come from insufficient damping torque. The following list summarizes the main oscillatory modes to consider:
 
@@ -110,8 +110,8 @@ instabilities come from insufficient damping torque. The following list summariz
     regions, often linked by weak transmission corridors.
     \item \textit{Control modes}: Oscillations arising from interactions between poorly tuned control systems such 
     as exciters, speed governors, HVDC converters, or static var compensators.
-    \item \textit{Torsional modes}: Oscillations associated with the mechanical shaft system of turbine-generators,
-    which may become unstable due to interactions with control systems or series-compensated transmission lines.
+    \item \textit{Torsional modes}: Oscillations associated with the mechanical shaft system of 
+    turbine - generators, which may become unstable due to interactions with control systems or series-compensated transmission lines.
 \end{itemize}
 
 
@@ -300,10 +300,10 @@ Rearranging the equation gives the linearized state-space representation and the
 \end{equation}
 
 
-The A matrix encapsulates the dynamic interactions between the system's state variables, accounting for both the intrinsic dynamics of the components and the constraints imposed by the network. 
+The $A$ matrix encapsulates the dynamic interactions between the system's state variables, accounting for both the intrinsic dynamics of the components and the constraints imposed by the network. 
 From the state matrix the stability assessment can be performed as explained in the next section.
 
-\subsubsection{Stability assessment: Liapunov's first method}
+\subsubsection{Stability assessment: Lyapunov's first method}
 
 The stability of a system can be studied in large-signal and small-signal therms. Stability \textit{in the large} needs to study the whole non-linear system. This method is complex and requires a high
 computational effort. On the other hand, stability \textit{in the small} studies the system behavior around an equilibrium point. This method is simpler and less computationally intensive, but it only 
@@ -321,7 +321,7 @@ The eigenvalues $\lambda$ of the state matrix A, commonly referred to as the sys
 \end{itemize}
 
 In this way, for the stable poles, the real part defines the time constant as $\tau = -1/ Re(\lambda) $ [s] which represents the time that passes until
-the 63,2\% of the steady state value is achieved, said in other words, the time that passes for the oscillations to decay to a 37\% of their amplitude.
+the 63,2\% of the steady state value is achieved, said in other words, the time that passes for the oscillations to decay to a 36,8\% of their amplitude.
 
 When a linearized system has complex conjugate modes, they represent oscillatory modes in the dynamic response:
 

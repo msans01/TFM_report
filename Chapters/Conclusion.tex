@@ -1,18 +1,82 @@
-blablabla
 
-\subsection{Further Work}
+This Master's Thesis has presented the development and extension of a dynamic simulation framework for power 
+systems within the VeraGrid platform, with a dual focus on small-signal stability analysis and the 
+foundational implementation of electromagnetic transient (EMT) simulation capabilities. 
+The work has been conceived and executed with a clear emphasis on physical consistency, numerical transparency,
+ and extensibility, aiming to establish solid methodological and architectural foundations rather than 
+ delivering a fully featured industrial-grade EMT solver.
+
+In the first part of the work, a complete small-signal analysis module for RMS dynamic models has been 
+developed. Starting from a symbolic formulation of differential-algebraic equations, the system is 
+automatically linearized around the operating point, enabling the direct computation of Jacobian matrices, 
+eigenvalues, and participation factors. This approach ensures full consistency between nonlinear time-domain 
+simulations and their linearized representations, facilitating a rigorous analysis of system stability and 
+modal behavior. The validation against established tools confirms the correctness of the formulation and 
+highlights the advantages of a symbolic-numeric workflow for dynamic studies.
+
+The second part of the thesis establishes the foundations of an EMT simulation engine based on instantaneous 
+variables in the abc domain. Core system elements, including voltage sources, transmission lines, 
+and loads, have been implemented following classical EMT theory. Particular attention has been devoted 
+to the modelling of transmission lines using the Bergeron's model and travelling-wave theory. 
+The numerical formulation is based on the Dommel algorithm combined with trapezoidal integration, 
+resulting in physically meaningful Norton equivalents with explicit history terms.
+ This explicit formulation provides full control over the numerical behavior of the solver and facilitates 
+ detailed interpretation of the simulated waveforms.
+
+The validation of the EMT implementation has been carried out through a set of carefully designed test cases. 
+These cases progressively verify the correct behavior of individual components and their interaction 
+within multi-bus systems under different termination conditions. The observed results are fully consistent 
+with electromagnetic transient theory, accurately reproducing wave propagation delays, reflection phenomena, 
+and impedance-matching effects. Although no direct quantitative benchmarking against advanced EMT tools has
+ been performed, the qualitative agreement with established theory and reference simulations confirms the 
+ correctness of the implemented models.
+
+Overall, this work demonstrates that a transparent, modular, and physically grounded EMT simulation framework 
+can be successfully developed within an open-source environment using a symbolic-numeric approach. 
+The results obtained validate both the conceptual design and the numerical implementation, positioning 
+VeraGrid as a solid and extensible platform for future developments in dynamic and EMT simulation of power 
+systems.
+
+\subsection{Future Work}
 
 
+The work presented in this thesis establishes the foundations of an EMT simulation framework integrated 
+within VeraGrid. While the implemented models and methodologies validate the proposed approach, 
+several extensions are required to further increase the scope, robustness, and applicability of the solver. 
+The following lines outline the main directions for future work.
 
 \begin{itemize}
-    \item Allow the  EMT simulation to handle events on the grid.
-    \item Implement parallelization of the region BlockSolvers to improve calculation time.
-    \item Include more device models in the Symbolic-Numeric framework to increase the versatility of the EMT simulation.
-    \item Create the GUI interface for the EMT simulation setup and results visualization.
-    \item Perform extensive testing and validation of the EMT simulation with a variety of test systems and scenarios.
-    \item Optimize the code for performance improvements, including memory management and computational efficiency.
-    \item Change the line model to a frequency-dependent one to improve accuracy.
-    \item Implement a more robust transformer model including saturation effects.
-    \item Incorporate renewable energy source models, such as wind solar and converters, into the EMT simulation framework.
+    \item Extension to larger and more complex networks: 
+    Future developments should address the simulation of meshed and large-scale power systems, including 
+    multiple voltage levels, heterogeneous network topologies, and realistic grid configurations. 
+    This will require extensive validation on benchmark networks and the analysis of numerical behavior
+     under a broader range of operating conditions and disturbances.
 
+    \item Incorporation of advanced component models: 
+    The EMT solver can be extended to include more detailed models of synchronous machines, 
+    power-electronics-based converters, and associated control systems. This includes the implementation of 
+    grid-following and grid-forming converter controls, as well as protection and limitation mechanisms 
+    relevant to modern power systems.
+
+    \item Improvement of numerical robustness and stability: 
+    Additional numerical techniques commonly adopted in EMT tools could be incorporated to enhance solver 
+    robustness, such as damping strategies, specialized interface models, and improved handling of stiff 
+    systems. These enhancements would improve convergence and numerical stability in demanding simulation 
+    scenarios.
+
+    \item Computational performance and scalability: 
+    Given the high computational cost of EMT simulations, optimizing performance is a key objective. 
+    Future work may focus on improving sparse matrix handling, memory management, and time-step execution 
+    efficiency, as well as exploring parallelization strategies that leverage the existing architecture of 
+    VeraGrid. Changing the coding language to C++ must also be a priority to check.
+
+    \item Systematic benchmarking against established EMT tools: 
+    Once additional models and numerical enhancements are in place, a systematic quantitative comparison with 
+    established EMT tools on selected benchmark cases would provide further validation of the solver accuracy 
+    and performance.
+
+    \item User interface and workflow integration: 
+    Enhancing graphical interfaces, result visualization tools, and model definition workflows would
+    improve usability and facilitate the adoption of the EMT solver by a wider user base, both in academic 
+    and applied contexts.
 \end{itemize}

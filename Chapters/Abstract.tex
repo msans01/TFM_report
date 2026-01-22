@@ -1,0 +1,29 @@
+
+This master's thesis addresses the development and extension of a dynamic simulation framework for power systems 
+within the VeraGrid platform, the eRoots's open-source power systems software, with the objective of incorporating both small-signal analysis and the foundations of 
+electromagnetic transient (EMT) simulation. The entire development has been carried out in Python, with a strong emphasis 
+on code modularity and scalability through a clear architecture designed to support the future evolution of the tool. 
+The work is framed within the current context of power systems, characterized by an increasing penetration of 
+power-electronics-based devices and by the need for simulation tools capable of representing dynamic phenomena across 
+multiple time scales.
+
+In the first part, a small-signal analysis module for root mean square(RMS)-domain dynamic models is developed, based on the symbolic 
+formulation of differential-algebraic equations and their linearization around the operating point. 
+This approach enables the automatic computation of Jacobians, eigenvalues, and participation factors, 
+ensuring consistency between nonlinear simulation and linearized system analysis, and facilitating the study of 
+system stability and modal behavior. The obtained results are validated through comparison with ANDES, 
+a reference tool in the symbolic-numeric simulation domain.
+
+Subsequently, the foundations for EMT simulation are established through the implementation of time-domain models 
+using instantaneous variables in the abc reference frame. Basic models of synchronous generators, transmission lines
+and loads are developed, with particular emphasis on the transmission line model based on the Bergeron's model and traveling-wave 
+theory. The EMT formulation is implemented using the Dommel algorithm in combination with the symbolic-numeric framework 
+and trapezoidal integration schemes, ensuring a physically consistent representation of fast electromagnetic phenomena. 
+Validation is performed through several case studies that allow the analysis of wave propagation and reflection mechanisms 
+under different conditions.
+
+The obtained results exhibit behavior fully consistent with classical electromagnetic transient theory and confirm 
+the correctness of both the mathematical formulation and the numerical implementation. 
+This work establishes a solid, extensible, and robust foundation for the development of an advanced EMT simulation engine 
+integrated within VeraGrid, with significant potential impact in both academic research and real-world industrial applications.
+
