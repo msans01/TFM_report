@@ -1,7 +1,7 @@
 
 This Master's Thesis has presented the development and extension of a dynamic simulation framework for power 
 systems within the VeraGrid platform, with a dual focus on small-signal stability analysis and the 
-foundational implementation of electromagnetic transient (EMT) simulation capabilities. 
+foundational implementation of electromagnetic transient simulation capabilities. 
 The work has been conceived and executed with a clear emphasis on physical consistency, numerical transparency,
  and extensibility, aiming to establish solid methodological and architectural foundations rather than 
  delivering a fully featured industrial-grade EMT solver.
@@ -20,7 +20,7 @@ and loads, have been implemented following classical EMT theory. Particular atte
 to the modelling of transmission lines using the Bergeron's model and travelling-wave theory. 
 The numerical formulation is based on the Dommel algorithm combined with trapezoidal integration, 
 resulting in physically meaningful Norton equivalents with explicit history terms.
- This explicit formulation provides full control over the numerical behavior of the solver and facilitates 
+ This explicit formulation provides full control over the numerical beha-\\vior of the solver and facilitates 
  detailed interpretation of the simulated waveforms.
 
 The validation of the EMT implementation has been carried out through a set of carefully designed test cases. 
@@ -54,9 +54,9 @@ The following lines outline the main directions for future work.
 
     \item Incorporation of advanced component models: 
     The EMT solver can be extended to include more detailed models of synchronous machines, 
-    power-electronics-based converters, and associated control systems. This includes the implementation of 
+    power-electronics-based conver-\\ters, and associated control systems. This includes the implementation of 
     grid-following and grid-forming converter controls, as well as protection and limitation mechanisms 
-    relevant to modern power systems.
+    rele-\\vant to modern power systems.
 
     \item Improvement of numerical robustness and stability: 
     Additional numerical techniques commonly adopted in EMT tools could be incorporated to enhance solver 
@@ -66,7 +66,7 @@ The following lines outline the main directions for future work.
 
     \item Computational performance and scalability: 
     Given the high computational cost of EMT simulations, optimizing performance is a key objective. 
-    Future work may focus on improving sparse matrix handling, memory management, and time-step execution 
+    Future work may focus on impro-\\ving sparse matrix handling, memory management, and time-step execution 
     efficiency, as well as exploring parallelization strategies that leverage the existing architecture of 
     VeraGrid. Changing the coding language to C++ must also be a priority to check.
 
@@ -76,7 +76,7 @@ The following lines outline the main directions for future work.
     and performance.
 
     \item User interface and workflow integration: 
-    Enhancing graphical interfaces, result visualization tools, and model definition workflows would
+    Enhancing graphical interfaces, result visuali-\\zation tools, and model definition workflows would
     improve usability and facilitate the adoption of the EMT solver by a wider user base, both in academic 
     and applied contexts.
 \end{itemize}

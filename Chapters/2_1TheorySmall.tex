@@ -16,9 +16,9 @@ interactions among its elements, and its response to perturbations is influenced
 and the specific nature of the disturbance. Stability is understood around an equilibrium point and is subject to change
 under small or large disturbances.
 
-Power system stability is commonly classified depending on the physical nature of the instability, the size of the disturbance 
+Power system stability is commonly classified depending on the physical nature of the instabili-\\ty, the size of the disturbance 
 considered and the devices, processes and time span that must be considered to assess stability \cite{KundurDef}.
-The combination of these factors influence the methodologies, tools and considerations used in the analysis. The main categories of power system stability are 
+The combination of these factors influence the methodolo-\\gies, tools and considerations used in the analysis. The main categories of power system stability are 
 described in the following enumeration.
 
 \begin{itemize}
@@ -57,7 +57,7 @@ Due to the increasing penetration of power electronics into the grid, two new ca
 \end{itemize}
 
 
-Rotor angle stability is inherent of classical power systems with synchronous machines. Modern power grids, with the increasing penetration of 
+Rotor angle stability is inherent of the classical power systems with synchronous machines. Modern power grids, with the increasing penetration of 
 power electronics, have introduced new dynamics and interactions that can affect rotor angle stability. Converters decrease the inertia of the system
 and have an effect on the electromechanical modes. However, the fundamental principles of rotor angle stability remain intact and still takes
 a crucial role on stability analysis of power systems.
@@ -104,19 +104,18 @@ increasing magnitude due to insufficient damping torque~\cite{StabilityAndContro
 instabilities come from insufficient damping torque. The following list summarizes the main oscillatory modes to consider:
 
 \begin{itemize}
-    \item \textit{Local modes}: Oscillations involving individual generators or small groups of units swinging 
+    \item \textit{Local modes}: Oscillations involving individual generators or small groups of units swin-\\ging 
     against the rest of the system, typically localized near a generating station.
-    \item \textit{Inter area modes}: Low-frequency oscillations between large groups of generators in different 
+    \item \textit{Inter area modes}: Low-frequency oscillations between large groups of generators in diffe-\\rent 
     regions, often linked by weak transmission corridors.
     \item \textit{Control modes}: Oscillations arising from interactions between poorly tuned control systems such 
     as exciters, speed governors, HVDC converters, or static var compensators.
-    \item \textit{Torsional modes}: Oscillations associated with the mechanical shaft system of 
-    turbine - generators, which may become unstable due to interactions with control systems or series-compensated transmission lines.
+    \item \textit{Torsional modes}: Oscillations associated with the mechanical shaft system of turbine - ge-\\nerators, which may become unstable due to interactions with control systems or series-compensated transmission lines.
 \end{itemize}
 
 
 Although small-signal analysis only applies to small variations around a fixed operating point, 
-it remains a practical and widely used method for studying power system dynamics. By linearizing the system,
+it remains a practical and widely used method for studying power system dynamics. By lineari-\\zing the system,
 it allows to apply control theory tools like eigenvalue analysis and state-space modeling. 
 This helps identify poorly damped modes and assess how the system responds to small disturbances. Despite its limitations,
 it is a reliable approach for early detection of potential instabilities and for designing stabilizing controls.
@@ -126,7 +125,7 @@ it is a reliable approach for early detection of potential instabilities and for
 \subsubsection{State-space representation}
 
 Small-signal stability assessment methods are generally categorized into two main groups: state-space techniques
-and frequency-domain techniques. State-space techniques allow one to represent the system using a set of first order
+and frequency-domain techniques. State-space techniques allow one to repre-\\sent the system using a set of first order
 differential equations written in the following form:
 
 \begin{equation}
@@ -359,7 +358,7 @@ This dual interpretation makes participation factors a valuable tool for underst
 
 In the context of power systems, participation factors play a key role in identifying the physical origin of oscillations and instabilities.
 By analyzing these factors, it is possible to determine which components—such as generators, controllers, or converter units—are most involved in poorly damped or unstable modes.
-This information supports targeted actions for control tuning, model validation, and stability improvement. Participation factors are calculated as follows:
+This information also supports targeted actions for control tuning, model validation, and stability improvement. Participation factors are calculated as follows:
 
 \begin{equation}
 PF_{i,k} = W_{i,k} \cdot V_{i,k}

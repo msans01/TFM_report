@@ -1,17 +1,17 @@
 Este trabajo final de máster aborda el desarrollo y la ampliación del marco de 
-simulación dinámica de sistemas de potencia dentro de la plataforma VeraGrid, el software de código abierto de eRoots,
+simulación dinámi-\\ca de sistemas de potencia dentro de la plataforma VeraGrid, el software de código abierto de eRoots,
  con el objetivo de incorporar 
 tanto el análisis de pequeña señal como los fundamentos de la simulación de transitorios electromagnéticos (EMT). 
 Todo el desarrollo se ha llevado a cabo en lenguaje Python, poniendo énfasis en la modularidad y escalabilidad del 
 código mediante una arquitectura clara y orientada a la evolución futura de la herramienta. El trabajo se enmarca en el 
-contexto actual de los sistemas eléctricos, caracterizados por una creciente presencia de dispositivos basados en electrónica 
+contexto actual de los sistemas eléctricos, caracterizados por la creciente presencia de dispositivos basados en electrónica 
 de potencia y por la necesidad de herramientas de simulación capaces de representar fenómenos dinámicos en diferentes escalas 
 temporales.
 
 En una primera parte, se desarrolla un módulo de análisis de pequeña señal para modelos dinámicos en dominio de valor de tensión eficaz (RMS, por sus siglas en inglés, root mean square), basado 
-en la formulación simbólica de ecuaciones diferenciales-algebraicas y en su linealización alrededor del punto de operación. 
+en la formulación simbólica de ecuaciones diferenciales-algebraicas y en su li-\\nealización alrededor del punto de operación. 
 Esta aproximación permite el cálculo automático de jacobianos, autovalores y factores de participación, garantizando la 
-coherencia entre la simulación no lineal y el análisis linealizado del sistema, y facilitando el estudio de la estabilidad y 
+coherencia entre la simu-\\lación no lineal y el análisis linealizado del sistema, y facilitando el estudio de la estabilidad y 
 del comportamiento modal del sistema eléctrico. Los resultados obtenidos se validan mediante la comparación con ANDES, 
 una herramienta de referencia en el ámbito simbólico-numérico.
 
@@ -20,7 +20,7 @@ temporal con variables instantáneas en coordenadas abc. Se desarrollan modelos 
 líneas de transmisión y cargas, con especial énfasis en el modelo de línea basado en el modelo de Bergeron y en la 
 teoría de ondas viajeras. La formulación EMT se implementa utilizando el algoritmo de Dommel conjuntamente con el marco 
 de trabajo simbólico-numérico y esquemas de integración trapezoidal, asegurando una representación físicamente coherente 
-de los fenómenos electromagnéticos rápidos. La validación se realiza mediante diferentes casos de estudio, que permiten 
+de los fenómenos electromagnéticos rápidos. La vali-\\dación se realiza mediante diferentes casos de estudio, que permiten 
 analizar la propagación de ondas y los mecanismos de reflexión bajo distintas condiciones.
 
 Los resultados obtenidos muestran un comportamiento basado en la teoría clásica de los transitorios electromagnéticos y 

@@ -7,7 +7,7 @@ This physical and mathematical coherence constitutes the first and most fundamen
 In addition, comparison with existing tools is a common and valuable practice to contextualize results and assess their correctness. 
 In this work, two well-established EMT simulation tools have been used as references: ParaEMT and ATP. 
 ParaEMT is a research-oriented platform with a modern architecture and detailed implementations of advanced EMT models; 
-access to its source code has enabled the analysis of solver structure, implementation strategies, and numerical treatment of specific modelling aspects \cite{XiongParaETM2024}. 
+access to its source code has enabled the analysis of solver structure, implementation strategies, and numeri-\\cal treatment of specific modelling aspects \cite{XiongParaETM2024}. 
 ATP, on the other hand, is a freely available and widely used tool, particularly suitable for building and analyzing simple EMT test cases, 
 making it a useful reference for qualitative result interpretation \cite{ATPManual}.
 
@@ -20,7 +20,7 @@ behaviors are consistent with established EMT theory.
 
 The validation of the implemented code is carried out through some test cases. These test cases are designed to validate, on the one 
 hand, the individual implementation of each system component (sources, transmission lines...), and on the other hand, 
-the correct coupling and interaction of all elements within the EMT solver. This incremental validation strategy ensures that the global system 
+the correct coupling and interac-\\tion of all elements within the EMT solver. This incremental validation strategy ensures that the global system 
 behavior emerges correctly from the individual component models, thereby reinforcing confidence in the overall implementation.
 
 \subsubsection{Test case 1: Three-phase synchronous generator.}
@@ -81,7 +81,7 @@ some type of control should be added. In the case of the governor, a simple PI c
 are set to 0.0, meaning that no governor control is implemented in this test case. In the case of the exciter, regarding that there are no events that change the operating point, a constant field voltage is imposed, being this the simplest
 exciter model possible (if any exciter at all).
 
-The system is simulated for a total time of 50 ms seconds with a time-step of 5e-6 s. The generator is initialized to operate at its nominal conditions, supplying the load with the required power. The Figures below show the results
+The system is simulated for a total time of 50 ms seconds with a time-step of 5e-6 s. The gene-\\rator is initialized to operate at its nominal conditions, supplying the load with the required power. The Figures below show the results
 obtained from the simulation. 
 Figure \ref{fig:voltages_currents_generator} shows the voltages and currents at the generator terminals. As seen, the voltages and currents remain stable during the simulation confirming steady state. Voltages and currents in the abc domain keep a 
 balanced and symmetric sinusoidal waveform as expected, with a peak voltage of $\sqrt{2}$ which confirms the rms voltage at 1 p.u., nominal conditions.The currents are 1/3 of the voltages as expected. In the RMS domain, the 0 axis voltage and current 
@@ -389,9 +389,9 @@ type transmission line representation.
 \end{figure}
 \end{comment}
 
-\subsubsection{Test case 3: transformer model in a two bus system.}
+\subsubsection{Test case 3: Transformer model in a two bus system.}
 
-This test case considers a simple two-bus system composed of a three-phase synchronous generator connected to a 
+This test case considers a simple two-bus system composed of a three-phase synchronous gene-\\rator connected to a 
 three-phase load through a two-winding transformer. The objective of this case study is to validate the EMT 
 implementation of the transformer model and to analyze its dynamic behavior in isolation, without the influence of 
 transmission line travelling-wave effects. The system configuration allows a clear assessment of voltage transformation, 
@@ -417,7 +417,7 @@ connection. The EMT bus templates ensure consistent formulation of instantaneous
 The transformer is modelled as a two-winding element with explicit representation of leakage and magnetizing branches. 
 Leakage resistance and reactance model the series impedance of the windings, while the magnetizing branch accounts for core
  excitation effects. This formulation enables the reproduction of both steady-state voltage transformation and transient 
-phenomena associated with energization and load variations. The load is connected at the secondary side, allowing the analysis 
+phenome-\\na associated with energization and load variations. The load is connected at the secondary side, allowing the analysis 
 of voltage and current waveforms across the transformer under EMT conditions.
 
 Table~\ref{tab:test_case_3_parameters} summarizes the main parameters of the system and the transformer model used in this test case.
@@ -484,7 +484,7 @@ Load power & Three-phase power & 160 & MW\\
 The electromagnetic transient simulation results obtained for the transformer test case confirm the correct 
 behavior of the implemented model under steady-state balanced operating conditions. 
 The three-phase voltages at buses~1 and~2 present perfectly sinusoidal and symmetrical waveforms, with no observable phase 
-shift or unbalance between phases. As expected, the voltage magnitude at bus~2 is slightly lower than that at bus~1 due to 
+shift or unbalance between phases. As expected, the vol-\\tage magnitude at bus~2 is slightly lower than that at bus~1 due to 
 the inclusion of transformer losses, modelled through series resistances. This voltage drop is consistent with physical 
 expectations and aligns with the corresponding steady-state power flow results, which yield a voltage of 1.0~p.u. at bus~1 
 and 0.9955~p.u. at bus~2. Both voltage waveforms reach a peak value of $\sqrt{2}$~p.u., indicating operation at nominal 

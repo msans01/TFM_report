@@ -8,7 +8,7 @@ dynamic framework. The GUI implementation, then, stays out of scope of this proj
 The EMT simulation engine is developed in Python, following the general structure of the dynamic simulation framework in VeraGrid. The general simulation structure for any simulation in VeraGrid
  is shown in Figure \ref{fig:General_Simulation_Structure} and widely explained in the subsection \ref{2_2ImplementationSmall}. 
 
-The main class responsible for the EMT simulation is the Driver class, which contains the simulation function itself. 
+The main class responsible for the EMT simulation is the Driver class, which contains the simu-\\lation function itself. 
 This function initializes the system, sets up the time-stepping loop, and performs the numerical integration using the EMTP method combined with the Symbolic-Numeric approach.
 The core of the simulation consists on solving the MNA equations at each time-step using the EMT method. The aforementioned equation system, also found below is solved.
 
@@ -17,7 +17,7 @@ The core of the simulation consists on solving the MNA equations at each time-st
 \end{equation}
 
 The current contributions are computed at each time-step based on the previous steps results and the device models. 
-Due to the large variety of models for some devices while some others are standardized, a combined full numeric (traditional EMTP) and
+Due to the large variety of models for some devices while others are standardized, a combined full numeric (traditional EMTP) and
 Symbolic-Numeric approach is used in the simulation. This means that some devices such as lines and transformers are modelled using
 standardized companion models explained in the previous subsection, while others such as generators are modelled using symbolic equations allowing the user
 to define custom models and parameters. This combination provides both flexibility and efficiency in the simulation. However, from a computational perspective,

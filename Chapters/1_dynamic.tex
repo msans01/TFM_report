@@ -5,7 +5,7 @@ exhibited by modern grids. These grids, characterized by high penetration of Inv
 needing more detailed and accurate simulation methods to ensure reliable operation and stability~\cite{LaraTDS}.
 
 Time-domain simulations (TDS) have become a key point in the study of power system dynamics, providing a temporal perspective on system behavior following disturbances.
-Unlike steady-state analyses, TDS allows for the examination of transient phenomena, including voltage sags, frequency deviations, and oscillatory modes, 
+Unlike steady-state analyses, TDS allows for the examination of transient phenomena, including vol-\\tage sags, frequency deviations, and oscillatory modes, 
 which are critical for assessing system stability and performance. The ability to simulate the system's response over time enables engineers to design and test control strategies,
 protection schemes, and operational protocols in a virtual environment before implementation in the field.
 
@@ -160,7 +160,7 @@ well-understood environment. Figure~\ref{fig:framework_overview} exposes a clear
 
 \subsection{Differential-Algebraic Equations (DAEs)}
 
-At the core of Time-domain simulations lie the mathematical models that describe the system's dynamics. These models are typically formulated as Differential-Algebraic Equations,
+At the core of time-domain simulations lie the mathematical models that describe the system's dynamics. These models are typically formulated as Differential-Algebraic Equations,
  which combine differential equations that represent the system's dynamic behavior with algebraic equations that describe instantaneous relationships between system variables. 
 In contrast, Ordinary Differential Equations (ODEs) are used to model systems where all variables change continuously over time without algebraic constraints. 
 The choice between DAEs and ODEs depends on the specific characteristics of the system being modeled and the phenomena of interest.
@@ -198,8 +198,8 @@ With no explicit separation of differential and algebraic parts. This re-casting
 the singularity in $\partial f / \partial \dot{x}$. Implicit DAEs are more general and often arise in multiphysics problems and constrained mechanical systems~\cite{CasellaDAE}.  
 
  
-In power system dynamics, the network and algebraic constraints (Kirchhoff's current law, maximum current allowed in conductors, etc.) naturally provide algebraic equations, 
-while generator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is:
+In power system dynamics, the network and algebraic constraints (Kirchhoff's current law, ma-\\ximum current allowed in conductors, etc.) naturally provide algebraic equations, 
+while gene-\\rator rotor dynamics, excitation systems, governor control, and other dynamic devices supply the differential equations. Thus a typical formulation is:
 
 \begin{equation}
 \begin{cases}
@@ -209,7 +209,7 @@ while generator rotor dynamics, excitation systems, governor control, and other 
 \end{equation}
 
 Where $x$ includes rotor angles, speed deviations, internal voltages, control states, and $y$ includes bus voltages, phase angles, algebraic currents, and so on~\cite{SauerPaiBook}. 
-The coupling is strong: every time step, the algebraic network equations must be solved together with the differential updates, typically via Newton-Raphson or other Newton-based 
+The coupling is strong: every time step, the algebraic network equations must be solved together with the differential updates, ty-\\pically via Newton-Raphson or other Newton-based 
 solvers applied to the full system Jacobian.   
 
 This DAE-based representation ensures that the physical constraints of the network are never violated, and that stability and modal analysis reflect the full coupled system behavior,
@@ -221,24 +221,24 @@ The development of modern power system simulation tools has progressively incorp
 robustness of dynamic models. A symbolic framework refers to an environment in which the mathematical equations describing a physical system are manipulated symbolically
 before numerical evaluation. This approach enables the explicit representation of the differential and algebraic equations governing power system dynamics, allowing the 
 automatic derivation of Jacobians and linearized models directly from the symbolic expressions.
-Such symbolic processing bridges the gap between manual analytical formulation and automated numerical computation, ensuring consistency and reproducibility across 
+Such symbolic processing bridges the gap between manual analytical formulation and automated numerical computation, ensu-\\ring consistency and reproducibility across 
 different analysis tasks~\cite{SymbolicHantao}.
 
 In general, a symbolic modeling framework treats system equations as algebraic entities rather than arrays of numbers. Each state variable, parameter, and equation
 is represented symbolically and stored in structured form. Once the symbolic system is constructed, operations such as differentiation, substitution, and matrix assembly
 can be performed analytically. These expressions can then be compiled into efficient numerical routines to be executed by solvers. 
 This two-step process, symbolic formulation followed by numerical evaluation, provides the flexibility to modify models, perform analytical checks
-and generate adapted code for various simulation modes without redefining the mathematical structure.
+and generate adapted code for various simu-\\lation modes without redefining the mathematical structure.
 
 Power systems are naturally suited to this formulation, as their behavior is described by a set of coupled DAEs representing both dynamic components and network constraints.
 In this context, generators, exciters, governors, and control systems contribute to differential equations, whereas network variables, bus voltages, currents, and algebraic 
 constraints from Kirchhoff's laws, are represented algebraically. By expressing these components symbolically, they can be automatically assembled into a unified 
-system model and linearized analytically to obtain small-signal representations. This methodology ensures that the global model preserves physical consistency and that 
+system model and linearized analytically to obtain small-signal representations. This methodology ensures the global model to preserve physical consistency and that 
 linearization results, such as eigenvalues and participation factors, are computed with exact analytical derivatives rather than numerical approximations.
 
 It should be noted that the DAEs representing each element and device in the network can be simplified or extended depending on the desired level of modelling accuracy. 
 A trade-off must therefore be established between computational complexity and numerical accuracy. In practical applications, simplified formulations are often used for 
-large-scale steady-state or RMS simulations, whereas more detailed dynamic representations are required for transient and small-signal stability studies. The flexibility 
+large-scale steady-state or RMS si-\\mulations, whereas more detailed dynamic representations are required for transient and small-signal stability studies. The flexibility 
 of the symbolic framework allows the modeller to adapt the formulation of each component accordingly, preserving analytical consistency while optimizing computational 
 performance.
 
@@ -338,13 +338,13 @@ The synchronous generator is defined by a set of differential (or state) and alg
 
 \begin{equation}
 \begin{cases}
-\frac{d~\delta}{dt} = 2\pi f\,(\omega - \omega_{\text{ref}}) \\
-\frac{d~\omega}{dt} = \dfrac{\Gamma_\text{m} - \Gamma_\text{e} - D(\omega - \omega_{\text{ref}})}{M}
+\frac{d\delta}{dt} = 2\pi f\,(\omega - \omega_{\text{ref}}) \\
+\frac{d\omega}{dt} = \dfrac{\Gamma_\text{m} - \Gamma_\text{e} - D(\omega - \omega_{\text{ref}})}{M}
 \end{cases}
 \label{eq:diff_eq_gen_1}
 \end{equation}
 
-With $\frac{d~\delta}{dt}$ and $\frac{d~\omega}{dt}$ set to zero since steady state conditions are considered in RMS simulations.
+With $\frac{d\delta}{dt}$ and $\frac{d\omega}{dt}$ set to zero since steady state conditions are considered in RMS simulations.
 
 
 \begin{equation}
@@ -401,7 +401,7 @@ The eRoots team is working on those models as well as more accurate generator mo
 \begin{itemize}
 
 \item \textbf{Line}
-The line algebraic equations are the active and reactive power equations corresponding to the $\pi$ model of lines.
+The line algebraic equations are the active and reactive power equations correspon-\\ding to the $\pi$ model of lines.
 In this case, the RMS model for the lines is also valid for the transformers.
 
 \begin{equation}
@@ -448,10 +448,10 @@ the generators or lines connected to the bus) so those must be able to be callab
 
 Where:
 \begin{itemize}
-  \item $P_{\text{inj}}$: (Algebraic variable) Active power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [MW].
-  \item $Q_{\text{inj}}$: (Algebraic variable) Reactive power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [Mvar].
-  \item $P_{\text{branch}}$: (Algebraic variable) Active power that is transported from or to the line connected to the bus [MW].
-  \item $Q_{\text{branch}}$: (Algebraic variable) Reactive power that is transported from or to the line connected to the bus [Mvar].
+  \item $P_{\text{inj}}$: (Algebraic variable) Active power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [p.u.].
+  \item $Q_{\text{inj}}$: (Algebraic variable) Reactive power from injections. If the injections are generators the power will be positive and if they are loads, it will be negative [p.u.].
+  \item $P_{\text{branch}}$: (Algebraic variable) Active power that is transported from or to the line connected to the bus [p.u.].
+  \item $Q_{\text{branch}}$: (Algebraic variable) Reactive power that is transported from or to the line connected to the bus [p.u.].
 \end{itemize}
 
 \subsubsection{Integration method: Implicit Euler}
@@ -464,28 +464,28 @@ Euler methods are often used to understand the basic principles of time integrat
 
 The explicit, or forward, Euler method estimates the derivative at the current time step $t_i$ and updates the state variable $y$ according to:
 \begin{equation}
-    y_{i+1} = y_i + h \left.\frac{\delta y}{\delta t}\right|_{t_i, \, y_i}
+    y_{i+1} = y_i + \Delta t \left.\frac{\delta y}{\delta t}\right|_{t_i, \, y_i}
     \label{eq:forward_euler}
 \end{equation}
 
 This simple expression is obtained by integrating the differential equation
 $\dot{y} = f(t, y)$ over the interval $[t_i, t_{i+1}]$ and approximating the derivative by its value at $t_i$. The method is straightforward to implement and
 computationally inexpensive, as the right-hand side depends only on known quantities at the current time step. However, it is conditionally stable,
-which means that the time step $h$ must remain below a certain limit for the numerical solution to remain stable~\cite{Butcher2008}. 
+which means that the time step $\Delta t$ must remain below a certain limit for the numerical solution to remain stable~\cite{Butcher2008}. 
 
 For stiff systems, those in which some variables evolve much faster than others, this stability condition becomes extremely restrictive.
 In power system models, where fast control loops and electromagnetic effects coexist with slow mechanical dynamics, the forward Euler method becomes inefficient and may
 even diverge if the step size is not sufficiently small~\cite{LaraTDS}.
 
-On the contrary, the implicit, or backward, Euler method overcomes these limitations by evaluating the derivative at the next time step $t_{i+1}$:
+On the contrary, the implicit, or backward Euler method overcomes these limitations by evalu-\\ating the derivative at the next time step $t_{i+1}$:
 
 \begin{equation}
-    y_{i+1} = y_i + h \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
+    y_{i+1} = y_i + \Delta t \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
     \label{eq:backward_euler}
 \end{equation}
 This can alternatively be expressed as:
 \begin{equation}
-    y_i = y_{i+1} - h \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
+    y_i = y_{i+1} - \Delta t \left.\frac{\delta y}{\delta t}\right|_{t_{i+1}, \, y_{i+1}}
 \end{equation}
 
 Since the derivative depends on the unknown future value $y_{i+1}$, this approach is called implicit. Solving for $y_{i+1}$ requires finding the root of a
@@ -499,7 +499,7 @@ Applying the implicit Euler method to DAE systems:
 
 \begin{equation}
     \begin{cases}
-        \dfrac{x_{i+1} - x_i}{h} = f(x_{i+1}, y_{i+1}) \\
+        \dfrac{x_{i+1} - x_i}{\Delta t} = f(x_{i+1}, y_{i+1}) \\
         0 = g(x_{i+1}, y_{i+1})
     \end{cases}
     \label{eq:dae_implicit_step}

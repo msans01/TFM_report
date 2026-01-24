@@ -5,7 +5,7 @@ behavior of electrical networks when they are subject to fast and often severe d
  approximately sinusoidal within each time-step, EMT models compute these quantities directly 
  in the time domain. This makes it possible to capture the full electromagnetic response of components, 
  including switching actions, resonances, travelling waves, and short-duration dynamic interactions 
- between converters and the grid.
+ bet-\\ween converters and the grid.
 
 
 
@@ -17,7 +17,7 @@ EMT simulation is essential whenever the assumptions of RMS-based dynamic studie
 RMS models use phasors to represent voltages and currents, and they rely on the idea that the waveform remains nearly sinusoidal. 
 This approximation is often sufficient for analyzing electromechanical behavior, such as rotor-angle stability, 
 slow voltage dynamics, or generator control interactions, where the dominant time constants range from tens of milliseconds 
-to several seconds~\cite{StabilityAndControlKundur}.
+to seve-\\ral seconds~\cite{StabilityAndControlKundur}.
 
 However, RMS models inherently filter out high-frequency and sub-cycle behavior. They cannot accurately represent:
 \begin{itemize}
@@ -25,7 +25,7 @@ However, RMS models inherently filter out high-frequency and sub-cycle behavior.
     \item Transformer inrush and magnetic saturation.
     \item Lightning impulses and surge propagation.
     \item Fast protection and relay actions.
-    \item travelling waves on overhead lines and underground cables.
+    \item Travelling waves on overhead lines and underground cables.
     \item Harmonic and resonance interactions.
     \item Instabilities driven by phase-locked loops or weak-grid conditions.
 \end{itemize}
@@ -65,7 +65,7 @@ The main conceptual differences are summarized below:
     EMT simulations require significantly more computation but provide the detail needed to study fast or nonlinear phenomena.
 \end{itemize}
 
-Both approaches are complementary. RMS simulation remains essential for system-wide stability and planning studies, 
+Both approaches are complementary. RMS simulation remains essential for system-wide stabili-\\ty and planning studies, 
 while EMT simulation is indispensable for detailed transient analysis, validation of protection schemes, and the study of 
 power-electronic behavior in modern grids.
 
@@ -111,7 +111,7 @@ The following subsections describe the specific models adopted for the main elem
 
 \subsection{Line Model: Bergeron's Model}
 
-Accurate modelling of transmission lines is essential in electromagnetic transient (EMT) simulation because wave propagation, reflections, 
+Accurate modelling of transmission lines is essential in electromagnetic transient (EMT) simu-\\lation because wave propagation, reflections, 
 and attenuation determine the fast behavior of the network during disturbances. Lumped representations such as the classical $\pi$-model 
 are widely used in steady-state and RMS dynamic analysis; however, their structural assumptions make them inadequate for EMT studies. 
 A $\pi$-model represents the line using a single series impedance and two shunt admittances, implicitly assuming that the line is electrically 
@@ -123,7 +123,7 @@ reproduce travelling waves, reflection phenomena, refraction at line termination
 
 For EMT simulation, the model must preserve the distributed nature of the line as described by the telegrapher's equations. 
 A representation fulfilling this requirement while remaining computationally efficient is the Bergeron travelling-wave model, originally 
-formulated for EMTP-type tools. The model introduces the characteristic impedance and the propagation delay directly into the nodal formulation, 
+formulated for EMTP-type tools. The Bergeron model is equivalent to the subdividing the line into infinite $\pi$ sections. The model introduces the characteristic impedance and the propagation delay directly into the nodal formulation, 
 enabling a physically meaningful description of wave propagation with excellent numerical stability. This makes Bergeron's method particularly 
 appropriate for the development of foundational EMT solvers.
 
@@ -292,7 +292,7 @@ The travelling-wave formulation used for single-phase lines extends naturally to
 Electromagnetic transient (EMT) simulation requires explicit representation of each conductor, since fast disturbances propagate through 
 coupled electromagnetic modes determined by mutual inductances and capacitances. For this reason, the implementation adopts a general 
 multiconductor framework capable of modelling an arbitrary number of phases, including one-phase, two-phase, three-phase, and 
- with or without neutral configurations. This flexibility allows accurate treatment of networks where conductor geometry or availability 
+ with or without neutral configura-\\tions. This flexibility allows accurate treatment of networks where conductor geometry or avai-\\lability 
  changes across sections.
 
 The formulation begins with the computation of the distributed impedance and admittance matrices per unit length, denoted by $\bm{Z}'$ and 
@@ -1184,8 +1184,8 @@ Using the relation above, the transformer equivalent circuit is shown in Figure~
 
 \subsubsection*{Numerical model in EMT}
 
-The transformer model is implemented in the EMT simulation using a numerical approach similar to that used for transmission lines using the Dommel method. 
-Figure~\ref{fig:dommel_trafo_eq} shows the equivalent circuit of the transformer used in the EMT simulation. 
+The transformer model is implemented in the EMT simulation using a numerical approach simi-\\lar to that used for transmission lines using the Dommel method. 
+Figure~\ref{fig:dommel_trafo_eq} shows the equi-\\valent circuit of the transformer used in the EMT simulation. 
 
 \begin{figure}[H]
   \centering
@@ -1315,7 +1315,7 @@ On the other hand, the history component in transformers
 delay only in one time-step, while in lines, the delay is $\tau$ depending on the characteristics of each line.
 Moreover, the primary and secondary buses are coupled in the conductance matrix by means of a conductance seen in Figure~\ref{fig:dommel_trafo_eq}.
 
-In order to add transformers to the system to be simulated, those are added as lines with different bus voltages at the two ends.
+In order to add transformers to the system to be simulated, those are added as lines with diffe-\\rent bus voltages at the two ends.
 
 Following the ideal transformer assumption an uncoupled model is assumed for the three-phase transformer. Therefore, the three phases are modelled independently 
 without mutual coupling between them and the matrix $G_c$ is diagonal.
